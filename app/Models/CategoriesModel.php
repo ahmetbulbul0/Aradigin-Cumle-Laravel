@@ -11,7 +11,7 @@ class CategoriesModel extends Model
     use HasFactory;
 
     protected $table = "categories";
-    
+
     protected $primaryKey = "no";
 
     protected $fillable = [

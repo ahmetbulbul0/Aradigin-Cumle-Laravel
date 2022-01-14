@@ -135,3 +135,8 @@
         - Constants
     ]
 ]
+
+
+varmı
+boşmu
+veritabanında varmı
