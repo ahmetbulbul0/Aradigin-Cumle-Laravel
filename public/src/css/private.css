@@ -1,0 +1,4343 @@
+/* [C]FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* [C]PRİMARY */
+
+:root {
+    --white: #ffffff;
+    --light: #f0eff3;
+    --black: #000000;
+    --dark-blue: #1f2029;
+    --dark-light: #353746;
+    --red: #da2c4d;
+    --yellow: #f8ab37;
+    --grey: #ecedf3;
+}
+
+a {
+    all: unset;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+button {
+    all: unset;
+}
+
+* {
+    cursor: default;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+
+/* [C]MENU */
+
+.outMenu {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMenu .inMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outMenu .inMenu .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outMenu .inMenu .bar .textBox {
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu .inMenu .bar .textBox:nth-child(1) {
+    padding-left: 0;
+}
+
+.outMenu .inMenu .bar .textBox a {
+    cursor: pointer;
+}
+
+.outMenu .inMenu .bar .textBox a.strong {
+    font-size: 150%;
+    font-family: 'Righteous', cursive;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMenu .inMenu .outFullLine {
+    position: absolute;
+    width: calc(100% - 100px);
+    height: 100%;
+    background: var(--dark-blue);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu .inMenu .outFullLine#fullLine {
+    display: none;
+}
+
+.outMenu .inMenu .outFullLine:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMenu .inMenu .outFullLine .inFullLine {
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid var(--dark-light);
+    border-right: 1px solid var(--dark-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .search {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: -2px;
+    padding: 0 24px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .search .outInputText {
+    width: 100%;
+    background: #1112177a;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+    padding: 3px 0;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .search input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    margin-right: 6px;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .search .outInputText i {
+    margin-right: 18px;
+    font-size: 125%;
+    cursor: pointer;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .search .outInputText i:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: -2px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme {
+    background: #1112177a;
+    padding: 7px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme label {
+    position: relative;
+    padding: 0 4px;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a {
+    padding: 0 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 300;
+    margin-left: 6px;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a:nth-child(2) {
+    margin-left: 12px;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a.active {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme i {
+    font-size: 125%;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme i:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMenu .inMenu .bar .iconBox {
+    width: 50px;
+    font-size: 125%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMenu .inMenu .bar .iconBox#homeIconBox {
+    display: none;
+}
+
+.outMenu .inMenu .bar .iconBox#homeIconBox i {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMenu .inMenu .bar .iconBox i {
+    cursor: pointer;
+}
+
+.outMenu .inMenu .bar .iconBox i#closeMenuIcon {
+    display: none;
+}
+
+.outMenu .inMenu .bar .iconBox i:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMenu .inMenu .bar .brace {
+    height: 50px;
+    width: 1px;
+    background: var(--dark-light);
+}
+
+.outMenu .inMenu .bar .brace#homeIconBrace {
+    display: none;
+}
+
+
+/* [C]DROPDOWN */
+
+.outDropdown {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin-top: -1px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+
+.outDropdown#dropdown {
+    display: none;
+}
+
+.outDropdown .inDropdown {
+    background-color: var(--dark-blue);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px 50px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid var(--dark-light);
+}
+
+.outDropdown .inDropdown .header {
+    width: 100%;
+    displaY: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outDropdown .inDropdown .header .outInputText {
+    width: 50%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outDropdown .inDropdown .header .outInputText input[type="text"] {
+    width: 90%;
+    background-color: var(--dark-blue);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    font-size: 80%;
+}
+
+.outDropdown .inDropdown .header .outInputText .iconBox {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.outDropdown .inDropdown .header .outInputText .iconBox i {
+    cursor: pointer;
+}
+
+.outDropdown .inDropdown .header .linkBar a {
+    font-weight: 300;
+    font-size: 90%;
+    cursor: pointer;
+}
+
+.outDropdown .inDropdown .header .theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+}
+
+.outDropdown .inDropdown .header .theme label {
+    margin-right: 6px;
+    position: relative;
+    padding: 0 4px;
+}
+
+.outDropdown .inDropdown .header .theme label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDropdown .inDropdown .header .theme a {
+    padding: 2px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 300;
+    margin-right: 4px;
+}
+
+.outDropdown .inDropdown .header .theme a:nth-child(1) {
+    margin-right: 0;
+}
+
+.outDropdown .inDropdown .header .theme a.active {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDropdown .inDropdown .header .theme a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDropdown .inDropdown .lists {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.outDropdown .inDropdown .lists .listsBar {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* .outDropdown .inDropdown .lists .listsBar .outList {} */
+
+.outDropdown .inDropdown .lists .listsBar .outList .titleBox {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outDropdown .inDropdown .lists .listsBar .outList .titleBox span {
+    font-size: 130%;
+    font-weight: 600;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outDropdown .inDropdown .lists .listsBar .outList .list {
+    font-weight: 300;
+    font-size: 90%;
+}
+
+.outDropdown .inDropdown .lists .listsBar .outList .list .item span {
+    cursor: pointer;
+}
+
+.out3ValuesAndFastForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box {
+    width: 73%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox {
+    width: 32%;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 18px 30px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .header span {
+    font-weight: 500;
+    font-size: 125%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .body {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .body span {
+    font-size: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px 0;
+    cursor: pointer;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer span {
+    font-size: 80%;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer span i {
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm {
+    width: 25%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step {
+    display: none;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step#step0 {
+    display: block;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .header span {
+    font-size: 95%;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outInputText {
+    width: 90%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 18px;
+    font-size: 80%;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outSelectBox {
+    width: 90%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outSelectBox select {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 18px;
+    font-size: 80%;
+    border: none;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information {
+    width: 100%;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .category {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .category span {
+    font-style: italic;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+    font-size: 90%;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .content span {
+    font-weight: 300;
+    font-size: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .date {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .date span {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--dark-light);
+    cursor: default;
+    font-size: 90%;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .footer {
+    width: 100%;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .footer span {
+    font-size: 80%;
+    padding: 6px 8px;
+    border-radius: 25px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outChartAndWelcomeHowAreYou {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.chart {
+    width: 73%;
+    height: 450px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 18px;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou {
+    width: 25%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 18px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header span {
+    font-size: 90%;
+    cursor: default;
+    position: relative;
+    padding: 0 6px;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .step#haveDifferentThink {
+    display: none;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body span {
+    font-size: 80%;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 25px;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body span:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong {
+    border-radius: 25px;
+    padding: 1px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong span {
+    background: var(--dark-blue);
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong span:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .outInputText {
+    width: 100%;
+    margin-top: 8px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    font-size: 80%;
+}
+
+/* MY NEWS */
+
+.outMyNews {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+.outMyNews .inMyNews {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outMyNews .inMyNews .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outMyNews .inMyNews .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMyNews .inMyNews .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .outTitle .titleSelects .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.outMyNews .inMyNews .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+
+.outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+
+}
+
+.outMyNews .inMyNews .myNewsList {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.outMyNews .inMyNews .myNewsList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outMyNews .inMyNews .myNewsList .titleLine div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .myNewsList .titleLine div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outMyNews .inMyNews .myNewsList .titleLine div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outMyNews .inMyNews .myNewsList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outMyNews .inMyNews .myNewsList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outMyNews .inMyNews .myNewsList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outMyNews .inMyNews .myNewsList .line div {
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .myNewsList div.no {
+    width: 6%;
+}
+
+.outMyNews .inMyNews .myNewsList div.category {
+    width: 12%;
+}
+
+.outMyNews .inMyNews .myNewsList div.publish_date {
+    width: 12%;
+}
+
+.outMyNews .inMyNews .myNewsList div.content {
+    width: 44%;
+}
+
+.outMyNews .inMyNews .myNewsList div.resource {
+    width: 8%;
+}
+
+.outMyNews .inMyNews .myNewsList div.listing {
+    width: 6%;
+}
+
+.outMyNews .inMyNews .myNewsList div.reading {
+    width: 6%;
+}
+
+.outMyNews .inMyNews .myNewsList div.actions {
+    width: 6%;
+}
+
+.outMyNews .inMyNews .myNewsList .line div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outMyNews .inMyNews .myNewsList .line div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.no {
+    color: var(--dark-light);
+}
+
+.outMyNews .inMyNews .myNewsList .line div.publish_date {
+    color: var(--dark-light);
+}
+
+.outMyNews .inMyNews .myNewsList .line div.category {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.content {
+    font-weight: 300;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.resource {
+    color: var(--dark-light);
+}
+
+.outMyNews .inMyNews .myNewsList .line div.listing {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.reading {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions {
+    font-size: 95%;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions span i {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions span i:nth-child(1) {
+    margin-left: 0;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions span i:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* [C]ADMİN NEWS CREATE */
+
+.outNewsCreate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+.outNewsCreate .inNewsCreate {
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 25px;
+    width: 100%;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm {
+    width: 100%;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line:nth-child(1) {
+    margin-top: 0;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .inputLabel {
+    width: 150px;
+    font-weight: 300;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText {
+    width: calc(100% - 150px);
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: text;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox {
+    width: calc(100% - 150px);
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 90%;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox {
+    width: calc(100% - 150px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1px 0;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+    font-weight: 300;
+    padding: 6px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label input[type="radio"] {
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label.strong {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox {
+    width: calc(100% - 150px);
+    box-sizing: border-box;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    padding: 1px;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="date"] {
+    width: calc(100% - 40% - 50px);
+    text-align: center;
+    background-color: var(--dark-blue);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    font-weight: 300;
+    font-size: 90%;
+    box-sizing: border-box;
+    padding: 6px 0;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="time"] {
+    width: calc(100% - 45% - 50px);
+    text-align: center;
+    background-color: var(--dark-blue);
+    font-weight: 300;
+    font-size: 90%;
+    padding: 6px 0;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack {
+    width: 50px;
+    height: 100%;
+    background-color: var(--dark-blue);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    font-weight: 300;
+    font-size: 90%;
+    padding: 7px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack i {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    border-radius: 100px;
+    padding: 3px 9px;
+    cursor: pointer;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextBox {
+    width: calc(100% - 150px);
+    font-weight: 400;
+    color: var(--dark-light);
+    box-sizing: border-box;
+    padding: 5px 12px;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 90%;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox button {
+    padding: 4px 12px;
+    border-radius: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
+    cursor: pointer;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox button:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outErrorBox {
+    width: 100%;
+    font-weight: 400;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outErrorBox span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.outCreatedData {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 40px;
+    margin-top: 40px;
+}
+.outCreatedData .inCreatedData {
+    width: 100%; 
+    max-width: 800px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    padding: 3px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outCreatedData .inCreatedData .createdData {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 24px;
+    box-sizing: border-box;
+    padding: 24px;
+}
+.outCreatedData .inCreatedData .createdData .titleLine {
+    width: 100%;
+}
+.outCreatedData .inCreatedData .createdData .titleLine span {
+    padding: 0 6px;
+    position: relative;
+}
+.outCreatedData .inCreatedData .createdData .titleLine span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outCreatedData .inCreatedData .createdData .line {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 18px;
+}
+.outCreatedData .inCreatedData .createdData .line label {
+    width: 25%;
+    font-size: 90%;
+}
+.outCreatedData .inCreatedData .createdData .line span {
+    width: 85%;
+    font-size: 90%;
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* [C]ADMİN SETTİNGS */
+
+.outSettings {
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outSettings .inSettings {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+}
+
+.outSettings .inSettings .outSettingsMenu {
+    width: 15%;
+    border-right: 1px solid var(--dark-light);
+}
+
+.outSettings .inSettings .outSettingsMenu .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    border-bottom: 1px solid var(--dark-light);
+}
+
+.outSettings .inSettings .outSettingsMenu .outTitle .inTitle {
+    font-size: 125%;
+    font-weight: 600;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu {
+    width: 100%;
+    display: block;
+}
+
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    font-weight: 300;
+    font-size: 90%;
+    border-bottom: 1px solid var(--dark-light);
+}
+
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem:nth-last-child(1) {
+    border-bottom: none;
+}
+
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem .inSettingsMenuItem {
+    cursor: pointer;
+}
+
+.outSettings .inSettings .outSettingsContent {
+    width: 85%;
+    box-sizing: border-box;
+    padding: 12px 30px;
+}
+
+.outSettings .inSettings .outSettingsContent .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .outTitle .inTitle {
+    font-size: 110%;
+    font-weight: 400;
+    position: relative;
+    padding: 0 4px;
+}
+
+.outSettings .inSettings .outSettingsContent .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line:nth-child(1) {
+    margin-top: 0;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue label {
+    width: 120px;
+    font-weight: 300;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue span {
+    width: calc(100% - 120px);
+    font-weight: 300;
+    font-size: 90%;
+    padding: 6px 0;
+    color: var(--dark-light);
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme label {
+    width: 140px;
+    font-weight: 300;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values {
+    width: calc(100% - 140px);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value {
+    font-weight: 300;
+    font-size: 90%;
+    padding: 6px 12px;
+    margin-left: 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value:nth-child(1) {
+    margin-left: 0;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value.active {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue label {
+    width: 120px;
+    font-weight: 300;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue span {
+    width: calc(100% - 120px);
+    font-weight: 300;
+    padding: 6px 0;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink {
+    font-style: italic;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink span {
+    cursor: pointer;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .label {
+    width: 120px;
+    text-align: left;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput label {
+    font-weight: 300;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+    width: 500px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 3px 12px;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: text;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions span {
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
+    cursor: pointer;
+    /* font-size: 90%; */
+    font-weight: 300;
+    margin-left: 6px;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions span:nth-child(1) {
+    margin-left: 0;
+}
+
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions span:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-shadow: 0;
+}
+
+/* [C]ADMİN NEWS STATİSTİCS */
+
+.outNewsStatistics {
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .titleLine div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .titleLine div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .titleLine div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.no {
+    width: 6%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.writer {
+    width: 8%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+    width: 11%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.category {
+    width: 11%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.content {
+    width: 38%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.resource {
+    width: 8%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.listing {
+    width: 6%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.reading {
+    width: 6%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList div.detail {
+    width: 6%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div {
+    font-weight: 300;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.no {
+    color: var(--dark-light);
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.writer {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.publish_date {
+    color: var(--dark-light);
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.category {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.resource {
+    color: var(--dark-light);
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.listing {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.reading {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.detail {
+    font-size: 90%;
+}
+
+.outNewsStatistics .inNewsStatistics .statisticList .line div.detail span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    padding: 3px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* NEWS STATİSTİC DETAİL */
+
+.outNewsStatisticDetail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail {
+    width: 100%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
+    width: 74%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 16px;
+    padding: 0 24px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line#bgDarkLight {
+    box-sizing: border-box;
+    padding: 16px 24px;
+    border-radius: 25px;
+    background: #1112177a;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line:nth-child(1) {
+    margin-top: 0;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line label {
+    width: 200px;
+    font-weight: 300;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span {
+    max-width: calc(100% - 200px);
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#darkLight {
+    /* font-weight: 400; */
+    color: var(--dark-light);
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#gradient {
+    /* font-weight: 400; */
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#thin {
+    font-weight: 300;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph {
+    width: 24%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
+    width: 100%;
+    height: 100%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value:nth-child(1) {
+    height: 34%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+    font-size: 125%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outValue {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outValue .inValue {
+    font-weight: 300;
+    font-size: 125%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.date {
+    width: 40%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateStart {
+    width: 30%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateFinish {
+    width: 30%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listinng {
+    width: 25%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.reading {
+    width: 25%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listingReadingRate {
+    width: 50%;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div label {
+    display: none;
+    margin-right: 12px;
+    position: relative;
+    padding: 0 6px;
+    font-weight: 300;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.date span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.dateStart span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.dateFinish span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.listinng span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line div.reading span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line div.listingReadingRate span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* NEWS STATİSTİCS FOR TİME */
+
+.outNewsStatisticsForTime {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px;
+    margin-top: 40px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.date {
+    width: 40%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.dateStart {
+    width: 30%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.dateFinish {
+    width: 30%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.content {
+    width: 70%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.detail {
+    width: 30%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(1) {
+    width: 70%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(2) {
+    width: 30%;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label {
+    display: none;
+    margin-right: 12px;
+    position: relative;
+    padding: 0 6px;
+    font-weight: 300;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.date span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateStart span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateFinish span {
+    color: var(--dark-light);
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.content span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line div.detail span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    padding: 3px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: 300;
+}
+
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line div.listingReadingRate span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+/* MENU */
+
+@media only screen and (max-width: 1075px) {
+    .outMenu {
+        padding: 0;
+    }
+
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 24px;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    .outMenu .inMenu .bar .textBox {
+        padding: 0 18px;
+    }
+
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 18px;
+    }
+}
+
+@media only screen and (max-width: 935px) {
+    .outMenu .inMenu .bar .textBox {
+        padding: 0 12px;
+    }
+
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 12px;
+    }
+}
+
+@media only screen and (max-width: 875px) {
+    .outMenu .inMenu {
+        justify-content: center;
+    }
+
+    .outMenu .inMenu .bar {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .outMenu .inMenu .bar:nth-child(1) {
+        display: none;
+    }
+
+    .outMenu .inMenu .bar .iconBox#homeIconBox {
+        display: flex;
+    }
+
+    .outMenu .inMenu .bar .brace#homeIconBrace {
+        display: block;
+    }
+}
+
+/* MENU FULL LİNE */
+
+@media only screen and (max-width: 1075px) {
+    .outMenu .inMenu .outFullLine {
+        width: 100%;
+    }
+
+    .outMenu .inMenu .outFullLine .inFullLine {
+        border: none;
+    }
+}
+
+/* 3 VALUES AND FAST FORM */
+
+@media only screen and (max-width: 1280px) {
+    .out3ValuesAndFastForm {
+        padding: 0;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox {
+        border-radius: 0;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
+        border-radius: 0;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox .footer {
+        border-radius: 0;
+        padding: 6px 0;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .footer span {
+        padding: 6px 12px;
+    }
+}
+
+@media only screen and (max-width: 1075px) {
+    .out3ValuesAndFastForm .in3ValuesAndFastForm {
+        display: block;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box {
+        width: 100%;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm {
+        width: 100%;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
+        width: 50%
+    }
+}
+
+@media only screen and (max-width: 835px) {
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box {
+        display: block;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box .outValueBox:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
+        width: 100%
+    }
+}
+
+/* 3 VALUES AND FAST FORM */
+
+@media only screen and (max-width: 1280px) {
+    .outChartAndWelcomeHowAreYou {
+        padding: 0;
+    }
+
+    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou {
+        border-radius: 0;
+    }
+
+    .chart {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 1075px) {
+    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou {
+        display: block;
+    }
+
+    .chart {
+        width: 100%;
+    }
+
+    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou {
+        width: 100%;
+    }
+
+    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 835px) {
+    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou {
+        width: 100%;
+    }
+}
+
+/* MY ACCOUNT SETTİNGS */
+
+@media only screen and (max-width: 1300px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1180px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1062px) {
+    .outSettings {
+        padding: 0;
+    }
+
+    .outSettings .inSettings {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .outSettings .inSettings {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsMenu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-right: 0;
+        border-bottom: 1px solid var(--dark-light);
+    }
+
+    .outSettings .inSettings .outSettingsMenu .outTitle {
+        width: auto;
+        border-bottom: 0;
+        border-right: 1px solid var(--dark-light);
+    }
+
+    .outSettings .inSettings .outSettingsMenu .inSettingsMenu {
+        width: auto;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem {
+        border-bottom: 0;
+        border-left: 1px solid var(--dark-light);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+        justify-content: space-between;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+        width: calc(100% - 120px);
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+        margin-top: 12px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line {
+        border-top: 1px solid var(--dark-light);
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line {
+        display: block;
+        padding-top: 12px;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue span {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 0;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue span {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 0;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px 0;
+        margin-top: 6px;
+        margin-left: 0;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions span:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme label {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values {
+        margin-top: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* MY NEWS */
+
+@media only screen and (max-width: 1680px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 6%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 42%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 6%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 6%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+
+@media only screen and (max-width: 1540px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 6%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 38%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 7%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 14%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 35%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 8%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .outMyNews {
+        padding: 0;
+    }
+
+    .outMyNews .inMyNews {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 9%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 14%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 35%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 10%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 10%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 10%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 10%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 16%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 22%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 40%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 10%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 10%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 12%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .outMyNews .inMyNews .myNewsList .line {
+        padding: 18px 12px;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 14%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 16%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 26%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 46%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 16%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 20%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 26%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 60%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .outMyNews .inMyNews .outTitle {
+        display: block;
+    }
+
+    .outMyNews .inMyNews .outTitle .inTitle {
+        position: relative;
+        text-align: center;
+        padding: 0;
+    }
+
+    .outMyNews .inMyNews .outTitle .titleSelects {
+        margin-top: 18px;
+        justify-content: center;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 25%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 50%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .outMyNews .inMyNews .outTitle .titleSelects {
+        margin-top: 18px;
+        display: block;
+    }
+
+    .outMyNews .inMyNews .outTitle .titleSelects .statisticListingSelect {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 18px;
+    }
+
+    .outMyNews .inMyNews .outTitle .statisticListingSelect:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outMyNews .inMyNews {
+        padding: 12px;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 25%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 75%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 65%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 35%;
+    }
+}
+
+/* NEWS CREATE */
+
+@media only screen and (max-width: 1000px) {
+    .outNewsCreate {
+        padding: 0;
+    }
+
+    .outNewsCreate .inNewsCreate {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line {
+        display: block;
+        border-top: 1px solid var(--dark-light);
+        padding: 12px 0;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line:nth-child(1) {
+        border-top: 0;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .inputLabel {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextBox {
+        width: 100%;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox {
+        display: block;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label {
+        margin-top: 12px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox {
+        border-radius: 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="date"] {
+        width: 100%;
+        border-radius: 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 11px 0;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="time"] {
+        width: 100%;
+        margin-top: 1px;
+        padding: 11px 0;
+    }
+
+    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack {
+        width: 100%;
+        height: auto;
+        margin-top: 1px;
+        border-radius: 0;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        padding: 7.8px 0;
+    }
+}
+
+/* NEWS STATİSTİCS */
+
+@media only screen and (max-width: 1680px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 7%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 9%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 11%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.category {
+        width: 11%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 34%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.resource {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 7%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 7%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 6%;
+    }
+}
+
+@media only screen and (max-width: 1540px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 7%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 9%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 11%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.category {
+        width: 11%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 30%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.resource {
+        width: 9%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 7%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.category {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 24%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.resource {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 8%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .outNewsStatistics {
+        padding: 0;
+    }
+
+    .outNewsStatistics .inNewsStatistics {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.category {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 29%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.resource {
+        width: 5%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 9%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 8%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 14%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.category {
+        width: 12%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 32%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 10%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 10%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 14%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
+        width: 14%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 36%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 14%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 14%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 12%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 12%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 18%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 56%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.listing {
+        width: 14%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.reading {
+        width: 14%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 14%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 18%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.writer {
+        width: 18%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 64%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 18%;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .outNewsStatistics .inNewsStatistics .outTitle {
+        display: block;
+    }
+
+    .outNewsStatistics .inNewsStatistics .outTitle .inTitle {
+        position: relative;
+        text-align: center;
+        padding: 0;
+    }
+
+    .outNewsStatistics .inNewsStatistics .outTitle .titleSelects {
+        margin-top: 18px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .outNewsStatistics .inNewsStatistics .statisticList div.no {
+        width: 18%;
+        display: none;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 80%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .outNewsStatistics .inNewsStatistics {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.content {
+        width: 70%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .statisticList div.detail {
+        width: 30%;
+    }
+
+    .outNewsStatistics .inNewsStatistics .outTitle .titleSelects {
+        margin-top: 18px;
+        display: block;
+    }
+
+    .outNewsStatistics .inNewsStatistics .outTitle .titleSelects .statisticListingSelect {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 18px;
+    }
+
+    .outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+/* NEWS STATİSTİC DETAİL */
+
+@media only screen and (max-width: 1200px) {
+    .outNewsStatisticDetail {
+        padding: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph {
+        width: 100%;
+        border-radius: 0;
+        margin-top: 40px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
+        width: 30%;
+        height: 100%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
+        border-radius: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine {
+        display: none;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--dark-light);
+        padding-top: 12px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar:nth-child(1) {
+        padding-bottom: 12px;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div label {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.date {
+        width: 50%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateStart {
+        width: 25%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateFinish {
+        width: 25%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listinng {
+        width: 25%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.reading {
+        width: 25%;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listingReadingRate {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
+        padding: 24px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
+        width: 100%;
+        height: auto;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--dark-light);
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value:nth-child(1) {
+        margin-top: 0;
+        border-top: 0;
+        padding-top: 0;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span {
+        margin-top: 6px;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        font-weight: 300;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle {
+        position: relative;
+        text-align: center;
+        padding: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
+        margin-top: 18px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 6px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div span {
+        margin-top: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
+        padding: 18px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail {
+        padding: 18px 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
+        padding: 0 12px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
+        margin-top: 18px;
+        display: block;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects .statisticListingSelect {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 18px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
+        padding: 30px 0;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
+        box-sizing: border-box;
+        padding: 0 24px;
+    }
+
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
+        border-radius: 0;
+    }
+}
+
+/* NEWS STATİSTİCS TİME */
+
+@media only screen and (max-width: 1200px) {
+    .outNewsStatisticsForTime {
+        padding: 0;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime {
+        border-radius: 0;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine {
+        display: none;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--dark-light);
+        padding-top: 12px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(1) {
+        width: 100%;
+        padding-bottom: 12px;
+        padding-top: 0;
+        border-top: 0;
+    }
+    
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(2) {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label {
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.date {
+        width: 50%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateStart {
+        width: 25%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateFinish {
+        width: 25%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.content {
+        width: 75%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.detail {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
+        padding: 24px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+        margin-top: 12px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.date {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateStart {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateFinish {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.content {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.detail {
+        width: 100%;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle {
+        position: relative;
+        text-align: center;
+        padding: 0;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
+        margin-top: 18px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 6px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div span {
+        margin-top: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
+        margin-top: 18px;
+        display: block;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects .statisticListingSelect {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 18px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime {
+        padding: 30px 0;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
+        box-sizing: border-box;
+        padding: 0 24px;
+    }
+
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
+        border-radius: 0;
+    }
+}
+
+
+
+
+/* MY NEWS */
+
+.outDbList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+.outDbList .inDbList {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outDbList .inDbList .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outDbList .inDbList .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outDbList .inDbList .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDbList .inDbList .dbList {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.outDbList .inDbList .dbList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outDbList .inDbList .dbList .titleLine div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outDbList .inDbList .dbList .titleLine div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outDbList .inDbList .dbList .titleLine div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDbList .inDbList .dbList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outDbList .inDbList .dbList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outDbList .inDbList .dbList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outDbList .inDbList .dbList .line div {
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outDbList .inDbList .dbList .line div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 300;
+}
+
+.outDbList .inDbList .dbList .line div.actions {
+    font-size: 95%;
+}
+
+.outDbList .inDbList .dbList .line div.actions span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a:nth-child(1) {
+    margin-left: 0;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.w10 {width: 10%;}
+.w15 {width: 15%;}
+.w20 {width: 20%;}
+.w30 {width: 30%;}
+.w40 {width: 40%;}
+.w45 {width: 45%;}
+.w50 {width: 50%;}
+.w60 {width: 60%;}
+.w70 {width: 70%;}
+.w80 {width: 80%;}
+.w90 {width: 90%;}
+.w100 {width: 100%;}
