@@ -11,7 +11,7 @@ use App\Models\CategoryTypesModel;
 class CategoryCreateController extends Controller
 {
 
-    public function get($data) {
+    static function get($data) {
 
         $name = htmlspecialchars($data["name"]);
         $type = htmlspecialchars($data["type"]);
@@ -23,10 +23,10 @@ class CategoryCreateController extends Controller
             "main_category" => $mainCategory,
         ];
 
-        return $this->check($data);
+        return CategoryCreateController::check($data);
     }
 
-    public function check($data) {
+    static function check($data) {
         $name = $data["name"];
         $type = $data["type"];
         $mainCategory = $data["main_category"];
@@ -55,11 +55,11 @@ class CategoryCreateController extends Controller
             $data["main_category"] = NULL;
         }
 
-        return $this->work($data);
+        return CategoryCreateController::work($data);
 
     }
 
-    public function work($data) {
+    static function work($data) {
         $no = NoGenerator::generateCategoriesNo();
         $name = $data["name"];
         $type = $data["type"];
