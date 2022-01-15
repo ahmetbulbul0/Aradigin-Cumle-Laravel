@@ -99,4 +99,5 @@ Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, 
 Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"]);
 
 /* SYSTEM PAGES FORM */
+Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
 Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
