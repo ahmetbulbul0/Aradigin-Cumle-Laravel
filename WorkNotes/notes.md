@@ -1,85 +1,170 @@
 **Notes**
 
-*Need Models&Migrations*
-* UnCategorized [
-    * Categories [TAMAMLANDI]
-    * CategoryGroups [TAMAMLANDI]
-    * CategoryGroupUrls [TAMAMLANDI]
-    * CategoryTypes [TAMAMLANDI]
-    * ListingsDetail [TAMAMLANDI]
-    * Listings [TAMAMLANDI]
-    * News [TAMAMLANDI]
-    * ReadingsDetail [TAMAMLANDI]
-    * Readings [TAMAMLANDI]
-    * ResourcePlatforms [TAMAMLANDI]
-    * ResourceUrls [TAMAMLANDI]
-    * Users [TAMAMLANDI]
-    * UserTypes [TAMAMLANDI]
-    * Visitors [TAMAMLANDI]
-    * Writings [TAMAMLANDI]
+*Models & Migrations*
+* Models [
+    * Categories
+    * CategoryGroups
+    * CategoryGroupUrls
+    * CategoryTypes
+    * ListingsDetail
+    * Listings
+    * News
+    * ReadingsDetail
+    * Readings
+    * ResourcePlatforms
+    * ResourceUrls
+    * Users
+    * UserTypes
+    * Visitors
+    * Writings
 ]
 
-*Need Controllers*
-* public [
-    - Home
-    - NewsList
-    - NewsDetail
-    - SignIn
-]
-* private [
-    * Dashboard
-    * NewsCreate
-    * Settings
-    * NewsList
-    * NewsCreate
-    * NewsStatisticDetail
-    * NewsStatisticTime
-    * NewsStatistics
-
-    * ResourceCreate
-    * CategoryCreate
-    * CategoryGroupCreate
-    * CategoryTypeCreate
-    * UserCreate
-    * UserTypeCreate
-]
-
-*Need Views*
-* public [
-    * pages [
-        * home
-        * news_list
-        * news_detail
-        * sign_in
+*Controllers*
+* Pages [
+    * Author [
+        * [AuthorDashboard]PageController
+        * [AuthorSettings]PageController
+        * [MyNewsDelete]PageController
+        * [MyNewsEdit]PageController
+        * [MyNewsList]PageController
+        * [MyNewsStatisticDetail]PageController
+        * [MyNewsStatistics]PageController
+        * [MyNewStatisticTime]PageController
+        * [NewsCreate]PageController
     ]
-    * components [
-
+    * System [
+        * [CategoriesList]PageController
+        * [CategoryCreate]PageController
+        * [CategoryDelete]PageController
+        * [CategoryEdit]PageController
+        * [CategoryGroupCreate]PageController
+        * [CategoryGroupDelete]PageController
+        * [CategoryGroupEdit]PageController
+        * [CategoryGroupsList]PageController
+        * [CategoryTypeCreate]PageController
+        * [CategoryTypeDelete]PageController
+        * [CategoryTypeEdit]PageController
+        * [CategoryTypesList]PageController
+        * [NewsStatisticDetail]PageController
+        * [NewsStatistics]PageController
+        * [NewsStatisticTime]PageController
+        * [ResourcePlatformCreate]PageController
+        * [ResourcePlatformDelete]PageController
+        * [ResourcePlatformEdit]PageController
+        * [ResourcePlatformsList]PageController
+        * [SystemDashboard]PageController
+        * [SystemNewsList]PageController
+        * [SystemSettings]PageController
+        * [UserCreate]PageController
+        * [UserDelete]PageController
+        * [UserEdit]PageController
+        * [UsersList]PageController
+        * [UserTypeCreate]PageController
+        * [UserTypeDelete]PageController
+        * [UserTypeEdit]PageController
+        * [UserTypesList]PageController
     ]
-]
-* private [
-    * pages [
-        * dashboard
-        * news_create
-        * my_news
-        * settings [
-            * my_account
-            * theme
-        ]
-        * my_news_statistics
-        * my_news_statistic_detail
-        * my_news_statistic_time
-        * resource_platforms_create
-        * category_types_create
-        * category_groups_create
-        * user_types_create
-        * users_create
-    ]
-    * components [
-        
+    * Visitor [
+        * [Home]PageController
+        * [NewsDetail]PageController
+        * [SignIn]PageController
+        * [VisitorNewsList]PageController
     ]
 ]
+* Api [
+    * Categories [
+        * [CategoryCreate]Controller
+        * [CategoryDelete]Controller
+        * [CategoryEdit]Controller
+        * [CategoriesList]Controller
+    ]
+    * CategoryGroups [
+        * [CategoryGroupCreate]Controller
+        * [CategoryGroupDelete]Controller
+        * [CategoryGroupEdit]Controller
+        * [CategoryGroupsList]Controller
+    ]
+    * CategoryGroupUrls [
+        * [CategoryGroupUrlsCreate]Controller
+        * [CategoryGroupUrlsDelete]Controller
+        * [CategoryGroupUrlsEdit]Controller
+        * [CategoryGroupUrlsList]Controller
+    ]
+    * CategoryTypes [
+        * [CategoryTypesCreate]Controller
+        * [CategoryTypesDelete]Controller
+        * [CategoryTypesEdit]Controller
+        * [CategoryTypesList]Controller
+    ]
+    * ListingsDetail [
+        * [ListingsDetailCreate]Controller
+        * [ListingsDetailDelete]Controller
+        * [ListingsDetailEdit]Controller
+        * [ListingsDetailList]Controller
+    ]
+    * Listings [
+        * [ListingsCreate]Controller
+        * [ListingsDelete]Controller
+        * [ListingsEdit]Controller
+        * [ListingsList]Controller
+    ]
+    * News [
+        * [NewsCreate]Controller
+        * [NewsDelete]Controller
+        * [NewsEdit]Controller
+        * [NewsList]Controller
+    ]
+    * ReadingsDetail [
+        * [ReadingsDetailCreate]Controller
+        * [ReadingsDetailDelete]Controller
+        * [ReadingsDetailEdit]Controller
+        * [ReadingsDetailList]Controller
+    ]
+    * Readings [
+        * [ReadingsCreate]Controller
+        * [ReadingsDelete]Controller
+        * [ReadingsEdit]Controller
+        * [ReadingsList]Controller
+    ]
+    * ResourcePlatforms [
+        * [ResourcePlatformsCreate]Controller
+        * [ResourcePlatformsDelete]Controller
+        * [ResourcePlatformsEdit]Controller
+        * [ResourcePlatformsList]Controller
+    ]
+    * ResourceUrls [
+        * [ResourceUrlsCreate]Controller
+        * [ResourceUrlsDelete]Controller
+        * [ResourceUrlsEdit]Controller
+        * [ResourceUrlsList]Controller
+    ]
+    * Users [
+        * [UsersCreate]Controller
+        * [UsersDelete]Controller
+        * [UsersEdit]Controller
+        * [UsersList]Controller
+    ]
+    * UserTypes [
+        * [UserTypesCreate]Controller
+        * [UserTypesDelete]Controller
+        * [UserTypesEdit]Controller
+        * [UserTypesList]Controller
+    ]
+    * Visitors [
+        * [VisitorsCreate]Controller
+        * [VisitorsDelete]Controller
+        * [VisitorsEdit]Controller
+        * [VisitorsList]Controller
+    ]
+    * Writings [
+        * [WritingsCreate]Controller
+        * [WritingsDelete]Controller
+        * [WritingsEdit]Controller
+        * [WritingsList]Controller
+    ]
+]
 
-*Pages As For User Types*
+*Pages / Views*
 * Visitor [
     - Home
     - News List
@@ -136,7 +221,10 @@
     ]
 ]
 
-
-varmı
-boşmu
-veritabanında varmı
+user tyepe
+user
+category type
+category
+category group
+resource platform
+news

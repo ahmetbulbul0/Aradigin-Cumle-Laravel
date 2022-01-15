@@ -97,3 +97,6 @@ Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}",
 Route::get("/sistem-paneli/haberler/istatistikleri/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
 Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"]);
 Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"]);
+
+/* SYSTEM PAGES FORM */
+Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
