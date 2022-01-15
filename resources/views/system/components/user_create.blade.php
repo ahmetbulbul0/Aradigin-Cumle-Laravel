@@ -10,14 +10,14 @@
                 <div class="line">
                     <span class="inputLabel">Tam Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="userFullName" placeholder="Tam Adı...">
+                        <input type="text" name="fullName" placeholder="Tam Adı...">
                     </div>
                 </div>
-                @isset($data['errors']['userFullName'])
+                @isset($data['errors']['fullName'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['userType'] }}
+                                {{ $data['errors']['fullName'] }}
                             </span>
                         </div>
                     </div>
@@ -25,14 +25,14 @@
                 <div class="line">
                     <span class="inputLabel">Kullanıcı Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="userName" placeholder="Kullanıcı Adı...">
+                        <input type="text" name="username" placeholder="Kullanıcı Adı...">
                     </div>
                 </div>
-                @isset($data['errors']['userName'])
+                @isset($data['errors']['username'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['userName'] }}
+                                {{ $data['errors']['username'] }}
                             </span>
                         </div>
                     </div>
@@ -40,14 +40,14 @@
                 <div class="line">
                     <span class="inputLabel">Parola:</span>
                     <div class="outInputText">
-                        <input type="text" name="userPassword" placeholder="Parola...">
+                        <input type="text" name="password" placeholder="Parola...">
                     </div>
                 </div>
-                @isset($data['errors']['userPassword'])
+                @isset($data['errors']['password'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['userPassword'] }}
+                                {{ $data['errors']['password'] }}
                             </span>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="line">
                     <span class="inputLabel">Kullanıcı Tipi:</span>
                     <div class="outSelectBox">
-                        <select name="userType">
+                        <select name="type">
                             <option selected disabled>Kullanıcı Tipi Seç</option>
                             @foreach ($data['userTypes'] as $userType)
                                 <option value="{{ $userType['no'] }}">{{ $userType['name'] }}</option>
@@ -63,11 +63,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['userType'])
+                @isset($data['errors']['type'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['userType'] }}
+                                {{ $data['errors']['type'] }}
                             </span>
                         </div>
                     </div>
