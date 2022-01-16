@@ -11,7 +11,6 @@ use App\Http\Controllers\Tools\LinkUrlGenerator;
 
 class CategoryGroupCreateController extends Controller
 {
-
     static function get($data) {
 
         $main = htmlspecialchars($data["main"]);
@@ -149,5 +148,4 @@ class CategoryGroupCreateController extends Controller
         return CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5")->get();
 
     }
-
 }

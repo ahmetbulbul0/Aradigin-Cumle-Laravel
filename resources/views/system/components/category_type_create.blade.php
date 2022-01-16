@@ -10,14 +10,14 @@
                 <div class="line">
                     <span class="inputLabel">Kategori Tipi Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="categoryTypeName" placeholder="Kategori Tipi adı...">
+                        <input type="text" name="name" placeholder="Kategori Tipi adı...">
                     </div>
                 </div>
-                @isset($data['errors']['categoryTypeName'])
+                @isset($data['errors']['name'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['categoryTypeName'] }}
+                                {{ $data['errors']['name'] }}
                             </span>
                         </div>
                     </div>

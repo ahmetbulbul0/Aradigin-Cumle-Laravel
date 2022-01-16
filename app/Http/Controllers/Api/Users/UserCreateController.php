@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class UserCreateController extends Controller
 {
-
     static function get($data) {
 
         $fullName = htmlspecialchars($data["data"]["full_name"]);
@@ -87,5 +86,4 @@ class UserCreateController extends Controller
 
         return $data;
     }
-
 }
