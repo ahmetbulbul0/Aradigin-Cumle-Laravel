@@ -10,14 +10,14 @@
                 <div class="line">
                     <span class="inputLabel">Kategori Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="categoryName" placeholder="Kategori adı...">
+                        <input type="text" name="name" placeholder="Kategori adı...">
                     </div>
                 </div>
-                @isset($data['errors']['categoryName'])
+                @isset($data['errors']['name'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['categoryName'] }}
+                                {{ $data['errors']['name'] }}
                             </span>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="line">
                     <span class="inputLabel">Kategori Tipi:</span>
                     <div class="outSelectBox">
-                        <select name="categoryType">
+                        <select name="type">
                             <option selected disabled>Kategori Tipi Seç</option>
                             @foreach ($data['categoryTypes'] as $categoryTypes)
                                 <option value="{{ $categoryTypes['no'] }}">{{ $categoryTypes['name'] }}</option>
@@ -33,11 +33,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['categoryType'])
+                @isset($data['errors']['type'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['categoryType'] }}
+                                {{ $data['errors']['type'] }}
                             </span>
                         </div>
                     </div>

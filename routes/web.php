@@ -102,3 +102,5 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
 Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
 Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
+Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
+
