@@ -8,7 +8,6 @@ use App\Models\UserTypesModel;
 
 class UserTypeCreateController extends Controller
 {
-
     static function get($data) {
 
         $name = htmlspecialchars($data["data"]["name"]);
@@ -50,5 +49,4 @@ class UserTypeCreateController extends Controller
         $data["createdData"] = UserTypesModel::where("no", $no)->get();
         return $data;
     }
-
 }
