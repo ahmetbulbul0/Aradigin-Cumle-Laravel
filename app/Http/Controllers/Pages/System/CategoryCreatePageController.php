@@ -47,6 +47,10 @@ class CategoryCreatePageController extends Controller
             [
                 "column" => "Ana Kategori",
                 "value" => $created["createdData"][0]['main_category']['name'] ?? "-"
+            ],
+            [
+                "column" => "Link Metni",
+                "value" => $created["createdData"][0]['link_url']
             ]
         ];
 
