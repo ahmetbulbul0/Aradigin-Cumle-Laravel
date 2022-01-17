@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\CategoryTypesModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
+use Illuminate\Support\Str;
 
 class CategoryTypeCreateController extends Controller
 {
     static function get($data) {
         $name = htmlspecialchars($data["data"]["name"]);
+
+        $name = Str::lower($name);
 
         $data["data"] = [
             "name" => $name
