@@ -10,7 +10,7 @@
                 <div class="line">
                     <span class="inputLabel">Ana Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="mainCategory">
+                        <select name="main">
                             <option selected disabled>Ana Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -18,11 +18,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['mainCategory'])
+                @isset($data['errors']['main'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['mainCategory'] }}
+                                {{ $data['errors']['main'] }}
                             </span>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="line">
                     <span class="inputLabel">1. Alt Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="sub1Category">
+                        <select name="sub1"> 
                             <option selected disabled>1. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -38,11 +38,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['sub1Category'])
+                @isset($data['errors']['sub1'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['sub1Category'] }}
+                                {{ $data['errors']['sub1'] }}
                             </span>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                 <div class="line">
                     <span class="inputLabel">2. Alt Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="sub2Category">
+                        <select name="sub2">
                             <option selected disabled>2. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -58,11 +58,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['sub2Category'])
+                @isset($data['errors']['sub2'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['sub2Category'] }}
+                                {{ $data['errors']['sub2'] }}
                             </span>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                 <div class="line">
                     <span class="inputLabel">3. Alt Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="sub3Category">
+                        <select name="sub3">
                             <option selected disabled>3. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -78,11 +78,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['sub3Category'])
+                @isset($data['errors']['sub3'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['sub3Category'] }}
+                                {{ $data['errors']['sub3'] }}
                             </span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="line">
                     <span class="inputLabel">4. Alt Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="sub4Category">
+                        <select name="sub4">
                             <option selected disabled>4. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -98,11 +98,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['sub4Category'])
+                @isset($data['errors']['sub4'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['sub4Category'] }}
+                                {{ $data['errors']['sub4'] }}
                             </span>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                 <div class="line">
                     <span class="inputLabel">5. Alt Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="sub5Category">
+                        <select name="sub5">
                             <option selected disabled>5. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
                                 <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
@@ -118,11 +118,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['sub5Category'])
+                @isset($data['errors']['sub5'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['sub5Category'] }}
+                                {{ $data['errors']['sub5'] }}
                             </span>
                         </div>
                     </div>

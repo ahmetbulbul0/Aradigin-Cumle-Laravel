@@ -13,14 +13,14 @@ class CategoryGroupCreateController extends Controller
 {
     static function get($data) {
 
-        $main = htmlspecialchars($data["main"]);
-        $sub1 = htmlspecialchars($data["sub1"]);
-        $sub2 = htmlspecialchars($data["sub2"]);
-        $sub3 = htmlspecialchars($data["sub3"]);
-        $sub4 = htmlspecialchars($data["sub4"]);
-        $sub5 = htmlspecialchars($data["sub5"]);
+        $main = htmlspecialchars($data["data"]["main"]);
+        $sub1 = htmlspecialchars($data["data"]["sub1"]);
+        $sub2 = htmlspecialchars($data["data"]["sub2"]);
+        $sub3 = htmlspecialchars($data["data"]["sub3"]);
+        $sub4 = htmlspecialchars($data["data"]["sub4"]);
+        $sub5 = htmlspecialchars($data["data"]["sub5"]);
 
-        $data = [
+        $data["data"] = [
             "main" => $main,
             "sub1" => $sub1,
             "sub2" => $sub2,
@@ -33,13 +33,12 @@ class CategoryGroupCreateController extends Controller
     }
 
     static function check($data) {
-
-        $main = $data["main"];
-        $sub1 = $data["sub1"];
-        $sub2 = $data["sub2"];
-        $sub3 = $data["sub3"];
-        $sub4 = $data["sub4"];
-        $sub5 = $data["sub5"];
+        $main = $data["data"]["main"];
+        $sub1 = $data["data"]["sub1"];
+        $sub2 = $data["data"]["sub2"];
+        $sub3 = $data["data"]["sub3"];
+        $sub4 = $data["data"]["sub4"];
+        $sub5 = $data["data"]["sub5"];
 
         if (!isset($main) || empty($main)) {
             $errors["main"] = "Ana Kategori Alanı Zorunludur";
@@ -69,11 +68,11 @@ class CategoryGroupCreateController extends Controller
             $data["errors"]["sub5"] = "Böyle Bir Kategori Yok";
         }
 
-        if (empty($data["sub1"])) {$data["sub1"] = NULL;}
-        if (empty($data["sub2"])) {$data["sub2"] = NULL;}
-        if (empty($data["sub3"])) {$data["sub3"] = NULL;}
-        if (empty($data["sub4"])) {$data["sub4"] = NULL;}
-        if (empty($data["sub5"])) {$data["sub5"] = NULL;}
+        if (empty($sub1)) {$sub1 = NULL;}
+        if (empty($sub2)) {$sub2 = NULL;}
+        if (empty($sub3)) {$sub3 = NULL;}
+        if (empty($sub4)) {$sub4 = NULL;}
+        if (empty($sub5)) {$sub5 = NULL;}
 
         if (CategoryGroupsModel::where([
             "main" => $main,
@@ -86,21 +85,22 @@ class CategoryGroupCreateController extends Controller
             $data["errors"]["categoryGroup"] = "Böyle Bir Kategori Grubu Zaten Var";
         }
 
-        if (isset($errors)) {
-            return $errors;
+        if (isset($data["errors"])) {
+            return $data;
         }
 
         return CategoryGroupCreateController::work($data);
     }
 
     static function work($data) {
+
         $no = NoGenerator::generateCategoryGroupsNo();
-        $main = $data["main"];
-        $sub1 = $data["sub1"];
-        $sub2 = $data["sub2"];
-        $sub3 = $data["sub3"];
-        $sub4 = $data["sub4"];
-        $sub5 = $data["sub5"];
+        $main = $data["data"]["main"];
+        $sub1 = $data["data"]["sub1"];
+        $sub2 = $data["data"]["sub2"];
+        $sub3 = $data["data"]["sub3"];
+        $sub4 = $data["data"]["sub4"];
+        $sub5 = $data["data"]["sub5"];
 
         $main = CategoriesModel::where([["is_deleted", false], ["no", $main]])->first();
         $sub1 = CategoriesModel::where([["is_deleted", false], ["no", $sub1]])->first();
@@ -109,13 +109,19 @@ class CategoryGroupCreateController extends Controller
         $sub4 = CategoriesModel::where([["is_deleted", false], ["no", $sub4]])->first();
         $sub5 = CategoriesModel::where([["is_deleted", false], ["no", $sub5]])->first();
 
+        if (empty($sub1)) {unset($sub1);}
+        if (empty($sub2)) {unset($sub2);}
+        if (empty($sub3)) {unset($sub3);}
+        if (empty($sub4)) {unset($sub4);}
+        if (empty($sub5)) {unset($sub5);}
+
         $linkUrl = [
             "main" => $main["link_url"],
-            "sub1" => $sub1["link_url"],
-            "sub2" => $sub2["link_url"],
-            "sub3" => $sub3["link_url"],
-            "sub4" => $sub4["link_url"],
-            "sub5" => $sub5["link_url"]
+            "sub1" => $sub1["link_url"] ?? NULL,
+            "sub2" => $sub2["link_url"] ?? NULL,
+            "sub3" => $sub3["link_url"] ?? NULL,
+            "sub4" => $sub4["link_url"] ?? NULL,
+            "sub5" => $sub5["link_url"] ?? NULL
         ];
 
         if (empty($linkUrl["sub1"])) {unset($linkUrl["sub1"]);}
@@ -137,15 +143,17 @@ class CategoryGroupCreateController extends Controller
         CategoryGroupsModel::create([
             "no" => $no,
             "main" => $main["no"],
-            "sub1" => $sub1["no"],
-            "sub2" => $sub2["no"],
-            "sub3" => $sub3["no"],
-            "sub4" => $sub4["no"],
-            "sub5" => $sub5["no"],
+            "sub1" => $sub1["no"] ?? NULL,
+            "sub2" => $sub2["no"] ?? NULL,
+            "sub3" => $sub3["no"] ?? NULL,
+            "sub4" => $sub4["no"] ?? NULL,
+            "sub5" => $sub5["no"] ?? NULL,
             "link_url" => $linkUrlNo
         ]);
 
-        return CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5")->get();
+        $data["createdData"] = CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray();
+
+        return $data;
 
     }
 }
