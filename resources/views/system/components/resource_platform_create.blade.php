@@ -10,14 +10,14 @@
                 <div class="line">
                     <span class="inputLabel">Kaynak Site Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="resourceName" placeholder="Kaynak Site adı...">
+                        <input type="text" name="name" placeholder="Kaynak Site adı...">
                     </div>
                 </div>
-                @isset($data['errors']['resourceName'])
+                @isset($data['errors']['name'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resourceName'] }}
+                                {{ $data['errors']['name'] }}
                             </span>
                         </div>
                     </div>
@@ -25,14 +25,14 @@
                 <div class="line">
                     <span class="inputLabel">Kaynak Site Url:</span>
                     <div class="outInputText">
-                        <input type="text" name="resourceUrl" placeholder="Kaynak Site url...">
+                        <input type="text" name="main_url" placeholder="Kaynak Site url...">
                     </div>
                 </div>
-                @isset($data['errors']['resourceUrl'])
+                @isset($data['errors']['main_url'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resourceUrl'] }}
+                                {{ $data['errors']['main_url'] }}
                             </span>
                         </div>
                     </div>
