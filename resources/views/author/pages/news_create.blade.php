@@ -1,10 +1,10 @@
-@extends('private.layout')
+@extends('author.layout')
 
 @section('content')
-    @include("private.components.menu")
+    @include("author.components.menu")
 
-    @include("private.components.news_create")
+    @include("author.components.news_create")
     @isset($data['createdData'])
-        @include("private.components.created_data_detail")
+        @include("author.components.created_data_detail")
     @endisset
 @endsection

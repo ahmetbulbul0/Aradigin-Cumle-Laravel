@@ -106,3 +106,5 @@ Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class
 Route::post("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "form"]);
 Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
 
+/* AUTHOR PAGES FORM */
+Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
