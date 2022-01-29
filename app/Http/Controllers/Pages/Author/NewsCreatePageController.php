@@ -27,7 +27,7 @@ class NewsCreatePageController extends Controller
             "spe_time" => $request->spe_time,
             "resource_platform" => $request->resource_platform,
             "resource_url" => $request->resource_url,
-            "author" => "907510"
+            "author" => "371699"
         ];
 
         $created = NewsCreateController::get($data);

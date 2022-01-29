@@ -55,7 +55,7 @@ Route::get("/yazar-girisi", [SignInPageController::class, "index"]);
 
 /* AUTHOR PAGES */
 Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"]);
-Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"]);
 Route::get("/yazar-paneli/haberlerim/{listType}", [MyNewsListPageController::class, "index"]);
 Route::get("/yazar-paneli/haberlerim/duzenle/{newsNo}", [MyNewsEditPageController::class, "index"]);
 Route::get("/yazar-paneli/haberlerim/sil/{newsNo}", [MyNewsDeletePageController::class, "index"]);
@@ -67,27 +67,27 @@ Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "
 
 /* SYSTEM PAGES */
 Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"]);
-Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kullanici-tipi/düzenle", [UserTypeEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kullanici-tipi/sil", [UserTypeDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kullanici-tipleri/{listType}", [UserTypesListPageController::class, "index"]);
-Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kullanici/düzenle", [UserEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kullanici/sil", [UserDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kullanicilar/{listType}", [UsersListPageController::class, "index"]);
-Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kaynak-site/düzenle", [ResourcePlatformEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kaynak-siteler/{listType}", [ResourcePlatformsListPageController::class, "index"]);
-Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipleri/{listType}", [CategoryTypesListPageController::class, "index"]);
-Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kategoriler/{listType}", [CategoriesListPageController::class, "index"]);
-Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-gruplari/{listType}", [CategoryGroupsListPageController::class, "index"]);
@@ -99,12 +99,12 @@ Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, 
 Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"]);
 
 /* SYSTEM PAGES FORM */
-Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
-Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
-Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
-Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
-Route::post("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "form"]);
-Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
 
 /* AUTHOR PAGES FORM */
-Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
