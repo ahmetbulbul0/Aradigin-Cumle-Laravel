@@ -25,7 +25,7 @@
                 <div class="line">
                     <span class="inputLabel">Haber Kategori:</span>
                     <div class="outSelectBox">
-                        <select name="categoryGroup">
+                        <select name="category">
                             <option selected disabled>Kategori Seç</option>
                             @foreach ($data['categoryGroups'] as $category)
                                 <option value="{{ $category['no'] }}">
@@ -50,11 +50,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['categoryGroup'])
+                @isset($data['errors']['category'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['categoryGroup'] }}
+                                {{ $data['errors']['category'] }}
                             </span>
                         </div>
                     </div>
@@ -64,48 +64,48 @@
                     <div class="outRadioBox" id="outRadioBox">
                         <label>
                             Şimdi Yayınla
-                            <input type="radio" name="publishDate" value="now">
+                            <input type="radio" name="publish_date" value="now">
                         </label>
                         <label>
                             Taslak Bırak
-                            <input type="radio" name="publishDate" value="task">
+                            <input type="radio" name="publish_date" value="task">
                         </label>
                         <label class="strong" id="openDateAndTimeBoxBtn">
                             Tarih Seç
-                            <input type="radio" name="publishDate" value="specialDate">
+                            <input type="radio" name="publish_date" value="specialDate">
                         </label>
                     </div>
                     <div class="outDateAndTimeBox" id="outDateAndTimeBox">
-                        <input type="date" name="speDate">
-                        <input type="time" name="speTime">
+                        <input type="date" name="spe_date">
+                        <input type="time" name="spe_time">
                         <span class="turnBack" id="closeDateAndTimeBoxBtn">
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
                 </div>
-                @isset($data['errors']['publishDate'])
+                @isset($data['errors']['publish_date'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['publishDate'] }}
+                                {{ $data['errors']['publish_date'] }}
                             </span>
                         </div>
                     </div>
                 @endisset
-                @isset($data['errors']['speDate'])
+                @isset($data['errors']['spe_date'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['speDate'] }}
+                                {{ $data['errors']['spe_date'] }}
                             </span>
                         </div>
                     </div>
                 @endisset
-                @isset($data['errors']['speTime'])
+                @isset($data['errors']['spe_time'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['speTime'] }}
+                                {{ $data['errors']['spe_time'] }}
                             </span>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                 <div class="line">
                     <span class="inputLabel">Haber Kaynağı:</span>
                     <div class="outSelectBox">
-                        <select name="resource">
+                        <select name="resource_platform">
                             <option selected disabled>Kaynak Site Seç</option>
                             @foreach ($data['resourcePlatforms'] as $resource)
                                 <option value="{{ $resource['no'] }}">{{ $resource['name'] }}</option>
@@ -121,11 +121,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['resource'])
+                @isset($data['errors']['resource_platform'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resource'] }}
+                                {{ $data['errors']['resource_platform'] }}
                             </span>
                         </div>
                     </div>
@@ -133,14 +133,14 @@
                 <div class="line">
                     <span class="inputLabel">Haber Kaynak Linki:</span>
                     <div class="outInputText">
-                        <input type="text" name="resourceUrl" placeholder="Haber Kaynak Linki...">
+                        <input type="text" name="resource_url" placeholder="Haber Kaynak Linki...">
                     </div>
                 </div>
-                @isset($data['errors']['resourceUrl'])
+                @isset($data['errors']['resource_url'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resourceUrl'] }}
+                                {{ $data['errors']['resource_url'] }}
                             </span>
                         </div>
                     </div>
