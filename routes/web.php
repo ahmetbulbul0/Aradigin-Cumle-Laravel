@@ -102,8 +102,12 @@ Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageControll
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"]);
-Route::get("/sistem-paneli/kategori-tipleri/{listType}", [CategoryTypesListPageController::class, "index"]);
-/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
+Route::get("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "index"])->name("kategori_tipleri");
+Route::get("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "no09"])->name("kategori_tipleri_no09");
+Route::get("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "no90"])->name("kategori_tipleri_no90");
+Route::get("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "nameAZ"])->name("kategori_tipleri_nameAZ");
+Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA");
+Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"]);
 Route::get("/sistem-paneli/kategoriler/{listType}", [CategoriesListPageController::class, "index"]);
@@ -148,6 +152,11 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "form"]);
 
 
 /* AUTHOR PAGES FORM */

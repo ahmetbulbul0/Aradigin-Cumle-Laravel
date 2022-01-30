@@ -196,11 +196,11 @@
     - User Edit
     - User Delete
     - [FİNİSH]Resource Platform Create
-    - Resource Platform List
+    - [FİNİSH]Resource Platform List
     - Resource Platform Edit
     - Resource Platform Delete
     - [FİNİSH]Category Type Create
-    - Category Type List
+    - [FİNİSH]Category Type List
     - Category Type Edit
     - Category Type Delete
     - [FİNİSH]Category Create
