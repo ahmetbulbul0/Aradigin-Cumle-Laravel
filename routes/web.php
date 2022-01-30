@@ -123,9 +123,26 @@ Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController
 Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"]);
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"]);
+Route::get("/sistem-paneli/kategori-gruplari/", [CategoryGroupsListPageController::class, "index"])->name("kategori_gruplari");
+Route::get("/sistem-paneli/kategori-gruplari/no09", [CategoryGroupsListPageController::class, "no09"])->name("kategori_gruplari_no09");
+Route::get("/sistem-paneli/kategori-gruplari/no90", [CategoryGroupsListPageController::class, "no90"])->name("kategori_gruplari_no90");
+Route::get("/sistem-paneli/kategori-gruplari/mainAZ", [CategoryGroupsListPageController::class, "mainAZ"])->name("kategori_gruplari_mainAZ");
+Route::get("/sistem-paneli/kategori-gruplari/mainZA", [CategoryGroupsListPageController::class, "mainZA"])->name("kategori_gruplari_mainZA");
+Route::get("/sistem-paneli/kategori-gruplari/sub1AZ", [CategoryGroupsListPageController::class, "sub1AZ"])->name("kategori_gruplari_sub1AZ");
+Route::get("/sistem-paneli/kategori-gruplari/sub1ZA", [CategoryGroupsListPageController::class, "sub1ZA"])->name("kategori_gruplari_sub1ZA");
+Route::get("/sistem-paneli/kategori-gruplari/sub2AZ", [CategoryGroupsListPageController::class, "sub2AZ"])->name("kategori_gruplari_sub2AZ");
+Route::get("/sistem-paneli/kategori-gruplari/sub2ZA", [CategoryGroupsListPageController::class, "sub2ZA"])->name("kategori_gruplari_sub2ZA");
+Route::get("/sistem-paneli/kategori-gruplari/sub3AZ", [CategoryGroupsListPageController::class, "sub3AZ"])->name("kategori_gruplari_sub3AZ");
+Route::get("/sistem-paneli/kategori-gruplari/sub3ZA", [CategoryGroupsListPageController::class, "sub3ZA"])->name("kategori_gruplari_sub3ZA");
+Route::get("/sistem-paneli/kategori-gruplari/sub4AZ", [CategoryGroupsListPageController::class, "sub4AZ"])->name("kategori_gruplari_sub4AZ");
+Route::get("/sistem-paneli/kategori-gruplari/sub4ZA", [CategoryGroupsListPageController::class, "sub4ZA"])->name("kategori_gruplari_sub4ZA");
+Route::get("/sistem-paneli/kategori-gruplari/sub5AZ", [CategoryGroupsListPageController::class, "sub5AZ"])->name("kategori_gruplari_sub5AZ");
+Route::get("/sistem-paneli/kategori-gruplari/sub5ZA", [CategoryGroupsListPageController::class, "sub5ZA"])->name("kategori_gruplari_sub5ZA");
+Route::get("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "linkUrlAZ"])->name("kategori_gruplari_linkUrlAZ");
+Route::get("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "linkUrlZA"])->name("kategori_gruplari_linkUrlZA");
+
 Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"]);
-Route::get("/sistem-paneli/kategori-gruplari/{listType}", [CategoryGroupsListPageController::class, "index"]);
 Route::get("/sistem-paneli/haberler/{listType}", [SystemNewsListPageController::class, "index"]);
 Route::get("/sistem-paneli/haberler/istatistikleri/{listType}", [NewsStatisticsPageController::class, "index"]);
 Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
@@ -179,6 +196,23 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/no09", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/no90", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/mainAZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/mainZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub1AZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub1ZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub2AZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub2ZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub3AZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub3ZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub4AZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub4ZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub5AZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/sub5ZA", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "form"]);
+Route::post("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "form"]);
 
 /* AUTHOR PAGES FORM */
 /*TAMAMLANDI*/ //Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);

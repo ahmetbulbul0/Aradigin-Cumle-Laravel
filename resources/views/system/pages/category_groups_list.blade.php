@@ -1,7 +1,7 @@
-@extends('private.layout')
+@extends('system.layout')
 
 @section('content')
-    @include("private.components.menu")
+    @include("system.components.menu")
 
-    @include("private.components.category_groups_list")
+    @include("system.components.category_groups_list")
 @endsection
