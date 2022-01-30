@@ -90,7 +90,15 @@ Route::get("/sistem-paneli/kullanici/sil", [UserDeletePageController::class, "in
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kaynak-site/düzenle", [ResourcePlatformEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"]);
-Route::get("/sistem-paneli/kaynak-siteler/{listType}", [ResourcePlatformsListPageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "index"])->name("kaynak_siteler");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "no09"])->name("kaynak_siteler_no09");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/no90", [ResourcePlatformsListPageController::class, "no90"])->name("kaynak_siteler_no90");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/nameAZ", [ResourcePlatformsListPageController::class, "nameAZ"])->name("kaynak_siteler_nameAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/nameZA", [ResourcePlatformsListPageController::class, "nameZA"])->name("kaynak_siteler_nameZA");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/websiteLinkAZ", [ResourcePlatformsListPageController::class, "websiteLinkAZ"])->name("kaynak_siteler_websiteLinkAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "websiteLinkZA"])->name("kaynak_siteler_websiteLinkZA");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "linkUrlAZ"])->name("kaynak_siteler_linkUrlAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "linkUrlZA"])->name("kaynak_siteler_linkUrlZA");
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"]);
@@ -131,6 +139,15 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanicilar/usernameZA", [UsersListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanicilar/typeAZ", [UsersListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanicilar/typeZA", [UsersListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/no90", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/nameAZ", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/nameZA", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/websiteLinkAZ", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "form"]);
 
 
 /* AUTHOR PAGES FORM */

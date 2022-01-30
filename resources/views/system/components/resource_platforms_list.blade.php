@@ -4,6 +4,24 @@
             <div class="inTitle">
                 Kullanıcı Hesapları
             </div>
+            <div class="titleSelects">
+                <div class="listingTypeSelect">
+                    <form method="POST" class="outSelectBox">
+                        @csrf
+                        <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
+                            <option value="default" @if (Route::is('kaynak_siteler')) selected @endif>Varsayılan</option>
+                            <option value="no09" @if (Route::is('kaynak_siteler_no09')) selected @endif>No (0 - 9)</option>
+                            <option value="no90" @if (Route::is('kaynak_siteler_no90')) selected @endif>No (9 - 0)</option>
+                            <option value="nameAZ" @if (Route::is('kaynak_siteler_nameAZ')) selected @endif>Ad (A - Z)</option>
+                            <option value="nameZA" @if (Route::is('kaynak_siteler_nameZA')) selected @endif>Ad (Z - A)</option>
+                            <option value="websiteLinkAZ" @if (Route::is('kaynak_siteler_websiteLinkAZ')) selected @endif>Site Linki (A - Z)</option>
+                            <option value="websiteLinkZA" @if (Route::is('kaynak_siteler_websiteLinkZA')) selected @endif>Site Linki (Z - A)</option>
+                            <option value="linkUrlAZ" @if (Route::is('kaynak_siteler_linkUrlAZ')) selected @endif>Link Metni (A - Z)</option>
+                            <option value="linkUrlZA" @if (Route::is('kaynak_siteler_linkUrlZA')) selected @endif>Link Metni (Z - A)</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="dbList">
             <div class="titleLine">
