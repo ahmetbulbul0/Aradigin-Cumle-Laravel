@@ -204,7 +204,7 @@
     - Category Type Edit
     - Category Type Delete
     - [FİNİSH]Category Create
-    - Category List
+    - [FİNİSH]Category List
     - Category Edit
     - Category Delete
     - [FİNİSH]Category Group Create

@@ -108,10 +108,20 @@ Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageControll
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA");
 Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"]);
-Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "index"])->name("kategoriler");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "no09"])->name("kategoriler_no09");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/no90", [CategoriesListPageController::class, "no90"])->name("kategoriler_no90");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/nameAZ", [CategoriesListPageController::class, "nameAZ"])->name("kategoriler_nameAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/nameZA", [CategoriesListPageController::class, "nameZA"])->name("kategoriler_nameZA");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/typeAZ", [CategoriesListPageController::class, "typeAZ"])->name("kategoriler_typeAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/typeZA", [CategoriesListPageController::class, "typeZA"])->name("kategoriler_typeZA");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/mainCategoryAZ", [CategoriesListPageController::class, "mainCategoryAZ"])->name("kategoriler_mainCategoryAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "mainCategoryZA"])->name("kategoriler_mainCategoryZA");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "linkUrlAZ"])->name("kategoriler_linkUrlAZ");
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "linkUrlZA"])->name("kategoriler_linkUrlZA");
 Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"]);
-Route::get("/sistem-paneli/kategoriler/{listType}", [CategoriesListPageController::class, "index"]);
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"]);
 Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"]);
@@ -158,7 +168,17 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "form"]);
-
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/no90", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/nameAZ", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/nameZA", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/typeAZ", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/typeZA", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/mainCategoryAZ", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "form"]);
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "form"]);
 
 /* AUTHOR PAGES FORM */
 /*TAMAMLANDI*/ //Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
