@@ -173,7 +173,7 @@
 ]
 * Author [
     - Dashboard
-    - News Create
+    - [FİNİSH]News Create
     - My News List
     - My News Edit
     - My News Delete
@@ -187,27 +187,27 @@
 ]
 * System [
     - Dashboard
-    - User Type Create
-    - User Type List
+    - [FİNİSH]User Type Create
+    - [FİNİSH]User Type List
     - User Type Edit
     - User Type Delete
-    - User Create
-    - User List
+    - [FİNİSH]User Create
+    - [FİNİSH]User List
     - User Edit
     - User Delete
-    - Resource Platform Create
+    - [FİNİSH]Resource Platform Create
     - Resource Platform List
     - Resource Platform Edit
     - Resource Platform Delete
-    - Category Type Create
+    - [FİNİSH]Category Type Create
     - Category Type List
     - Category Type Edit
     - Category Type Delete
-    - Category Create
+    - [FİNİSH]Category Create
     - Category List
     - Category Edit
     - Category Delete
-    - Category Group Create
+    - [FİNİSH]Category Group Create
     - Category Group List
     - Category Group Edit
     - Category Group Delete
@@ -220,11 +220,3 @@
         - Constants
     ]
 ]
-
-user tyepe
-user
-category type
-category
-category group
-resource platform
-news
