@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Pages\System;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserTypesListController;
-use Illuminate\Http\Request;
 
 class UserTypesListPageController extends Controller
 {
