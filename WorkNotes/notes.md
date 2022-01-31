@@ -208,7 +208,7 @@
     - Category Edit
     - Category Delete
     - [FİNİSH]Category Group Create
-    - Category Group List
+    - [FİNİSH]Category Group List
     - Category Group Edit
     - Category Group Delete
     - News List 
