@@ -52,4 +52,13 @@ class UsersListController extends Controller
     {
         return UsersModel::where("is_deleted", false)->with("type")->orderBy("type", "DESC")->get()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeleted($no)
+    {
+        return UsersModel::where(["is_deleted" => false, "no" => "$no"])->first();
+    }
+    static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
+    {
+        return UsersModel::where(["is_deleted" => false, "no" => "$no"])->with("type")->first()->toArray();
+    }
+
 }

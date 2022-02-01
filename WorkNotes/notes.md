@@ -189,7 +189,7 @@
     - Dashboard
     - [FİNİSH]User Type Create
     - [FİNİSH]User Type List
-    - User Type Edit
+    - [FİNİSH]User Type Edit
     - User Type Delete
     - [FİNİSH]User Create
     - [FİNİSH]User List
