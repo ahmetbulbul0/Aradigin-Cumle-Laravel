@@ -74,7 +74,7 @@ Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"]);
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici-tipleri/no90", [UserTypesListPageController::class, "no90"])->name("kullanici_tipleri_no90");
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici-tipleri/nameAZ", [UserTypesListPageController::class, "nameAZ"])->name("kullanici_tipleri_nameAZ");
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici-tipleri/nameZA", [UserTypesListPageController::class, "nameZA"])->name("kullanici_tipleri_nameZA");
-Route::get("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "index"]);
+/*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "index"])->name("kullanici_tipi_düzenle");
 Route::get("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "index"]);
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"]);
 /*TAMAMLANDI*/ //Route::get("/sistem-paneli/kullanicilar/", [UsersListPageController::class, "index"])->name("kullanicilar");
@@ -170,6 +170,7 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
+
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici-tipleri/no09", [UserTypesListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici-tipleri/no90", [UserTypesListPageController::class, "form"]);
@@ -241,6 +242,8 @@ Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::cla
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/haberler/publishDateZA", [SystemNewsListPageController::class, "form"]);
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/haberler/writeTimeAZ", [SystemNewsListPageController::class, "form"]); 
 /*TAMAMLANDI*/ //Route::post("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "form"]);
+
+/*TAMAMLANDI*/ //Route::post("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "form"]);
 
 /* AUTHOR PAGES FORM */
 /*TAMAMLANDI*/ //Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);

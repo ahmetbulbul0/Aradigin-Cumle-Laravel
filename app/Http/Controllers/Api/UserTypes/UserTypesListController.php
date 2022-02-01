@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\UserTypes;
 
 use App\Models\UserTypesModel;
+use App\Http\Controllers\Controller;
 
 class UserTypesListController extends Controller
 {
@@ -29,5 +30,9 @@ class UserTypesListController extends Controller
     static function getAllOnlyNotDeletedOrderByAscName()
     {
         return UserTypesModel::where("is_deleted", false)->orderBy("name", "ASC")->get();
+    }
+    static function getFirstDataWithNoOnlyNotDeleted($no)
+    {
+        return UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first();
     }
 }
