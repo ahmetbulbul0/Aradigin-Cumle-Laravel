@@ -193,7 +193,7 @@
     - User Type Delete
     - [FİNİSH]User Create
     - [FİNİSH]User List
-    - User Edit
+    - [FİNİSH]User Edit
     - User Delete
     - [FİNİSH]Resource Platform Create
     - [FİNİSH]Resource Platform List
