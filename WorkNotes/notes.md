@@ -205,7 +205,7 @@
     - Category Type Delete
     - [FİNİSH]Category Create
     - [FİNİSH]Category List
-    - Category Edit
+    - [CREATİNG]Category Edit
     - Category Delete
     - [FİNİSH]Category Group Create
     - [FİNİSH]Category Group List

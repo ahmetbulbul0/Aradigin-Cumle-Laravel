@@ -65,10 +65,10 @@
                     </div>
                     <div class="actions w20">
                         <span>
-                            <a href="/sistem-paneli/kategori-tipi/{{ $item['no'] }}/düzenle">
+                            <a href="/sistem-paneli/kategori/düzenle/{{ $item['no'] }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kategori-tipi/{{ $item['no'] }}/sil">
+                            <a href="/sistem-paneli/kategori/sil/{{ $item['no'] }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

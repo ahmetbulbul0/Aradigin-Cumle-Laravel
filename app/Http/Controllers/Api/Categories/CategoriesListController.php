@@ -60,4 +60,8 @@ class CategoriesListController extends Controller
     {
         return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "ASC")->get()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    {
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "mainCategory")->first()->toArray();
+    }
 }

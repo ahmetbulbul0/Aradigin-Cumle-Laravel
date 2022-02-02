@@ -149,7 +149,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "linkUrlAZ"])->name("kategoriler_linkUrlAZ");
         Route::get("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "linkUrlZA"])->name("kategoriler_linkUrlZA");
     // KATEGORİ DÜZENLE
-        Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
+        Route::get("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
     // KATEGORİ SİL
         Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"])->name("kategori_sil");
     // KATEGORİ GRUBU EKLE
@@ -254,6 +254,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "form"]);
         // KATEGORİ EKLE
             Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
+        // KATEGORİ DÜZENLE
+            Route::post("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "form"]);
         // KATEGORİLER
             Route::post("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "form"]);
