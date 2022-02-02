@@ -1,9 +1,9 @@
-@extends('private.layout')
+@extends('system.layout')
 
 @section('content')
-    @include("private.components.menu")
+    @include("system.components.menu")
 
-    @include("private.components.3_values_fast_form")
+    @include("system.components.3_values_fast_form")
 
-    @include("private.components.graph_how_are_you")
+    @include("system.components.graph_how_are_you")
 @endsection

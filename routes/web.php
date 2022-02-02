@@ -44,10 +44,11 @@ use App\Http\Controllers\Pages\System\ResourcePlatformEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
+use App\Http\Controllers\Pages\SystemSignOutPageController;
 
 /* VİSİTOR PAGES */
     // ANASAYFA
-        Route::get("/", [HomePageController::class, "index"]);
+        Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
     // HABERLER LİSTESİ
         Route::get("/haberler/{listType}", [VisitorNewsListPageController::class, "index"]);
         Route::get("haberler/yazar/{authorUserName}/{listType}", [VisitorNewsListPageController::class, "author"]);
@@ -76,9 +77,9 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"]);
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
-        Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"]);
+        Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel");
     // KULLANICI TİPİ EKLE
-        Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"])->name("kullanici_tipi_ekle");
     // KULLANICI TİPLERİ LİSTESİ
         Route::get("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "index"])->name("kullanici_tipleri");
         Route::get("/sistem-paneli/kullanici-tipleri/no09", [UserTypesListPageController::class, "no09"])->name("kullanici_tipleri_no09");
@@ -88,9 +89,9 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
     // KULLANICI TİPİ DÜZENLE
         Route::get("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "index"])->name("kullanici_tipi_düzenle");
     // KULLANICI TİPİ SİL
-        Route::get("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "index"]);
+        Route::get("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "index"])->name("kullanici_tipi_sil");
     // KULLANICI EKLE
-        Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"])->name("kullanici_ekle");
     // KULLANICILAR LİSTESİ
         Route::get("/sistem-paneli/kullanicilar/", [UsersListPageController::class, "index"])->name("kullanicilar");
         Route::get("/sistem-paneli/kullanicilar/no09", [UsersListPageController::class, "no09"])->name("kullanicilar_no09");
@@ -104,9 +105,9 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
     // KULLANICI DÜZENLE
         Route::get("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "index"])->name("kullanici_düzenle");
     // KULLANICI SİL
-        Route::get("/sistem-paneli/kullanici/sil", [UserDeletePageController::class, "index"]);
+        Route::get("/sistem-paneli/kullanici/sil", [UserDeletePageController::class, "index"])->name("kullanici_sil");
     // KAYNAK SİTE EKLE
-        Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
     // KAYNAK SİTELER LİSTESİ
         Route::get("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "index"])->name("kaynak_siteler");
         Route::get("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "no09"])->name("kaynak_siteler_no09");
@@ -118,11 +119,11 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "linkUrlAZ"])->name("kaynak_siteler_linkUrlAZ");
         Route::get("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "linkUrlZA"])->name("kaynak_siteler_linkUrlZA");
     // KAYNAK SİTE DÜZENLE
-        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"]);
+        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
     // KAYNAK SİTE SİL
-        Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_sil");
     // KATEGORİ TİPİ EKLE
-        Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"])->name("kategori_tipi_ekle");
     // KATEGORİ TİPLERİ LİSTESİ
         Route::get("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "index"])->name("kategori_tipleri");
         Route::get("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "no09"])->name("kategori_tipleri_no09");
@@ -130,11 +131,11 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "nameAZ"])->name("kategori_tipleri_nameAZ");
         Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA");
     // KATEGORİ TİPİ DÜZENLE
-        Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
     // KATEGORİ TİPİ SİL
-        Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil");
     // KATEGORİ EKLE
-        Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"])->name("kategori_ekle");
     // KATEGORİLER LİSTESİ
         Route::get("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "index"])->name("kategoriler");
         Route::get("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "no09"])->name("kategoriler_no09");
@@ -148,11 +149,11 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "linkUrlAZ"])->name("kategoriler_linkUrlAZ");
         Route::get("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "linkUrlZA"])->name("kategoriler_linkUrlZA");
     // KATEGORİ DÜZENLE
-        Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori/düzenle", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
     // KATEGORİ SİL
-        Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"])->name("kategori_sil");
     // KATEGORİ GRUBU EKLE
-        Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle");
     // KATEGORİ GRUPLARI LİSTESİ
         Route::get("/sistem-paneli/kategori-gruplari/", [CategoryGroupsListPageController::class, "index"])->name("kategori_gruplari");
         Route::get("/sistem-paneli/kategori-gruplari/no09", [CategoryGroupsListPageController::class, "no09"])->name("kategori_gruplari_no09");
@@ -172,9 +173,9 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "linkUrlAZ"])->name("kategori_gruplari_linkUrlAZ");
         Route::get("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "linkUrlZA"])->name("kategori_gruplari_linkUrlZA");
     // KATEGORİ GRUBU DÜZENLE
-        Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
     // KATEGORİ GRUBU SİL
-        Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"]);
+        Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil");
     // HABERLER LİSTESİ
         Route::get("/sistem-paneli/haberler", [SystemNewsListPageController::class, "index"])->name("haberler");
         Route::get("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "no09"])->name("haberler_no09");
@@ -196,8 +197,10 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
         Route::get("/sistem-paneli/haberler/istatistikleri/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
     // SİSTEM PANELİ AYARLAR
-        Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"]);
-        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"]);
+        Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema");
+        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("sistem_paneli_ayarlar_sabitler");
+    // SİSTEM PANELİ ÇIKIŞ YAP
+        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap");
 /* FORM ROUTES */
     /* AUTHOR PAGES */
         // HABER EKLE
