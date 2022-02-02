@@ -35,7 +35,7 @@
                     <span>Kullanıcı Adı</span>
                 </div>
                 <div class="w20">
-                    <span>rİP</span>
+                    <span>Tip</span>
                 </div>
                 <div class="w10">
                     <span>İşlem</span>
