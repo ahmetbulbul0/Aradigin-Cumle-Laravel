@@ -72,7 +72,6 @@ class CategoryEditController extends Controller
 
     static function work($data)
     {
-        // dd($data);
         $no = $data["data"]["no"];
         $name = $data["data"]["name"];
         $type = $data["data"]["type"];

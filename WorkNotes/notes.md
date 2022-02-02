@@ -201,11 +201,11 @@
     - Resource Platform Delete
     - [FİNİSH]Category Type Create
     - [FİNİSH]Category Type List
-    - Category Type Edit
+    - [FİNİSH]Category Type Edit
     - Category Type Delete
     - [FİNİSH]Category Create
     - [FİNİSH]Category List
-    - [CREATİNG]Category Edit
+    - [FİNİSH]Category Edit
     - Category Delete
     - [FİNİSH]Category Group Create
     - [FİNİSH]Category Group List

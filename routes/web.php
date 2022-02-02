@@ -131,7 +131,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "nameAZ"])->name("kategori_tipleri_nameAZ");
         Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA");
     // KATEGORİ TİPİ DÜZENLE
-        Route::get("/sistem-paneli/kategori-tipi/düzenle", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
+        Route::get("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
     // KATEGORİ TİPİ SİL
         Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil");
     // KATEGORİ EKLE
@@ -246,12 +246,14 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "form"]);
         // KATEGORİ TİPİ EKLE
             Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
-        // KATEGORİ TİPLERİ
+        // KATEGORİ TİPLERİ LİSTESİ
             Route::post("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "form"]);
+        // KATEGORİ TİPİ DÜZENLE
+            Route::post("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "form"]);
         // KATEGORİ EKLE
             Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
         // KATEGORİ DÜZENLE
