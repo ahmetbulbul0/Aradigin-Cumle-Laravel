@@ -57,10 +57,10 @@
                     </div>
                     <div class="actions w10">
                         <span>
-                            <a href="/sistem-paneli/kaynak-site/{{ $item['no'] }}/düzenle">
+                            <a href="/sistem-paneli/kaynak-site/düzenle/{{ $item["no"] }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kaynak-site/{{ $item['no'] }}/sil">
+                            <a href="/sistem-paneli/kaynak-site/sil/{{ $item["no"] }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

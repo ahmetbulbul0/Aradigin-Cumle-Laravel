@@ -57,10 +57,10 @@
                     </div>
                     <div class="actions w10">
                         <span>
-                            <a href="/sistem-paneli/kullanici-hesabi/{{ $item['no'] }}/düzenle">
+                            <a href="/sistem-paneli/kullanici/düzenle/{{ $item['no'] }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kullanici-hesabi/{{ $item['no'] }}/sil">
+                            <a href="/sistem-paneli/kullanici/sil/{{ $item['no'] }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

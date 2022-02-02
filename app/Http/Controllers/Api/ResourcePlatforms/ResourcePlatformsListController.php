@@ -48,4 +48,8 @@ class ResourcePlatformsListController extends Controller
     {
         return ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "DESC")->get();
     }
+    static function getFirstDataWithNoOnlyNotDeleted($no)
+    {
+        return ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first();
+    }
 }

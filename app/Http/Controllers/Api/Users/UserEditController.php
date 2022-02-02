@@ -41,10 +41,6 @@ class UserEditController extends Controller
         $password = $data["data"]["password"];
         $type = $data["data"]["type"];
 
-        if (!isset($no) || empty($no)) {
-            $data["errors"]["no"] = "Kullanıcı No Alanı Boş Olamaz";
-        }
-
         if (!isset($fullName) || empty($fullName)) {
             $data["errors"]["fullName"] = "Kullanıcı Tam Adı Alanı Boş Olamaz";
         }

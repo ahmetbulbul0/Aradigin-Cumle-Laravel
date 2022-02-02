@@ -197,7 +197,7 @@
     - User Delete
     - [FİNİSH]Resource Platform Create
     - [FİNİSH]Resource Platform List
-    - Resource Platform Edit
+    - [FİNİSH]Resource Platform Edit
     - Resource Platform Delete
     - [FİNİSH]Category Type Create
     - [FİNİSH]Category Type List

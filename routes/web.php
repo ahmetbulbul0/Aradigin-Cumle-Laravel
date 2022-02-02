@@ -118,7 +118,7 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
         Route::get("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "linkUrlAZ"])->name("kaynak_siteler_linkUrlAZ");
         Route::get("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "linkUrlZA"])->name("kaynak_siteler_linkUrlZA");
     // KAYNAK SİTE DÜZENLE
-        Route::get("/sistem-paneli/kaynak-site/düzenle", [ResourcePlatformEditPageController::class, "index"]);
+        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"]);
     // KAYNAK SİTE SİL
         Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"]);
     // KATEGORİ TİPİ EKLE
@@ -239,6 +239,8 @@ use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
             Route::post("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "form"]);
             Route::post("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "form"]);
             Route::post("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "form"]);
+        // KAYNAK SİTE DÜZENLE
+            Route::post("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "form"]);
         // KATEGORİ TİPİ EKLE
             Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
         // KATEGORİ TİPLERİ

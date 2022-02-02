@@ -23,16 +23,6 @@
                         </div>
                     </div>
                 @endisset
-                <input type="hidden" name="no" value="{{ $data['data']['no'] }}">
-                @isset($data['errors']['no'])
-                    <div class="line">
-                        <div class="outErrorBox">
-                            <span>
-                                {{ $data['errors']['no'] }}
-                            </span>
-                        </div>
-                    </div>
-                @endisset
                 @csrf
                 <div class="line">
                     <div class="outSubmitBox">

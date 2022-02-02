@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\UserTypes;
 use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 
 class UserTypeEditController extends Controller
 {
@@ -26,20 +27,11 @@ class UserTypeEditController extends Controller
         $no = $data["data"]["no"];
         $name = $data["data"]["name"];
 
-        if (!isset($no) || empty($no)) {
-            $data["errors"]["no"] = "Kullanıcı Tipi No Alanı Boş Olamaz";
-        }
-
         if (!isset($name) || empty($name)) {
             $data["errors"]["name"] = "Kullanıcı Tipi Adı Alanı Boş Olamaz";
         }
-
-        if (isset($name) && !empty($name) && UserTypesModel::where("name", $name)->count()) {
+        if (isset($name) && !empty($name) && UserTypesModel::where([["no", "!=", $no], ["name", $name]])->count()) {
             $data["errors"]["name"] = "[$name] Bu Kullanıcı Tipi Adı Kullanılıyor, Lütfen Başka Bir Ad Kullanınız";
-        }
-
-        if (isset($no) && !empty($no) && !UserTypesModel::where("no", $no)->count()) {
-            $data["errors"]["no"] = "[$no] Bu No Değerine Ait Bir Kullanıcı Tipi Bulunamadı";
         }
 
         if (isset($data["errors"])) {
@@ -58,7 +50,7 @@ class UserTypeEditController extends Controller
             "name" => $name
         ]);
 
-        $data["editedData"] = UserTypesModel::where("no", $no)->get();
+        $data["editedData"] = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
         return $data;
     }
 }

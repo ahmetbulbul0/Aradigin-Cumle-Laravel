@@ -44,11 +44,11 @@ class UserTypeEditPageController extends Controller
         $edited["editedData"] = [
             [
                 "column" => "No",
-                "value" => $edited["editedData"][0]["no"]
+                "value" => $edited["editedData"]["no"]
             ],
             [
                 "column" => "Adı",
-                "value" => $edited["editedData"][0]["name"]
+                "value" => $edited["editedData"]["name"]
             ]
         ];
 
