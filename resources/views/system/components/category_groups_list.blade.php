@@ -90,10 +90,10 @@
 
                     <div class="actions w10">
                         <span>
-                            <a href="/sistem-paneli/kategori-tipi/{{ $item['no'] }}/düzenle">
+                            <a href="/sistem-paneli/kategori-grubu/düzenle/{{ $item['no'] }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kategori-tipi/{{ $item['no'] }}/sil">
+                            <a href="/sistem-paneli/kategori-grubu/sil/{{ $item['no'] }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

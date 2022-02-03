@@ -84,4 +84,8 @@ class CategoryGroupsListController extends Controller
     {
         return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "ASC")->get()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    {
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray();
+    }
 }

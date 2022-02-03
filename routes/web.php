@@ -173,7 +173,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "linkUrlAZ"])->name("kategori_gruplari_linkUrlAZ");
         Route::get("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "linkUrlZA"])->name("kategori_gruplari_linkUrlZA");
     // KATEGORİ GRUBU DÜZENLE
-        Route::get("/sistem-paneli/kategori-grubu/düzenle", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
+        Route::get("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
     // KATEGORİ GRUBU SİL
         Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil");
     // HABERLER LİSTESİ
@@ -290,6 +290,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kategori-gruplari/sub5ZA", [CategoryGroupsListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "form"]);
+        // KATEGORİ GRUBU DÜZENLE
+            Route::post("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "form"]);
         // HABERLER LİSTESİ
             Route::post("/sistem-paneli/haberler", [SystemNewsListPageController::class, "form"]);
             Route::post("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "form"]);

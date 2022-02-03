@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kaynak Site Düzenle
+                Kategori Düzenle
             </span>
         </div>
         <div class="outNewsCreateForm">
