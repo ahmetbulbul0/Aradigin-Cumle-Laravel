@@ -3,7 +3,7 @@
 @section('content')
     @include("system.components.menu")
 
-    @include("system.components.3_values_fast_form")
+    @include("system.components.values_4_box")
 
-    @include("system.components.graph_how_are_you")
+    @include("system.components.dashboard_graph")
 @endsection
