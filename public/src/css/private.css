@@ -527,53 +527,87 @@ body {
     cursor: pointer;
 }
 
-.out3ValuesAndFastForm {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 50px;
-    box-sizing: border-box;
-}
 
-.out3ValuesAndFastForm .in3ValuesAndFastForm {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 
-.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box {
-    width: 73%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 4 VALUES BOX */
+.outValues4Box {
+    width: 100%;
     margin-top: 40px;
+    box-sizing: border-box;
+    padding: 0 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box {
+.outValues4Box .inValues4Box {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox {
-    width: 32%;
-    border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+.outValues4Box .inValues4Box .valuesBar {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .header {
+.outValues4Box .inValues4Box .valuesBar:nth-child(1) {
+    margin-left: 0;
+}
+.outValues4Box .inValues4Box .valuesBar .outValueBox {
+    width: 50%;
+    margin-left: 30px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
+}
+.outValues4Box .inValues4Box .valuesBar .outValueBox:nth-child(1) {
+    margin-left: 0;
+}
+.outValues4Box .inValues4Box .valuesBar .outValueBox .header {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -584,14 +618,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .header
-    span {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .header span {
     font-weight: 500;
     font-size: 125%;
     width: 100%;
@@ -599,58 +626,27 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .body {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .body {
     width: 100%;
     box-sizing: border-box;
-    padding: 6px 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    padding: 6px 18px 12px;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .body
-    span {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .body span {
     font-size: 80%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .footer {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    padding: 4px 0;
+    padding: 6px 0;
     cursor: pointer;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .footer:before {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .footer:before {
     content: "";
     position: absolute;
     left: 0;
@@ -659,23 +655,10 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .footer:hover {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .footer:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .footer
-    span {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .footer span {
     font-size: 80%;
     font-weight: 300;
     cursor: pointer;
@@ -683,19 +666,40 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outValues3Box
-    .inValues3Box
-    .outValueBox
-    .footer
-    span
-    i {
+.outValues4Box .inValues4Box .valuesBar .outValueBox .footer span i {
     margin-left: 6px;
     cursor: pointer;
 }
-
+@media only screen and (max-width: 1340px) {
+    .outValues4Box .inValues4Box {
+        display: block;
+    }
+    .outValues4Box .inValues4Box .valuesBar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 40px;
+    }
+    .outValues4Box .inValues4Box .valuesBar:nth-child(1) {
+        margin-top: 0;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .outValues4Box .inValues4Box .valuesBar {
+        display: block;
+    }
+    .outValues4Box .inValues4Box .valuesBar .outValueBox {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+    }
+    .outValues4Box .inValues4Box .valuesBar .outValueBox:nth-child(1) {
+        margin-top: 0;
+    }
+}
+/* [NOT_READY] FAST FORM */
 .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm {
     width: 25%;
     margin-top: 40px;
@@ -703,7 +707,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
     width: 100%;
     box-sizing: border-box;
@@ -711,25 +714,13 @@ body {
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
 }
-
 .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step {
     display: none;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step#step0 {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step#step0 {
     display: block;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .header {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .header {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -738,37 +729,17 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .header
-    span {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .header span {
     font-size: 95%;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body {
     width: 100%;
     margin-top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .outInputText {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outInputText {
     width: 90%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
@@ -778,15 +749,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .outInputText
-    input[type="text"] {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outInputText input[type="text"] {
     width: 100%;
     background-color: var(--dark-blue);
     border-radius: 50px;
@@ -794,14 +757,7 @@ body {
     padding: 6px 18px;
     font-size: 80%;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .outSelectBox {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outSelectBox {
     width: 90%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
@@ -811,15 +767,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .outSelectBox
-    select {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .outSelectBox select {
     width: 100%;
     font-family: "Poppins", sans-serif;
     outline: none;
@@ -831,40 +779,16 @@ body {
     font-size: 80%;
     border: none;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information {
     width: 100%;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .category {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .category {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .category
-    span {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .category span {
     font-style: italic;
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
@@ -873,31 +797,14 @@ body {
     cursor: default;
     font-size: 90%;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .content {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .content {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 12px 0;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .content
-    span {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .content span {
     font-weight: 300;
     font-size: 90%;
     overflow: hidden;
@@ -905,57 +812,27 @@ body {
     text-overflow: ellipsis;
     cursor: default;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .date {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .date {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .body
-    .information
-    .date
-    span {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .body .information .date span {
     font-weight: 300;
     font-style: italic;
     color: var(--dark-light);
     cursor: default;
     font-size: 90%;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .footer {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .footer {
     width: 100%;
     margin-top: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.out3ValuesAndFastForm
-    .in3ValuesAndFastForm
-    .outFastForm
-    .inFastForm
-    .step
-    .footer
-    span {
+.out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm .step .footer span {
     font-size: 80%;
     padding: 6px 8px;
     border-radius: 25px;
@@ -965,8 +842,8 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.outChartAndWelcomeHowAreYou {
+/* DASHBOARD CHART */
+.outChart {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -974,26 +851,67 @@ body {
     padding: 0 50px;
     box-sizing: border-box;
 }
-
-.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou {
+.outChart .inChart {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
-
 .chart {
-    width: 73%;
+    width: 100%;
     height: 450px;
     margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
     box-sizing: border-box;
     border-radius: 25px;
     padding: 18px;
 }
+@media only screen and (max-width: 720px) {
+    .outChart {
+        padding: 0;
+    }
+    .chart {
+        height: 500px;
+        border-radius: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou {
     width: 25%;
@@ -3678,6 +3596,274 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/* DB LİST */
+
+.outDbList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+.outDbList .inDbList {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.outDbList .inDbList .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outDbList .inDbList .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+
+.outDbList .inDbList .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDbList .inDbList .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect:nth-child(1) {
+    margin-left: 0;
+}
+
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outDbList
+    .inDbList
+    .outTitle
+    .titleSelects
+    .listingTypeSelect
+    .outSelectBox
+    select {
+    width: 100%;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+
+.outDbList .inDbList .dbList {
+    width: 100%;
+    margin: 24px 0;
+}
+
+.outDbList .inDbList .dbList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+
+.outDbList .inDbList .dbList .titleLine div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outDbList .inDbList .dbList .titleLine div span {
+    padding: 0 6px;
+    position: relative;
+}
+
+.outDbList .inDbList .dbList .titleLine div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+
+.outDbList .inDbList .dbList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+.outDbList .inDbList .dbList .line:nth-child(2) {
+    margin-top: 12px;
+}
+
+.outDbList .inDbList .dbList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+
+.outDbList .inDbList .dbList .line div {
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.outDbList .inDbList .dbList .line div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 300;
+}
+
+.outDbList .inDbList .dbList .line div.actions {
+    font-size: 95%;
+}
+
+.outDbList .inDbList .dbList .line div.actions span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a:nth-child(1) {
+    margin-left: 0;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.w5 {
+    width: 5%;
+}
+.w10 {
+    width: 10%;
+}
+.w15 {
+    width: 15%;
+}
+.w20 {
+    width: 20%;
+}
+.w25 {
+    width: 25%;
+}
+.w30 {
+    width: 30%;
+}
+.w40 {
+    width: 40%;
+}
+.w45 {
+    width: 45%;
+}
+.w50 {
+    width: 50%;
+}
+.w60 {
+    width: 60%;
+}
+.w70 {
+    width: 70%;
+}
+.w80 {
+    width: 80%;
+}
+.w90 {
+    width: 90%;
+}
+.w100 {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* MENU */
 
@@ -3847,7 +4033,7 @@ body {
 
 /* 3 VALUES AND FAST FORM */
 
-@media only screen and (max-width: 1280px) {
+/* @media only screen and (max-width: 1280px) {
     .out3ValuesAndFastForm {
         padding: 0;
     }
@@ -3883,9 +4069,9 @@ body {
         span {
         padding: 6px 12px;
     }
-}
+} */
 
-@media only screen and (max-width: 1075px) {
+/* @media only screen and (max-width: 1075px) {
     .out3ValuesAndFastForm .in3ValuesAndFastForm {
         display: block;
     }
@@ -3901,9 +4087,9 @@ body {
     .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
         width: 50%;
     }
-}
+} */
 
-@media only screen and (max-width: 835px) {
+/* @media only screen and (max-width: 835px) {
     .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box {
         display: block;
     }
@@ -3928,11 +4114,11 @@ body {
     .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
         width: 100%;
     }
-}
+} */
 
 /* 3 VALUES AND FAST FORM */
 
-@media only screen and (max-width: 1280px) {
+/* @media only screen and (max-width: 1280px) {
     .outChartAndWelcomeHowAreYou {
         padding: 0;
     }
@@ -3979,7 +4165,7 @@ body {
         .inWelcomeHowAreYou {
         width: 100%;
     }
-}
+} */
 
 /* MY ACCOUNT SETTİNGS */
 
@@ -5877,234 +6063,4 @@ body {
     .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
         border-radius: 0;
     }
-}
-
-/* DB LİST */
-
-.outDbList {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    margin-top: 40px;
-    padding: 0 50px;
-}
-
-.outDbList .inDbList {
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
-
-.outDbList .inDbList .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outDbList .inDbList .outTitle .inTitle {
-    position: relative;
-    padding: 0 6px;
-}
-
-.outDbList .inDbList .outTitle .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outDbList .inDbList .outTitle .titleSelects {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-left: 12px;
-}
-
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect:nth-child(1) {
-    margin-left: 0;
-}
-
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox {
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-sizing: border-box;
-    padding: 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outDbList
-    .inDbList
-    .outTitle
-    .titleSelects
-    .listingTypeSelect
-    .outSelectBox
-    select {
-    width: 100%;
-    border: none;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    color: var(--light);
-    background-color: var(--dark-blue);
-    border-radius: 50px;
-    box-sizing: border-box;
-    padding: 6px 12px;
-    font-size: 80%;
-}
-
-.outDbList .inDbList .dbList {
-    width: 100%;
-    margin: 24px 0;
-}
-
-.outDbList .inDbList .dbList .titleLine {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 12px;
-    border-radius: 50px;
-}
-
-.outDbList .inDbList .dbList .titleLine div {
-    font-weight: 500;
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.outDbList .inDbList .dbList .titleLine div span {
-    padding: 0 6px;
-    position: relative;
-}
-
-.outDbList .inDbList .dbList .titleLine div span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outDbList .inDbList .dbList .line {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 12px;
-    border-radius: 50px;
-}
-
-.outDbList .inDbList .dbList .line:nth-child(2) {
-    margin-top: 12px;
-}
-
-.outDbList .inDbList .dbList .line:nth-child(even) {
-    background-color: #1112177a;
-}
-
-.outDbList .inDbList .dbList .line div {
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.outDbList .inDbList .dbList .line div span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-weight: 300;
-}
-
-.outDbList .inDbList .dbList .line div.actions {
-    font-size: 95%;
-}
-
-.outDbList .inDbList .dbList .line div.actions span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outDbList .inDbList .dbList .line div.actions span a {
-    margin-left: 12px;
-    cursor: pointer;
-}
-
-.outDbList .inDbList .dbList .line div.actions span a:nth-child(1) {
-    margin-left: 0;
-}
-
-.outDbList .inDbList .dbList .line div.actions span a:hover {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.w5 {
-    width: 5%;
-}
-.w10 {
-    width: 10%;
-}
-.w15 {
-    width: 15%;
-}
-.w20 {
-    width: 20%;
-}
-.w25 {
-    width: 25%;
-}
-.w30 {
-    width: 30%;
-}
-.w40 {
-    width: 40%;
-}
-.w45 {
-    width: 45%;
-}
-.w50 {
-    width: 50%;
-}
-.w60 {
-    width: 60%;
-}
-.w70 {
-    width: 70%;
-}
-.w80 {
-    width: 80%;
-}
-.w90 {
-    width: 90%;
-}
-.w100 {
-    width: 100%;
 }
