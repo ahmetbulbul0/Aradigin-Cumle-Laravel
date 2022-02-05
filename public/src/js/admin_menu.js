@@ -14,6 +14,22 @@ closeMenuIcon.onclick = function () {
     closeMenuIcon.style.display = "none"
 }
 
+var openMenuIcon1 = document.getElementById("openMenuIcon1");
+var closeMenuIcon1 = document.getElementById("closeMenuIcon1");
+var dropdown = document.getElementById("dropdown");
+
+openMenuIcon1.onclick = function () {
+    dropdown.style.display = "flex";
+    openMenuIcon1.style.display = "none";
+    closeMenuIcon1.style.display = "flex"
+}
+
+closeMenuIcon1.onclick = function () {
+    dropdown.style.display = "none";
+    openMenuIcon1.style.display = "flex";
+    closeMenuIcon1.style.display = "none"
+}
+
 var openFullLineThemeIcon = document.getElementById("openFullLineThemeIcon");
 var closeFullLineThemeIcon = document.getElementById("closeFullLineThemeIcon");
 var fullLine = document.getElementById("fullLine");
