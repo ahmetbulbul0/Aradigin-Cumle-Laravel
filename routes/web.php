@@ -42,6 +42,7 @@ use App\Http\Controllers\Pages\System\CategoryGroupDeletePageController;
 use App\Http\Controllers\Pages\System\NewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
+use App\Http\Controllers\Pages\System\NewsEditPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\SystemSignOutPageController;
@@ -192,6 +193,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/haberler/publishDateZA", [SystemNewsListPageController::class, "publishDateZA"])->name("haberler_publishDateZA");
         Route::get("/sistem-paneli/haberler/writeTimeAZ", [SystemNewsListPageController::class, "writeTimeAZ"])->name("haberler_writeTimeAZ");
         Route::get("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "writeTimeZA"])->name("haberler_writeTimeZA");
+    // HABER DÜZENLE
+        Route::get("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "index"])->name("haber_düzenle");
     // HABER İSTATİSTİKLERİ
         Route::get("/sistem-paneli/haberler/istatistikleri/{listType}", [NewsStatisticsPageController::class, "index"]);
         Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
@@ -308,3 +311,5 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/haberler/publishDateZA", [SystemNewsListPageController::class, "form"]);
             Route::post("/sistem-paneli/haberler/writeTimeAZ", [SystemNewsListPageController::class, "form"]);
             Route::post("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "form"]);
+        // HABER DÜZENLE
+            Route::post("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "form"]);

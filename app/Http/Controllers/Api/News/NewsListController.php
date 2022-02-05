@@ -92,6 +92,10 @@ class NewsListController extends Controller
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("lin_url", "ASC")->get()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    {
+        return NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray();
+    }
 }
 
     
