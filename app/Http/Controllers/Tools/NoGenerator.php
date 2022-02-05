@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tools;
 
+use App\Http\Controllers\Controller;
 use App\Models\CategoriesModel;
 use App\Models\CategoryGroupsModel;
 use App\Models\CategoryGroupUrlsModel;

@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class AuthorDashboardPageController extends Controller
 {
-    //
+    public function index() {
+        $data["page_title"] = "AnaPanel";
+        return view("Author/Pages/dashboard")->with("data", $data);
+    }
 }
