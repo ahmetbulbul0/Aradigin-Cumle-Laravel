@@ -9,6 +9,6 @@ class HomePageController extends Controller
 {
     public function index() {
         $data["page_title"] = "AnaSayfa";
-        return view("Visitor/Pages/home")->with("data", $data);
+        return view("visitor.pages.home")->with("data", $data);
     }
 }
