@@ -313,3 +313,6 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "form"]);
         // HABER DÜZENLE
             Route::post("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "form"]);
+        // SİSTEM PANELİ AYARLAR
+            Route::post("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "themeForm"]);
+            Route::post("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constantsForm"]);

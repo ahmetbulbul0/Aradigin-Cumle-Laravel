@@ -19,7 +19,8 @@ class UsersModel extends Model
         "full_name",
         "username",
         "password",
-        "type"
+        "type",
+        "settings"
     ];
     
     protected $hidden = [

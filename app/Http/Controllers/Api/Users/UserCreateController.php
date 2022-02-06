@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Users;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Models\UsersModel;
+use App\Models\UsersSettingsModel;
 use App\Models\UserTypesModel;
 use Illuminate\Support\Str;
 
@@ -74,12 +75,21 @@ class UserCreateController extends Controller
         $password = $data["data"]["password"];
         $type = $data["data"]["type"];
 
+        $userSettingsNo = NoGenerator::generateUsersSettingsNo();
+        UsersSettingsModel::create([
+            "no" => $userSettingsNo,
+            "user_no" => $no,
+            "website_theme" => NULL,
+            "dashboard_theme" => NULL
+        ]);
+
         UsersModel::create([
             "no" => $no,
             "full_name" => $fullName,
             "username" => $username,
             "password" => $password,
             "type" => $type,
+            "settings" => $userSettingsNo
         ]);
 
         $data["createdData"] = UsersModel::where("no", $no)->with("type")->get()->toArray();

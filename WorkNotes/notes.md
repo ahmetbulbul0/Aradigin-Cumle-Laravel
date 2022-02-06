@@ -17,6 +17,8 @@
     * UserTypes
     * Visitors
     * Writings
+    * Constants
+    * UsersSettings
 ]
 
 *Controllers*
@@ -180,9 +182,9 @@
     - My News Statistics
     - My News Statistic Time
     - My News Statistic Detail
-    - Settings [
-        - My Account
-        - Theme
+    - [CREATİNG]Settings [
+        - [CREATİNG]My Account
+        - [CREATİNG]Theme
     ]
 ]
 * System [
@@ -211,12 +213,13 @@
     - [FİNİSH]Category Group List
     - [FİNİSH]Category Group Edit
     - Category Group Delete
-    - News List 
+    - [FİNİSH]News List 
+    - [FİNİSH]News Edit 
     - News Statistics
     - News Statistic Time
     - News Statistic Detail
-    - Settings [
-        - Theme
-        - Constants
+    - [CREATİNG]Settings [
+        - [CREATİNG]Theme
+        - [FİNİSH]Constants
     ]
 ]
