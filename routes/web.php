@@ -201,7 +201,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/haberler/istatistikleri/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
     // SİSTEM PANELİ AYARLAR
         Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema");
-        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("sistem_paneli_ayarlar_sabitler");
+        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler");
     // SİSTEM PANELİ ÇIKIŞ YAP
         Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap");
 /* FORM ROUTES */

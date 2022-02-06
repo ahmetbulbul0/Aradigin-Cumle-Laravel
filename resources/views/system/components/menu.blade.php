@@ -245,12 +245,12 @@
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/tema">Tema</a>
+                                <a href="{{ route('sistem_paneli_ayarlar_tema') }}">Tema</a>
                             </span>
                         </div>
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/sabitler">Sabitler</a>
+                                <a href="{{ route('ayarlar_sabitler') }}">Sabitler</a>
                             </span>
                         </div>
                         <div class="item">
