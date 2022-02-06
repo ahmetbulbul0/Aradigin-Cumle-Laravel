@@ -572,6 +572,69 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 4 VALUES BOX */
 .outValues4Box {
     width: 100%;
@@ -878,6 +941,554 @@ body {
         border-radius: 0;
     }
 }
+/* SETTİNGS */
+.outSettings {
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outSettings .inSettings {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
+    border-radius: 25px;
+}
+.outSettings .inSettings .outSettingsMenu {
+    width: 15%;
+    border-right: 1px solid var(--dark-light);
+}
+.outSettings .inSettings .outSettingsMenu .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    border-bottom: 1px solid var(--dark-light);
+}
+.outSettings .inSettings .outSettingsMenu .outTitle .inTitle {
+    font-size: 125%;
+    font-weight: 600;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu {
+    width: 100%;
+    display: block;
+}
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 30px;
+    font-weight: 300;
+    font-size: 90%;
+    border-bottom: 1px solid var(--dark-light);
+}
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem:nth-last-child(1) {
+    border-bottom: none;
+}
+.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem .inSettingsMenuItem {
+    cursor: pointer;
+}
+.outSettings .inSettings .outSettingsContent {
+    width: 85%;
+    box-sizing: border-box;
+    padding: 24px 30px;
+}
+.outSettings .inSettings .outSettingsContent .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .outTitle .inTitle {
+    font-size: 110%;
+    font-weight: 400;
+    position: relative;
+    padding: 0 4px;
+}
+.outSettings .inSettings .outSettingsContent .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent {
+    width: 100%;
+    margin-top: 24px;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line:nth-child(1) {
+    margin-top: 0;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue label {
+    width: 120px;
+    font-weight: 300;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue span {
+    width: calc(100% - 120px);
+    font-weight: 300;
+    color: var(--dark-light);
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme label {
+    width: 140px;
+    font-weight: 300;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values {
+    width: calc(100% - 140px);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value {
+    font-weight: 300;
+    padding: 6px 12px;
+    margin-left: 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value:nth-child(1) {
+    margin-left: 0;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value.active {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values .value:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1px solid var(--dark-light);
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar:nth-child(1) {
+    margin-left: 0;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem label {
+    width: 50%;
+    font-weight: 300;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText {
+    width: 50%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: text;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit button {
+    padding: 6px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 300;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit button:hover {
+    box-shadow: none;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue label {
+    width: 120px;
+    font-weight: 300;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue span {
+    width: calc(100% - 120px);
+    font-weight: 300;
+    padding: 6px 0;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink {
+    font-style: italic;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink span {
+    cursor: pointer;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+    width: calc(100% - 400px);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .label {
+    width: 120px;
+    text-align: left;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput label {
+    font-weight: 300;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+    width: calc(100% - 140px);
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: text;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions button {
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    cursor: pointer;
+    font-weight: 300;
+    margin-left: 6px;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions button:nth-child(1) {
+    margin-left: 0;
+}
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions button:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-shadow: 0;
+}
+@media only screen and (max-width: 1060px) {
+    .outSettings .inSettings {
+        display: block;
+    }
+    .outSettings .inSettings .outSettingsMenu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-right: 0;
+        border-bottom: 1px solid var(--dark-light);
+    }
+    .outSettings .inSettings .outSettingsMenu .inSettingsMenu {
+        display: flex;
+    }
+
+    .outSettings .inSettings .outSettingsContent {
+        width: 100%;
+    }
+
+
+    .outSettings .inSettings .outSettingsMenu .outTitle {
+        width: auto;
+        border-bottom: 0;
+        border-right: 1px solid var(--dark-light);
+    }
+
+    .outSettings .inSettings .outSettingsMenu .inSettingsMenu {
+        width: auto;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem {
+        border-bottom: 0;
+        border-left: 1px solid var(--dark-light);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+        width: 100%;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+        margin-top: 24px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem {
+        display: block;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 24px;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar:nth-child(1) {
+        margin-top: 0;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar {
+        display: block;
+        border-left: none;
+        padding: 20px 20px 0;
+        border-top: 1px solid var(--dark-light);
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar:nth-child(1) {
+        border-top: 0;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .bar:nth-child(1) {
+        margin-left: 0;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText {
+        width: 100%;
+        margin-top: 12px;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit {
+        justify-content: center;
+        padding-top: 20px;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit button {
+        padding: 6px 12px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 300;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme {
+        display: block;
+        padding-top: 20px;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme label {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingTheme .values {
+        margin-top: 12px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line {
+        border-top: 1px solid var(--dark-light);
+        display: block;
+        padding-top: 12px;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue {
+        display: block;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue label {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .notChangeOneValue span {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue {
+        display: block;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue label {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingOneValue span {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions {
+        display: block;
+    }
+
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions button {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingActions button:nth-child(1) {
+        margin-top: 0;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput {
+        display: block;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput label {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changingForm .changingInput .outInputText input[type="text"] {
+        font-size: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1757,448 +2368,7 @@ body {
     font-weight: 300;
 }
 
-/* [C]ADMİN SETTİNGS */
 
-.outSettings {
-    width: 100%;
-    margin-top: 40px;
-    padding: 0 50px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outSettings .inSettings {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
-    border-radius: 25px;
-}
-
-.outSettings .inSettings .outSettingsMenu {
-    width: 15%;
-    border-right: 1px solid var(--dark-light);
-}
-
-.outSettings .inSettings .outSettingsMenu .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 12px 30px;
-    border-bottom: 1px solid var(--dark-light);
-}
-
-.outSettings .inSettings .outSettingsMenu .outTitle .inTitle {
-    font-size: 125%;
-    font-weight: 600;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outSettings .inSettings .outSettingsMenu .inSettingsMenu {
-    width: 100%;
-    display: block;
-}
-
-.outSettings .inSettings .outSettingsMenu .inSettingsMenu .outSettingsMenuItem {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 30px;
-    font-weight: 300;
-    font-size: 90%;
-    border-bottom: 1px solid var(--dark-light);
-}
-
-.outSettings
-    .inSettings
-    .outSettingsMenu
-    .inSettingsMenu
-    .outSettingsMenuItem:nth-last-child(1) {
-    border-bottom: none;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsMenu
-    .inSettingsMenu
-    .outSettingsMenuItem
-    .inSettingsMenuItem {
-    cursor: pointer;
-}
-
-.outSettings .inSettings .outSettingsContent {
-    width: 85%;
-    box-sizing: border-box;
-    padding: 12px 30px;
-}
-
-.outSettings .inSettings .outSettingsContent .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings .inSettings .outSettingsContent .outTitle .inTitle {
-    font-size: 110%;
-    font-weight: 400;
-    position: relative;
-    padding: 0 4px;
-}
-
-.outSettings .inSettings .outSettingsContent .outTitle .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outSettings .inSettings .outSettingsContent .inSettingsContent {
-    width: 100%;
-    margin-top: 24px;
-}
-
-.outSettings .inSettings .outSettingsContent .inSettingsContent .line {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line:nth-child(1) {
-    margin-top: 0;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .notChangeOneValue {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .notChangeOneValue
-    label {
-    width: 120px;
-    font-weight: 300;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .notChangeOneValue
-    span {
-    width: calc(100% - 120px);
-    font-weight: 300;
-    font-size: 90%;
-    padding: 6px 0;
-    color: var(--dark-light);
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    label {
-    width: 140px;
-    font-weight: 300;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    .values {
-    width: calc(100% - 140px);
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    .values
-    .value {
-    font-weight: 300;
-    font-size: 90%;
-    padding: 6px 12px;
-    margin-left: 12px;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    .values
-    .value:nth-child(1) {
-    margin-left: 0;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    .values
-    .value.active {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingTheme
-    .values
-    .value:hover {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingOneValue {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingOneValue
-    label {
-    width: 120px;
-    font-weight: 300;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingOneValue
-    span {
-    width: calc(100% - 120px);
-    font-weight: 300;
-    padding: 6px 0;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changeLink {
-    font-style: italic;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changeLink
-    span {
-    cursor: pointer;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm {
-    width: 100%;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingInput {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingInput
-    .label {
-    width: 120px;
-    text-align: left;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingInput
-    label {
-    font-weight: 300;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingInput
-    .outInputText {
-    width: 500px;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-sizing: border-box;
-    padding: 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingInput
-    .outInputText
-    input[type="text"] {
-    width: 100%;
-    background-color: var(--dark-blue);
-    border-radius: 50px;
-    box-sizing: border-box;
-    padding: 3px 12px;
-    font-weight: 300;
-    font-size: 90%;
-    cursor: text;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingActions {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingActions
-    span {
-    padding: 6px 12px;
-    border-radius: 50px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(26, 53, 71, 0.07);
-    cursor: pointer;
-    /* font-size: 90%; */
-    font-weight: 300;
-    margin-left: 6px;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingActions
-    span:nth-child(1) {
-    margin-left: 0;
-}
-
-.outSettings
-    .inSettings
-    .outSettingsContent
-    .inSettingsContent
-    .line
-    .changingForm
-    .changingActions
-    span:hover {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-shadow: 0;
-}
 
 /* [C]ADMİN NEWS STATİSTİCS */
 
@@ -4169,324 +4339,6 @@ body {
 
 /* MY ACCOUNT SETTİNGS */
 
-@media only screen and (max-width: 1300px) {
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput
-        .outInputText {
-        width: 400px;
-    }
-}
-
-@media only screen and (max-width: 1180px) {
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput
-        .outInputText {
-        width: 300px;
-    }
-}
-
-@media only screen and (max-width: 1062px) {
-    .outSettings {
-        padding: 0;
-    }
-
-    .outSettings .inSettings {
-        border-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 960px) {
-    .outSettings .inSettings {
-        display: block;
-    }
-
-    .outSettings .inSettings .outSettingsMenu {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        border-right: 0;
-        border-bottom: 1px solid var(--dark-light);
-    }
-
-    .outSettings .inSettings .outSettingsMenu .outTitle {
-        width: auto;
-        border-bottom: 0;
-        border-right: 1px solid var(--dark-light);
-    }
-
-    .outSettings .inSettings .outSettingsMenu .inSettingsMenu {
-        width: auto;
-        display: flex;
-        justify-content: right;
-        align-items: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsMenu
-        .inSettingsMenu
-        .outSettingsMenuItem {
-        border-bottom: 0;
-        border-left: 1px solid var(--dark-light);
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outSettings .inSettings .outSettingsContent {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 820px) {
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput {
-        justify-content: space-between;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput
-        .outInputText {
-        width: calc(100% - 120px);
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingActions {
-        margin-top: 12px;
-        justify-content: center;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .outSettings .inSettings .outSettingsContent .inSettingsContent .line {
-        border-top: 1px solid var(--dark-light);
-    }
-
-    .outSettings .inSettings .outSettingsContent .inSettingsContent .line {
-        display: block;
-        padding-top: 12px;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .notChangeOneValue {
-        display: block;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .notChangeOneValue
-        label {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .notChangeOneValue
-        span {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 6px 0;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingOneValue {
-        display: block;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingOneValue
-        label {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingOneValue
-        span {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 6px 0;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changeLink {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingActions {
-        display: block;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingActions
-        span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 6px 0;
-        margin-top: 6px;
-        margin-left: 0;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingActions
-        span:nth-child(1) {
-        margin-top: 0;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput {
-        display: block;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput
-        .outInputText {
-        width: 100%;
-        margin-top: 6px;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingForm
-        .changingInput
-        .label {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingTheme {
-        display: block;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingTheme
-        label {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outSettings
-        .inSettings
-        .outSettingsContent
-        .inSettingsContent
-        .line
-        .changingTheme
-        .values {
-        margin-top: 12px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
 
 /* MY NEWS */
 

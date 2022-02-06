@@ -3,5 +3,5 @@
 @section('content')
     @include("system.components.menu")
     
-    @include("system.components.settings_theme")
+    @include("system.components.settings_constants")
 @endsection

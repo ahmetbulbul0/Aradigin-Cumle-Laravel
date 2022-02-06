@@ -46,9 +46,9 @@
                         </div>
 
                         <div class="changingActions">
-                            <span>Kullanılabilirliği Denetle</span>
-                            <span>Değiştir</span>
-                            <span id="usernameChangingCancel">İptal</span>
+                            <button>Kullanılabilirliği Denetle</button>
+                            <button>Değiştir</button>
+                            <button id="usernameChangingCancel">İptal</button>
                         </div>
                     </div>
 
@@ -74,8 +74,8 @@
                         </div>
 
                         <div class="changingActions">
-                            <span>Değiştir</span>
-                            <span id="fullNameChangingCancel">İptal</span>
+                            <button>Değiştir</button>
+                            <button id="fullNameChangingCancel">İptal</button>
                         </div>
                     </div>
 
