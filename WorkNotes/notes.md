@@ -23,6 +23,12 @@
 
 *Controllers*
 * Pages [
+    * Visitor [
+        * [Home]PageController
+        * [NewsDetail]PageController
+        * [SignIn]PageController
+        * [VisitorNewsList]PageController
+    ]
     * Author [
         * [AuthorDashboard]PageController
         * [AuthorSettings]PageController
@@ -65,12 +71,6 @@
         * [UserTypeDelete]PageController
         * [UserTypeEdit]PageController
         * [UserTypesList]PageController
-    ]
-    * Visitor [
-        * [Home]PageController
-        * [NewsDetail]PageController
-        * [SignIn]PageController
-        * [VisitorNewsList]PageController
     ]
 ]
 * Api [

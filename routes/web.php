@@ -74,8 +74,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/yazar-paneli/haberlerim/istatistikleri/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
         Route::get("/yazar-paneli/haberlerim/istatistikleri/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"]);
     // YAZAR PANELİ AYARLAR
-        Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"]);
-        Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"]);
+        Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"])->name("yazar_paneli_ayarlar_profilim");
+        Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"])->name("yazar_paneli_ayarlar_tema");
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
         Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel");
@@ -208,6 +208,9 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     /* AUTHOR PAGES */
         // HABER EKLE
             Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
+        // YAZAR PANELİ AYARLAR
+            Route::post("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccountForm"]);
+            Route::post("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "themeForm"]);
     /* SYSTEM PAGES */
         // KULLANICI TİPİ EKLE
             Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
