@@ -182,9 +182,9 @@
     - My News Statistics
     - My News Statistic Time
     - My News Statistic Detail
-    - [CREATİNG]Settings [
-        - [CREATİNG]My Account
-        - [CREATİNG]Theme
+    - [FİNİSH]Settings [
+        - [FİNİSH]My Account
+        - [FİNİSH]Theme
     ]
 ]
 * System [
@@ -215,11 +215,12 @@
     - Category Group Delete
     - [FİNİSH]News List 
     - [FİNİSH]News Edit 
+    - News Delete
     - News Statistics
     - News Statistic Time
     - News Statistic Detail
-    - [CREATİNG]Settings [
-        - [CREATİNG]Theme
+    - [FİNİSH]Settings [
+        - [FİNİSH]Theme
         - [FİNİSH]Constants
     ]
 ]
