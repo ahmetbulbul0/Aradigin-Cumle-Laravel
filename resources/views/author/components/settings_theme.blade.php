@@ -8,10 +8,10 @@
             </div>
             <div class="inSettingsMenu">
                 <div class="outSettingsMenuItem">
-                    <a href="#" class="inSettingsMenuItem">Profilim</a>
+                    <a href="{{ route("yazar_paneli_ayarlar_profilim") }}" class="inSettingsMenuItem">Profilim</a>
                 </div>
                 <div class="outSettingsMenuItem">
-                    <a href="#" class="inSettingsMenuItem">Tema</a>
+                    <a href="{{ route("yazar_paneli_ayarlar_tema") }}" class="inSettingsMenuItem">Tema</a>
                 </div>
             </div>
         </div>

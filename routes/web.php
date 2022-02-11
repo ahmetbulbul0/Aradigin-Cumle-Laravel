@@ -57,18 +57,18 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // HABER DETAY
         Route::get("/haber/{newsLinkUrl}", [NewsDetailPageController::class, "index"]);
     // YAZAR GİRİŞİ
-        Route::get("/yazar-girisi", [SignInPageController::class, "index"]);
+        Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi");
 /* AUTHOR PAGES */
     // YAZAR PANELİ ANA SAYFA
-        Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"]);
+        Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
     // HABER EKLE
-        Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"]);
+        Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
     // HABERLERİM LİSTESİ
-        Route::get("/yazar-paneli/haberlerim/{listType}", [MyNewsListPageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/", [MyNewsListPageController::class, "index"])->name("haberlerim");
     // HABERLERİMDEN HABER DÜZENLE
-        Route::get("/yazar-paneli/haberlerim/duzenle/{newsNo}", [MyNewsEditPageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/duzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
     // HABERLERİMDEN HABER SİL
-        Route::get("/yazar-paneli/haberlerim/sil/{newsNo}", [MyNewsDeletePageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
     // HABERLERİMDEN HABER İSTATİSTİKLERİ
         Route::get("/yazar-paneli/haberlerim/istatistikleri", [MyNewsStatisticsPageController::class, "index"]);
         Route::get("/yazar-paneli/haberlerim/istatistikleri/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
@@ -76,6 +76,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // YAZAR PANELİ AYARLAR
         Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"])->name("yazar_paneli_ayarlar_profilim");
         Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"])->name("yazar_paneli_ayarlar_tema");
+    // SİSTEM PANELİ ÇIKIŞ YAP
+        Route::get("/yazar-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("yazar_paneli_cikis_yap"); // controller değiştirilecek
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
         Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel");
@@ -203,7 +205,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema");
         Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler");
     // SİSTEM PANELİ ÇIKIŞ YAP
-        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap");
+        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap"); // controller değiştirilecek
 /* FORM ROUTES */
     /* AUTHOR PAGES */
         // HABER EKLE
