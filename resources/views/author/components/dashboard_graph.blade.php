@@ -1,4 +1,16 @@
-<div class="outChartAndWelcomeHowAreYou">
+<div class="outChart">
+    <div class="inChart">
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+<script src="{{ URL::asset('src/js/chart.js') }}"></script>
+
+
+
+{{-- <div class="outChartAndWelcomeHowAreYou">
     <div class="inChartAndWelcomeHowAreYou">
         <div class="chart">
             <canvas id="myChart"></canvas>
@@ -42,7 +54,5 @@
             </form>
         </div>
     </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
-<script src="{{ URL::asset('src/js/chart.js') }}"></script>
-<script src="{{ URL::asset('src/js/welcome_how_are_you.js') }}"></script>
+</div> --}}
+{{-- <script src="{{ URL::asset('src/js/welcome_how_are_you.js') }}"></script> --}}
