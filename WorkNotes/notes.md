@@ -5,6 +5,11 @@
     - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
     - tüm butonlara 3d stili tanımlanacak 
 ]
+* BackEnd [
+    - çıkış yapma sistemi yapılacak
+    - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
+    - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
+]
 
 *Models & Migrations*
 * Models [
