@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Users\UserSignInController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Pages\Visitor\HomePageController;
@@ -76,7 +77,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // YAZAR PANELİ AYARLAR
         Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"])->name("yazar_paneli_ayarlar_profilim");
         Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"])->name("yazar_paneli_ayarlar_tema");
-    // SİSTEM PANELİ ÇIKIŞ YAP
+    // YAZAR PANELİ ÇIKIŞ YAP
         Route::get("/yazar-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("yazar_paneli_cikis_yap"); // controller değiştirilecek
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
@@ -207,6 +208,9 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // SİSTEM PANELİ ÇIKIŞ YAP
         Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap"); // controller değiştirilecek
 /* FORM ROUTES */
+    /* VİSİTOR PAGES */
+        /* YAZAR GİRİŞİ */
+            Route::post("/yazar-girisi", [SignInPageController::class, "form"]);
     /* AUTHOR PAGES */
         // HABER EKLE
             Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);

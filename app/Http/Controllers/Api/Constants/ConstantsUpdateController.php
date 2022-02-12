@@ -15,10 +15,10 @@ class ConstantsUpdateController extends Controller
         $value_categoryTypeMain = htmlspecialchars(intval($data["data"][0]["value"]));
         $key_categoryTypeSub = htmlspecialchars($data["data"][1]["key"]);
         $value_categoryTypeSub = htmlspecialchars(intval($data["data"][1]["value"]));
-        $key_userTypeMain = htmlspecialchars($data["data"][2]["key"]);
-        $value_userTypeMain = htmlspecialchars(intval($data["data"][2]["value"]));
-        $key_userTypeSub = htmlspecialchars($data["data"][3]["key"]);
-        $value_userTypeSub = htmlspecialchars(intval($data["data"][3]["value"]));
+        $key_userTypeAuthor = htmlspecialchars($data["data"][2]["key"]);
+        $value_userTypeAuthor = htmlspecialchars(intval($data["data"][2]["value"]));
+        $key_userTypeSystem = htmlspecialchars($data["data"][3]["key"]);
+        $value_userTypeSystem = htmlspecialchars(intval($data["data"][3]["value"]));
         $key_webSiteVisitorMenuCategory1 = htmlspecialchars($data["data"][4]["key"]);
         $value_webSiteVisitorMenuCategory1 = htmlspecialchars(intval($data["data"][4]["value"]));
         $key_webSiteVisitorMenuCategory2 = htmlspecialchars($data["data"][5]["key"]);
@@ -46,12 +46,12 @@ class ConstantsUpdateController extends Controller
                 "value" => $value_categoryTypeSub,
             ],
             [
-                "key" => $key_userTypeMain,
-                "value" => $value_userTypeMain,
+                "key" => $key_userTypeAuthor,
+                "value" => $value_userTypeAuthor,
             ],
             [
-                "key" => $key_userTypeSub,
-                "value" => $value_userTypeSub,
+                "key" => $key_userTypeSystem,
+                "value" => $value_userTypeSystem,
             ],
             [
                 "key" => $key_webSiteVisitorMenuCategory1,

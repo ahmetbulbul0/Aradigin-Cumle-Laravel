@@ -2,7 +2,7 @@
     <div class="inMenu">
         <div class="bar">
             <span class="textBox">
-                <a href="{{ route('sistem_paneli_anapanel') }}" class="strong">
+                <a href="{{ route('anasayfa') }}" class="strong">
                     <i class="far fa-newspaper"></i>
                     AradığınCümle
                 </a>

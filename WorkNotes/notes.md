@@ -1,168 +1,179 @@
 **Notes**
 
+*To Do List*
+* FrontEnd [
+    - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
+    - tüm butonlara 3d stili tanımlanacak 
+]
+
 *Models & Migrations*
 * Models [
-    * Categories
-    * CategoryGroups
-    * CategoryGroupUrls
-    * CategoryTypes
-    * ListingsDetail
-    * Listings
-    * News
-    * ReadingsDetail
-    * Readings
-    * ResourcePlatforms
-    * ResourceUrls
-    * Users
-    * UserTypes
-    * Visitors
-    * Writings
-    * Constants
-    * UsersSettings
+    * [FİNİSH]Categories
+    * [FİNİSH]CategoryGroups
+    * [FİNİSH]CategoryGroupUrls
+    * [FİNİSH]CategoryTypes
+    * [FİNİSH]ListingsDetail
+    * [FİNİSH]Listings
+    * [FİNİSH]News
+    * [FİNİSH]ReadingsDetail
+    * [FİNİSH]Readings
+    * [FİNİSH]ResourcePlatforms
+    * [FİNİSH]ResourceUrls
+    * [FİNİSH]Users
+    * [FİNİSH]UserTypes
+    * [FİNİSH]Visitors
+    * [FİNİSH]Writings
+    * [FİNİSH]Constants
+    * [FİNİSH]UsersSettings
 ]
 
 *Controllers*
 * Pages [
     * Visitor [
-        * [Home]PageController
-        * [NewsDetail]PageController
-        * [SignIn]PageController
-        * [VisitorNewsList]PageController
+        * HomePageController
+        * NewsDetailPageController
+        * [FİNİSH]SignInPageController
+        * VisitorNewsListPageController
     ]
     * Author [
-        * [AuthorDashboard]PageController
-        * [AuthorSettings]PageController
-        * [MyNewsDelete]PageController
-        * [MyNewsEdit]PageController
-        * [MyNewsList]PageController
-        * [MyNewsStatisticDetail]PageController
-        * [MyNewsStatistics]PageController
-        * [MyNewStatisticTime]PageController
-        * [NewsCreate]PageController
+        * [FİNİSH]AuthorDashboardPageController
+        * [FİNİSH]AuthorSettingsPageController
+        * MyNewsDeletePageController
+        * MyNewsEditPageController
+        * MyNewsListPageController 
+        * MyNewsStatisticDetailPageController
+        * MyNewsStatisticsPageController
+        * MyNewStatisticTimePageController
+        * [FİNİSH]NewsCreatePageController
     ]
     * System [
-        * [CategoriesList]PageController
-        * [CategoryCreate]PageController
-        * [CategoryDelete]PageController
-        * [CategoryEdit]PageController
-        * [CategoryGroupCreate]PageController
-        * [CategoryGroupDelete]PageController
-        * [CategoryGroupEdit]PageController
-        * [CategoryGroupsList]PageController
-        * [CategoryTypeCreate]PageController
-        * [CategoryTypeDelete]PageController
-        * [CategoryTypeEdit]PageController
-        * [CategoryTypesList]PageController
-        * [NewsStatisticDetail]PageController
-        * [NewsStatistics]PageController
-        * [NewsStatisticTime]PageController
-        * [ResourcePlatformCreate]PageController
-        * [ResourcePlatformDelete]PageController
-        * [ResourcePlatformEdit]PageController
-        * [ResourcePlatformsList]PageController
-        * [SystemDashboard]PageController
-        * [SystemNewsList]PageController
-        * [SystemSettings]PageController
-        * [UserCreate]PageController
-        * [UserDelete]PageController
-        * [UserEdit]PageController
-        * [UsersList]PageController
-        * [UserTypeCreate]PageController
-        * [UserTypeDelete]PageController
-        * [UserTypeEdit]PageController
-        * [UserTypesList]PageController
+        * [FİNİSH]CategoriesListPageController
+        * [FİNİSH]CategoryCreatePageController
+        * CategoryDeletePageController
+        * [FİNİSH]CategoryEditPageController
+        * [FİNİSH]CategoryGroupCreatePageController
+        * CategoryGroupDeletePageController
+        * [FİNİSH]CategoryGroupEditPageController
+        * [FİNİSH]CategoryGroupsListPageController
+        * [FİNİSH]CategoryTypeCreatePageController
+        * CategoryTypeDeletePageController
+        * [FİNİSH]CategoryTypeEditPageController
+        * [FİNİSH]CategoryTypesListPageController
+        * NewsStatisticDetailPageController
+        * NewsStatisticsPageController
+        * NewsStatisticTimePageController
+        * [FİNİSH]ResourcePlatformCreatePageController
+        * ResourcePlatformDeletePageController
+        * [FİNİSH]ResourcePlatformEditPageController
+        * [FİNİSH]ResourcePlatformsListPageController
+        * [FİNİSH]SystemDashboardPageController
+        * [FİNİSH]SystemNewsListPageController
+        * [FİNİSH]SystemSettingsPageController
+        * [FİNİSH]UserCreatePageController
+        * UserDeletePageController
+        * [FİNİSH]UserEditPageController
+        * [FİNİSH]UsersListPageController
+        * [FİNİSH]UserTypeCreatePageController
+        * UserTypeDeletePageController
+        * [FİNİSH]UserTypeEditPageController
+        * [FİNİSH]UserTypesListPageController
     ]
 ]
 * Api [
     * Categories [
-        * [CategoryCreate]Controller
-        * [CategoryDelete]Controller
-        * [CategoryEdit]Controller
-        * [CategoriesList]Controller
+        * [FİNİSH]CategoryCreateController
+        * CategoryDeleteController
+        * [FİNİSH]CategoryEditController
+        * [FİNİSH]CategoriesListController
     ]
     * CategoryGroups [
-        * [CategoryGroupCreate]Controller
-        * [CategoryGroupDelete]Controller
-        * [CategoryGroupEdit]Controller
-        * [CategoryGroupsList]Controller
+        * [FİNİSH]CategoryGroupCreateController
+        * CategoryGroupDeleteController
+        * [FİNİSH]CategoryGroupEditController
+        * [FİNİSH]CategoryGroupsListController
     ]
     * CategoryGroupUrls [
-        * [CategoryGroupUrlsCreate]Controller
-        * [CategoryGroupUrlsDelete]Controller
-        * [CategoryGroupUrlsEdit]Controller
-        * [CategoryGroupUrlsList]Controller
+        * CategoryGroupUrlsCreateController
+        * CategoryGroupUrlsDeleteController
+        * CategoryGroupUrlsEditController
+        * CategoryGroupUrlsListController
     ]
     * CategoryTypes [
-        * [CategoryTypesCreate]Controller
-        * [CategoryTypesDelete]Controller
-        * [CategoryTypesEdit]Controller
-        * [CategoryTypesList]Controller
+        * [FİNİSH]CategoryTypesCreateController
+        * CategoryTypesDeleteController
+        * [FİNİSH]CategoryTypesEditController
+        * [FİNİSH]CategoryTypesListController
+    ]
+    * Constants [
+        * [FİNİSH]ConstantsListController
+        * [FİNİSH]ConstantsUpdateController
     ]
     * ListingsDetail [
-        * [ListingsDetailCreate]Controller
-        * [ListingsDetailDelete]Controller
-        * [ListingsDetailEdit]Controller
-        * [ListingsDetailList]Controller
+        * ListingsDetailCreateController
+        * ListingsDetailDeleteController
+        * ListingsDetailEditController
+        * ListingsDetailListController
     ]
     * Listings [
-        * [ListingsCreate]Controller
-        * [ListingsDelete]Controller
-        * [ListingsEdit]Controller
-        * [ListingsList]Controller
+        * ListingsCreateController
+        * ListingsDeleteController
+        * ListingsEditController
+        * ListingsListController
     ]
     * News [
-        * [NewsCreate]Controller
-        * [NewsDelete]Controller
-        * [NewsEdit]Controller
-        * [NewsList]Controller
+        * [FİNİSH]NewsCreateController
+        * NewsDeleteController
+        * [FİNİSH]NewsEditController
+        * [FİNİSH]NewsListController
     ]
     * ReadingsDetail [
-        * [ReadingsDetailCreate]Controller
-        * [ReadingsDetailDelete]Controller
-        * [ReadingsDetailEdit]Controller
-        * [ReadingsDetailList]Controller
+        * ReadingsDetailCreateController
+        * ReadingsDetailDeleteController
+        * ReadingsDetailEditController
+        * ReadingsDetailListController
     ]
     * Readings [
-        * [ReadingsCreate]Controller
-        * [ReadingsDelete]Controller
-        * [ReadingsEdit]Controller
-        * [ReadingsList]Controller
+        * ReadingsCreateController
+        * ReadingsDeleteController
+        * ReadingsEditController
+        * ReadingsListController
     ]
     * ResourcePlatforms [
-        * [ResourcePlatformsCreate]Controller
-        * [ResourcePlatformsDelete]Controller
-        * [ResourcePlatformsEdit]Controller
-        * [ResourcePlatformsList]Controller
+        * [FİNİSH]ResourcePlatformsCreateController
+        * ResourcePlatformsDeleteController
+        * [FİNİSH]ResourcePlatformsEditController
+        * [FİNİSH]ResourcePlatformsListController
     ]
     * ResourceUrls [
-        * [ResourceUrlsCreate]Controller
-        * [ResourceUrlsDelete]Controller
-        * [ResourceUrlsEdit]Controller
-        * [ResourceUrlsList]Controller
+        * ResourceUrlsCreateController
+        * ResourceUrlsDeleteController
+        * ResourceUrlsEditController
+        * ResourceUrlsListController
     ]
     * Users [
-        * [UsersCreate]Controller
-        * [UsersDelete]Controller
-        * [UsersEdit]Controller
-        * [UsersList]Controller
+        * [FİNİSH]UsersCreateController
+        * UsersDeleteController
+        * [FİNİSH]UsersEditController
+        * [FİNİSH]UsersListController
     ]
     * UserTypes [
-        * [UserTypesCreate]Controller
-        * [UserTypesDelete]Controller
-        * [UserTypesEdit]Controller
-        * [UserTypesList]Controller
+        * [FİNİSH]UserTypesCreateController
+        * UserTypesDeleteController
+        * [FİNİSH]UserTypesEditController
+        * [FİNİSH]UserTypesListController
+        * [FİNİSH]UserSignInController
     ]
     * Visitors [
-        * [VisitorsCreate]Controller
-        * [VisitorsDelete]Controller
-        * [VisitorsEdit]Controller
-        * [VisitorsList]Controller
+        * VisitorsCreateController
+        * VisitorsDeleteController
+        * VisitorsEditController
+        * VisitorsListController
     ]
     * Writings [
-        * [WritingsCreate]Controller
-        * [WritingsDelete]Controller
-        * [WritingsEdit]Controller
-        * [WritingsList]Controller
+        * WritingsCreateController
+        * WritingsDeleteController
+        * WritingsEditController
+        * WritingsListController
     ]
 ]
 
@@ -171,10 +182,10 @@
     - Home
     - News List
     - News Detail
-    - Sign In
+    - [FİNİSH]Sign In
 ]
 * Author [
-    - Dashboard
+    - [FİNİSH]Dashboard
     - [FİNİSH]News Create
     - My News List
     - My News Edit
@@ -188,7 +199,7 @@
     ]
 ]
 * System [
-    - Dashboard
+    - [FİNİSH]Dashboard
     - [FİNİSH]User Type Create
     - [FİNİSH]User Type List
     - [FİNİSH]User Type Edit

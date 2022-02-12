@@ -34,4 +34,9 @@ class UsersModel extends Model
     {
         return $this->hasOne(UserTypesModel::class, "no", "type");
     }
+
+    public function settings()
+    {
+        return $this->hasOne(UsersSettingsModel::class, "no", "settings");
+    }
 }

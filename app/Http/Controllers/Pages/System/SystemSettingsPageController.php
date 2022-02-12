@@ -52,12 +52,12 @@ class SystemSettingsPageController extends Controller
                 "value" => $request->categoryTypeSub,
             ],
             [
-                "key" => "user_type_main",
-                "value" => $request->userTypeMain,
+                "key" => "user_type_author",
+                "value" => $request->userTypeAuthor,
             ],
             [
-                "key" => "user_type_sub",
-                "value" => $request->userTypeSub,
+                "key" => "user_type_system",
+                "value" => $request->userTypeSystem,
             ],
             [
                 "key" => "website_visitor_menu_category1",

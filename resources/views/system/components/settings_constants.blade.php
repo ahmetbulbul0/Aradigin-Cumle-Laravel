@@ -49,20 +49,20 @@
                 <div class="line">
                     <div class="changeListItem">
                         <div class="bar">
-                            <label>Ana Kullanıcı Tipi:</label>
+                            <label>Yazar Kullanıcı Tipi:</label>
                             <div class="outInputText">
-                                <input type="text" name="userTypeMain" @foreach ($data['constants'] as $constant)
-                                @if ($constant['key'] == 'user_type_main')
+                                <input type="text" name="userTypeAuthor" @foreach ($data['constants'] as $constant)
+                                @if ($constant['key'] == 'user_type_author')
                                     value="{{ $constant['value'] }}"
                                 @endif
                                 @endforeach>
                             </div>
                         </div>
                         <div class="bar">
-                            <label>Alt Kullanıcı Tipi:</label>
+                            <label>Sistem Kullanıcı Tipi:</label>
                             <div class="outInputText">
-                                <input type="text" name="userTypeSub" @foreach ($data['constants'] as $constant)
-                                @if ($constant['key'] == 'user_type_sub')
+                                <input type="text" name="userTypeSystem" @foreach ($data['constants'] as $constant)
+                                @if ($constant['key'] == 'user_type_system')
                                     value="{{ $constant['value'] }}"
                                 @endif
                                 @endforeach>
