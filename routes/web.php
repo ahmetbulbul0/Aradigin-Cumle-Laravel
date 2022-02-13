@@ -228,6 +228,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kullanici-tipleri/nameZA", [UserTypesListPageController::class, "form"]);
         // KULLANICI TİPİ DÜZENLE
             Route::post("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "form"]);
+        // KULLANICI TİPİ SİL
+            Route::post("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "form"]);
         // KULLANICI EKLE
             Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
         // KULLANICILAR LİSTESİ

@@ -79,7 +79,7 @@
         * [FİNİSH]UserEditPageController
         * [FİNİSH]UsersListPageController
         * [FİNİSH]UserTypeCreatePageController
-        * UserTypeDeletePageController
+        * [FİNİSH]UserTypeDeletePageController
         * [FİNİSH]UserTypeEditPageController
         * [FİNİSH]UserTypesListPageController
     ]
@@ -163,7 +163,7 @@
     ]
     * UserTypes [
         * [FİNİSH]UserTypesCreateController
-        * UserTypesDeleteController
+        * [FİNİSH]UserTypesDeleteController
         * [FİNİSH]UserTypesEditController
         * [FİNİSH]UserTypesListController
         * [FİNİSH]UserSignInController
@@ -208,7 +208,7 @@
     - [FİNİSH]User Type Create
     - [FİNİSH]User Type List
     - [FİNİSH]User Type Edit
-    - User Type Delete
+    - [FİNİSH]User Type Delete
     - [FİNİSH]User Create
     - [FİNİSH]User List
     - [FİNİSH]User Edit
