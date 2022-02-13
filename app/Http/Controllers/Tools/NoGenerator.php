@@ -7,6 +7,7 @@ use App\Models\CategoriesModel;
 use App\Models\CategoryGroupsModel;
 use App\Models\CategoryGroupUrlsModel;
 use App\Models\CategoryTypesModel;
+use App\Models\ConstantsModel;
 use App\Models\ListingsDetailModel;
 use App\Models\ListingsModel;
 use App\Models\NewsModel;
@@ -15,6 +16,7 @@ use App\Models\ReadingsModel;
 use App\Models\ResourcePlatformsModel;
 use App\Models\ResourceUrlsModel;
 use App\Models\UsersModel;
+use App\Models\UsersSettingsModel;
 use App\Models\UserTypesModel;
 use App\Models\VisitorsModel;
 use App\Models\WritingsModel;
@@ -168,6 +170,26 @@ class NoGenerator extends Controller
         while ($noCheck == 1) {
             $no = rand(1000000000, 9999999999);
             $noCheck = WritingsModel::where('no', $no)->count();
+        }
+        return $no;
+    }
+    static function generateConstantsNo()
+    {
+        $no = rand(1000, 9999);
+        $noCheck = ConstantsModel::where('no', $no)->count();
+        while ($noCheck == 1) {
+            $no = rand(1000, 9999);
+            $noCheck = ConstantsModel::where('no', $no)->count();
+        }
+        return $no;
+    }
+    static function generateUsersSettingsNo()
+    {
+        $no = rand(100000, 999999);
+        $noCheck = UsersSettingsModel::where('no', $no)->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = UsersSettingsModel::where('no', $no)->count();
         }
         return $no;
     }

@@ -2,33 +2,33 @@
     <div class="inMenu">
         <div class="bar">
             <span class="textBox">
-                <a href="{{ route('sistem_paneli_anapanel') }}" class="strong">
+                <a href="{{ route('anasayfa') }}" class="strong">
                     <i class="far fa-newspaper"></i>
                     AradığınCümle
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="{{ route('haberler') }}">
-                    Haberler
+                <a href="xxxx">
+                    Kategori
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="{{ route('kategoriler') }}">
-                    Kategoriler
+                <a href="xxxx">
+                    Kategori
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="{{ route('kategori_gruplari') }}">
-                    Kategori Grupları
+                <a href="xxxx">
+                    Kategori
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="{{ route('kaynak_siteler') }}">
-                    Kaynak Siteler
+                <a href="xxxx">
+                    Kategori
                 </a>
             </span>
         </div>
@@ -102,7 +102,7 @@
         <div class="header">
             <div class="search">
                 <div class="outInputText">
-                    <input type="text" placeholder="Sistem İşleri İle İlgili Arama Yapabilirsin">
+                    <input type="text" placeholder="Aradığın Cümle İle İlgili Arama Yapabilirsin">
                     <div class="iconBox">
                         <i class="fas fa-search cP"></i>
                     </div>
@@ -118,10 +118,7 @@
 
                 <div class="linkBar">
                     <span>
-                        <a href="{{ route('anasayfa') }}">WebSite'yi Görüntüle</a>
-                    </span>
-                    <span>
-                        <a href="{{ route('sistem_paneli_cikis_yap') }}">Çıkış Yap</a>
+                        <a href="{{ route('yazar_girisi') }}">Giriş Yap</a>
                     </span>
                 </div>
             </div>
@@ -131,13 +128,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kullanici_tipleri') }}">Kullanıcı Tipleri</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kullanici_tipi_ekle') }}">Kullanıcı Tipi Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -145,13 +162,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kullanicilar') }}">Kullanıcılar</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kullanici_ekle') }}">Kullanıcı Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -159,13 +196,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kaynak_siteler') }}">Kaynak Siteleri</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kaynak_site_ekle') }}">Kaynak Site Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -173,13 +230,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kategori_tipleri') }}">Kategori Tipleri</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kategori_tipi_ekle') }}">Kategori Tipi Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -189,13 +266,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kategoriler') }}">Kategoriler</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kategori_ekle') }}">Kategori Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -203,13 +300,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('kategori_gruplari') }}">Kategori Grupları</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('kategori_grubu_ekle') }}">Kategori Grubu Ekle</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -217,13 +334,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="{{ route('haberler') }}">Haberler</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="/haber-istatisikleri-gelecek-route-buraya">Haber İstatistikleri</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>
@@ -231,23 +368,33 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="/ayarlar">Ayarlar</a>
+                            <a href="####">Ana Kategori</a>
                         </span>
                     </div>
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/tema">Tema</a>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/sabitler">Sabitler</a>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/site-istatistikleri">Site İstatistikleri</a>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="####">Alt Kategori</a>
                             </span>
                         </div>
                     </div>

@@ -913,11 +913,11 @@ body {
 }
 
 .outSignIn .inSignIn {
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
     border-radius: 25px;
     box-sizing: border-box;
     padding: 15px 30px;
-    width: 460px;
+    width: 520px;
 }
 
 .outSignIn .inSignIn .outTitle {
@@ -955,6 +955,23 @@ body {
     margin-top: 18px;
 }
 
+.outSignIn .inSignIn .signInForm .formLine .outErrorBox {
+    width: 100%;
+    font-weight: 400;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outSignIn .inSignIn .signInForm .formLine .outErrorBox
+    span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .outSignIn .inSignIn .signInForm .formLine:nth-child(1) {
     margin-top: 0;
 }
@@ -963,7 +980,7 @@ body {
     text-align: center;
     font-weight: 300;
     width: 50%;
-    max-width: 200px;
+    /* max-width: 200px; */
 }
 
 .outSignIn .inSignIn .signInForm .formLine .outInputText {
@@ -975,7 +992,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 50%;
-    max-width: 200px;
+    /* max-width: 200px; */
 }
 
 .outSignIn

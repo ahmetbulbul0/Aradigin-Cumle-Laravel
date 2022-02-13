@@ -8,10 +8,10 @@
             </div>
             <div class="inSettingsMenu">
                 <div class="outSettingsMenuItem">
-                    <a href="#" class="inSettingsMenuItem">Profilim</a>
+                    <a href="{{ route('yazar_paneli_ayarlar_profilim') }}" class="inSettingsMenuItem">Profilim</a>
                 </div>
                 <div class="outSettingsMenuItem">
-                    <a href="#" class="inSettingsMenuItem">Tema</a>
+                    <a href="{{ route('yazar_paneli_ayarlar_tema') }}" class="inSettingsMenuItem">Tema</a>
                 </div>
             </div>
         </div>
@@ -25,32 +25,32 @@
                 <div class="line">
                     <div class="notChangeOneValue">
                         <label>No:</label>
-                        <span>#168437</span>
+                        <span>#{{ $data['user_data']['no'] }}</span>
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="changingOneValue" id="usernameChangedValue">
                         <label>Kullanıcı Adı:</label>
-                        <span>guaypayy</span>
+                        <span>{{ $data['user_data']['username'] }}</span>
                     </div>
-                    
-                    <div class="changingForm" id="usernameChangingForm">
+
+                    <form method="POST" class="changingForm" id="usernameChangingForm">
                         <div class="changingInput">
                             <div class="label">
                                 <label>Kullanıcı Adı:</label>
                             </div>
                             <div class="outInputText">
-                                <input type="text" value="guaypayy">
+                                <input type="text" name="username" value="{{ $data['user_data']['username'] }}">
                             </div>
                         </div>
-
+                        @csrf
                         <div class="changingActions">
                             <button>Kullanılabilirliği Denetle</button>
                             <button>Değiştir</button>
                             <button id="usernameChangingCancel">İptal</button>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="changeLink" id="usernameChangingOpen">
                         <span>değiştir</span>
@@ -60,24 +60,24 @@
                 <div class="line">
                     <div class="changingOneValue" id="fullNameChangedValue">
                         <label>Tam Adı:</label>
-                        <span>Ahmet Bülbül</span>
+                        <span>{{ $data['user_data']['full_name'] }}</span>
                     </div>
-                    
-                    <div class="changingForm" id="fullNameChangingForm">
+
+                    <form method="POST" class="changingForm" id="fullNameChangingForm">
                         <div class="changingInput">
                             <div class="label">
                                 <label>Tam Adı:</label>
                             </div>
                             <div class="outInputText">
-                                <input type="text" value="Ahmet Bülbül">
+                                <input type="text" name="fullName" value="{{ $data['user_data']['full_name'] }}">
                             </div>
                         </div>
-
+                        @csrf
                         <div class="changingActions">
                             <button>Değiştir</button>
                             <button id="fullNameChangingCancel">İptal</button>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="changeLink" id="fullNameChangingOpen">
                         <span>değiştir</span>

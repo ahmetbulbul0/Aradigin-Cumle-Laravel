@@ -2,7 +2,7 @@
     <div class="inDbList">
         <div class="outTitle">
             <div class="inTitle">
-                Kullanıcı Hesapları
+                Kaynak Siteler
             </div>
             <div class="titleSelects">
                 <div class="listingTypeSelect">

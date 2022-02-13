@@ -2,7 +2,7 @@
     <div class="inDbList">
         <div class="outTitle">
             <div class="inTitle">
-                Kategoriler
+                Kategori Grupları
             </div>
             <div class="titleSelects">
                 <div class="listingTypeSelect">

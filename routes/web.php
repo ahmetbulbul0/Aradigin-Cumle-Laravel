@@ -1,14 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Users\UserSignInController;
 
 use App\Http\Controllers\Pages\Visitor\HomePageController;
+use App\Http\Controllers\Pages\SystemSignOutPageController;
 use App\Http\Controllers\Pages\Visitor\SignInPageController;
+use App\Http\Controllers\Pages\System\NewsEditPageController;
 use App\Http\Controllers\Pages\System\UserEditPageController;
 use App\Http\Controllers\Pages\System\UsersListPageController;
 use App\Http\Controllers\Pages\Author\MyNewsEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsListPageController;
 use App\Http\Controllers\Pages\Author\NewsCreatePageController;
+use App\Http\Controllers\Pages\System\NewsDeletePageController;
 use App\Http\Controllers\Pages\System\UserCreatePageController;
 use App\Http\Controllers\Pages\System\UserDeletePageController;
 use App\Http\Controllers\Pages\Visitor\NewsDetailPageController;
@@ -42,10 +46,9 @@ use App\Http\Controllers\Pages\System\CategoryGroupDeletePageController;
 use App\Http\Controllers\Pages\System\NewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
-use App\Http\Controllers\Pages\System\NewsEditPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
-use App\Http\Controllers\Pages\SystemSignOutPageController;
+use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 
 /* VİSİTOR PAGES */
     // ANASAYFA
@@ -57,25 +60,27 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // HABER DETAY
         Route::get("/haber/{newsLinkUrl}", [NewsDetailPageController::class, "index"]);
     // YAZAR GİRİŞİ
-        Route::get("/yazar-girisi", [SignInPageController::class, "index"]);
+        Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi");
 /* AUTHOR PAGES */
     // YAZAR PANELİ ANA SAYFA
-        Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"]);
+        Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
     // HABER EKLE
-        Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"]);
+        Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
     // HABERLERİM LİSTESİ
-        Route::get("/yazar-paneli/haberlerim/{listType}", [MyNewsListPageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/", [MyNewsListPageController::class, "index"])->name("haberlerim");
     // HABERLERİMDEN HABER DÜZENLE
-        Route::get("/yazar-paneli/haberlerim/duzenle/{newsNo}", [MyNewsEditPageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/duzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
     // HABERLERİMDEN HABER SİL
-        Route::get("/yazar-paneli/haberlerim/sil/{newsNo}", [MyNewsDeletePageController::class, "index"]);
+        Route::get("/yazar-paneli/haberlerim/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
     // HABERLERİMDEN HABER İSTATİSTİKLERİ
         Route::get("/yazar-paneli/haberlerim/istatistikleri", [MyNewsStatisticsPageController::class, "index"]);
         Route::get("/yazar-paneli/haberlerim/istatistikleri/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
         Route::get("/yazar-paneli/haberlerim/istatistikleri/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"]);
     // YAZAR PANELİ AYARLAR
-        Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"]);
-        Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"]);
+        Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"])->name("yazar_paneli_ayarlar_profilim");
+        Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"])->name("yazar_paneli_ayarlar_tema");
+    // YAZAR PANELİ ÇIKIŞ YAP
+        Route::get("/yazar-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("yazar_paneli_cikis_yap"); // controller değiştirilecek
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
         Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel");
@@ -106,7 +111,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // KULLANICI DÜZENLE
         Route::get("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "index"])->name("kullanici_düzenle");
     // KULLANICI SİL
-        Route::get("/sistem-paneli/kullanici/sil", [UserDeletePageController::class, "index"])->name("kullanici_sil");
+        Route::get("/sistem-paneli/kullanici/sil/{no}", [UserDeletePageController::class, "index"])->name("kullanici_sil");
     // KAYNAK SİTE EKLE
         Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
     // KAYNAK SİTELER LİSTESİ
@@ -122,7 +127,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // KAYNAK SİTE DÜZENLE
         Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
     // KAYNAK SİTE SİL
-        Route::get("/sistem-paneli/kaynak-site/sil", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_sil");
+        Route::get("/sistem-paneli/kaynak-site/sil/{no}", [ResourcePlatformDeletePageController::class, "index"])->name("kaynak_site_sil");
     // KATEGORİ TİPİ EKLE
         Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"])->name("kategori_tipi_ekle");
     // KATEGORİ TİPLERİ LİSTESİ
@@ -134,7 +139,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // KATEGORİ TİPİ DÜZENLE
         Route::get("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
     // KATEGORİ TİPİ SİL
-        Route::get("/sistem-paneli/kategori-tipi/sil", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil");
+        Route::get("/sistem-paneli/kategori-tipi/sil/{no}", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil");
     // KATEGORİ EKLE
         Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"])->name("kategori_ekle");
     // KATEGORİLER LİSTESİ
@@ -152,7 +157,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // KATEGORİ DÜZENLE
         Route::get("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
     // KATEGORİ SİL
-        Route::get("/sistem-paneli/kategori/sil", [CategoryDeletePageController::class, "index"])->name("kategori_sil");
+        Route::get("/sistem-paneli/kategori/sil/{no}", [CategoryDeletePageController::class, "index"])->name("kategori_sil");
     // KATEGORİ GRUBU EKLE
         Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle");
     // KATEGORİ GRUPLARI LİSTESİ
@@ -176,7 +181,7 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
     // KATEGORİ GRUBU DÜZENLE
         Route::get("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
     // KATEGORİ GRUBU SİL
-        Route::get("/sistem-paneli/kategori-grubu/sil", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil");
+        Route::get("/sistem-paneli/kategori-grubu/sil/{no}", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil");
     // HABERLER LİSTESİ
         Route::get("/sistem-paneli/haberler", [SystemNewsListPageController::class, "index"])->name("haberler");
         Route::get("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "no09"])->name("haberler_no09");
@@ -195,6 +200,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "writeTimeZA"])->name("haberler_writeTimeZA");
     // HABER DÜZENLE
         Route::get("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "index"])->name("haber_düzenle");
+    // HABER SİL
+        Route::get("/sistem-paneli/haber/sil/{no}", [NewsDeletePageController::class, "index"])->name("haber_sil");
     // HABER İSTATİSTİKLERİ
         Route::get("/sistem-paneli/haberler/istatistikleri/{listType}", [NewsStatisticsPageController::class, "index"]);
         Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
@@ -203,11 +210,17 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
         Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema");
         Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler");
     // SİSTEM PANELİ ÇIKIŞ YAP
-        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap");
+        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap"); // controller değiştirilecek
 /* FORM ROUTES */
+    /* VİSİTOR PAGES */
+        /* YAZAR GİRİŞİ */
+            Route::post("/yazar-girisi", [SignInPageController::class, "form"]);
     /* AUTHOR PAGES */
         // HABER EKLE
             Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
+        // YAZAR PANELİ AYARLAR
+            Route::post("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccountForm"]);
+            Route::post("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "themeForm"]);
     /* SYSTEM PAGES */
         // KULLANICI TİPİ EKLE
             Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
@@ -219,6 +232,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kullanici-tipleri/nameZA", [UserTypesListPageController::class, "form"]);
         // KULLANICI TİPİ DÜZENLE
             Route::post("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "form"]);
+        // KULLANICI TİPİ SİL
+            Route::post("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "form"]);
         // KULLANICI EKLE
             Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
         // KULLANICILAR LİSTESİ
@@ -233,6 +248,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kullanicilar/typeZA", [UsersListPageController::class, "form"]);
         // KULLANICI DÜZENLE
             Route::post("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "form"]);
+        // KULLANICI SİL
+            Route::post("/sistem-paneli/kullanici/sil/{no}", [UserDeletePageController::class, "form"]);
         // KAYNAK SİTE EKLE
             Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
         // KAYNAK SİTELER
@@ -247,6 +264,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "form"]);
         // KAYNAK SİTE DÜZENLE
             Route::post("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "form"]);
+        // KAYNAK SİTE SİL
+            Route::post("/sistem-paneli/kaynak-site/sil/{no}", [ResourcePlatformDeletePageController::class, "form"]);
         // KATEGORİ TİPİ EKLE
             Route::post("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "form"]);
         // KATEGORİ TİPLERİ LİSTESİ
@@ -257,6 +276,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "form"]);
         // KATEGORİ TİPİ DÜZENLE
             Route::post("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "form"]);
+        // KATEGORİ TİPİ SİL
+            Route::post("/sistem-paneli/kategori-tipi/sil/{no}", [CategoryTypeDeletePageController::class, "form"]);
         // KATEGORİ EKLE
             Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
         // KATEGORİ DÜZENLE
@@ -273,6 +294,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "form"]);
             Route::post("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "form"]);
+        // KATEGORİ SİL
+            Route::post("/sistem-paneli/kategori/sil/{no}", [CategoryDeletePageController::class, "form"]);
         // KATEGORİ GRUBU EKLE
             Route::post("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "form"]);
         // KATEGORİ GRUPLARI
@@ -295,6 +318,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "form"]);
         // KATEGORİ GRUBU DÜZENLE
             Route::post("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "form"]);
+        // KATEGORİ GRUBU SİL
+            Route::post("/sistem-paneli/kategori-grubu/sil/{no}", [CategoryGroupDeletePageController::class, "form"]);
         // HABERLER LİSTESİ
             Route::post("/sistem-paneli/haberler", [SystemNewsListPageController::class, "form"]);
             Route::post("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "form"]);
@@ -313,3 +338,8 @@ use App\Http\Controllers\Pages\SystemSignOutPageController;
             Route::post("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "form"]);
         // HABER DÜZENLE
             Route::post("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "form"]);
+        // HABER SİL
+            Route::post("/sistem-paneli/haber/sil/{no}", [NewsDeletePageController::class, "form"]);
+        // SİSTEM PANELİ AYARLAR
+            Route::post("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "themeForm"]);
+            Route::post("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constantsForm"]);

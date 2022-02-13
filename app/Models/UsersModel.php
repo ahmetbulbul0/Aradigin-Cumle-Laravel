@@ -19,7 +19,8 @@ class UsersModel extends Model
         "full_name",
         "username",
         "password",
-        "type"
+        "type",
+        "settings"
     ];
     
     protected $hidden = [
@@ -32,5 +33,10 @@ class UsersModel extends Model
     public function type()
     {
         return $this->hasOne(UserTypesModel::class, "no", "type");
+    }
+
+    public function settings()
+    {
+        return $this->hasOne(UsersSettingsModel::class, "no", "settings");
     }
 }

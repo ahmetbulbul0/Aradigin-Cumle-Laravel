@@ -46,7 +46,7 @@
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <a href="{{ route('anasayfa') }}">
+                <a href="{{ route('anasayfa') }}" target="blank">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
             </span>
@@ -231,7 +231,7 @@
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="/haber-istatisikleri-gelecek-route-buraya">Haber İstatistikleri</a>
+                                <a href="####">Haber İstatistikleri</a>
                             </span>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="/ayarlar">Ayarlar</a>
+                            <a href="{{ route('sistem_paneli_ayarlar_tema') }}">Ayarlar</a>
                         </span>
                     </div>
                     <div class="list">
@@ -255,7 +255,7 @@
                         </div>
                         <div class="item">
                             <span>
-                                <a href="/ayarlar/site-istatistikleri">Site İstatistikleri</a>
+                                <a href="####">Site İstatistikleri</a>
                             </span>
                         </div>
                     </div>
