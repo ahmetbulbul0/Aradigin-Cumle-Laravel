@@ -13,18 +13,18 @@ class UserTypeDeletePageController extends Controller
     {
         $data["page_title"] = "Kullanıcı Tipi Sil";
         $data["basic_text"] = "kullanıcı tipini";
-        $userTypeData = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $itemData = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
         $data["itemData"] = [
             [
                 "label" => "No",
-                "span" => $userTypeData["no"],
+                "span" => $itemData["no"],
             ],
             [
                 "label" => "Adı",
-                "span" => $userTypeData["name"],
+                "span" => $itemData["name"],
             ]
         ];
-        return view("system.pages.user_type_delete")->with("data", $data);
+        return view("system.pages.delete_confirm")->with("data", $data);
     }
 
     public function form(Request $request)

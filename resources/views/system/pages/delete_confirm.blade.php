@@ -1,5 +1,5 @@
 @extends('system.layout')
 
 @section('content')
-    @include("system.components.item_delete")
+    @include("system.components.delete_confirm")
 @endsection

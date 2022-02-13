@@ -1500,6 +1500,8 @@ body {
 }
 .outDeleteConfirm .inDeleteConfirm .body .outItemDetail .inItemDetail .itemDetail .line span {
     width: 75%;
+    box-sizing: border-box;
+    padding-left: 24px;
     font-size: 90%;
     font-weight: 300;
 }   
