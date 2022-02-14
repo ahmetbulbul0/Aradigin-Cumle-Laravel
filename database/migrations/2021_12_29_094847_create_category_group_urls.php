@@ -15,9 +15,9 @@ class CreateCategoryGroupUrls extends Migration
     {
         Schema::create('category_group_urls', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->integer("group_no")->unique();
-            $table->longText("link_url")->unique();
+            $table->integer("no");
+            $table->integer("group_no");
+            $table->longText("link_url");
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
         });

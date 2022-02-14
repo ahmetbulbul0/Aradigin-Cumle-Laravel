@@ -15,10 +15,10 @@ class CreateResourcePlatformsTable extends Migration
     {
         Schema::create('resource_platforms', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->string("name")->unique();
-            $table->string("main_url")->unique();
-            $table->string("link_url")->unique();
+            $table->integer("no");
+            $table->string("name");
+            $table->string("main_url");
+            $table->string("link_url");
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
         });

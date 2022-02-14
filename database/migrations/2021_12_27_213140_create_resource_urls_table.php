@@ -15,10 +15,10 @@ class CreateResourceUrlsTable extends Migration
     {
         Schema::create('resource_urls', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->integer("news_no")->unique();
+            $table->integer("no");
+            $table->integer("news_no");
             $table->integer("resource_platform");
-            $table->longText("url")->unique();
+            $table->longText("url");
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
         });
