@@ -27,7 +27,7 @@ class NewsDeletePageController extends Controller
             ],
             [
                 "label" => "Yazar",
-                "span" => $itemData["author"]["username"]." [".$itemData["author"]["full_name"]."]",
+                "span" => $itemData["author"]["username"] . " [" . $itemData["author"]["full_name"] . "]",
             ],
             [
                 "label" => "Kategori Grubu",

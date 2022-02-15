@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class ResourcePlatformCreatePageController extends Controller
 {
-    public function index($data = NULL) {
+    public function index($data = NULL)
+    {
         $data["page_title"] = "Kaynak Platform Ekle";
         return view("system.pages.resource_platform_create")->with("data", $data);
     }
 
-    public function form(Request $request) {
+    public function form(Request $request)
+    {
         $data["data"] = [
             "name" => $request->name,
             "main_url" => $request->main_url
@@ -21,7 +23,9 @@ class ResourcePlatformCreatePageController extends Controller
 
         $created = ResourcePlatformCreateController::get($data);
 
-        if (isset($created["errors"])) {return $this->index($created);}
+        if (isset($created["errors"])) {
+            return $this->index($created);
+        }
 
         $created["createdDataName"] = "Kaynak Site";
 

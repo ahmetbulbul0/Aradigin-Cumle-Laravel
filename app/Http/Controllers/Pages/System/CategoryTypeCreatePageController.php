@@ -8,19 +8,23 @@ use Illuminate\Http\Request;
 
 class CategoryTypeCreatePageController extends Controller
 {
-    public function index($data = NULL) {
+    public function index($data = NULL)
+    {
         $data["page_title"] = "Kategori Tipi Ekle";
         return view("system.pages.category_type_create")->with("data", $data);
     }
 
-    public function form(Request $request) {
+    public function form(Request $request)
+    {
         $data["data"] = [
             "name" => $request->name
         ];
 
         $created = CategoryTypeCreateController::get($data);
 
-        if (isset($created["errors"])) {return $this->index($created);}
+        if (isset($created["errors"])) {
+            return $this->index($created);
+        }
 
         $created["createdDataName"] = "Kategori Tipi";
 
