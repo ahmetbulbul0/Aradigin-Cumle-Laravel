@@ -20,4 +20,8 @@ class UserSettingsListController extends Controller
     {
         return UsersSettingsModel::where("is_deleted", false)->with("userNo")->get()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
+    {
+        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->with("userNo")->first()->toArray();
+    }
 }

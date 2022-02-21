@@ -49,6 +49,7 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
+use App\Http\Controllers\Pages\System\UserSettingEditPageController;
 use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 
 /* VİSİTOR PAGES */
@@ -214,6 +215,8 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap"); // controller değiştirilecek
     // KULLANICI AYARLARI LİSTESİ
         Route::get("/sistem-paneli/kullanici-ayarlari", [UserSettingsListPageController::class, "index"])->name("kullanici_ayarlari");
+    // KULLANICI AYARI DÜZENLE
+        Route::get("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "index"])->name("kullanici_ayari_düzenle");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */
@@ -346,3 +349,5 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         // SİSTEM PANELİ AYARLAR
             Route::post("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "themeForm"]);
             Route::post("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constantsForm"]);
+        // KULLANICI AYARI DÜZENLE
+            Route::post("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "form"]);

@@ -39,7 +39,7 @@
                         <span>{{ $item['no'] }}</span>
                     </div>
                     <div class="w30">
-                        <span>{{ $item['user_no']['username'] }}</span>
+                        <span>{{ $item['user_no']['username'] }} [{{ $item['user_no']['full_name'] }}]</span>
                     </div>
                     <div class="w20">
                         <span>{{ $item['website_theme'] }} @empty($item['website_theme'])

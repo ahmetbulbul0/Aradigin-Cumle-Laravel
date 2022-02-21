@@ -181,7 +181,7 @@
     * UserSettings [
         * [FİNİSH]UserSettingsCreateController
         * UserSettingsDeleteController
-        * UserSettingsEditController
+        * [CREATİNG]UserSettingsEditController
         * [FİNİSH]UserSettingsListController
     ]
     * Visitors [
