@@ -15,17 +15,17 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->longText("content")->unique();
+            $table->integer("no");
+            $table->longText("content");
             $table->integer("author");
             $table->integer("category");
             $table->integer("resource_platform");
-            $table->integer("resource_url")->unique();
+            $table->integer("resource_url");
             $table->integer("publish_date");
-            $table->integer("write_time")->default(time()); // XRAY_TEST
-            $table->integer("listing")->default(0); // XRAY_TEST
-            $table->integer("reading")->default(0); // XRAY_TEST
-            $table->longText("link_url")->unique();
+            $table->integer("write_time");
+            $table->integer("listing");
+            $table->integer("reading");
+            $table->longText("link_url");
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
         });

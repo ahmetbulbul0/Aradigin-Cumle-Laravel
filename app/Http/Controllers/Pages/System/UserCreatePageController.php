@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages\System;
 
 use App\Http\Controllers\Api\Users\UserCreateController;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,7 @@ class UserCreatePageController extends Controller
 {
     public function index($data = NULL) {
         $data["page_title"] = "Kullanıcı Ekle";
-        $data["userTypes"] = UserTypesModel::where("is_deleted", false)->get();
+        $data["userTypes"] = UserTypesListController::getAllOnlyNotDeleted();
         return view("system.pages.user_create")->with("data", $data);
     }
 

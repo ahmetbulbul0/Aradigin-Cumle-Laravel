@@ -15,7 +15,7 @@ class CategoryGroupEditPageController extends Controller
         $data["page_title"] = "Kategori Grubu Düzenle";
 
         $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
-        
+
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
             $data["data"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($data["data"]["no"]);
             return view("system.pages.category_group_edit")->with("data", $data);
@@ -45,7 +45,7 @@ class CategoryGroupEditPageController extends Controller
         ];
 
         $edited = CategoryGroupEditController::get($data);
-        
+
         if (isset($edited["errors"])) {
             return $this->index(NULL, $edited);
         }

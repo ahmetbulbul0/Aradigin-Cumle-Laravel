@@ -15,11 +15,11 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
+            $table->integer("no");
             $table->integer("time_start");
             $table->integer("time_finish");
             $table->integer("news_no");
-            $table->integer("number")->defult(0); // XRAY_TEST
+            $table->integer("number");
             $table->timestamps();
         });
     }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Pages\System;
 
+use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\Categories\CategoryCreateController;
+use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use Illuminate\Http\Request;
 use App\Models\CategoriesModel;
 use App\Models\CategoryTypesModel;
@@ -10,15 +12,16 @@ use App\Http\Controllers\Controller;
 
 class CategoryCreatePageController extends Controller
 {
-    public function index($data = NULL) {
+    public function index($data = NULL)
+    {
         $data["page_title"] = "Kategori Ekle";
-        $data["categoryTypes"] = CategoryTypesModel::where("is_deleted", false)->get();
-        $data["categories"] = CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->get()->toArray();
-
+        $data["categoryTypes"] = CategoryTypesListController::getAllOnlyNotDeleted();
+        $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
         return view("system.pages.category_create", ["data" => $data]);
     }
 
-    public function form(Request $request) {
+    public function form(Request $request)
+    {
         $data["data"] = [
             "name" => $request->name,
             "type" => $request->type,
@@ -27,7 +30,9 @@ class CategoryCreatePageController extends Controller
 
         $created = CategoryCreateController::get($data);
 
-        if (isset($created["errors"])) {return $this->index($created);}
+        if (isset($created["errors"])) {
+            return $this->index($created);
+        }
 
         $created["createdDataName"] = "Kategori";
 

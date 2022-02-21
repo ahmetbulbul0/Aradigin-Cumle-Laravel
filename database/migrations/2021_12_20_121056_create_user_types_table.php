@@ -15,8 +15,8 @@ class CreateUserTypesTable extends Migration
     {
         Schema::create('user_types', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->string("name")->unique();
+            $table->integer("no");
+            $table->string("name");
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
         });

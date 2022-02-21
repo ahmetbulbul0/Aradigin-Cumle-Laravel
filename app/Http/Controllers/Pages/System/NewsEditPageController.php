@@ -9,6 +9,7 @@ use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Http\Controllers\Api\News\NewsEditController;
+use App\Http\Controllers\Api\ResourcePlatforms\ResourcePlatformsListController;
 
 class NewsEditPageController extends Controller
 {
@@ -16,7 +17,7 @@ class NewsEditPageController extends Controller
     {
         $data["page_title"] = "Haber Düzenle";
         $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
-        $data["resourcePlatforms"] = ResourcePlatformsModel::where("is_deleted", false)->orderBy("name")->get();
+        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();;
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
             $data["data"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($data["data"]["no"]);

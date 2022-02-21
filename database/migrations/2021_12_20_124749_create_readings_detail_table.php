@@ -15,7 +15,7 @@ class CreateReadingsDetailTable extends Migration
     {
         Schema::create('readings_detail', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
+            $table->integer("no");
             $table->integer("visitor_no");
             $table->integer("time");
             $table->integer("news_no");

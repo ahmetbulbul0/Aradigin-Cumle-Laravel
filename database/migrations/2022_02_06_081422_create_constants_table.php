@@ -15,8 +15,8 @@ class CreateConstantsTable extends Migration
     {
         Schema::create('constants', function (Blueprint $table) {
             $table->id();
-            $table->integer("no")->unique();
-            $table->string("key")->unique();
+            $table->integer("no");
+            $table->string("key");
             $table->integer("value")->nullable();
             $table->boolean("is_deleted")->default(false);
             $table->timestamps();
