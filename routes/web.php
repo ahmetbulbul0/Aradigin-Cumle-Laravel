@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\UserSettings\UserSettingDeleteController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Users\UserSignInController;
 
 use App\Http\Controllers\Pages\Visitor\HomePageController;
 use App\Http\Controllers\Pages\SystemSignOutPageController;
@@ -49,6 +49,7 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
+use App\Http\Controllers\Pages\System\UserSettingDeletePageController;
 use App\Http\Controllers\Pages\System\UserSettingEditPageController;
 use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 
@@ -217,6 +218,8 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         Route::get("/sistem-paneli/kullanici-ayarlari", [UserSettingsListPageController::class, "index"])->name("kullanici_ayarlari");
     // KULLANICI AYARI DÜZENLE
         Route::get("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "index"])->name("kullanici_ayari_düzenle");
+    // KULLANICI AYARI SİL
+        Route::get("/sistem-paneli/kullanici-ayari/sil/{no}", [UserSettingDeletePageController::class, "index"])->name("kullanici_ayari_sil");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */
@@ -351,3 +354,5 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
             Route::post("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constantsForm"]);
         // KULLANICI AYARI DÜZENLE
             Route::post("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "form"]);
+        // KULLANICI AYARI SİL
+            Route::post("/sistem-paneli/kullanici-ayari/sil/{no}", [UserSettingDeletePageController::class, "form"]);
