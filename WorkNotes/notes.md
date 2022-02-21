@@ -179,7 +179,7 @@
         * [FİNİSH]UserSignInController
     ]
     * UserSettings [
-        * [CREATİNG]UserSettingsCreateController
+        * [FİNİSH]UserSettingsCreateController
         * UserSettingsDeleteController
         * UserSettingsEditController
         * UserSettingsListController
