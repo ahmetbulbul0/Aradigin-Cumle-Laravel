@@ -26,4 +26,9 @@ class UsersSettingsModel extends Model
         "updated_at",
         "is_deleted"
     ];
+
+    public function userNo()
+    {
+        return $this->hasOne(UsersModel::class, "no", "user_no");
+    }
 }

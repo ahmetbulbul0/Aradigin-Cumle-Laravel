@@ -49,6 +49,7 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
+use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 
 /* VİSİTOR PAGES */
     // ANASAYFA
@@ -211,6 +212,8 @@ use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
         Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler");
     // SİSTEM PANELİ ÇIKIŞ YAP
         Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap"); // controller değiştirilecek
+    // KULLANICI AYARLARI LİSTESİ
+        Route::get("/sistem-paneli/kullanici-ayarlari", [UserSettingsListPageController::class, "index"])->name("kullanici_ayarlari");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */

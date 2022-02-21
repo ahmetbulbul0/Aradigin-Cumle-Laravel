@@ -182,7 +182,7 @@
         * [FİNİSH]UserSettingsCreateController
         * UserSettingsDeleteController
         * UserSettingsEditController
-        * UserSettingsListController
+        * [FİNİSH]UserSettingsListController
     ]
     * Visitors [
         * VisitorsCreateController
