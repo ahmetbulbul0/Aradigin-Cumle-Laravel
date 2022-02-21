@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Pages\System;
 use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
 use App\Http\Controllers\Controller;
 use App\Models\ConstantsModel;
-use App\Models\UsersModel;
 use App\Models\UsersSettingsModel;
 use Illuminate\Http\Request;
 

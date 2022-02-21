@@ -9,6 +9,16 @@
     - çıkış yapma sistemi yapılacak
     - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
+    - users settings modelinin api controllerları yapılacak
+    - resource urls modelinin api controllerları yapılacak
+    - category group urls modelinin api controllerları yapılacak
+    - listings modelinin api controllerları yapılacak
+    - listings detail modelinin api controllerları yapılacak
+    - readings modelinin api controllerları yapılacak
+    - readings detail modelinin api controllerları yapılacak
+    - visitors modelinin api controllerları yapılacak
+    - writings modelinin api controllerları yapılacak
+    - modeller için test verisi ekleme işini kolaylaştırmak için factory dosyaları yazılacak
 ]
 
 *Models & Migrations*
@@ -167,6 +177,12 @@
         * [FİNİSH]UserTypesEditController
         * [FİNİSH]UserTypesListController
         * [FİNİSH]UserSignInController
+    ]
+    * UserSettings [
+        * [CREATİNG]UserSettingsCreateController
+        * UserSettingsDeleteController
+        * UserSettingsEditController
+        * UserSettingsListController
     ]
     * Visitors [
         * VisitorsCreateController

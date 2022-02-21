@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages\System;
 
 use App\Http\Controllers\Api\Users\UserCreateController;
+use App\Http\Controllers\Api\UserSettings\UserSettingCreateController;
 use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
@@ -33,23 +34,23 @@ class UserCreatePageController extends Controller
         $created["createdData"] = [
             [
                 "column" => "No",
-                "value" => $created["createdData"][0]["no"]
+                "value" => $created["createdData"]["no"]
             ],
             [
                 "column" => "Tam Adı",
-                "value" => $created["createdData"][0]["full_name"]
+                "value" => $created["createdData"]["full_name"]
             ],
             [
                 "column" => "Kullanıcı Adı",
-                "value" => $created["createdData"][0]["username"]
+                "value" => $created["createdData"]["username"]
             ],
             [
                 "column" => "Parolası",
-                "value" => $created["createdData"][0]["password"]
+                "value" => $created["createdData"]["password"]
             ],
             [
                 "column" => "Kullanıcı Tipi",
-                "value" => $created["createdData"][0]['type']['name']
+                "value" => $created["createdData"]['type']['name']
             ]
         ];
 

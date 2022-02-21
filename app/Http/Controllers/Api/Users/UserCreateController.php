@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Api\Users;
 
+use App\Http\Controllers\Api\UserSettings\UserSettingCreateController;
+use App\Models\UsersModel;
+use Illuminate\Support\Str;
+use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
-use App\Models\UsersModel;
-use App\Models\UsersSettingsModel;
-use App\Models\UserTypesModel;
-use Illuminate\Support\Str;
 
 class UserCreateController extends Controller
 {
-    static function get($data) {
+    static function get($data)
+    {
 
         $fullName = htmlspecialchars($data["data"]["full_name"]);
         $username = htmlspecialchars($data["data"]["username"]);
@@ -31,7 +32,8 @@ class UserCreateController extends Controller
         return UserCreateController::check($data);
     }
 
-    static function check($data) {
+    static function check($data)
+    {
         $fullName = $data["data"]["full_name"];
         $username = $data["data"]["username"];
         $password = $data["data"]["password"];
@@ -68,20 +70,13 @@ class UserCreateController extends Controller
         return UserCreateController::work($data);
     }
 
-    static function work($data) {
+    static function work($data)
+    {
         $no = NoGenerator::generateUsersNo();
         $fullName = $data["data"]["full_name"];
         $username = $data["data"]["username"];
         $password = $data["data"]["password"];
         $type = $data["data"]["type"];
-
-        $userSettingsNo = NoGenerator::generateUsersSettingsNo();
-        UsersSettingsModel::create([
-            "no" => $userSettingsNo,
-            "user_no" => $no,
-            "website_theme" => NULL,
-            "dashboard_theme" => NULL
-        ]);
 
         UsersModel::create([
             "no" => $no,
@@ -89,10 +84,16 @@ class UserCreateController extends Controller
             "username" => $username,
             "password" => $password,
             "type" => $type,
-            "settings" => $userSettingsNo
+            "settings" => 0
         ]);
 
-        $data["createdData"] = UsersModel::where("no", $no)->with("type")->get()->toArray();
+        $dataForUserSettings["data"] = ["user_no" => $no];
+
+        $userSettings = UserSettingCreateController::get($dataForUserSettings);
+
+        UsersModel::where("no", $no)->update(["settings" => $userSettings["createdData"]["no"]]);
+
+        $data["createdData"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
 
         return $data;
     }
