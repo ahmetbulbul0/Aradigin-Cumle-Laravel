@@ -49,6 +49,7 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
+use App\Http\Controllers\Pages\System\ResourceUrlsListPageController;
 use App\Http\Controllers\Pages\System\UserSettingDeletePageController;
 use App\Http\Controllers\Pages\System\UserSettingEditPageController;
 use App\Http\Controllers\Pages\System\UserSettingsListPageController;
@@ -220,6 +221,8 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         Route::get("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "index"])->name("kullanici_ayari_düzenle");
     // KULLANICI AYARI SİL
         Route::get("/sistem-paneli/kullanici-ayari/sil/{no}", [UserSettingDeletePageController::class, "index"])->name("kullanici_ayari_sil");
+    // KAYNAK LİNKLERİ LİSTESİ
+        Route::get("/sistem-paneli/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */

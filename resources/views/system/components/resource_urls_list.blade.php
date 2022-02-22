@@ -4,6 +4,17 @@
             <div class="inTitle">
                 Kaynak Linkler
             </div>
+            <div class="titleSelects">
+                <div class="listingTypeSelect">
+                    <form method="POST" class="outSelectBox">
+                        @csrf
+                        <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
+                            <option value="default" @if (Route::is('kaynak_siteleri')) selected @endif>Varsayılan
+                            </option>
+                        </select>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="dbList">
             <div class="titleLine">
@@ -29,20 +40,20 @@
                         <span>{{ $item['no'] }}</span>
                     </div>
                     <div class="w30">
-                        <span>{{ $item['news_no']["content"] }}</span>
+                        <span>{{ $item['news_no']['content'] }}</span>
                     </div>
                     <div class="w15">
-                        <span>{{ $item['resource_platform']["name"] }}</span>
+                        <span>{{ $item['resource_platform']['name'] }}</span>
                     </div>
                     <div class="w30">
                         <span>{{ $item['url'] }}</span>
                     </div>
                     <div class="actions w10">
                         <span>
-                            <a href="/sistem-paneli/kullanici-hesabi/{{ $item['no'] }}/düzenle">
+                            <a href="/sistem-paneli/kaynak-linki/düzenle/{{ $item['no'] }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kullanici-hesabi/{{ $item['no'] }}/sil">
+                            <a href="/sistem-paneli/kaynak-linki/sil/{{ $item['no'] }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

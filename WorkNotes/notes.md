@@ -4,6 +4,8 @@
 * FrontEnd [
     - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
     - tüm butonlara 3d stili tanımlanacak 
+    - açık tema tasarımı yapılacak
+    - açık tema koyu tema geçisi yapılacak
 ]
 * BackEnd [
     - çıkış yapma sistemi yapılacak
@@ -163,7 +165,7 @@
         * [FİNİSH]ResourceUrlsCreateController
         * ResourceUrlsDeleteController
         * ResourceUrlsEditController
-        * ResourceUrlsListController
+        * [FİNİSH]ResourceUrlsListController
     ]
     * Users [
         * [FİNİSH]UsersCreateController
@@ -258,7 +260,7 @@
     - [FİNİSH]User Settings List 
     - [FİNİSH]User Setting Edit 
     - [FİNİSH]User Setting Delete 
-    - Resource Urls List 
+    - [FİNİSH]Resource Urls List 
     - Resource Url Edit 
     - Resource Url Delete 
 ]
