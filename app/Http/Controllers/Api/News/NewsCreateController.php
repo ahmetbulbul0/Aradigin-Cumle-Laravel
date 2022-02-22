@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\News;
 
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsCreateController;
 use App\Models\NewsModel;
 use App\Models\UsersModel;
 use Illuminate\Support\Str;
@@ -134,15 +135,11 @@ class NewsCreateController extends Controller
         $reading = 0;
         $linkUrl= LinkUrlGenerator::single($content);
 
-        $resourceUrlNo = NoGenerator::generateResourceUrlsNo();
-
-        ResourceUrlsModel::create([
-            "no" => $resourceUrlNo,
+        $dataForResourceUrl["data"] = [
             "news_no" => $no,
             "resource_platform" => $resourcePlatform,
             "url" => $resourceUrl
-        ]);
-
+        ];
 
         NewsModel::create([
             "no" => $no,
@@ -150,7 +147,7 @@ class NewsCreateController extends Controller
             "author" => $author,
             "category" => $category,
             "resource_platform" => $resourcePlatform,
-            "resource_url" => $resourceUrlNo,
+            "resource_url" => 0,
             "publish_date" => $publishDate,
             "write_time" => $writeTime,
             "listing" => $listing,
@@ -158,7 +155,11 @@ class NewsCreateController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["createdData"] = NewsModel::where("no", $no)->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray();
+        $resourceUrl = ResourceUrlsCreateController::get($dataForResourceUrl);
+
+        NewsModel::where("no", $no)->update(["resource_url" => $resourceUrl["createdData"]["no"]]);
+
+        $data["createdData"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
 
         return $data;
     }

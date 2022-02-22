@@ -9,8 +9,8 @@
     - çıkış yapma sistemi yapılacak
     - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
-    - users settings modelinin api controllerları yapılacak
-    - resource urls modelinin api controllerları yapılacak
+    - [FİNİSH]users settings modelinin api controllerları yapılacak
+    - [CREATİNG]resource urls modelinin api controllerları yapılacak
     - category group urls modelinin api controllerları yapılacak
     - listings modelinin api controllerları yapılacak
     - listings detail modelinin api controllerları yapılacak
@@ -160,7 +160,7 @@
         * [FİNİSH]ResourcePlatformsListController
     ]
     * ResourceUrls [
-        * ResourceUrlsCreateController
+        * [FİNİSH]ResourceUrlsCreateController
         * ResourceUrlsDeleteController
         * ResourceUrlsEditController
         * ResourceUrlsListController
@@ -255,4 +255,10 @@
         - [FİNİSH]Theme
         - [FİNİSH]Constants
     ]
+    - [FİNİSH]User Settings List 
+    - [FİNİSH]User Setting Edit 
+    - [FİNİSH]User Setting Delete 
+    - Resource Urls List 
+    - Resource Url Edit 
+    - Resource Url Delete 
 ]
