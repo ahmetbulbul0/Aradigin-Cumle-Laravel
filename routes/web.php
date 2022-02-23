@@ -29,13 +29,19 @@ use App\Http\Controllers\Pages\System\SystemSettingsPageController;
 use App\Http\Controllers\Pages\System\UserTypeCreatePageController;
 use App\Http\Controllers\Pages\System\UserTypeDeletePageController;
 use App\Http\Controllers\Pages\Author\AuthorDashboardPageController;
+use App\Http\Controllers\Pages\System\ResourceUrlEditPageController;
 use App\Http\Controllers\Pages\System\SystemDashboardPageController;
+use App\Http\Controllers\Pages\System\UserSettingEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticsPageController;
 use App\Http\Controllers\Pages\System\CategoryTypeEditPageController;
+use App\Http\Controllers\Pages\System\ResourceUrlsListPageController;
+use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 use App\Http\Controllers\Pages\Visitor\VisitorNewsListPageController;
 use App\Http\Controllers\Pages\System\CategoryGroupEditPageController;
 use App\Http\Controllers\Pages\System\CategoryTypesListPageController;
 use App\Http\Controllers\Pages\System\NewsStatisticTimePageController;
+use App\Http\Controllers\Pages\System\ResourceUrlDeletePageController;
+use App\Http\Controllers\Pages\System\UserSettingDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupsListPageController;
 use App\Http\Controllers\Pages\System\CategoryTypeCreatePageController;
 use App\Http\Controllers\Pages\System\CategoryTypeDeletePageController;
@@ -43,17 +49,14 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticTimePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupCreatePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupDeletePageController;
 use App\Http\Controllers\Pages\System\NewsStatisticDetailPageController;
+use App\Http\Controllers\Pages\System\CategoryGroupUrlEditPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
+use App\Http\Controllers\Pages\System\CategoryGroupUrlsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
-use App\Http\Controllers\Pages\System\ResourceUrlDeletePageController;
-use App\Http\Controllers\Pages\System\ResourceUrlEditPageController;
-use App\Http\Controllers\Pages\System\ResourceUrlsListPageController;
-use App\Http\Controllers\Pages\System\UserSettingDeletePageController;
-use App\Http\Controllers\Pages\System\UserSettingEditPageController;
-use App\Http\Controllers\Pages\System\UserSettingsListPageController;
+use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
 
 /* VİSİTOR PAGES */
     // ANASAYFA
@@ -228,6 +231,12 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         Route::get("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "index"])->name("kaynak_linki_sil");
     // KAYNAK LİNKİ DÜZENLE
         Route::get("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "index"])->name("kaynak_linki_düzenle");
+    // KATEGORİ GRUBU LİNK METİNLERİ LİSTESİ
+        Route::get("/sistem-paneli/kategori-grubu-link-metinleri", [CategoryGroupUrlsListPageController::class, "index"])->name("haber_kategori_grubu_linkleri");
+    // KATEGORİ GRUBU LİNK METNİ SİL
+        Route::get("/sistem-paneli/kategori-grubu-link-metni/sil/{no}", [CategoryGroupUrlsDeletePageController::class, "index"])->name("haber_kategori_grubu_linki_sil");
+    // KATEGORİ GRUBU LİNK METNİ DÜZENLE
+        Route::get("/sistem-paneli/kategori-grubu-link-metni/düzenle/{no}", [CategoryGroupUrlEditPageController::class, "index"])->name("haber_kategori_grubu_linki_düzenle");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */
@@ -368,3 +377,7 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
             Route::post("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "form"]);
         // KAYNAK LİNKİ DÜZENLE
             Route::post("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "form"]);
+        // KATEGORİ GRUBU LİNK METNİ SİL
+            Route::post("/sistem-paneli/kategori-grubu-link-metni/sil/{no}", [CategoryGroupUrlsDeletePageController::class, "form"]);
+        // KATEGORİ GRUBU LİNK METNİ DÜZENLE
+            Route::post("/sistem-paneli/kategori-grubu-link-metni/düzenle/{no}", [CategoryGroupUrlEditPageController::class, "form"]);

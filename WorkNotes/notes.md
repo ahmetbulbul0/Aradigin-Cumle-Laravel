@@ -13,7 +13,7 @@
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
     - [FİNİSH]users settings modelinin api controllerları yapılacak
     - [FİNİSH]resource urls modelinin api controllerları yapılacak
-    - category group urls modelinin api controllerları yapılacak
+    - [FİNİSH]category group urls modelinin api controllerları yapılacak
     - listings modelinin api controllerları yapılacak
     - listings detail modelinin api controllerları yapılacak
     - readings modelinin api controllerları yapılacak
@@ -21,6 +21,7 @@
     - visitors modelinin api controllerları yapılacak
     - writings modelinin api controllerları yapılacak
     - modeller için test verisi ekleme işini kolaylaştırmak için factory dosyaları yazılacak
+    - lists view componentlerindeki title selectslerdeki url href alanları kontrol edilicek
 ]
 
 *Models & Migrations*
@@ -110,10 +111,10 @@
         * [FİNİSH]CategoryGroupsListController
     ]
     * CategoryGroupUrls [
-        * CategoryGroupUrlsCreateController
-        * CategoryGroupUrlsDeleteController
-        * CategoryGroupUrlsEditController
-        * CategoryGroupUrlsListController
+        * [FİNİSH]CategoryGroupUrlsCreateController
+        * [FİNİSH]CategoryGroupUrlsDeleteController
+        * [FİNİSH]CategoryGroupUrlsEditController
+        * [FİNİSH]CategoryGroupUrlsListController
     ]
     * CategoryTypes [
         * [FİNİSH]CategoryTypesCreateController
@@ -263,4 +264,7 @@
     - [FİNİSH]Resource Urls List 
     - [FİNİSH]Resource Url Edit 
     - [FİNİSH]Resource Url Delete 
+    - [FİNİSH]Category Group Urls List 
+    - [FİNİSH]Category Group Url Edit 
+    - [FİNİSH]Category Group Url Delete 
 ]

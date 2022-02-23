@@ -28,6 +28,6 @@ class CategoryGroupUrlsModel extends Model
 
     public function groupNo()
     {
-        return $this->hasOne(CategoryGroupsModel::class, "no", "group_no")->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "link_url"); // XRAY_TEST (linkUrl)
+        return $this->hasOne(CategoryGroupsModel::class, "no", "group_no")->with("main", "sub1", "sub2", "sub3", "sub4", "sub5");
     }
 }

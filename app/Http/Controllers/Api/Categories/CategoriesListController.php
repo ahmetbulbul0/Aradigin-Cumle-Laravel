@@ -64,4 +64,8 @@ class CategoriesListController extends Controller
     {
         return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "mainCategory")->first()->toArray();
     }
+    static function getFirstDataWithNoOnlyNotDeleted($no)
+    {
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first();
+    }
 }
