@@ -25,7 +25,6 @@ class UserTypeEditPageController extends Controller
         }
         return view("system.pages.user_type_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

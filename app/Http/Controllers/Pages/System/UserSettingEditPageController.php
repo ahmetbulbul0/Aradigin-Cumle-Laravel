@@ -25,7 +25,6 @@ class UserSettingEditPageController extends Controller
         }
         return view("system.pages.user_setting_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

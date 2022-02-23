@@ -15,7 +15,6 @@ class CategoryGroupCreatePageController extends Controller
 
         return view("system.pages.category_group_create", ["data" => $data]);
     }
-
     public function form(Request $request) {
         $data["data"] = [
             "main" => $request->main,

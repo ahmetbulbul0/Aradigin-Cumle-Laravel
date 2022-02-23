@@ -107,19 +107,3 @@ class CategoriesListPageController extends Controller
         return $this->index($data);
     }
 }
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

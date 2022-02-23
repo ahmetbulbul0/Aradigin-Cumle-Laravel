@@ -16,7 +16,6 @@ class SystemSettingsPageController extends Controller
         $data["user_settings"] = UsersSettingsModel::where(["is_deleted" => false, "user_no" => 247193])->first();
         return view("system.pages.settings_theme")->with("data", $data);
     }
-
     public function themeForm(Request $request)
     {
         $userNo = "247193";
@@ -31,14 +30,12 @@ class SystemSettingsPageController extends Controller
 
         return redirect(route("sistem_paneli_ayarlar_tema"));
     }
-
     public function constants()
     {
         $data["page_title"] = "Ayarlar [Sabitler]";
         $data["constants"] = ConstantsModel::where("is_deleted", false)->get();
         return view("system.pages.settings_constants")->with("data", $data);
     }
-
     public function constantsForm(Request $request)
     {
         $data["data"] = [

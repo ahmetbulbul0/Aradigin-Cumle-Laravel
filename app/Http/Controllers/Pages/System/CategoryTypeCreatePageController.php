@@ -13,7 +13,6 @@ class CategoryTypeCreatePageController extends Controller
         $data["page_title"] = "Kategori Tipi Ekle";
         return view("system.pages.category_type_create")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

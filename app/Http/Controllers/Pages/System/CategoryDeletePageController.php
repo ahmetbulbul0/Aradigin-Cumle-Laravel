@@ -38,7 +38,6 @@ class CategoryDeletePageController extends Controller
         ];
         return view("system.pages.delete_confirm")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         if ($request->action == "reject") {

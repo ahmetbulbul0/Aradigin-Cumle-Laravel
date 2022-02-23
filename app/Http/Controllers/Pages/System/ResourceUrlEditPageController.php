@@ -29,7 +29,6 @@ class ResourceUrlEditPageController extends Controller
 
         return view("system.pages.resource_url_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [
