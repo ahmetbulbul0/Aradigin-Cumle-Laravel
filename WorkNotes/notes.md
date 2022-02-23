@@ -12,7 +12,7 @@
     - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
     - [FİNİSH]users settings modelinin api controllerları yapılacak
-    - [CREATİNG]resource urls modelinin api controllerları yapılacak
+    - [FİNİSH]resource urls modelinin api controllerları yapılacak
     - category group urls modelinin api controllerları yapılacak
     - listings modelinin api controllerları yapılacak
     - listings detail modelinin api controllerları yapılacak
@@ -163,8 +163,8 @@
     ]
     * ResourceUrls [
         * [FİNİSH]ResourceUrlsCreateController
-        * ResourceUrlsDeleteController
-        * ResourceUrlsEditController
+        * [FİNİSH]ResourceUrlsDeleteController
+        * [FİNİSH]ResourceUrlsEditController
         * [FİNİSH]ResourceUrlsListController
     ]
     * Users [
@@ -261,6 +261,6 @@
     - [FİNİSH]User Setting Edit 
     - [FİNİSH]User Setting Delete 
     - [FİNİSH]Resource Urls List 
-    - Resource Url Edit 
-    - Resource Url Delete 
+    - [FİNİSH]Resource Url Edit 
+    - [FİNİSH]Resource Url Delete 
 ]

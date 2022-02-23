@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\UserSettings\UserSettingDeleteController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Pages\Visitor\HomePageController;
@@ -49,6 +48,8 @@ use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
+use App\Http\Controllers\Pages\System\ResourceUrlDeletePageController;
+use App\Http\Controllers\Pages\System\ResourceUrlEditPageController;
 use App\Http\Controllers\Pages\System\ResourceUrlsListPageController;
 use App\Http\Controllers\Pages\System\UserSettingDeletePageController;
 use App\Http\Controllers\Pages\System\UserSettingEditPageController;
@@ -223,6 +224,10 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
         Route::get("/sistem-paneli/kullanici-ayari/sil/{no}", [UserSettingDeletePageController::class, "index"])->name("kullanici_ayari_sil");
     // KAYNAK LİNKLERİ LİSTESİ
         Route::get("/sistem-paneli/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler");
+    // KAYNAK LİNKİ SİL
+        Route::get("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "index"])->name("kaynak_linki_sil");
+    // KAYNAK LİNKİ DÜZENLE
+        Route::get("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "index"])->name("kaynak_linki_düzenle");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         /* YAZAR GİRİŞİ */
@@ -359,3 +364,7 @@ use App\Http\Controllers\Pages\System\UserSettingsListPageController;
             Route::post("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "form"]);
         // KULLANICI AYARI SİL
             Route::post("/sistem-paneli/kullanici-ayari/sil/{no}", [UserSettingDeletePageController::class, "form"]);
+        // KAYNAK LİNKİ SİL
+            Route::post("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "form"]);
+        // KAYNAK LİNKİ DÜZENLE
+            Route::post("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "form"]);
