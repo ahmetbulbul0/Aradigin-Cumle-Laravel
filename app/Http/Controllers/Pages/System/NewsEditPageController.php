@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Pages\System;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\ResourcePlatformsModel;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
@@ -33,7 +32,6 @@ class NewsEditPageController extends Controller
         }
         return view("system.pages.news_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

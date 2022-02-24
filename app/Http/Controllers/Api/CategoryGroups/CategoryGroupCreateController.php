@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\CategoryGroups;
 
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsCreateController;
 use App\Models\CategoriesModel;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,8 @@ use App\Http\Controllers\Tools\LinkUrlGenerator;
 
 class CategoryGroupCreateController extends Controller
 {
-    static function get($data) {
+    static function get($data)
+    {
 
         $main = htmlspecialchars($data["data"]["main"]);
         $sub1 = htmlspecialchars($data["data"]["sub1"]);
@@ -31,8 +33,8 @@ class CategoryGroupCreateController extends Controller
 
         return CategoryGroupCreateController::check($data);
     }
-
-    static function check($data) {
+    static function check($data)
+    {
         $main = $data["data"]["main"];
         $sub1 = $data["data"]["sub1"];
         $sub2 = $data["data"]["sub2"];
@@ -68,11 +70,21 @@ class CategoryGroupCreateController extends Controller
             $data["errors"]["sub5"] = "Böyle Bir Kategori Yok";
         }
 
-        if (empty($sub1)) {$sub1 = NULL;}
-        if (empty($sub2)) {$sub2 = NULL;}
-        if (empty($sub3)) {$sub3 = NULL;}
-        if (empty($sub4)) {$sub4 = NULL;}
-        if (empty($sub5)) {$sub5 = NULL;}
+        if (empty($sub1)) {
+            $sub1 = NULL;
+        }
+        if (empty($sub2)) {
+            $sub2 = NULL;
+        }
+        if (empty($sub3)) {
+            $sub3 = NULL;
+        }
+        if (empty($sub4)) {
+            $sub4 = NULL;
+        }
+        if (empty($sub5)) {
+            $sub5 = NULL;
+        }
 
         if (CategoryGroupsModel::where([
             "main" => $main,
@@ -91,9 +103,8 @@ class CategoryGroupCreateController extends Controller
 
         return CategoryGroupCreateController::work($data);
     }
-
-    static function work($data) {
-
+    static function work($data)
+    {
         $no = NoGenerator::generateCategoryGroupsNo();
         $main = $data["data"]["main"];
         $sub1 = $data["data"]["sub1"];
@@ -109,37 +120,6 @@ class CategoryGroupCreateController extends Controller
         $sub4 = CategoriesModel::where([["is_deleted", false], ["no", $sub4]])->first();
         $sub5 = CategoriesModel::where([["is_deleted", false], ["no", $sub5]])->first();
 
-        if (empty($sub1)) {unset($sub1);}
-        if (empty($sub2)) {unset($sub2);}
-        if (empty($sub3)) {unset($sub3);}
-        if (empty($sub4)) {unset($sub4);}
-        if (empty($sub5)) {unset($sub5);}
-
-        $linkUrl = [
-            "main" => $main["link_url"],
-            "sub1" => $sub1["link_url"] ?? NULL,
-            "sub2" => $sub2["link_url"] ?? NULL,
-            "sub3" => $sub3["link_url"] ?? NULL,
-            "sub4" => $sub4["link_url"] ?? NULL,
-            "sub5" => $sub5["link_url"] ?? NULL
-        ];
-
-        if (empty($linkUrl["sub1"])) {unset($linkUrl["sub1"]);}
-        if (empty($linkUrl["sub2"])) {unset($linkUrl["sub2"]);}
-        if (empty($linkUrl["sub3"])) {unset($linkUrl["sub3"]);}
-        if (empty($linkUrl["sub4"])) {unset($linkUrl["sub4"]);}
-        if (empty($linkUrl["sub5"])) {unset($linkUrl["sub5"]);}
-
-        $linkUrl = implode("-", $linkUrl);
-
-        $linkUrlNo = NoGenerator::generateCategoryGroupUrlsNo();
-
-        CategoryGroupUrlsModel::create([
-            "no" => $linkUrlNo,
-            "group_no" => $no,
-            "link_url" => $linkUrl
-        ]);
-
         CategoryGroupsModel::create([
             "no" => $no,
             "main" => $main["no"],
@@ -148,12 +128,17 @@ class CategoryGroupCreateController extends Controller
             "sub3" => $sub3["no"] ?? NULL,
             "sub4" => $sub4["no"] ?? NULL,
             "sub5" => $sub5["no"] ?? NULL,
-            "link_url" => $linkUrlNo
+            "link_url" => 0
         ]);
+
+        $dataForLinkUrl["data"]["group_no"] = $no;
+
+        $linkUrl = CategoryGroupUrlsCreateController::get($dataForLinkUrl);
+
+        CategoryGroupsModel::where("no", $no)->update(["link_url" => $linkUrl["createdData"]["no"]]);
 
         $data["createdData"] = CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray();
 
         return $data;
-
     }
 }

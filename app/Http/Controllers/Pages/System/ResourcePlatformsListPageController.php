@@ -16,7 +16,6 @@ class ResourcePlatformsListPageController extends Controller
         }
         return view("system.pages.resource_platforms_list")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $listingType = $request->listingType;
@@ -51,7 +50,6 @@ class ResourcePlatformsListPageController extends Controller
         }
         return $this->index();
     }
-
     public function no09()
     {
         $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscNo();

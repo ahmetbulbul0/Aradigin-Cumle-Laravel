@@ -31,7 +31,6 @@ class CategoryGroupEditPageController extends Controller
 
         return view("system.pages.category_group_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

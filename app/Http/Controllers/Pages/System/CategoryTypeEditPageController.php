@@ -25,7 +25,6 @@ class CategoryTypeEditPageController extends Controller
         }
         return view("system.pages.category_type_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

@@ -6,8 +6,6 @@ use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\Categories\CategoryCreateController;
 use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use Illuminate\Http\Request;
-use App\Models\CategoriesModel;
-use App\Models\CategoryTypesModel;
 use App\Http\Controllers\Controller;
 
 class CategoryCreatePageController extends Controller
@@ -19,7 +17,6 @@ class CategoryCreatePageController extends Controller
         $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
         return view("system.pages.category_create", ["data" => $data]);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

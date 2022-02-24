@@ -4,11 +4,26 @@
 * FrontEnd [
     - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
     - tüm butonlara 3d stili tanımlanacak 
+    - açık tema tasarımı yapılacak
+    - açık tema koyu tema geçisi yapılacak
 ]
 * BackEnd [
     - çıkış yapma sistemi yapılacak
     - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
+    - [FİNİSH]users settings modelinin api controllerları yapılacak
+    - [FİNİSH]resource urls modelinin api controllerları yapılacak
+    - [FİNİSH]category group urls modelinin api controllerları yapılacak
+    - listings modelinin api controllerları yapılacak
+    - listings detail modelinin api controllerları yapılacak
+    - readings modelinin api controllerları yapılacak
+    - readings detail modelinin api controllerları yapılacak
+    - visitors modelinin api controllerları yapılacak
+    - writings modelinin api controllerları yapılacak
+    - modeller için test verisi ekleme işini kolaylaştırmak için factory dosyaları yazılacak
+    - lists view componentlerindeki title selectslerdeki url href alanları kontrol edilicek
+    - lists api coontrollerlarındaki sorgularda is_deleted false koşulu eklenecek
+    - update ve edit api controllerlarındaki check fonksiyonu içerisindeki var olma kontrollerine is_deleted false sorgusu eklenecek
 ]
 
 *Models & Migrations*
@@ -29,7 +44,7 @@
     * [FİNİSH]Visitors
     * [FİNİSH]Writings
     * [FİNİSH]Constants
-    * [FİNİSH]UsersSettings
+    * [FİNİSH]UserSettings
 ]
 
 *Controllers*
@@ -54,28 +69,28 @@
     * System [
         * [FİNİSH]CategoriesListPageController
         * [FİNİSH]CategoryCreatePageController
-        * CategoryDeletePageController
+        * [FİNİSH]CategoryDeletePageController
         * [FİNİSH]CategoryEditPageController
         * [FİNİSH]CategoryGroupCreatePageController
-        * CategoryGroupDeletePageController
+        * [FİNİSH]CategoryGroupDeletePageController
         * [FİNİSH]CategoryGroupEditPageController
         * [FİNİSH]CategoryGroupsListPageController
         * [FİNİSH]CategoryTypeCreatePageController
-        * CategoryTypeDeletePageController
+        * [FİNİSH]CategoryTypeDeletePageController
         * [FİNİSH]CategoryTypeEditPageController
         * [FİNİSH]CategoryTypesListPageController
         * NewsStatisticDetailPageController
         * NewsStatisticsPageController
         * NewsStatisticTimePageController
         * [FİNİSH]ResourcePlatformCreatePageController
-        * ResourcePlatformDeletePageController
+        * [FİNİSH]ResourcePlatformDeletePageController
         * [FİNİSH]ResourcePlatformEditPageController
         * [FİNİSH]ResourcePlatformsListPageController
         * [FİNİSH]SystemDashboardPageController
         * [FİNİSH]SystemNewsListPageController
         * [FİNİSH]SystemSettingsPageController
         * [FİNİSH]UserCreatePageController
-        * UserDeletePageController
+        * [FİNİSH]UserDeletePageController
         * [FİNİSH]UserEditPageController
         * [FİNİSH]UsersListPageController
         * [FİNİSH]UserTypeCreatePageController
@@ -87,25 +102,25 @@
 * Api [
     * Categories [
         * [FİNİSH]CategoryCreateController
-        * CategoryDeleteController
+        * [FİNİSH]CategoryDeleteController
         * [FİNİSH]CategoryEditController
         * [FİNİSH]CategoriesListController
     ]
     * CategoryGroups [
         * [FİNİSH]CategoryGroupCreateController
-        * CategoryGroupDeleteController
+        * [FİNİSH]CategoryGroupDeleteController
         * [FİNİSH]CategoryGroupEditController
         * [FİNİSH]CategoryGroupsListController
     ]
     * CategoryGroupUrls [
-        * CategoryGroupUrlsCreateController
-        * CategoryGroupUrlsDeleteController
-        * CategoryGroupUrlsEditController
-        * CategoryGroupUrlsListController
+        * [FİNİSH]CategoryGroupUrlsCreateController
+        * [FİNİSH]CategoryGroupUrlsDeleteController
+        * [FİNİSH]CategoryGroupUrlsEditController
+        * [FİNİSH]CategoryGroupUrlsListController
     ]
     * CategoryTypes [
         * [FİNİSH]CategoryTypesCreateController
-        * CategoryTypesDeleteController
+        * [FİNİSH]CategoryTypesDeleteController
         * [FİNİSH]CategoryTypesEditController
         * [FİNİSH]CategoryTypesListController
     ]
@@ -127,7 +142,7 @@
     ]
     * News [
         * [FİNİSH]NewsCreateController
-        * NewsDeleteController
+        * [FİNİSH]NewsDeleteController
         * [FİNİSH]NewsEditController
         * [FİNİSH]NewsListController
     ]
@@ -145,19 +160,19 @@
     ]
     * ResourcePlatforms [
         * [FİNİSH]ResourcePlatformsCreateController
-        * ResourcePlatformsDeleteController
+        * [FİNİSH]ResourcePlatformsDeleteController
         * [FİNİSH]ResourcePlatformsEditController
         * [FİNİSH]ResourcePlatformsListController
     ]
     * ResourceUrls [
-        * ResourceUrlsCreateController
-        * ResourceUrlsDeleteController
-        * ResourceUrlsEditController
-        * ResourceUrlsListController
+        * [FİNİSH]ResourceUrlsCreateController
+        * [FİNİSH]ResourceUrlsDeleteController
+        * [FİNİSH]ResourceUrlsEditController
+        * [FİNİSH]ResourceUrlsListController
     ]
     * Users [
         * [FİNİSH]UsersCreateController
-        * UsersDeleteController
+        * [FİNİSH]UsersDeleteController
         * [FİNİSH]UsersEditController
         * [FİNİSH]UsersListController
     ]
@@ -167,6 +182,12 @@
         * [FİNİSH]UserTypesEditController
         * [FİNİSH]UserTypesListController
         * [FİNİSH]UserSignInController
+    ]
+    * UserSettings [
+        * [FİNİSH]UserSettingsCreateController
+        * [FİNİSH]UserSettingsDeleteController
+        * [FİNİSH]UserSettingsEditController
+        * [FİNİSH]UserSettingsListController
     ]
     * Visitors [
         * VisitorsCreateController
@@ -212,26 +233,26 @@
     - [FİNİSH]User Create
     - [FİNİSH]User List
     - [FİNİSH]User Edit
-    - User Delete
+    - [FİNİSH]User Delete
     - [FİNİSH]Resource Platform Create
     - [FİNİSH]Resource Platform List
     - [FİNİSH]Resource Platform Edit
-    - Resource Platform Delete
+    - [FİNİSH]Resource Platform Delete
     - [FİNİSH]Category Type Create
     - [FİNİSH]Category Type List
     - [FİNİSH]Category Type Edit
-    - Category Type Delete
+    - [FİNİSH]Category Type Delete
     - [FİNİSH]Category Create
     - [FİNİSH]Category List
     - [FİNİSH]Category Edit
-    - Category Delete
+    - [FİNİSH]Category Delete
     - [FİNİSH]Category Group Create
     - [FİNİSH]Category Group List
     - [FİNİSH]Category Group Edit
-    - Category Group Delete
+    - [FİNİSH]Category Group Delete
     - [FİNİSH]News List 
     - [FİNİSH]News Edit 
-    - News Delete
+    - [FİNİSH]News Delete
     - News Statistics
     - News Statistic Time
     - News Statistic Detail
@@ -239,4 +260,13 @@
         - [FİNİSH]Theme
         - [FİNİSH]Constants
     ]
+    - [FİNİSH]User Settings List 
+    - [FİNİSH]User Setting Edit 
+    - [FİNİSH]User Setting Delete 
+    - [FİNİSH]Resource Urls List 
+    - [FİNİSH]Resource Url Edit 
+    - [FİNİSH]Resource Url Delete 
+    - [FİNİSH]Category Group Urls List 
+    - [FİNİSH]Category Group Url Edit 
+    - [FİNİSH]Category Group Url Delete 
 ]

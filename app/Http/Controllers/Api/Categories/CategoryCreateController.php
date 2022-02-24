@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Categories;
 
+use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Http\Controllers\Tools\LinkUrlGenerator;
@@ -46,7 +47,7 @@ class CategoryCreateController extends Controller
             $data["errors"]["type"] = "[$type] Geçersiz Kategori Tipi";
         }
 
-        if ($type == "SUB_CATEGORY_NO" && (!isset($mainCategory) || empty($mainCategory))) {
+        if ($type == ConstantsListController::getCategoryTypeSubOnlyNotDeleted() && (!isset($mainCategory) || empty($mainCategory))) {
             $data["errors"]["main_category"] = "Alt Kategoriler İçin Ana Kategori Alanı Zorunludur";
         }
 

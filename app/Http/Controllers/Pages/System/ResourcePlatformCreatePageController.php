@@ -13,7 +13,6 @@ class ResourcePlatformCreatePageController extends Controller
         $data["page_title"] = "Kaynak Platform Ekle";
         return view("system.pages.resource_platform_create")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [

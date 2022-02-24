@@ -25,7 +25,6 @@ class ResourcePlatformEditPageController extends Controller
         }
         return view("system.pages.resource_platform_edit")->with("data", $data);
     }
-
     public function form(Request $request)
     {
         $data["data"] = [
