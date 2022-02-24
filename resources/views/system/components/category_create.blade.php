@@ -53,11 +53,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['mainCategory'])
+                @isset($data['errors']['main_category'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['mainCategory'] }}
+                                {{ $data['errors']['main_category'] }}
                             </span>
                         </div>
                     </div>

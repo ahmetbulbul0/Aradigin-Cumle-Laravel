@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ConstantsListController extends Controller
 {
+    static function getAllOnlyNotDeleted() // ALL CONSTANTS
+    {
+        return ConstantsModel::where(["is_deleted" => false])->get()->toArray();
+    }
     static function getCategoryTypeMainOnlyNotDeleted() // CATEGORY TYPE MAİN
     {
         return ConstantsModel::where(["is_deleted" => false, "key" => "category_type_main"])->first()->value;
