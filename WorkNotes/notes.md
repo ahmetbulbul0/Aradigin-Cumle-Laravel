@@ -6,6 +6,7 @@
     - tüm butonlara 3d stili tanımlanacak 
     - açık tema tasarımı yapılacak
     - açık tema koyu tema geçisi yapılacak
+    - genel hata kodları için hata sayfa şablonu yapılacak
 ]
 * BackEnd [
     - çıkış yapma sistemi yapılacak
@@ -24,6 +25,7 @@
     - lists view componentlerindeki title selectslerdeki url href alanları kontrol edilicek
     - lists api coontrollerlarındaki sorgularda is_deleted false koşulu eklenecek
     - update ve edit api controllerlarındaki check fonksiyonu içerisindeki var olma kontrollerine is_deleted false sorgusu eklenecek
+    - my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
 ]
 
 *Models & Migrations*

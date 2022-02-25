@@ -54,9 +54,16 @@
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <a href="{{ route('sistem_paneli_cikis_yap') }}">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
+                @if (!Session::get('userData'))
+                    <a href="{{ route('yazar_girisi') }}">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                @endif
+                @if (Session::get('userData'))
+                    <a href="{{ route('cikis_yap') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                @endif
             </span>
             <section class="brace"></section>
         </div>
@@ -72,7 +79,7 @@
                 <div class="outTheme" id="fullLineTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <a href="#" class="active">Koyu</a>
+                        <a href="#">Koyu</a>
                         <a href="#">Açık</a>
                         <i class="fas fa-times" id="closeFullLineThemeIcon"></i>
                     </div>
@@ -112,14 +119,24 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <a href="#" class="active">Koyu</a>
-                    <a href="google.com">Açık</a>
+                    <a href="#">Koyu</a>
+                    <a href="#">Açık</a>
                 </div>
 
                 <div class="linkBar">
-                    <span>
-                        <a href="{{ route('yazar_girisi') }}">Giriş Yap</a>
-                    </span>
+
+                    @if (!Session::get('userData'))
+                        <span>
+                            <a href="{{ route('yazar_girisi') }}">Giriş Yap</a>
+                        </span>
+                    @endif
+                    @if (Session::get('userData'))
+                        <span>
+                            <a href="{{ route('cikis_yap') }}">Çıkış Yap</a>
+                        </span>
+                    @endif
+
+
                 </div>
             </div>
         </div>

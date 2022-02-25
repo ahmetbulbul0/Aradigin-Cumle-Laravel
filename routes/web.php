@@ -58,181 +58,190 @@ use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
+use App\Http\Controllers\Pages\Visitor\SignOutPageController;
 
 /* VİSİTOR PAGES */
     // ANASAYFA
         Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
     // HABERLER LİSTESİ
         Route::get("/haberler/{listType}", [VisitorNewsListPageController::class, "index"]);
-        Route::get("haberler/yazar/{authorUserName}/{listType}", [VisitorNewsListPageController::class, "author"]);
-        Route::get("haberler/kategori/{categoryGroupLinkUrl}/{listType}", [VisitorNewsListPageController::class, "category"]);
+        Route::get("/haberler/yazar/{authorUserName}/{listType}", [VisitorNewsListPageController::class, "author"]);
+        Route::get("/haberler/kategori/{categoryGroupLinkUrl}/{listType}", [VisitorNewsListPageController::class, "category"]);
     // HABER DETAY
         Route::get("/haber/{newsLinkUrl}", [NewsDetailPageController::class, "index"]);
     // YAZAR GİRİŞİ
-        Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi");
+        Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi")->middleware("isItNotUser");
+    // ÇIKIŞ YAP
+        Route::get("/cikis-yap", [SignOutPageController::class, "index"])->name("cikis_yap");
 /* AUTHOR PAGES */
-    // YAZAR PANELİ ANA SAYFA
-        Route::get("/yazar-paneli", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
-    // HABER EKLE
-        Route::get("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
-    // HABERLERİM LİSTESİ
-        Route::get("/yazar-paneli/haberlerim/", [MyNewsListPageController::class, "index"])->name("haberlerim");
-    // HABERLERİMDEN HABER DÜZENLE
-        Route::get("/yazar-paneli/haberlerim/duzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
-    // HABERLERİMDEN HABER SİL
-        Route::get("/yazar-paneli/haberlerim/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
-    // HABERLERİMDEN HABER İSTATİSTİKLERİ
-        Route::get("/yazar-paneli/haberlerim/istatistikleri", [MyNewsStatisticsPageController::class, "index"]);
-        Route::get("/yazar-paneli/haberlerim/istatistikleri/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
-        Route::get("/yazar-paneli/haberlerim/istatistikleri/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"]);
-    // YAZAR PANELİ AYARLAR
-        Route::get("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccount"])->name("yazar_paneli_ayarlar_profilim");
-        Route::get("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "theme"])->name("yazar_paneli_ayarlar_tema");
-    // YAZAR PANELİ ÇIKIŞ YAP
-        Route::get("/yazar-paneli/cikis-yap", [AuthorSignOutPageController::class, "index"])->name("yazar_paneli_cikis_yap");
+    Route::prefix("/yazar-paneli")->middleware(['isItAuthor', 'userDataCheck'])->group(function () {
+        // YAZAR PANELİ ANA SAYFA
+            Route::get("/", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
+        // HABER EKLE
+            Route::get("/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
+        // HABERLERİM    
+            Route::prefix("/haberlerim")->group(function () {
+                // HABERLERİM LİSTESİ
+                    Route::get("/", [MyNewsListPageController::class, "index"])->name("haberlerim");
+                // HABERLERİMDEN HABER DÜZENLE ?##?
+                    Route::get("/düzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
+                // HABERLERİMDEN HABER SİL ?##?
+                    Route::get("/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
+            });
+        // HABERLERİM İSTATİSTİKLERİ ?##?
+            Route::prefix("/haberlerim/istatistikleri")->group(function () {
+                Route::get("/", [MyNewsStatisticsPageController::class, "index"]);
+                Route::get("/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
+                Route::get("/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"]);
+            });
+        // YAZAR PANELİ AYARLAR
+            Route::controller(AuthorSettingsPageController::class)->group(function () {
+                // YAZAR PANELİ AYARLAR PROFİLİM
+                Route::get("/ayarlar/profilim", "myAccount")->name("yazar_paneli_ayarlar_profilim");
+                // YAZAR PANELİ AYARLAR TEMA
+                Route::get("/ayarlar/tema", "theme")->name("yazar_paneli_ayarlar_tema");
+            });
+    });
 /* SYSTEM PAGES */
     // SİSTEM PANELİ ANA SAYFA
-        Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel");
+        Route::get("/sistem-paneli", [SystemDashboardPageController::class, "index"])->name("sistem_paneli_anapanel")->middleware("isItSystem", "userDataCheck");
     // KULLANICI TİPİ EKLE
-        Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"])->name("kullanici_tipi_ekle");
+        Route::get("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "index"])->name("kullanici_tipi_ekle")->middleware("isItSystem", "userDataCheck");
     // KULLANICI TİPLERİ LİSTESİ
-        Route::get("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "index"])->name("kullanici_tipleri");
-        Route::get("/sistem-paneli/kullanici-tipleri/no09", [UserTypesListPageController::class, "no09"])->name("kullanici_tipleri_no09");
-        Route::get("/sistem-paneli/kullanici-tipleri/no90", [UserTypesListPageController::class, "no90"])->name("kullanici_tipleri_no90");
-        Route::get("/sistem-paneli/kullanici-tipleri/nameAZ", [UserTypesListPageController::class, "nameAZ"])->name("kullanici_tipleri_nameAZ");
-        Route::get("/sistem-paneli/kullanici-tipleri/nameZA", [UserTypesListPageController::class, "nameZA"])->name("kullanici_tipleri_nameZA");
+        Route::get("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "index"])->name("kullanici_tipleri")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanici-tipleri/no09", [UserTypesListPageController::class, "no09"])->name("kullanici_tipleri_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanici-tipleri/no90", [UserTypesListPageController::class, "no90"])->name("kullanici_tipleri_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanici-tipleri/nameAZ", [UserTypesListPageController::class, "nameAZ"])->name("kullanici_tipleri_nameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanici-tipleri/nameZA", [UserTypesListPageController::class, "nameZA"])->name("kullanici_tipleri_nameZA")->middleware("isItSystem", "userDataCheck");
     // KULLANICI TİPİ DÜZENLE
-        Route::get("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "index"])->name("kullanici_tipi_düzenle");
+        Route::get("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "index"])->name("kullanici_tipi_düzenle")->middleware("isItSystem", "userDataCheck");
     // KULLANICI TİPİ SİL
-        Route::get("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "index"])->name("kullanici_tipi_sil");
+        Route::get("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "index"])->name("kullanici_tipi_sil")->middleware("isItSystem", "userDataCheck");
     // KULLANICI EKLE
-        Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"])->name("kullanici_ekle");
+        Route::get("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "index"])->name("kullanici_ekle")->middleware("isItSystem", "userDataCheck");
     // KULLANICILAR LİSTESİ
-        Route::get("/sistem-paneli/kullanicilar/", [UsersListPageController::class, "index"])->name("kullanicilar");
-        Route::get("/sistem-paneli/kullanicilar/no09", [UsersListPageController::class, "no09"])->name("kullanicilar_no09");
-        Route::get("/sistem-paneli/kullanicilar/no90", [UsersListPageController::class, "no90"])->name("kullanicilar_no90");
-        Route::get("/sistem-paneli/kullanicilar/fullNameAZ", [UsersListPageController::class, "fullNameAZ"])->name("kullanicilar_fullNameAZ");
-        Route::get("/sistem-paneli/kullanicilar/fullNameZA", [UsersListPageController::class, "fullNameZA"])->name("kullanicilar_fullNameZA");
-        Route::get("/sistem-paneli/kullanicilar/usernameAZ", [UsersListPageController::class, "usernameAZ"])->name("kullanicilar_usernameAZ");
-        Route::get("/sistem-paneli/kullanicilar/usernameZA", [UsersListPageController::class, "usernameZA"])->name("kullanicilar_usernameZA");
-        Route::get("/sistem-paneli/kullanicilar/typeAZ", [UsersListPageController::class, "typeAZ"])->name("kullanicilar_typeAZ");
-        Route::get("/sistem-paneli/kullanicilar/typeZA", [UsersListPageController::class, "typeZA"])->name("kullanicilar_typeZA");
+        Route::get("/sistem-paneli/kullanicilar/", [UsersListPageController::class, "index"])->name("kullanicilar")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/no09", [UsersListPageController::class, "no09"])->name("kullanicilar_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/no90", [UsersListPageController::class, "no90"])->name("kullanicilar_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/fullNameAZ", [UsersListPageController::class, "fullNameAZ"])->name("kullanicilar_fullNameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/fullNameZA", [UsersListPageController::class, "fullNameZA"])->name("kullanicilar_fullNameZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/usernameAZ", [UsersListPageController::class, "usernameAZ"])->name("kullanicilar_usernameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/usernameZA", [UsersListPageController::class, "usernameZA"])->name("kullanicilar_usernameZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/typeAZ", [UsersListPageController::class, "typeAZ"])->name("kullanicilar_typeAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kullanicilar/typeZA", [UsersListPageController::class, "typeZA"])->name("kullanicilar_typeZA")->middleware("isItSystem", "userDataCheck");
     // KULLANICI DÜZENLE
-        Route::get("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "index"])->name("kullanici_düzenle");
+        Route::get("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "index"])->name("kullanici_düzenle")->middleware("isItSystem", "userDataCheck");
     // KULLANICI SİL
-        Route::get("/sistem-paneli/kullanici/sil/{no}", [UserDeletePageController::class, "index"])->name("kullanici_sil");
+        Route::get("/sistem-paneli/kullanici/sil/{no}", [UserDeletePageController::class, "index"])->name("kullanici_sil")->middleware("isItSystem", "userDataCheck");
     // KAYNAK SİTE EKLE
-        Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
+        Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle")->middleware("isItSystem", "userDataCheck");
     // KAYNAK SİTELER LİSTESİ
-        Route::get("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "index"])->name("kaynak_siteler");
-        Route::get("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "no09"])->name("kaynak_siteler_no09");
-        Route::get("/sistem-paneli/kaynak-siteler/no90", [ResourcePlatformsListPageController::class, "no90"])->name("kaynak_siteler_no90");
-        Route::get("/sistem-paneli/kaynak-siteler/nameAZ", [ResourcePlatformsListPageController::class, "nameAZ"])->name("kaynak_siteler_nameAZ");
-        Route::get("/sistem-paneli/kaynak-siteler/nameZA", [ResourcePlatformsListPageController::class, "nameZA"])->name("kaynak_siteler_nameZA");
-        Route::get("/sistem-paneli/kaynak-siteler/websiteLinkAZ", [ResourcePlatformsListPageController::class, "websiteLinkAZ"])->name("kaynak_siteler_websiteLinkAZ");
-        Route::get("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "websiteLinkZA"])->name("kaynak_siteler_websiteLinkZA");
-        Route::get("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "linkUrlAZ"])->name("kaynak_siteler_linkUrlAZ");
-        Route::get("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "linkUrlZA"])->name("kaynak_siteler_linkUrlZA");
+        Route::get("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "index"])->name("kaynak_siteler")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "no09"])->name("kaynak_siteler_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/no90", [ResourcePlatformsListPageController::class, "no90"])->name("kaynak_siteler_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/nameAZ", [ResourcePlatformsListPageController::class, "nameAZ"])->name("kaynak_siteler_nameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/nameZA", [ResourcePlatformsListPageController::class, "nameZA"])->name("kaynak_siteler_nameZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/websiteLinkAZ", [ResourcePlatformsListPageController::class, "websiteLinkAZ"])->name("kaynak_siteler_websiteLinkAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/websiteLinkZA", [ResourcePlatformsListPageController::class, "websiteLinkZA"])->name("kaynak_siteler_websiteLinkZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/linkUrlAZ", [ResourcePlatformsListPageController::class, "linkUrlAZ"])->name("kaynak_siteler_linkUrlAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kaynak-siteler/linkUrlZA", [ResourcePlatformsListPageController::class, "linkUrlZA"])->name("kaynak_siteler_linkUrlZA")->middleware("isItSystem", "userDataCheck");
     // KAYNAK SİTE DÜZENLE
-        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
+        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle")->middleware("isItSystem", "userDataCheck");
     // KAYNAK SİTE SİL
-        Route::get("/sistem-paneli/kaynak-site/sil/{no}", [ResourcePlatformDeletePageController::class, "index"])->name("kaynak_site_sil");
+        Route::get("/sistem-paneli/kaynak-site/sil/{no}", [ResourcePlatformDeletePageController::class, "index"])->name("kaynak_site_sil")->middleware("isItSystem", "userDataCheck");
     // KAYNAK LİNKLERİ LİSTESİ
-        Route::get("/sistem-paneli/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler");
+        Route::get("/sistem-paneli/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler")->middleware("isItSystem", "userDataCheck");
     // KAYNAK LİNKİ SİL
-        Route::get("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "index"])->name("kaynak_linki_sil");
+        Route::get("/sistem-paneli/kaynak-linki/sil/{no}", [ResourceUrlDeletePageController::class, "index"])->name("kaynak_linki_sil")->middleware("isItSystem", "userDataCheck");
     // KAYNAK LİNKİ DÜZENLE
-        Route::get("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "index"])->name("kaynak_linki_düzenle");
+        Route::get("/sistem-paneli/kaynak-linki/düzenle/{no}", [ResourceUrlEditPageController::class, "index"])->name("kaynak_linki_düzenle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ TİPİ EKLE
-        Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"])->name("kategori_tipi_ekle");
+        Route::get("/sistem-paneli/kategori-tipi/ekle", [CategoryTypeCreatePageController::class, "index"])->name("kategori_tipi_ekle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ TİPLERİ LİSTESİ
-        Route::get("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "index"])->name("kategori_tipleri");
-        Route::get("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "no09"])->name("kategori_tipleri_no09");
-        Route::get("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "no90"])->name("kategori_tipleri_no90");
-        Route::get("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "nameAZ"])->name("kategori_tipleri_nameAZ");
-        Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA");
+        Route::get("/sistem-paneli/kategori-tipleri", [CategoryTypesListPageController::class, "index"])->name("kategori_tipleri")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-tipleri/no09", [CategoryTypesListPageController::class, "no09"])->name("kategori_tipleri_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-tipleri/no90", [CategoryTypesListPageController::class, "no90"])->name("kategori_tipleri_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-tipleri/nameAZ", [CategoryTypesListPageController::class, "nameAZ"])->name("kategori_tipleri_nameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-tipleri/nameZA", [CategoryTypesListPageController::class, "nameZA"])->name("kategori_tipleri_nameZA")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ TİPİ DÜZENLE
-        Route::get("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
+        Route::get("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ TİPİ SİL
-        Route::get("/sistem-paneli/kategori-tipi/sil/{no}", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil");
+        Route::get("/sistem-paneli/kategori-tipi/sil/{no}", [CategoryTypeDeletePageController::class, "index"])->name("kategori_tipi_sil")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ EKLE
-        Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"])->name("kategori_ekle");
+        Route::get("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "index"])->name("kategori_ekle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİLER LİSTESİ
-        Route::get("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "index"])->name("kategoriler");
-        Route::get("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "no09"])->name("kategoriler_no09");
-        Route::get("/sistem-paneli/kategoriler/no90", [CategoriesListPageController::class, "no90"])->name("kategoriler_no90");
-        Route::get("/sistem-paneli/kategoriler/nameAZ", [CategoriesListPageController::class, "nameAZ"])->name("kategoriler_nameAZ");
-        Route::get("/sistem-paneli/kategoriler/nameZA", [CategoriesListPageController::class, "nameZA"])->name("kategoriler_nameZA");
-        Route::get("/sistem-paneli/kategoriler/typeAZ", [CategoriesListPageController::class, "typeAZ"])->name("kategoriler_typeAZ");
-        Route::get("/sistem-paneli/kategoriler/typeZA", [CategoriesListPageController::class, "typeZA"])->name("kategoriler_typeZA");
-        Route::get("/sistem-paneli/kategoriler/mainCategoryAZ", [CategoriesListPageController::class, "mainCategoryAZ"])->name("kategoriler_mainCategoryAZ");
-        Route::get("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "mainCategoryZA"])->name("kategoriler_mainCategoryZA");
-        Route::get("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "linkUrlAZ"])->name("kategoriler_linkUrlAZ");
-        Route::get("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "linkUrlZA"])->name("kategoriler_linkUrlZA");
+        Route::get("/sistem-paneli/kategoriler", [CategoriesListPageController::class, "index"])->name("kategoriler")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/no09", [CategoriesListPageController::class, "no09"])->name("kategoriler_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/no90", [CategoriesListPageController::class, "no90"])->name("kategoriler_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/nameAZ", [CategoriesListPageController::class, "nameAZ"])->name("kategoriler_nameAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/nameZA", [CategoriesListPageController::class, "nameZA"])->name("kategoriler_nameZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/typeAZ", [CategoriesListPageController::class, "typeAZ"])->name("kategoriler_typeAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/typeZA", [CategoriesListPageController::class, "typeZA"])->name("kategoriler_typeZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/mainCategoryAZ", [CategoriesListPageController::class, "mainCategoryAZ"])->name("kategoriler_mainCategoryAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/mainCategoryZA", [CategoriesListPageController::class, "mainCategoryZA"])->name("kategoriler_mainCategoryZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/linkUrlAZ", [CategoriesListPageController::class, "linkUrlAZ"])->name("kategoriler_linkUrlAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategoriler/linkUrlZA", [CategoriesListPageController::class, "linkUrlZA"])->name("kategoriler_linkUrlZA")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ DÜZENLE
-        Route::get("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
+        Route::get("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "index"])->name("kategori_düzenle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ SİL
-        Route::get("/sistem-paneli/kategori/sil/{no}", [CategoryDeletePageController::class, "index"])->name("kategori_sil");
+        Route::get("/sistem-paneli/kategori/sil/{no}", [CategoryDeletePageController::class, "index"])->name("kategori_sil")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU EKLE
-        Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle");
+        Route::get("/sistem-paneli/kategori-grubu/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUPLARI LİSTESİ
-        Route::get("/sistem-paneli/kategori-gruplari/", [CategoryGroupsListPageController::class, "index"])->name("kategori_gruplari");
-        Route::get("/sistem-paneli/kategori-gruplari/no09", [CategoryGroupsListPageController::class, "no09"])->name("kategori_gruplari_no09");
-        Route::get("/sistem-paneli/kategori-gruplari/no90", [CategoryGroupsListPageController::class, "no90"])->name("kategori_gruplari_no90");
-        Route::get("/sistem-paneli/kategori-gruplari/mainAZ", [CategoryGroupsListPageController::class, "mainAZ"])->name("kategori_gruplari_mainAZ");
-        Route::get("/sistem-paneli/kategori-gruplari/mainZA", [CategoryGroupsListPageController::class, "mainZA"])->name("kategori_gruplari_mainZA");
-        Route::get("/sistem-paneli/kategori-gruplari/sub1AZ", [CategoryGroupsListPageController::class, "sub1AZ"])->name("kategori_gruplari_sub1AZ");
-        Route::get("/sistem-paneli/kategori-gruplari/sub1ZA", [CategoryGroupsListPageController::class, "sub1ZA"])->name("kategori_gruplari_sub1ZA");
-        Route::get("/sistem-paneli/kategori-gruplari/sub2AZ", [CategoryGroupsListPageController::class, "sub2AZ"])->name("kategori_gruplari_sub2AZ");
-        Route::get("/sistem-paneli/kategori-gruplari/sub2ZA", [CategoryGroupsListPageController::class, "sub2ZA"])->name("kategori_gruplari_sub2ZA");
-        Route::get("/sistem-paneli/kategori-gruplari/sub3AZ", [CategoryGroupsListPageController::class, "sub3AZ"])->name("kategori_gruplari_sub3AZ");
-        Route::get("/sistem-paneli/kategori-gruplari/sub3ZA", [CategoryGroupsListPageController::class, "sub3ZA"])->name("kategori_gruplari_sub3ZA");
-        Route::get("/sistem-paneli/kategori-gruplari/sub4AZ", [CategoryGroupsListPageController::class, "sub4AZ"])->name("kategori_gruplari_sub4AZ");
-        Route::get("/sistem-paneli/kategori-gruplari/sub4ZA", [CategoryGroupsListPageController::class, "sub4ZA"])->name("kategori_gruplari_sub4ZA");
-        Route::get("/sistem-paneli/kategori-gruplari/sub5AZ", [CategoryGroupsListPageController::class, "sub5AZ"])->name("kategori_gruplari_sub5AZ");
-        Route::get("/sistem-paneli/kategori-gruplari/sub5ZA", [CategoryGroupsListPageController::class, "sub5ZA"])->name("kategori_gruplari_sub5ZA");
-        Route::get("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "linkUrlAZ"])->name("kategori_gruplari_linkUrlAZ");
-        Route::get("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "linkUrlZA"])->name("kategori_gruplari_linkUrlZA");
+        Route::get("/sistem-paneli/kategori-gruplari/", [CategoryGroupsListPageController::class, "index"])->name("kategori_gruplari")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/no09", [CategoryGroupsListPageController::class, "no09"])->name("kategori_gruplari_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/no90", [CategoryGroupsListPageController::class, "no90"])->name("kategori_gruplari_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/mainAZ", [CategoryGroupsListPageController::class, "mainAZ"])->name("kategori_gruplari_mainAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/mainZA", [CategoryGroupsListPageController::class, "mainZA"])->name("kategori_gruplari_mainZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub1AZ", [CategoryGroupsListPageController::class, "sub1AZ"])->name("kategori_gruplari_sub1AZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub1ZA", [CategoryGroupsListPageController::class, "sub1ZA"])->name("kategori_gruplari_sub1ZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub2AZ", [CategoryGroupsListPageController::class, "sub2AZ"])->name("kategori_gruplari_sub2AZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub2ZA", [CategoryGroupsListPageController::class, "sub2ZA"])->name("kategori_gruplari_sub2ZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub3AZ", [CategoryGroupsListPageController::class, "sub3AZ"])->name("kategori_gruplari_sub3AZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub3ZA", [CategoryGroupsListPageController::class, "sub3ZA"])->name("kategori_gruplari_sub3ZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub4AZ", [CategoryGroupsListPageController::class, "sub4AZ"])->name("kategori_gruplari_sub4AZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub4ZA", [CategoryGroupsListPageController::class, "sub4ZA"])->name("kategori_gruplari_sub4ZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub5AZ", [CategoryGroupsListPageController::class, "sub5AZ"])->name("kategori_gruplari_sub5AZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/sub5ZA", [CategoryGroupsListPageController::class, "sub5ZA"])->name("kategori_gruplari_sub5ZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/linkUrlAZ", [CategoryGroupsListPageController::class, "linkUrlAZ"])->name("kategori_gruplari_linkUrlAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/kategori-gruplari/linkUrlZA", [CategoryGroupsListPageController::class, "linkUrlZA"])->name("kategori_gruplari_linkUrlZA")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU DÜZENLE
-        Route::get("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
+        Route::get("/sistem-paneli/kategori-grubu/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU SİL
-        Route::get("/sistem-paneli/kategori-grubu/sil/{no}", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil");
+        Route::get("/sistem-paneli/kategori-grubu/sil/{no}", [CategoryGroupDeletePageController::class, "index"])->name("kategori_grubu_sil")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU LİNK METİNLERİ LİSTESİ
-        Route::get("/sistem-paneli/kategori-grubu-link-metinleri", [CategoryGroupUrlsListPageController::class, "index"])->name("haber_kategori_grubu_linkleri");
+        Route::get("/sistem-paneli/kategori-grubu-link-metinleri", [CategoryGroupUrlsListPageController::class, "index"])->name("haber_kategori_grubu_linkleri")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU LİNK METNİ SİL
-        Route::get("/sistem-paneli/kategori-grubu-link-metni/sil/{no}", [CategoryGroupUrlsDeletePageController::class, "index"])->name("haber_kategori_grubu_linki_sil");
+        Route::get("/sistem-paneli/kategori-grubu-link-metni/sil/{no}", [CategoryGroupUrlsDeletePageController::class, "index"])->name("haber_kategori_grubu_linki_sil")->middleware("isItSystem", "userDataCheck");
     // KATEGORİ GRUBU LİNK METNİ DÜZENLE
-        Route::get("/sistem-paneli/kategori-grubu-link-metni/düzenle/{no}", [CategoryGroupUrlEditPageController::class, "index"])->name("haber_kategori_grubu_linki_düzenle");
+        Route::get("/sistem-paneli/kategori-grubu-link-metni/düzenle/{no}", [CategoryGroupUrlEditPageController::class, "index"])->name("haber_kategori_grubu_linki_düzenle")->middleware("isItSystem", "userDataCheck");
     // HABERLER LİSTESİ
-        Route::get("/sistem-paneli/haberler", [SystemNewsListPageController::class, "index"])->name("haberler");
-        Route::get("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "no09"])->name("haberler_no09");
-        Route::get("/sistem-paneli/haberler/no90", [SystemNewsListPageController::class, "no90"])->name("haberler_no90");
-        Route::get("/sistem-paneli/haberler/contentAZ", [SystemNewsListPageController::class, "contentAZ"])->name("haberler_contentAZ");
-        Route::get("/sistem-paneli/haberler/contentZA", [SystemNewsListPageController::class, "contentZA"])->name("haberler_contentZA");
-        Route::get("/sistem-paneli/haberler/authorAZ", [SystemNewsListPageController::class, "authorAZ"])->name("haberler_authorAZ");
-        Route::get("/sistem-paneli/haberler/authorZA", [SystemNewsListPageController::class, "authorZA"])->name("haberler_authorZA");
-        Route::get("/sistem-paneli/haberler/categoryAZ", [SystemNewsListPageController::class, "categoryAZ"])->name("haberler_categoryAZ");
-        Route::get("/sistem-paneli/haberler/categoryZA", [SystemNewsListPageController::class, "categoryZA"])->name("haberler_categoryZA");
-        Route::get("/sistem-paneli/haberler/resourcePlatformAZ", [SystemNewsListPageController::class, "resourcePlatformAZ"])->name("haberler_resourcePlatformAZ");
-        Route::get("/sistem-paneli/haberler/resourcePlatformZA", [SystemNewsListPageController::class, "resourcePlatformZA"])->name("haberler_resourcePlatformZA");
-        Route::get("/sistem-paneli/haberler/publishDateAZ", [SystemNewsListPageController::class, "publishDateAZ"])->name("haberler_publishDateAZ");
-        Route::get("/sistem-paneli/haberler/publishDateZA", [SystemNewsListPageController::class, "publishDateZA"])->name("haberler_publishDateZA");
-        Route::get("/sistem-paneli/haberler/writeTimeAZ", [SystemNewsListPageController::class, "writeTimeAZ"])->name("haberler_writeTimeAZ");
-        Route::get("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "writeTimeZA"])->name("haberler_writeTimeZA");
+        Route::get("/sistem-paneli/haberler", [SystemNewsListPageController::class, "index"])->name("haberler")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/no09", [SystemNewsListPageController::class, "no09"])->name("haberler_no09")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/no90", [SystemNewsListPageController::class, "no90"])->name("haberler_no90")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/contentAZ", [SystemNewsListPageController::class, "contentAZ"])->name("haberler_contentAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/contentZA", [SystemNewsListPageController::class, "contentZA"])->name("haberler_contentZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/authorAZ", [SystemNewsListPageController::class, "authorAZ"])->name("haberler_authorAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/authorZA", [SystemNewsListPageController::class, "authorZA"])->name("haberler_authorZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/categoryAZ", [SystemNewsListPageController::class, "categoryAZ"])->name("haberler_categoryAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/categoryZA", [SystemNewsListPageController::class, "categoryZA"])->name("haberler_categoryZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/resourcePlatformAZ", [SystemNewsListPageController::class, "resourcePlatformAZ"])->name("haberler_resourcePlatformAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/resourcePlatformZA", [SystemNewsListPageController::class, "resourcePlatformZA"])->name("haberler_resourcePlatformZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/publishDateAZ", [SystemNewsListPageController::class, "publishDateAZ"])->name("haberler_publishDateAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/publishDateZA", [SystemNewsListPageController::class, "publishDateZA"])->name("haberler_publishDateZA")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/writeTimeAZ", [SystemNewsListPageController::class, "writeTimeAZ"])->name("haberler_writeTimeAZ")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/writeTimeZA", [SystemNewsListPageController::class, "writeTimeZA"])->name("haberler_writeTimeZA")->middleware("isItSystem", "userDataCheck");
     // HABER DÜZENLE
-        Route::get("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "index"])->name("haber_düzenle");
+        Route::get("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "index"])->name("haber_düzenle")->middleware("isItSystem", "userDataCheck");
     // HABER SİL
-        Route::get("/sistem-paneli/haber/sil/{no}", [NewsDeletePageController::class, "index"])->name("haber_sil");
+        Route::get("/sistem-paneli/haber/sil/{no}", [NewsDeletePageController::class, "index"])->name("haber_sil")->middleware("isItSystem", "userDataCheck");
     // HABER İSTATİSTİKLERİ
-        Route::get("/sistem-paneli/haberler/istatistikleri/{listType}", [NewsStatisticsPageController::class, "index"]);
-        Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
-        Route::get("/sistem-paneli/haberler/istatistikleri/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
+        Route::get("/sistem-paneli/haberler/istatistikleri/{listType}", [NewsStatisticsPageController::class, "index"])->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/istatistikleri/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"])->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/haberler/istatistikleri/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"])->middleware("isItSystem", "userDataCheck");
     // SİSTEM PANELİ AYARLAR
-        Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema");
-        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler");
-    // SİSTEM PANELİ ÇIKIŞ YAP
-        Route::get("/sistem-paneli/cikis-yap", [SystemSignOutPageController::class, "index"])->name("sistem_paneli_cikis_yap");
-
+        Route::get("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "theme"])->name("sistem_paneli_ayarlar_tema")->middleware("isItSystem", "userDataCheck");
+        Route::get("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constants"])->name("ayarlar_sabitler")->middleware("isItSystem", "userDataCheck");
 /* FORM ROUTES */
     /* VİSİTOR PAGES */
         // YAZAR GİRİŞİ
@@ -243,6 +252,7 @@ use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
         // YAZAR PANELİ AYARLAR
             Route::post("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccountForm"]);
             Route::post("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "themeForm"]);
+            Route::post("/yazar-paneli/ayarlar/tema/panel-tema", [AuthorSettingsPageController::class, "dashboardThemeChange"]);
     /* SYSTEM PAGES */
         // KULLANICI TİPİ EKLE
             Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
