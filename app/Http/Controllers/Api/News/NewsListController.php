@@ -90,11 +90,15 @@ class NewsListController extends Controller
     }
     static function getAllOnlyNotDeletedAllRelationshipsOrderByAscLinkUrl()
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("lin_url", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "ASC")->get()->toArray();
     }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
     {
         return NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray();
+    }
+    static function getAllOnlyNotDeletedWithAuthorNoAllRelationships($no)
+    {
+        return NewsModel::where(["is_deleted" => false, "author" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
     }
 }
 

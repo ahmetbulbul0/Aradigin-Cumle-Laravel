@@ -257,7 +257,7 @@ body {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
-.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a {
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button {
     padding: 0 12px;
     border-radius: 50px;
     cursor: pointer;
@@ -265,15 +265,15 @@ body {
     margin-left: 6px;
 }
 
-.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a:nth-child(2) {
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:nth-child(2) {
     margin-left: 12px;
 }
 
-.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a.active {
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
-.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme a:hover {
+.outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
@@ -463,7 +463,7 @@ body {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
-.outDropdown .inDropdown .header .theme a {
+.outDropdown .inDropdown .header .theme button {
     padding: 2px 8px;
     border-radius: 50px;
     cursor: pointer;
@@ -471,15 +471,15 @@ body {
     margin-right: 4px;
 }
 
-.outDropdown .inDropdown .header .theme a:nth-child(1) {
+.outDropdown .inDropdown .header .theme button:nth-child(1) {
     margin-right: 0;
 }
 
-.outDropdown .inDropdown .header .theme a.active {
+.outDropdown .inDropdown .header .theme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
-.outDropdown .inDropdown .header .theme a:hover {
+.outDropdown .inDropdown .header .theme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
 
@@ -2022,20 +2022,24 @@ body {
     align-items: center;
 }
 
-.outMyNews .inMyNews .myNewsList .line div.actions span i {
+.outMyNews .inMyNews .myNewsList .line div.actions span a {
     margin-left: 12px;
     cursor: pointer;
 }
 
-.outMyNews .inMyNews .myNewsList .line div.actions span i:nth-child(1) {
+.outMyNews .inMyNews .myNewsList .line div.actions span a:nth-child(1) {
     margin-left: 0;
 }
 
-.outMyNews .inMyNews .myNewsList .line div.actions span i:hover {
+.outMyNews .inMyNews .myNewsList .line div.actions span a:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.outMyNews .inMyNews .myNewsList .line div.actions span a i {
+    cursor: pointer;
 }
 
 /* [C]ADMİN NEWS CREATE */
@@ -4048,6 +4052,10 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.outDbList .inDbList .dbList .line div.actions span a i {
+    cursor: pointer;
 }
 
 .w5 {

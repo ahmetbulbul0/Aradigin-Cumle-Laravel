@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsCreateController;
+use Illuminate\Support\Facades\Session;
 
 class NewsCreatePageController extends Controller
 {
@@ -27,7 +28,7 @@ class NewsCreatePageController extends Controller
             "spe_time" => $request->spe_time,
             "resource_platform" => $request->resource_platform,
             "resource_url" => $request->resource_url,
-            "author" => 789921
+            "author" => Session::get("userData.no")
         ];
 
         $created = NewsCreateController::get($data);

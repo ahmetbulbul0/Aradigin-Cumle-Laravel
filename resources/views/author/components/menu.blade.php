@@ -64,7 +64,7 @@
             <section class="brace">
             </section>
             <span class="iconBox">
-                <a href="{{ route('yazar_paneli_cikis_yap') }}">
+                <a href="{{ route('cikis_yap') }}">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </span>
@@ -83,8 +83,13 @@
                 <div class="outTheme" id="fullLineTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <a href="#" class="active">Koyu</a>
-                        <a href="#">Açık</a>
+                        <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                            @csrf
+                            <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('userData.settings.dashboard_theme') == 'light') active @endif' name="dashboardTheme"
+                                value="light">Açık</button>
+                        </form>
                         <i class="fas fa-times" id="closeFullLineThemeIcon"></i>
                     </div>
                 </div>
@@ -123,8 +128,13 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <a href="####" class="active">Koyu</a>
-                    <a href="####">Açık</a>
+                    <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                        @csrf
+                        <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
+                            value="dark">Koyu</button>
+                        <button class='@if (Session::get('userData.settings.dashboard_theme') == 'light') active @endif' name="dashboardTheme"
+                            value="light">Açık</button>
+                    </form>
                 </div>
 
                 <div class="linkBar">
@@ -133,8 +143,7 @@
                             Görüntüle</a>
                     </span>
                     <span>
-                        <a href="{{ route('yazar_paneli_cikis_yap') }}">Çıkış
-                            Yap</a>
+                        <a href="{{ route('cikis_yap') }}">Çıkış Yap</a>
                     </span>
                 </div>
             </div>
@@ -187,4 +196,5 @@
         </div>
     </div>
 </div>
+
 <script src="{{ URL::asset('src/js/admin_menu.js') }}"></script>

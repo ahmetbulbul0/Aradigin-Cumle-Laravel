@@ -7,20 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\UsersSettingsModel;
 use App\Http\Controllers\Controller;
 use App\Models\UsersModel;
+use Illuminate\Support\Facades\Session;
 
 class AuthorSettingsPageController extends Controller
 {
     public function myAccount()
     {
         $data["page_title"] = "Ayarlar [Profilim]";
-        $data["user_data"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(247193);
+        $data["user_data"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(Session::get("userData.no"));
         return view("author.pages.settings_my_account")->with("data", $data);
     }
-
     public function myAccountForm(Request $request)
     {
-        $userNo = "247193"; /* userNo değerini sessiondan çekecek */
-        $userData = UsersModel::where(["is_deleted" => false, "no" => $userNo]); /* user_no değerini sessiondan çekecek */
+        $userData = UsersModel::where(["is_deleted" => false, "no" => Session::get("userData.no")]);
         if ($request->username) {
             $userData->update(["username" => $request->username]);
         }
@@ -31,18 +30,15 @@ class AuthorSettingsPageController extends Controller
 
         return redirect(route("yazar_paneli_ayarlar_profilim"));
     }
-
     public function theme()
     {
         $data["page_title"] = "Ayarlar [Tema]";
-        $data["user_settings"] = UsersSettingsModel::where(["is_deleted" => false, "user_no" => 247193])->first(); /* user_no değerini sessiondan çekecek */
+        $data["user_settings"] = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")])->first();
         return view("author.pages.settings_theme")->with("data", $data);
     }
-
     public function themeForm(Request $request)
     {
-        $userNo = "247193"; /* userNo değerini sessiondan çekecek */
-        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => $userNo]); /* user_no değerini sessiondan çekecek */
+        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
         if ($request->websiteTheme) {
             $userSettings->update(["website_theme" => $request->websiteTheme]);
         }
@@ -51,6 +47,16 @@ class AuthorSettingsPageController extends Controller
             $userSettings->update(["dashboard_theme" => $request->dashboardTheme]);
         }
 
-        return redirect(route("yazar_paneli_ayarlar_profilim"));
+        return redirect(route("yazar_paneli_ayarlar_tema"));
+    }
+    public function dashboardThemeChange(Request $request) {
+
+        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
+
+        if ($request->dashboardTheme) {
+            $userSettings->update(["dashboard_theme" => $request->dashboardTheme]);
+        }
+
+        return redirect(Session::previousUrl());
     }
 }
