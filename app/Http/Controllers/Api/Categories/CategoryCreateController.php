@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Categories;
 
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupCreateController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
@@ -12,9 +13,8 @@ use Illuminate\Support\Str;
 
 class CategoryCreateController extends Controller
 {
-
-    static function get($data) {
-
+    static function get($data)
+    {
         $name = htmlspecialchars($data["data"]["name"]);
         $type = htmlspecialchars($data["data"]["type"]);
         $mainCategory = htmlspecialchars($data["data"]["main_category"]);
@@ -29,8 +29,8 @@ class CategoryCreateController extends Controller
 
         return CategoryCreateController::check($data);
     }
-
-    static function check($data) {
+    static function check($data)
+    {
         $name = $data["data"]["name"];
         $type = $data["data"]["type"];
         $mainCategory = $data["data"]["main_category"];
@@ -61,13 +61,26 @@ class CategoryCreateController extends Controller
 
         return CategoryCreateController::work($data);
     }
-
-    static function work($data) {
+    static function work($data)
+    {
         $no = NoGenerator::generateCategoriesNo();
         $name = $data["data"]["name"];
         $type = $data["data"]["type"];
         $mainCategory = $data["data"]["main_category"];
-        $linkUrl = LinkUrlGenerator::single($name);
+
+        switch ($type) {
+            case ConstantsListController::getCategoryTypeMainOnlyNotDeleted():
+                $linkUrl = LinkUrlGenerator::single($name);
+                break;
+            case ConstantsListController::getCategoryTypeSubOnlyNotDeleted():
+                $linkUrlSub = LinkUrlGenerator::single($name);
+                $mainCat = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($mainCategory);
+                $linkUrl = $mainCat["link_url"] . "-" . $linkUrlSub;
+                break;
+            default:
+                dd("hata");
+                break;
+        }
 
         CategoriesModel::create([
             "no" => $no,
@@ -77,8 +90,32 @@ class CategoryCreateController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["createdData"] = CategoriesModel::where("no", $no)->with("type", "mainCategory")->get()->toArray();
+        if ($type == ConstantsListController::getCategoryTypeMainOnlyNotDeleted()) {
+            $dataForCategoryGroup["data"] = [
+                "main" => $no,
+                "sub1" => NULL,
+                "sub2" => NULL,
+                "sub3" => NULL,
+                "sub4" => NULL,
+                "sub5" => NULL
+            ];
+            CategoryGroupCreateController::get($dataForCategoryGroup);
+        }
+
+
+        if ($type == ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) {
+            $dataForCategoryGroup["data"] = [
+                "main" => $no,
+                "sub1" => $mainCategory,
+                "sub2" => NULL,
+                "sub3" => NULL,
+                "sub4" => NULL,
+                "sub5" => NULL
+            ];
+            CategoryGroupCreateController::get($dataForCategoryGroup);
+        }
+
+        $data["createdData"] = CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
         return $data;
     }
-
 }

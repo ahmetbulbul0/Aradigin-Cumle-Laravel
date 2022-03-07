@@ -3,13 +3,15 @@
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    {{ $data["smallList2One"][0]["title"] }}
+                    <a href="{{ $data["smallList2One"][0]["allListLink"] }}">
+                        {{ $data["smallList2One"][0]["listTitle"] }}
+                    </a>
                 </span>
             </div>
             <div class="inList">
                 @foreach ($data["smallList2One"][0]["data"] as $news)
                     <div class="item">
-                        <a href="/haber/{{ $news["link_url"] }}">
+                        <a href="{{ route("haber_detay", [$news['link_url']]) }}">
                             {{ $news["content"] }}
                         </a>
                     </div>
@@ -22,13 +24,15 @@
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    {{ $data["smallList2One"][1]["title"] }}
+                    <a href="{{ $data["smallList2One"][1]["allListLink"] }}">
+                        {{ $data["smallList2One"][1]["listTitle"] }}
+                    </a>
                 </span>
             </div>
             <div class="inList">
                 @foreach ($data["smallList2One"][1]["data"] as $news)
                     <div class="item">
-                        <a href="/haber/{{ $news["link_url"] }}">
+                        <a href="{{ route("haber_detay", [$news['link_url']]) }}">
                             {{ $news["content"] }}
                         </a>
                     </div>

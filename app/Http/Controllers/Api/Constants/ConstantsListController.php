@@ -14,50 +14,50 @@ class ConstantsListController extends Controller
     }
     static function getCategoryTypeMainOnlyNotDeleted() // CATEGORY TYPE MAİN
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "category_type_main"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "category_type_main"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "category_type_main"])->first()->value : NULL;
     }
     static function getCategoryTypeSubOnlyNotDeleted() // CATEGORY TYPE SUB
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "category_type_sub"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "category_type_sub"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "category_type_sub"])->first()->value : NULL;
     }
     static function getUserTypeAuthorOnlyNotDeleted() // USER TYPE AUTHOR
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "user_type_author"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "user_type_author"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "user_type_author"])->first()->value : NULL;
     }
     static function getUserTypeSystemOnlyNotDeleted() // USER TYPE SYSTEM
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "user_type_system"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "user_type_system"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "user_type_system"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory1OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 1
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category1"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category1"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category1"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory2OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 2
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category2"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category2"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category2"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory3OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 3
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category3"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category3"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category3"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory4OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 4
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category4"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category4"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category4"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory5OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 5
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category5"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category5"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category5"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory6OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 6
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category6"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category6"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category6"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory7OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 7
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category7"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category7"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category7"])->first()->value : NULL;
     }
     static function getWebSiteVisitorMenuCategory8OnlyNotDeleted() // WEBSİTE VİSİTOR MENU CATEGORY 8
     {
-        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category8"])->first()->value;
+        return ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category8"])->first() ? ConstantsModel::where(["is_deleted" => false, "key" => "website_visitor_menu_category8"])->first()->value : NULL;
     }
 }

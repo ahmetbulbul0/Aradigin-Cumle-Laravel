@@ -62,7 +62,7 @@
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <a href="{{ route('sistem_paneli_cikis_yap') }}">
+                <a href="{{ route('cikis_yap') }}">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </span>
@@ -129,7 +129,7 @@
                         <a href="{{ route('anasayfa') }}">WebSite'yi Görüntüle</a>
                     </span>
                     <span>
-                        <a href="{{ route('sistem_paneli_cikis_yap') }}">Çıkış Yap</a>
+                        <a href="{{ route('cikis_yap') }}">Çıkış Yap</a>
                     </span>
                 </div>
             </div>

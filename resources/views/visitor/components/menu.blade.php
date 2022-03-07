@@ -9,48 +9,45 @@
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="xxxx">
-                    Kategori
+                <a
+                    href="{{ route('haberler_listesi_kategori', [$data['menu']['category1']['link_url'], 'son-yayinlananlar']) }}">
+                    {{ Str::title($data['menu']['category1']['name']) }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="xxxx">
-                    Kategori
+                <a
+                    href="{{ route('haberler_listesi_kategori', [$data['menu']['category2']['link_url'], 'son-yayinlananlar']) }}">
+                    {{ Str::title($data['menu']['category2']['name']) }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="xxxx">
-                    Kategori
+                <a
+                    href="{{ route('haberler_listesi_kategori', [$data['menu']['category3']['link_url'], 'son-yayinlananlar']) }}">
+                    {{ Str::title($data['menu']['category3']['name']) }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="xxxx">
-                    Kategori
+                <a
+                    href="{{ route('haberler_listesi_kategori', [$data['menu']['category4']['link_url'], 'son-yayinlananlar']) }}">
+                    {{ Str::title($data['menu']['category4']['name']) }}
                 </a>
             </span>
         </div>
         <div class="bar">
             <section class="brace"></section>
-            <span class="iconBox" id="homeIconBox">
-                <a href="{{ route('sistem_paneli_anapanel') }}">
-                    <i class="far fa-newspaper"></i>
-                </a>
-            </span>
-            <section class="brace" id="homeIconBrace"></section>
             <span class="iconBox">
-                <i class="fas fa-bars" id="openMenuIcon"></i>
-                <i class="fas fa-bars" id="closeMenuIcon"></i>
+                <i class="fas fa-bars menuBtn"></i>
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-search" id="openFullLineSearchIcon"></i>
+                <i class="fas fa-search searchBtn"></i>
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-adjust" id="openFullLineThemeIcon"></i>
+                <i class="fas fa-adjust themeBtn"></i>
             </span>
             <section class="brace"></section>
             <span class="iconBox">
@@ -69,27 +66,31 @@
         </div>
         <div class="outFullLine" id="fullLine">
             <div class="inFullLine">
-                <div class="search" id="fullLineSearch">
+                <div class="search">
                     <div class="outInputText">
                         <input type="text" placeholder="Aradığın cümle ile ilgili birkaç kelime yazabilirsin">
                         <i class="fas fa-search"></i>
-                        <i class="fas fa-times" id="closeFullLineSearchIcon"></i>
+                        <i class="fas fa-times closeSearch"></i>
                     </div>
                 </div>
-                <div class="outTheme" id="fullLineTheme">
+                <div class="outTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <a href="#">Koyu</a>
-                        <a href="#">Açık</a>
-                        <i class="fas fa-times" id="closeFullLineThemeIcon"></i>
+                        <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
+                            @csrf
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                                value="light">Açık</button>
+                        </form>
+                        <i class="fas fa-times closeTheme"></i>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="mobile_bar">
             <span class="iconBox">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars mobilMenuBtn"></i>
             </span>
             <span class="logoBox">
                 <a href="{{ route('anasayfa') }}">
@@ -98,13 +99,13 @@
                 </a>
             </span>
             <span class="iconBox">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search mobilSearchBtn"></i>
             </span>
         </div>
     </div>
 </div>
 
-<div class="outDropdown" id="dropdown">
+<div class="outDropdown">
     <div class="inDropdown">
         <div class="header">
             <div class="search">
@@ -119,8 +120,13 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <a href="#">Koyu</a>
-                    <a href="#">Açık</a>
+                    <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
+                        @csrf
+                        <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                            value="dark">Koyu</button>
+                        <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                            value="light">Açık</button>
+                    </form>
                 </div>
 
                 <div class="linkBar">
@@ -131,6 +137,15 @@
                         </span>
                     @endif
                     @if (Session::get('userData'))
+                        <span>
+                            @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeAuthorOnlyNotDeleted())
+                                <a href="{{ route('yazar_paneli_anapanel') }}">Yazar Paneli</a>
+                            @endif
+
+                            @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeSystemOnlyNotDeleted())
+                                <a href="{{ route('sistem_paneli_anapanel') }}">Sistem Paneli</a>
+                            @endif
+                        </span>
                         <span>
                             <a href="{{ route('cikis_yap') }}">Çıkış Yap</a>
                         </span>
@@ -145,137 +160,73 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category1']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category1']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category1Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category2']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category2']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category2Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category3']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category3']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category3Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category4']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category4']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category4Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -283,137 +234,73 @@
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category5']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category5']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category5Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category6']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category6']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category6Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category7']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category7']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category7Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="outList">
                     <div class="titleBox">
                         <span>
-                            <a href="####">Ana Kategori</a>
+                            <a
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category8']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category8']['name']) }}</a>
                         </span>
                     </div>
                     <div class="list">
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
-                        <div class="item">
-                            <span>
-                                <a href="####">Alt Kategori</a>
-                            </span>
-                        </div>
+                        @foreach ($data['menu']['category8Subs'] as $subCategory)
+                            <div class="item">
+                                <span>
+                                    <a
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['name'] }}</a>
+                                </span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
