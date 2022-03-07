@@ -46,7 +46,7 @@ class UserTypeCreateController extends Controller
             "name" => $name
         ]);
 
-        $data["createdData"] = UserTypesModel::where("no", $no)->get();
+        $data["createdData"] = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
         return $data;
     }
 }

@@ -1,7 +1,7 @@
-@extends('public.layout')
+@extends('visitor.layout')
 
 @section('content')
-    @include("public.components.menu")
+    @include("visitor.components.menu")
 
-    @include("public.components.big_list")
+    @include("visitor.components.big_list")
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use Illuminate\Http\Request;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Tools\LinkUrlGenerator;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Models\CategoryGroupUrlsModel;
 
@@ -67,45 +68,26 @@ class CategoryGroupUrlsCreateController extends Controller
         $sub4 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub4"]);
         $sub5 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub5"]);
 
-        if (empty($sub1)) {
-            unset($sub1);
-        }
-        if (empty($sub2)) {
-            unset($sub2);
-        }
-        if (empty($sub3)) {
-            unset($sub3);
-        }
-        if (empty($sub4)) {
-            unset($sub4);
-        }
-        if (empty($sub5)) {
-            unset($sub5);
+        $linkUrl["main"] = LinkUrlGenerator::single($main["name"]);
+
+        if (isset($sub1)) {
+            $linkUrl["sub1"] = LinkUrlGenerator::single($sub1["name"]);
         }
 
-        $linkUrl = [
-            "main" => $main["link_url"],
-            "sub1" => $sub1["link_url"] ?? NULL,
-            "sub2" => $sub2["link_url"] ?? NULL,
-            "sub3" => $sub3["link_url"] ?? NULL,
-            "sub4" => $sub4["link_url"] ?? NULL,
-            "sub5" => $sub5["link_url"] ?? NULL
-        ];
+        if (isset($sub2)) {
+            $linkUrl["sub2"] = LinkUrlGenerator::single($sub2["name"]);
+        }
 
-        if (empty($linkUrl["sub1"])) {
-            unset($linkUrl["sub1"]);
+        if (isset($sub3)) {
+            $linkUrl["sub3"] = LinkUrlGenerator::single($sub3["name"]);
         }
-        if (empty($linkUrl["sub2"])) {
-            unset($linkUrl["sub2"]);
+
+        if (isset($sub4)) {
+            $linkUrl["sub4"] = LinkUrlGenerator::single($sub4["name"]);
         }
-        if (empty($linkUrl["sub3"])) {
-            unset($linkUrl["sub3"]);
-        }
-        if (empty($linkUrl["sub4"])) {
-            unset($linkUrl["sub4"]);
-        }
-        if (empty($linkUrl["sub5"])) {
-            unset($linkUrl["sub5"]);
+
+        if (isset($sub5)) {
+            $linkUrl["sub5"] = LinkUrlGenerator::single($sub5["name"]);
         }
 
         $linkUrl = implode("-", $linkUrl);

@@ -49,7 +49,7 @@ class CategoryTypeCreateController extends Controller
             "name" => $name
         ]);
 
-        $data["createdData"] = CategoryTypesModel::where("no", $no)->get();
+        $data["createdData"] = CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
         return $data;
     }
 }

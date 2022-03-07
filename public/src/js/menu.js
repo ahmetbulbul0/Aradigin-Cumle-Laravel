@@ -1,43 +1,44 @@
-var openMenuIcon = document.getElementById("openMenuIcon");
-var closeMenuIcon = document.getElementById("closeMenuIcon");
-var dropdown = document.getElementById("dropdown");
+const menuBtn = document.querySelector(".menuBtn");
+const mobilMenuBtn = document.querySelector(".mobilMenuBtn");
+const searchBtn = document.querySelector(".searchBtn");
+const mobilSearchBtn = document.querySelector(".mobilSearchBtn");
+const themeBtn = document.querySelector(".themeBtn");
+const menu = document.querySelector(".outDropdown");
+const fullLine = document.querySelector(".outFullLine");
+const search = document.querySelector(".search");
+const theme = document.querySelector(".outTheme");
+const closeSearch = document.querySelector(".closeSearch");
+const closeTheme = document.querySelector(".closeTheme");
 
-openMenuIcon.onclick = function () {
-    dropdown.style.display = "flex";
-    openMenuIcon.style.display = "none";
-    closeMenuIcon.style.display = "flex"
-}
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("open");
+});
 
-closeMenuIcon.onclick = function () {
-    dropdown.style.display = "none";
-    openMenuIcon.style.display = "flex";
-    closeMenuIcon.style.display = "none"
-}
+mobilMenuBtn.addEventListener("click", () => {
+    menu.classList.toggle("open");
+});
 
-var openFullLineSearchIcon = document.getElementById("openFullLineSearchIcon");
-var closeFullLineSearchIcon = document.getElementById("closeFullLineSearchIcon");
-var openFullLineThemeIcon = document.getElementById("openFullLineThemeIcon");
-var closeFullLineThemeIcon = document.getElementById("closeFullLineThemeIcon");
-var fullLine = document.getElementById("fullLine");
-var fullLineSearch = document.getElementById("fullLineSearch");
-var fullLineTheme = document.getElementById("fullLineTheme");
+searchBtn.addEventListener("click", () => {
+    fullLine.classList.add("open");
+    search.classList.add("open");
+});
 
-openFullLineSearchIcon.onclick = function () {
-    fullLine.style.display = "flex";
-    fullLineSearch.style.display = "flex"
-}
+mobilSearchBtn.addEventListener("click", () => {
+    fullLine.classList.add("open");
+    search.classList.add("open");
+});
 
-closeFullLineSearchIcon.onclick = function () {
-    fullLine.style.display = "none";
-    fullLineSearch.style.display = "none"
-}
+closeSearch.addEventListener("click", () => {
+    fullLine.classList.remove("open");
+    search.classList.remove("open");
+});
 
-openFullLineThemeIcon.onclick = function () {
-    fullLine.style.display = "flex";
-    fullLineTheme.style.display = "flex"
-}
+themeBtn.addEventListener("click", () => {
+    fullLine.classList.add("open");
+    theme.classList.add("open");
+});
 
-closeFullLineThemeIcon.onclick = function () {
-    fullLine.style.display = "none";
-    fullLineTheme.style.display = "none"
-}
+closeTheme.addEventListener("click", () => {
+    fullLine.classList.remove("open");
+    theme.classList.remove("open");
+});
