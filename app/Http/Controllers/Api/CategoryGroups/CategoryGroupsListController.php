@@ -92,6 +92,10 @@ class CategoryGroupsListController extends Controller
     {
         return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first();
     }
+    static function getFirstDataWithMainNoOnlyNotDeleted($no)
+    {
+        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $no])->first();
+    }
     static function getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5()
     {
         return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->get()->toArray();

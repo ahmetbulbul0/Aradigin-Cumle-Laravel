@@ -3,17 +3,19 @@
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    {{ $data['middle2List'][0]['title'] }}
+                    <a href="{{ $data['middle2List'][0]['allListLink'] }}">
+                        {{ $data['middle2List'][0]['listTitle'] }}
+                    </a>
                 </span>
             </div>
             <div class="inList">
                 @foreach ($data['middle2List'][0]['data'] as $news)
                     <div class="item">
-                        <a class="content" href="/haber/{{ $news['link_url'] }}">
+                        <a class="content" href="{{ route('haber_detay', [$news['link_url']]) }}">
                             {{ $news['content'] }}
                         </a>
                         <span class="date">
-                            {{ $news['publish_date']["text"] }}
+                            {{ $news['publish_date']['text'] }}
                         </span>
                     </div>
                 @endforeach
@@ -25,17 +27,19 @@
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    {{ $data['middle2List'][1]['title'] }}
+                    <a href="{{ $data['middle2List'][1]['allListLink'] }}">
+                        {{ $data['middle2List'][1]['listTitle'] }}
+                    </a>
                 </span>
             </div>
             <div class="inList">
                 @foreach ($data['middle2List'][1]['data'] as $news)
                     <div class="item">
-                        <a class="content" href="/haber/{{ $news['link_url'] }}">
+                        <a class="content" href="{{ route('haber_detay', [$news['link_url']]) }}">
                             {{ $news['content'] }}
                         </a>
                         <span class="date">
-                            {{ $news['publish_date']["text"] }}
+                            {{ $news['publish_date']['text'] }}
                         </span>
                     </div>
                 @endforeach

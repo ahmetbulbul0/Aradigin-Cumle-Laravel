@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Users;
 
+use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Controller;
 use App\Models\UsersModel;
 use Illuminate\Http\Request;
@@ -59,6 +60,10 @@ class UsersListController extends Controller
     static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
     {
         return UsersModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "settings")->first()->toArray();
+    }
+    static function getFirstDataOnlyNotDeletedOnlyTypeSystemAllRelationships()
+    {
+        return UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first()->toArray() : NULL;
     }
 
 }

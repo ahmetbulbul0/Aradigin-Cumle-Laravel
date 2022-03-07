@@ -72,6 +72,10 @@ class NewsListController extends Controller
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->get()->toArray();
     }
+    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDateMaxLimit($limit)
+    {
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray();
+    }
     static function getAllOnlyNotDeletedAllRelationshipsOrderByAscPublishDate()
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "ASC")->get()->toArray();
@@ -92,6 +96,18 @@ class NewsListController extends Controller
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "ASC")->get()->toArray();
     }
+    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescReading()
+    {
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->get()->toArray();
+    }
+    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescReadingMaxLimit($limit)
+    {
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->get()->toArray();
+    }
+    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscReading()
+    {
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->get()->toArray();
+    }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
     {
         return NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray();
@@ -100,23 +116,16 @@ class NewsListController extends Controller
     {
         return NewsModel::where(["is_deleted" => false, "author" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
     }
+    static function getAllOnlyNotDeletedWithResourcePlatformNoAllRelationships($no)
+    {
+        return NewsModel::where(["is_deleted" => false, "resource_platform" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+    }
+    static function getAllOnlyNotDeletedWitCategoryNoAllRelationships($no)
+    {
+        return NewsModel::where(["is_deleted" => false, "category" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+    }
+    static function getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($categoryNo, $limit)
+    {
+        return NewsModel::where(["is_deleted" => false, "category" => $categoryNo])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray();
+    }
 }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

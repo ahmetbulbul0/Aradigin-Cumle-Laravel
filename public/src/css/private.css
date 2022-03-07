@@ -1,10 +1,7 @@
 /* [C]FONTS */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-
 /* [C]PRİMARY */
-
 :root {
     --white: #ffffff;
     --light: #f0eff3;
@@ -15,23 +12,15 @@
     --yellow: #f8ab37;
     --grey: #ecedf3;
 }
-
 a {
     all: unset;
 }
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="time"],
-button {
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], button {
     all: unset;
 }
-
 * {
     cursor: default;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -39,9 +28,7 @@ body {
     background-color: var(--dark-blue);
     color: var(--white);
 }
-
-/* [C]MENU */
-
+/* MENU */
 .outMenu {
     width: 100%;
     position: relative;
@@ -51,7 +38,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu:after {
     content: "";
     position: absolute;
@@ -61,27 +47,23 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMenu .inMenu {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .outMenu .inMenu .bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .outMenu .inMenu .mobile_bar {
     width: 100%;
     display: none;
     justify-content: space-between;
     align-items: center;
 }
-
 .outMenu .inMenu .mobile_bar .iconBox {
     box-sizing: border-box;
     padding: 0 24px;
@@ -90,18 +72,15 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .mobile_bar .iconBox i {
     font-size: 115%;
 }
-
 .outMenu .inMenu .mobile_bar .iconBox i:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .mobile_bar .logoBox {
     width: calc(100% - 100px);
     display: flex;
@@ -111,7 +90,6 @@ body {
     border-right: 1px solid var(--dark-light);
     height: 50px;
 }
-
 .outMenu .inMenu .mobile_bar .logoBox a {
     font-size: 130%;
     font-family: "Righteous", cursive;
@@ -120,25 +98,21 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .bar .textBox {
     padding: 0 24px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .bar .textBox:nth-child(1) {
     padding-left: 0;
 }
-
 .outMenu .inMenu .bar .textBox a {
     cursor: pointer;
 }
 .outMenu .inMenu .bar .textBox a i {
     cursor: pointer;
 }
-
 .outMenu .inMenu .bar .textBox a.strong {
     font-size: 150%;
     font-family: "Righteous", cursive;
@@ -147,7 +121,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .outFullLine {
     position: absolute;
     width: calc(100% - 100px);
@@ -158,11 +131,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .outFullLine#fullLine {
     display: none;
 }
-
 .outMenu .inMenu .outFullLine:after {
     content: "";
     position: absolute;
@@ -172,7 +143,6 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMenu .inMenu .outFullLine .inFullLine {
     width: 100%;
     height: 100%;
@@ -182,7 +152,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .search {
     width: 100%;
     box-sizing: border-box;
@@ -192,7 +161,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .search .outInputText {
     width: 100%;
     background: #1112177a;
@@ -203,27 +171,23 @@ body {
     font-size: 90%;
     padding: 3px 0;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .search input[type="text"] {
     width: 100%;
     box-sizing: border-box;
     padding: 4px 12px;
     margin-right: 6px;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .search .outInputText i {
     margin-right: 18px;
     font-size: 125%;
     cursor: pointer;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .search .outInputText i:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme {
     width: 100%;
     box-sizing: border-box;
@@ -233,7 +197,6 @@ body {
     align-items: center;
     font-size: 90%;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme {
     background: #1112177a;
     padding: 7px 12px;
@@ -241,12 +204,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme label {
     position: relative;
     padding: 0 4px;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme label:after {
     content: "";
     position: absolute;
@@ -256,7 +217,6 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button {
     padding: 0 12px;
     border-radius: 50px;
@@ -264,32 +224,26 @@ body {
     font-weight: 300;
     margin-left: 6px;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:nth-child(2) {
     margin-left: 12px;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme i {
     font-size: 125%;
     margin-left: 12px;
     cursor: pointer;
 }
-
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme i:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .bar .iconBox {
     width: 50px;
     font-size: 125%;
@@ -297,49 +251,39 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMenu .inMenu .bar .iconBox#homeIconBox {
     display: none;
 }
-
 .outMenu .inMenu .bar .iconBox#homeIconBox i {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .bar .iconBox i {
     cursor: pointer;
 }
-
 .outMenu .inMenu .bar .iconBox i#closeMenuIcon {
     display: none;
 }
-
 .outMenu .inMenu .mobile_bar .iconBox i#closeMenuIcon1 {
     display: none;
 }
-
 .outMenu .inMenu .bar .iconBox i:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMenu .inMenu .brace {
     height: 50px;
     width: 1px;
     background: var(--dark-light);
 }
-
 .outMenu .inMenu .brace#homeIconBrace {
     display: none;
 }
-
-/* [C]DROPDOWN */
-
+/* DROPDOWN */
 .outDropdown {
     position: absolute;
     z-index: 1;
@@ -350,11 +294,9 @@ body {
     box-sizing: border-box;
     padding: 0 50px;
 }
-
 .outDropdown#dropdown {
     display: none;
 }
-
 .outDropdown .inDropdown {
     background-color: var(--dark-blue);
     width: 100%;
@@ -364,25 +306,21 @@ body {
     border-bottom-right-radius: 25px;
     border: 1px solid var(--dark-light);
 }
-
 .outDropdown .inDropdown .header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .outDropdown .inDropdown .header .search {
     width: 50%;
 }
-
 .outDropdown .inDropdown .header .themeAndLinks {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 50%;
 }
-
 .outDropdown .inDropdown .header .search .outInputText {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -393,7 +331,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .outDropdown .inDropdown .header .search .outInputText input[type="text"] {
     width: 90%;
     background-color: var(--dark-blue);
@@ -403,7 +340,6 @@ body {
     padding: 6px 12px;
     font-size: 80%;
 }
-
 .outDropdown .inDropdown .header .search .outInputText .iconBox {
     width: 10%;
     display: flex;
@@ -412,11 +348,9 @@ body {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-
 .outDropdown .inDropdown .header .search .outInputText .iconBox i {
     cursor: pointer;
 }
-
 .outDropdown .inDropdown .header .linkBar span a {
     font-weight: 300;
     font-size: 90%;
@@ -425,11 +359,9 @@ body {
     padding: 0 4px;
     margin-left: 8px;
 }
-
 .outDropdown .inDropdown .header .linkBar span a:nth-child(1) {
     margin-left: 8px;
 }
-
 .outDropdown .inDropdown .header .linkBar span a:after {
     content: "";
     position: absolute;
@@ -439,20 +371,17 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outDropdown .inDropdown .header .theme {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 90%;
 }
-
 .outDropdown .inDropdown .header .theme label {
     margin-right: 6px;
     position: relative;
     padding: 0 4px;
 }
-
 .outDropdown .inDropdown .header .theme label:after {
     content: "";
     position: absolute;
@@ -462,7 +391,6 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outDropdown .inDropdown .header .theme button {
     padding: 2px 8px;
     border-radius: 50px;
@@ -470,41 +398,32 @@ body {
     font-weight: 300;
     margin-right: 4px;
 }
-
 .outDropdown .inDropdown .header .theme button:nth-child(1) {
     margin-right: 0;
 }
-
 .outDropdown .inDropdown .header .theme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outDropdown .inDropdown .header .theme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outDropdown .inDropdown .lists {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
 }
-
 .outDropdown .inDropdown .lists .listsBar {
     width: 50%;
     display: flex;
     justify-content: space-around;
 }
-
-/* .outDropdown .inDropdown .lists .listsBar .outList {} */
-
 .outDropdown .inDropdown .lists .listsBar .outList .titleBox {
     width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
 }
-
 .outDropdown .inDropdown .lists .listsBar .outList .titleBox span {
     font-size: 130%;
     font-weight: 600;
@@ -513,128 +432,16 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outDropdown .inDropdown .lists .listsBar .outList .titleBox span a {
     cursor: pointer;
 }
-
 .outDropdown .inDropdown .lists .listsBar .outList .list {
     font-weight: 300;
     font-size: 90%;
 }
-
 .outDropdown .inDropdown .lists .listsBar .outList .list .item span {
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 4 VALUES BOX */
 .outValues4Box {
     width: 100%;
@@ -1528,99 +1335,7 @@ body {
 .outDeleteConfirm .inDeleteConfirm .footer button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WELCOME AND HOW ARE YOU */
 .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou {
     width: 25%;
     margin-top: 40px;
@@ -1628,47 +1343,26 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou {
     width: 100%;
     box-sizing: border-box;
     border-radius: 25px;
     padding: 18px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .header {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .header
-    span {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header span {
     font-size: 90%;
     cursor: default;
     position: relative;
     padding: 0 6px;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .header
-    span:after {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .header span:after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -1677,54 +1371,26 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .step#haveDifferentThink {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .step#haveDifferentThink {
     display: none;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body {
     width: 100%;
     margin-top: 12px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    span {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body span {
     font-size: 80%;
     cursor: pointer;
     padding: 6px 12px;
     border-radius: 25px;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    span:hover {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body span:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    .strong {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong {
     border-radius: 25px;
     padding: 1px;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -1732,33 +1398,13 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    .strong
-    span {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong span {
     background: var(--dark-blue);
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    .strong
-    span:hover {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .strong span:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    .outInputText {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .outInputText {
     width: 100%;
     margin-top: 8px;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -1769,14 +1415,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.outChartAndWelcomeHowAreYou
-    .inChartAndWelcomeHowAreYou
-    .outWelcomeHowAreYou
-    .inWelcomeHowAreYou
-    .body
-    .outInputText
-    input[type="text"] {
+.outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou .outWelcomeHowAreYou .inWelcomeHowAreYou .body .outInputText input[type="text"] {
     width: 100%;
     background-color: var(--dark-blue);
     border-radius: 50px;
@@ -1784,9 +1423,7 @@ body {
     padding: 4px 12px;
     font-size: 80%;
 }
-
 /* MY NEWS */
-
 .outMyNews {
     width: 100%;
     display: flex;
@@ -1796,7 +1433,6 @@ body {
     margin-top: 40px;
     padding: 0 50px;
 }
-
 .outMyNews .inMyNews {
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
@@ -1804,19 +1440,16 @@ body {
     box-sizing: border-box;
     padding: 30px;
 }
-
 .outMyNews .inMyNews .outTitle {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .outMyNews .inMyNews .outTitle .inTitle {
     position: relative;
     padding: 0 6px;
 }
-
 .outMyNews .inMyNews .outTitle .inTitle:after {
     content: "";
     position: absolute;
@@ -1826,24 +1459,20 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMyNews .inMyNews .outTitle .titleSelects {
     display: flex;
     justify-content: right;
     align-items: center;
 }
-
 .outMyNews .inMyNews .outTitle .titleSelects .statisticListingSelect {
     display: flex;
     justify-content: right;
     align-items: center;
     margin-left: 12px;
 }
-
 .outMyNews .inMyNews .outTitle .statisticListingSelect:nth-child(1) {
     margin-left: 0;
 }
-
 .outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -1854,7 +1483,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox select {
     width: 100%;
     border: none;
@@ -1867,12 +1495,10 @@ body {
     padding: 6px 12px;
     font-size: 80%;
 }
-
 .outMyNews .inMyNews .myNewsList {
     width: 100%;
     margin: 24px 0;
 }
-
 .outMyNews .inMyNews .myNewsList .titleLine {
     width: 100%;
     display: flex;
@@ -1882,7 +1508,6 @@ body {
     padding: 0 12px;
     border-radius: 50px;
 }
-
 .outMyNews .inMyNews .myNewsList .titleLine div {
     font-weight: 500;
     font-size: 90%;
@@ -1890,12 +1515,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outMyNews .inMyNews .myNewsList .titleLine div span {
     padding: 0 6px;
     position: relative;
 }
-
 .outMyNews .inMyNews .myNewsList .titleLine div span:after {
     content: "";
     position: absolute;
@@ -1905,7 +1528,6 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outMyNews .inMyNews .myNewsList .line {
     width: 100%;
     display: flex;
@@ -1915,135 +1537,107 @@ body {
     padding: 12px;
     border-radius: 50px;
 }
-
 .outMyNews .inMyNews .myNewsList .line:nth-child(2) {
     margin-top: 12px;
 }
-
 .outMyNews .inMyNews .myNewsList .line:nth-child(even) {
     background-color: #1112177a;
 }
-
 .outMyNews .inMyNews .myNewsList .line div {
     font-size: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .outMyNews .inMyNews .myNewsList div.no {
     width: 6%;
 }
-
 .outMyNews .inMyNews .myNewsList div.category {
     width: 12%;
 }
-
 .outMyNews .inMyNews .myNewsList div.publish_date {
     width: 12%;
 }
-
 .outMyNews .inMyNews .myNewsList div.content {
     width: 44%;
 }
-
 .outMyNews .inMyNews .myNewsList div.resource {
     width: 8%;
 }
-
 .outMyNews .inMyNews .myNewsList div.listing {
     width: 6%;
 }
-
 .outMyNews .inMyNews .myNewsList div.reading {
     width: 6%;
 }
-
 .outMyNews .inMyNews .myNewsList div.actions {
     width: 6%;
 }
-
 .outMyNews .inMyNews .myNewsList .line div {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .outMyNews .inMyNews .myNewsList .line div span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.no {
     color: var(--dark-light);
 }
-
 .outMyNews .inMyNews .myNewsList .line div.publish_date {
     color: var(--dark-light);
 }
-
 .outMyNews .inMyNews .myNewsList .line div.category {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.content {
     font-weight: 300;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.resource {
     color: var(--dark-light);
 }
-
 .outMyNews .inMyNews .myNewsList .line div.listing {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.reading {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions {
     font-size: 95%;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions span {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions span a {
     margin-left: 12px;
     cursor: pointer;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions span a:nth-child(1) {
     margin-left: 0;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions span a:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outMyNews .inMyNews .myNewsList .line div.actions span a i {
     cursor: pointer;
 }
-
-/* [C]ADMİN NEWS CREATE */
-
+/* ADMİN NEWS CREATE */
 .outNewsCreate {
     width: 100%;
     display: flex;
@@ -2053,7 +1647,6 @@ body {
     margin-top: 40px;
     padding: 0 50px;
 }
-
 .outNewsCreate .inNewsCreate {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
     border-radius: 25px;
@@ -2061,19 +1654,16 @@ body {
     padding: 25px;
     width: 100%;
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateTitle {
     width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle {
     position: relative;
     padding: 0 6px;
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle:after {
     content: "";
     position: absolute;
@@ -2083,7 +1673,6 @@ body {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateForm {
     width: 100%;
     margin-top: 20px;
@@ -2091,11 +1680,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm {
     width: 100%;
 }
-
 .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line {
     width: 100%;
     display: flex;
@@ -2103,14 +1690,307 @@ body {
     align-items: center;
     margin-top: 15px;
 }
-
-.outNewsCreate
-    .inNewsCreate
-    .outNewsCreateForm
-    .inNewsCreateForm
-    .line:nth-child(1) {
+.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line:nth-child(1) {
     margin-top: 0;
 }
+/* WEBSİTE SETUP */
+.outWebSiteSetup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 250px;
+    min-height: 100vh;
+}
+.outWebSiteSetup .inWebSiteSetup {
+    width: 100%;
+}
+.outWebSiteSetup .inWebSiteSetup .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outTitle .inTitle {
+    font-size: 150%;
+    font-family: "Righteous", cursive;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent {
+    margin-top: 40px;
+    box-sizing: border-box;
+    padding: 3px;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent {
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 50px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar {
+    width: calc(50% - 25px);
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.title {
+    justify-content: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.title span.title {
+    padding: 0 6px;
+    position: relative;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.title span.title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line:nth-child(1) {
+    margin-top: 0;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outLabel {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: cnter;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outLabel label {
+    font-size: 90%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span {
+    font-size: 90%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i {
+    margin-left: 6px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i.green {
+    color: green;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i.red {
+    color: var(--red);
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.spanWithAction .outLabel {
+    width: 30%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.spanWithAction .outSpan {
+    width: 30%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.spanWithAction .outButton {
+    width: 40%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.labelWithInputText .outLabel {
+    width: 50%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.labelWithInputText .outInputText {
+    width: 50%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.buttonWithInputText .outLabel {
+    width: 30%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.buttonWithInputText .outInputText {
+    width: 50%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.buttonWithInputText .outButton {
+    width: 20%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.oneButton .outButton {
+    width: 100%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outButton button {
+    font-size: 90%;
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    cursor: pointer;
+    font-weight: 300;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outButton button:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outInputText {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outInputText input[type="text"] {
+    width: 100%;
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-weight: 300;
+    font-size: 90%;
+    cursor: text;
+}
+.outWebSiteSetup .inWebSiteSetup .outAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.outWebSiteSetup .inWebSiteSetup .outAction .inAction {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.outWebSiteSetup .inWebSiteSetup .outAction .inAction a {
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    cursor: pointer;
+    font-weight: 300;
+}
+.outWebSiteSetup .inWebSiteSetup .outAction .inAction a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish {
+    width: 100%;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outText {
+    width: 100%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outText span {
+    font-size: 150%;
+    text-align: center;
+    display: block;
+    font-weight: 500;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outLinks {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outLinks a {
+    font-size: 125%;
+    padding: 6px 24px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    cursor: pointer;
+    font-weight: 300;
+    margin-left: 40px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outLinks a {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outLinks a:nth-child(1) {
+    margin-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .outNewsCreate
     .inNewsCreate

@@ -14,7 +14,6 @@ class CategoryGroupCreateController extends Controller
 {
     static function get($data)
     {
-
         $main = htmlspecialchars($data["data"]["main"]);
         $sub1 = htmlspecialchars($data["data"]["sub1"]);
         $sub2 = htmlspecialchars($data["data"]["sub2"]);
