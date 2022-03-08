@@ -15,9 +15,11 @@ class CreateVisitorsTable extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
-            $table->integer("no");
+            $table->bigInteger("no");
             $table->string("ip");
-            $table->longText("other")->nullable();
+            $table->longText("browser");
+            $table->string("last_login_time");
+            $table->string("website_theme");
             $table->timestamps();
         });
     }

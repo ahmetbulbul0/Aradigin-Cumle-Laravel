@@ -19,7 +19,7 @@ class isItAuthor
     public function handle(Request $request, Closure $next)
     {
         if (!Session::get("userData")) {
-            return redirect(route("anasayfa"));
+            return response()->view('errors.404');
         }
 
         if (Session::get("userData")) {
@@ -27,10 +27,10 @@ class isItAuthor
                 return $next($request);
             }
             if (Session::get("userData.type.no") == ConstantsListController::getUserTypeSystemOnlyNotDeleted()) {
-                return redirect(route("sistem_paneli_anapanel"));
+                return response()->view('errors.401');
             }
         }
 
-        return redirect(route("anasayfa"));
+        return response()->view('errors.404');
     }
 }

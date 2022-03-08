@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Controllers\Api\Users\UsersListController;
-use App\Models\UsersModel;
+use App\Models\VisitorsModel;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class userDataCheck
+class visitorDataCheck
 {
     /**
      * Handle an incoming request.
@@ -19,19 +18,16 @@ class userDataCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::get("userData")) {
-            return response()->view('errors.404');
+        $visitorNo = Session::get("visitorData.no");
+
+        if (!VisitorsModel::where("no", $visitorNo)->count()) {
+            Session::remove("visitorData");
+            return response()->view('errors.500');
         }
 
-        $userNo = Session::get("userData.no");
+        $visitorData = VisitorsModel::where("no", $visitorNo)->first();
 
-        if (!UsersModel::where(["is_deleted" => false, "no" => $userNo])->count()) {
-            return response()->view('errors.404');
-        }
-
-        $userData = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($userNo);
-
-        Session::put('userData', $userData);
+        Session::put('visitorDatae', $visitorData);
 
         return $next($request);
     }
