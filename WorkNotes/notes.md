@@ -4,13 +4,13 @@
 * FrontEnd [
     - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
     - tüm butonlara 3d stili tanımlanacak 
-    - açık tema tasarımı yapılacak
-    - açık tema koyu tema geçisi yapılacak
-    - genel hata kodları için hata sayfa şablonu yapılacak
+    - [FİNİSH]açık tema tasarımı yapılacak
+    - [FİNİSH]açık tema koyu tema geçisi yapılacak
+    - [FİNİSH]genel hata kodları için hata sayfa şablonu yapılacak
 ]
 * BackEnd [
-    - çıkış yapma sistemi yapılacak
-    - login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
+    - [FİNİSH]çıkış yapma sistemi yapılacak
+    - [FİNİSH]login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
     - [FİNİSH]users settings modelinin api controllerları yapılacak
     - [FİNİSH]resource urls modelinin api controllerları yapılacak
@@ -26,7 +26,7 @@
     - lists api coontrollerlarındaki sorgularda is_deleted false koşulu eklenecek
     - update ve edit api controllerlarındaki check fonksiyonu içerisindeki var olma kontrollerine is_deleted false sorgusu eklenecek
     - my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
-    - pagination sistemi geliştirilicek ve uyarlanıcak
+    - [FİNİSH]pagination sistemi geliştirilicek ve uyarlanıcak
 ]
 
 *Models & Migrations*
@@ -53,10 +53,10 @@
 *Controllers*
 * Pages [
     * Visitor [
-        * HomePageController
-        * NewsDetailPageController
+        * [FİNİSH]HomePageController
+        * [FİNİSH]NewsDetailPageController
         * [FİNİSH]SignInPageController
-        * VisitorNewsListPageController
+        * [FİNİSH]VisitorNewsListPageController
     ]
     * Author [
         * [FİNİSH]AuthorDashboardPageController
@@ -208,15 +208,15 @@
 
 *Pages / Views*
 * Visitor [
-    - Home
-    - News List
-    - News Detail
+    - [FİNİSH]Home
+    - [FİNİSH]News List
+    - [FİNİSH]News Detail
     - [FİNİSH]Sign In
 ]
 * Author [
     - [FİNİSH]Dashboard
     - [FİNİSH]News Create
-    - My News List
+    - [FİNİSH]My News List
     - My News Edit
     - My News Delete
     - My News Statistics
