@@ -20,13 +20,13 @@ class userDataCheck
     public function handle(Request $request, Closure $next)
     {
         if (!Session::get("userData")) {
-            return redirect(route("anasayfa"));
+            return response()->view('errors.404');
         }
 
         $userNo = Session::get("userData.no");
 
         if (!UsersModel::where(["is_deleted" => false, "no" => $userNo])->count()) {
-            return redirect(route("anasayfa"));
+            return response()->view('errors.404');
         }
 
         $userData = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($userNo);

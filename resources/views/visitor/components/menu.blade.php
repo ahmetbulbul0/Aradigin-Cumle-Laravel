@@ -76,13 +76,27 @@
                 <div class="outTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
-                            @csrf
-                            <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
-                                value="dark">Koyu</button>
-                            <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
-                                value="light">Açık</button>
-                        </form>
+
+                        @if (Session::get('userData'))
+                            <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
+                                @csrf
+                                <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                    value="dark">Koyu</button>
+                                <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                                    value="light">Açık</button>
+                            </form>
+                        @endif
+
+                        @if (Session::get('visitorData'))
+                            <form method="POST" action="{{ route('visitor_website_theme_change') }}">
+                                @csrf
+                                <button class='@if (Session::get('visitorData.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                    value="dark">Koyu</button>
+                                <button class='@if (Session::get('visitorData.website_theme') == 'light') active @endif' name="websiteTheme"
+                                    value="light">Açık</button>
+                            </form>
+                        @endif
+
                         <i class="fas fa-times closeTheme"></i>
                     </div>
                 </div>
@@ -120,13 +134,25 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
-                        @csrf
-                        <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
-                            value="dark">Koyu</button>
-                        <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
-                            value="light">Açık</button>
-                    </form>
+                    @if (Session::get('userData'))
+                        <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
+                            @csrf
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                                value="light">Açık</button>
+                        </form>
+                    @endif
+
+                    @if (Session::get('visitorData'))
+                        <form method="POST" action="{{ route('visitor_website_theme_change') }}">
+                            @csrf
+                            <button class='@if (Session::get('visitorData.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('visitorData.website_theme') == 'light') active @endif' name="websiteTheme"
+                                value="light">Açık</button>
+                        </form>
+                    @endif
                 </div>
 
                 <div class="linkBar">

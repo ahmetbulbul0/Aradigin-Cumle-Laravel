@@ -16,13 +16,14 @@ class VisitorsModel extends Model
     protected $fillable = [
         "no",
         "ip",
-        "other"
+        "browser",
+        "last_login_time",
+        "website_theme",
     ];
     
     protected $hidden = [
         "id",
         "created_at",
-        "updated_at",
-        "is_deleted"
+        "updated_at"
     ];
 }

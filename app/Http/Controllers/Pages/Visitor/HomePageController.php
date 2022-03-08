@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Pages\Visitor;
 use App\Models\NewsModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\Pagination;
+use App\Http\Controllers\Tools\VisitorMenuDataGet;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
-use App\Http\Controllers\Tools\VisitorMenuDataGet;
-use App\Models\CategoriesModel;
 
 class HomePageController extends Controller
 {

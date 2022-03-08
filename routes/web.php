@@ -57,22 +57,25 @@ use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
+use App\Http\Controllers\Pages\Visitor\VisitorChangeWebSiteThemePageController;
 
-Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->name("kurulum");
+Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->name("kurulum")->middleware(["isTheWebSiteNotSetup"]);
 
 Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
     /* VİSİTOR PAGES */
-        // ANASAYFA
-        Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
-        // HABERLER LİSTESİ
-            Route::get("/haberler/{listType}/{page?}", [VisitorNewsListPageController::class, "index"])->name("haberler_listesi");
-            Route::get("/haberler/yazar/{authorUserName}/{listType}/{page?}", [VisitorNewsListPageController::class, "author"])->name("haberler_listesi_yazar");
-            Route::get("/haberler/kaynak/{resourcePlatformLinkUrl}/{listType}/{page?}", [VisitorNewsListPageController::class, "resourcePlatform"])->name("haberler_listesi_kaynak");
-            Route::get("/haberler/kategori/{categoryGroupLinkUrl}/{listType}/{page?}", [VisitorNewsListPageController::class, "category"])->name("haberler_listesi_kategori");
-        // HABER DETAY
-            Route::get("/haber/{newsLinkUrl}", [NewsDetailPageController::class, "index"])->name("haber_detay");
-        // YAZAR GİRİŞİ
-            Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi")->middleware("isItNotUser");
+        Route::middleware(["isItVisitor", "visitorDataCheck"])->group(function () {
+            // ANASAYFA
+            Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
+            // HABERLER LİSTESİ
+                Route::get("/haberler/{listType}/{page?}", [VisitorNewsListPageController::class, "index"])->name("haberler_listesi");
+                Route::get("/haberler/yazar/{authorUserName}/{listType}/{page?}", [VisitorNewsListPageController::class, "author"])->name("haberler_listesi_yazar");
+                Route::get("/haberler/kaynak/{resourcePlatformLinkUrl}/{listType}/{page?}", [VisitorNewsListPageController::class, "resourcePlatform"])->name("haberler_listesi_kaynak");
+                Route::get("/haberler/kategori/{categoryGroupLinkUrl}/{listType}/{page?}", [VisitorNewsListPageController::class, "category"])->name("haberler_listesi_kategori");
+            // HABER DETAY
+                Route::get("/haber/{newsLinkUrl}", [NewsDetailPageController::class, "index"])->name("haber_detay");
+            // YAZAR GİRİŞİ
+                Route::get("/yazar-girisi", [SignInPageController::class, "index"])->name("yazar_girisi")->middleware("isItNotUser");
+        });
         // ÇIKIŞ YAP
             Route::get("/cikis-yap", [SignOutPageController::class, "index"])->name("cikis_yap");
     /* AUTHOR PAGES */
@@ -248,6 +251,8 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
         /* VİSİTOR PAGES */
             // YAZAR GİRİŞİ
                 Route::post("/yazar-girisi", [SignInPageController::class, "form"]);
+            // ZİYARETÇİ TEMA DEĞİŞTİR
+                Route::post("/ziyaretci-tema-degistir", [VisitorChangeWebSiteThemePageController::class, "form"])->name("visitor_website_theme_change");
         /* AUTHOR PAGES */
             // HABER EKLE
                 Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);

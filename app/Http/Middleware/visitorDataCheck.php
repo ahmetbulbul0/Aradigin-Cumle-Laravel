@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Controllers\Api\Constants\ConstantsListController;
+use App\Models\VisitorsModel;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class isItAuthor
+class visitorDataCheck
 {
     /**
      * Handle an incoming request.
@@ -19,18 +19,20 @@ class isItAuthor
     public function handle(Request $request, Closure $next)
     {
         if (!Session::get("userData")) {
-            return response()->view('errors.404');
+            if (Session::get("visitorData")) {
+                $visitorNo = Session::get("visitorData.no");
+
+                if (!VisitorsModel::where("no", $visitorNo)->count()) {
+                    Session::remove("visitorData");
+                    return response()->view('errors.500');
+                }
+        
+                $visitorData = VisitorsModel::where("no", $visitorNo)->first();
+        
+                Session::put('visitorData', $visitorData);
+            }
         }
 
-        if (Session::get("userData")) {
-            if (Session::get("userData.type.no") == ConstantsListController::getUserTypeAuthorOnlyNotDeleted()) {
-                return $next($request);
-            }
-            if (Session::get("userData.type.no") == ConstantsListController::getUserTypeSystemOnlyNotDeleted()) {
-                return response()->view('errors.401');
-            }
-        }
-
-        return response()->view('errors.404');
+        return $next($request);
     }
 }
