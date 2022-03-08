@@ -57,6 +57,7 @@ use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
+use App\Http\Controllers\Pages\Visitor\VisitorChangeWebSiteThemePageController;
 
 Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->name("kurulum")->middleware(["isTheWebSiteNotSetup"]);
 
@@ -250,6 +251,8 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
         /* VİSİTOR PAGES */
             // YAZAR GİRİŞİ
                 Route::post("/yazar-girisi", [SignInPageController::class, "form"]);
+            // ZİYARETÇİ TEMA DEĞİŞTİR
+                Route::post("/ziyaretci-tema-degistir", [VisitorChangeWebSiteThemePageController::class, "form"])->name("visitor_website_theme_change");
         /* AUTHOR PAGES */
             // HABER EKLE
                 Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
