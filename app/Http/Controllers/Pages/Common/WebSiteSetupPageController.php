@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 use App\Http\Controllers\Api\UserTypes\UserTypeCreateController;
 use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\Categories\CategoryCreateController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
 use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use App\Http\Controllers\Api\CategoryTypes\CategoryTypeCreateController;
@@ -209,42 +210,42 @@ class WebSiteSetupPageController extends Controller
             "constants" => [
                 [
                     "name" => "1.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()) : NULL,
                     "create" => "category1Create"
                 ],
                 [
                     "name" => "2.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()) : NULL,
                     "create" => "category2Create"
                 ],
                 [
                     "name" => "3.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted()) : NULL,
                     "create" => "category3Create"
                 ],
                 [
                     "name" => "4.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted()) : NULL,
                     "create" => "category4Create"
                 ],
                 [
                     "name" => "5.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted()) : NULL,
                     "create" => "category5Create"
                 ],
                 [
                     "name" => "6.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted()) : NULL,
                     "create" => "category6Create"
                 ],
                 [
                     "name" => "7.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted()) : NULL,
                     "create" => "category7Create"
                 ],
                 [
                     "name" => "8.Ana Kategori",
-                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted() ? CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()) : NULL,
+                    "value" => ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted() ? CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()) : NULL,
                     "create" => "category8Create"
                 ],
             ]
@@ -331,7 +332,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category1";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -341,7 +343,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category2";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -351,7 +354,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category3";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -361,7 +365,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category4";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -371,7 +376,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category5";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -381,7 +387,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category6";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -391,7 +398,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category7";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;
@@ -401,7 +409,8 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category8";
-                $data["data"][0]["value"] = $create["createdData"]["no"];
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("kurulum", ["asama-4"]));
                 break;

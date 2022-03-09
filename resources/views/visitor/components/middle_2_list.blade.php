@@ -11,12 +11,16 @@
             <div class="inList">
                 @foreach ($data['middle2List'][0]['data'] as $news)
                     <div class="item">
-                        <a class="content" href="{{ route('haber_detay', [$news['link_url']]) }}">
-                            {{ $news['content'] }}
-                        </a>
-                        <span class="date">
-                            {{ $news['publish_date']['text'] }}
-                        </span>
+                        <div class="content">
+                            <a href="{{ route('haber_detay', [$news['link_url']]) }}">
+                                {{ $news['content'] }}
+                            </a>
+                        </div>
+                        <div class="date">
+                            <span>
+                                {{ $news['publish_date']['text'] }}
+                            </span>
+                        </div>
                     </div>
                 @endforeach
                 <div class="outMore">
@@ -35,12 +39,16 @@
             <div class="inList">
                 @foreach ($data['middle2List'][1]['data'] as $news)
                     <div class="item">
-                        <a class="content" href="{{ route('haber_detay', [$news['link_url']]) }}">
-                            {{ $news['content'] }}
-                        </a>
-                        <span class="date">
-                            {{ $news['publish_date']['text'] }}
-                        </span>
+                        <div class="content">
+                            <a href="{{ route('haber_detay', [$news['link_url']]) }}">
+                                {{ $news['content'] }}
+                            </a>
+                        </div>
+                        <div class="date">
+                            <span>
+                                {{ $news['publish_date']['text'] }}
+                            </span>
+                        </div>
                     </div>
                 @endforeach
                 <div class="outMore">

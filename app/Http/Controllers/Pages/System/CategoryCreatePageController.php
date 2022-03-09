@@ -36,23 +36,23 @@ class CategoryCreatePageController extends Controller
         $created["createdData"] = [
             [
                 "column" => "No",
-                "value" => $created["createdData"][0]["no"]
+                "value" => $created["createdData"]["no"]
             ],
             [
                 "column" => "Adı",
-                "value" => $created["createdData"][0]["name"]
+                "value" => $created["createdData"]["name"]
             ],
             [
                 "column" => "Tipi",
-                "value" => $created["createdData"][0]["type"]["name"]
+                "value" => $created["createdData"]["type"]["name"]
             ],
             [
                 "column" => "Ana Kategori",
-                "value" => $created["createdData"][0]['main_category']['name'] ?? "-"
+                "value" => $created["createdData"]['main_category']['name'] ?? "-"
             ],
             [
                 "column" => "Link Metni",
-                "value" => $created["createdData"][0]['link_url']
+                "value" => $created["createdData"]['link_url']
             ]
         ];
 

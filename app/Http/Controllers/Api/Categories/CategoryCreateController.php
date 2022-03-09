@@ -105,8 +105,8 @@ class CategoryCreateController extends Controller
 
         if ($type == ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) {
             $dataForCategoryGroup["data"] = [
-                "main" => $no,
-                "sub1" => $mainCategory,
+                "main" => $mainCategory,
+                "sub1" => $no,
                 "sub2" => NULL,
                 "sub3" => NULL,
                 "sub4" => NULL,

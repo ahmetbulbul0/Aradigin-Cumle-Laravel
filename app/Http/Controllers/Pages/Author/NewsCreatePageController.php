@@ -51,7 +51,7 @@ class NewsCreatePageController extends Controller
                 "value" => $created["createdData"]["author"]["username"] . " [" . $created["createdData"]["author"]["full_name"] . "]"
             ],
             [
-                "column" => "category",
+                "column" => "Kategori",
                 "value" => CategoryGroupToText::single($created["createdData"]["category"]["no"])
             ],
             [

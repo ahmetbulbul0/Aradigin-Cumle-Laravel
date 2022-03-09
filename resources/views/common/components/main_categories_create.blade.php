@@ -44,7 +44,7 @@
             @endif
             @if ($constant['value'])
                 <div class="outInputText">
-                    <input type="text" name="category" value="{{ Str::title($constant['value']['name']) }}" disabled>
+                    <input type="text" name="category" value="{{ Str::title($constant['value']['main']["name"]) }}" disabled>
                 </div>
             @endif
         </form>
