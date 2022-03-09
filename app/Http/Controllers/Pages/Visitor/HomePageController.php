@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Pages\Visitor;
 
 use App\Models\NewsModel;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\Pagination;
 use App\Http\Controllers\Tools\VisitorMenuDataGet;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
+use App\Http\Controllers\Api\Constants\ConstantsListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 
 class HomePageController extends Controller
 {
@@ -46,16 +49,18 @@ class HomePageController extends Controller
     }
     public function Middle2List()
     {
+        $constantCategory1Data = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted());
+        $constantCategory2Data = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted());
         $data = [
             [
-                "listTitle" => "Futbol",
-                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit(925923, 5)),
-                "allListLink" => route("haberler_listesi_kategori", ["spor-futbol", "son-yayinlananlar"])
+                "listTitle" => Str::title($constantCategory1Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($constantCategory1Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory1Data["link_url"]["link_url"], "son-yayinlananlar"])
             ],
             [
-                "listTitle" => "Oyun",
-                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit(406718, 5)),
-                "allListLink" => route("haberler_listesi_kategori", ["oyun", "son-yayinlananlar"])
+                "listTitle" => Str::title($constantCategory2Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($constantCategory2Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory2Data["link_url"]["link_url"], "son-yayinlananlar"])
             ]
         ];
 

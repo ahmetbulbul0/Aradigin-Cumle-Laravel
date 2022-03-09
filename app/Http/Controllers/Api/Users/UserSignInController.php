@@ -59,6 +59,7 @@ class UserSignInController extends Controller
         $userData = UsersModel::where(["is_deleted" => false, "no" => $no, "password" => $password])->with("type", "settings")->first()->toArray();
         $userData["signedTime"] = UnixTimeToTextDateController::TimeToDate(time());
 
+        Session::remove("visitorData");
         Session::put('userData', $userData);
 
         $data["status"] = "success";

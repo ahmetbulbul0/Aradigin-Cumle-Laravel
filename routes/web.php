@@ -59,11 +59,11 @@ use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
 use App\Http\Controllers\Pages\Visitor\VisitorChangeWebSiteThemePageController;
 
-Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->name("kurulum")->middleware(["isTheWebSiteNotSetup"]);
+Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->name("kurulum");
 
 Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
     /* VİSİTOR PAGES */
-        Route::middleware(["isItVisitor", "visitorDataCheck"])->group(function () {
+        Route::middleware(["isItVisitor", "visitorDataCheck", "userDataCheckIfIsUser"])->group(function () {
             // ANASAYFA
             Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
             // HABERLER LİSTESİ
