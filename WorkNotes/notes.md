@@ -27,6 +27,7 @@
     - update ve edit api controllerlarındaki check fonksiyonu içerisindeki var olma kontrollerine is_deleted false sorgusu eklenecek
     - my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
     - [FİNİSH]pagination sistemi geliştirilicek ve uyarlanıcak
+    - çıkış yap için middleware yapılacak
 ]
 
 *Models & Migrations*

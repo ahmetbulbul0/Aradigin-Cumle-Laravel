@@ -63,7 +63,7 @@ Route::get("/kurulum/{stage?}", [WebSiteSetupPageController::class, "index"])->n
 
 Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
     /* VİSİTOR PAGES */
-        Route::middleware(["isItVisitor", "visitorDataCheck"])->group(function () {
+        Route::middleware(["isItVisitor", "visitorDataCheck", "userDataCheckIfIsUser"])->group(function () {
             // ANASAYFA
             Route::get("/", [HomePageController::class, "index"])->name("anasayfa");
             // HABERLER LİSTESİ

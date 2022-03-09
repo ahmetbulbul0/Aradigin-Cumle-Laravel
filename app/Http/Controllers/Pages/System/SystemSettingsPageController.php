@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers\Pages\System;
 
-use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\Constants\ConstantsListController;
+use Illuminate\Http\Request;
 use App\Models\ConstantsModel;
 use App\Models\UsersSettingsModel;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
+use App\Http\Controllers\Api\UserSettings\UserSettingsListController;
 
 class SystemSettingsPageController extends Controller
 {
     public function theme()
     {
         $data["page_title"] = "Ayarlar [Tema]";
-        $data["user_settings"] = UsersSettingsModel::where(["is_deleted" => false, "user_no" => 247193])->first();
+        $data["user_settings"] = UserSettingsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(Session::get("userData.settings.no"));
         return view("system.pages.settings_theme")->with("data", $data);
     }
     public function themeForm(Request $request)
     {
-        $userNo = "247193";
-        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => $userNo]);
+        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => Session::get("userData.settings.no")]);
+
         if ($request->websiteTheme) {
             $userSettings->update(["website_theme" => $request->websiteTheme]);
         }
@@ -33,7 +36,7 @@ class SystemSettingsPageController extends Controller
     public function constants()
     {
         $data["page_title"] = "Ayarlar [Sabitler]";
-        $data["constants"] = ConstantsModel::where("is_deleted", false)->get();
+        $data["constants"] = ConstantsListController::getAllOnlyNotDeleted();
         return view("system.pages.settings_constants")->with("data", $data);
     }
     public function constantsForm(Request $request)
