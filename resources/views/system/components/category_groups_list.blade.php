@@ -5,6 +5,9 @@
                 Kategori Grupları
             </div>
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('kategori_grubu_ekle') }}" target="blank">Yeni Kategori Grubu Oluştur</a>
+                </div>
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf
@@ -33,62 +36,62 @@
         </div>
         <div class="dbList">
             <div class="titleLine">
-                <div class="w10">
+                <div class="w8">
                     <span>No</span>
                 </div>
-                <div class="w10">
-                    <span>Ana</span>
+                <div class="w12">
+                    <span>Ana Kategori</span>
                 </div>
-                <div class="w10">
-                    <span>1. Alt</span>
+                <div class="w12">
+                    <span>1. Alt Kategori</span>
                 </div>
-                <div class="w10">
-                    <span>2. Alt</span>
+                <div class="w12">
+                    <span>2. Alt Kategori</span>
                 </div>
-                <div class="w10">
-                    <span>3. Alt</span>
+                <div class="w12">
+                    <span>3. Alt Kategori</span>
                 </div>
-                <div class="w10">
-                    <span>4. Alt</span>
+                <div class="w12">
+                    <span>4. Alt Kategori</span>
                 </div>
-                <div class="w10">
-                    <span>5. Alt</span>
+                <div class="w12">
+                    <span>5. Alt Kategori</span>
                 </div>
-                <div class="w20">
-                    <span>Link</span>
+                <div class="w12">
+                    <span>Link Metni</span>
                 </div>
-                <div class="w10">
+                <div class="w8">
                     <span>İşlem</span>
                 </div>
             </div>
             @foreach ($data['data'] as $item)
                 <div class="line">
-                    <div class="w10">
+                    <div class="w8">
                         <span>{{ $item['no'] }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['main']["name"] }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['sub1']["name"] ?? "-" }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['sub2']["name"] ?? "-" }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['sub3']["name"] ?? "-" }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['sub4']["name"] ?? "-" }}</span>
                     </div>
-                    <div class="w10">
+                    <div class="w12">
                         <span>{{ $item['sub5']["name"] ?? "-" }}</span>
                     </div>
-                    <div class="w20">
+                    <div class="w12">
                         <span>{{ $item['link_url']["link_url"] }}</span>
                     </div>
 
-                    <div class="actions w10">
+                    <div class="actions w8">
                         <span>
                             <a href="/sistem-paneli/kategori-grubu/düzenle/{{ $item['no'] }}">
                                 <i class="fas fa-edit"></i>

@@ -5,6 +5,9 @@
                 Kullanıcı Tipleri
             </div>
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('kullanici_tipi_ekle') }}" target="blank">Yeni Kullanıcı Tipi Oluştur</a>
+                </div>
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf
@@ -25,7 +28,7 @@
                     <span>No</span>
                 </div>
                 <div class="w40">
-                    <span>Adı</span>
+                    <span>Ad</span>
                 </div>
                 <div class="w20">
                     <span>İşlem</span>

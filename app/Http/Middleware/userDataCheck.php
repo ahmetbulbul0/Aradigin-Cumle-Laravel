@@ -25,7 +25,8 @@ class userDataCheck
 
         $userNo = Session::get("userData.no");
 
-        if (!UsersModel::where(["is_deleted" => false, "no" => $userNo])->count()) {
+        if (!UsersListController::getFirstDataWithNoOnlyNotDeleted($userNo)) {
+            Session::remove("userData");
             return response()->view('errors.404');
         }
 

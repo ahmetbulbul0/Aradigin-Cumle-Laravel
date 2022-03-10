@@ -80,8 +80,13 @@
                 <div class="outTheme" id="fullLineTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <a href="#" class="active">Koyu</a>
-                        <a href="#">Açık</a>
+                        <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                            @csrf
+                            <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('userData.settings.dashboard_theme') == 'light') active @endif' name="dashboardTheme"
+                                value="light">Açık</button>
+                        </form>
                         <i class="fas fa-times" id="closeFullLineThemeIcon"></i>
                     </div>
                 </div>
@@ -120,9 +125,15 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <a href="#" class="active">Koyu</a>
-                    <a href="google.com">Açık</a>
+                    <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                        @csrf
+                        <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
+                            value="dark">Koyu</button>
+                        <button class='@if (Session::get('userData.settings.dashboard_theme') == 'light') active @endif' name="dashboardTheme"
+                            value="light">Açık</button>
+                    </form>
                 </div>
+
 
                 <div class="linkBar">
                     <span>
@@ -162,6 +173,11 @@
                                 <a href="{{ route('kullanici_ekle') }}">Kullanıcı Ekle</a>
                             </span>
                         </div>
+                        <div class="item">
+                            <span>
+                                <a href="{{ route('kullanici_ayarlari') }}">Kullanıcı Ayarları</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="outList">
@@ -174,6 +190,11 @@
                         <div class="item">
                             <span>
                                 <a href="{{ route('kaynak_site_ekle') }}">Kaynak Site Ekle</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="{{ route('kaynak_linkler') }}">Kaynak Linkler</a>
                             </span>
                         </div>
                     </div>
@@ -218,6 +239,11 @@
                         <div class="item">
                             <span>
                                 <a href="{{ route('kategori_grubu_ekle') }}">Kategori Grubu Ekle</a>
+                            </span>
+                        </div>
+                        <div class="item">
+                            <span>
+                                <a href="{{ route('kategori_grubu_linkleri') }}">Kategori Grubu Link Metinleri</a>
                             </span>
                         </div>
                     </div>

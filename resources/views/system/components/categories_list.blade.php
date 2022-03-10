@@ -4,7 +4,11 @@
             <div class="inTitle">
                 Kategoriler
             </div>
+
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('kategori_ekle') }}" target="blank">Yeni Kategori Oluştur</a>
+                </div>
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf
@@ -31,16 +35,16 @@
                     <span>No</span>
                 </div>
                 <div class="w20">
-                    <span>Adı</span>
+                    <span>Ad</span>
                 </div>
                 <div class="w20">
-                    <span>Tipi</span>
+                    <span>Tip</span>
                 </div>
                 <div class="w20">
                     <span>Ana Kategori</span>
                 </div>
                 <div class="w20">
-                    <span>Url</span>
+                    <span>Link Metni</span>
                 </div>
                 <div class="w20">
                     <span>İşlem</span>

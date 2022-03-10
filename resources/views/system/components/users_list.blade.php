@@ -5,6 +5,9 @@
                 Kullanıcı Hesapları
             </div>
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('kullanici_ekle') }}" target="blank">Yeni Kullanıcı Oluştur</a>
+                </div>
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf

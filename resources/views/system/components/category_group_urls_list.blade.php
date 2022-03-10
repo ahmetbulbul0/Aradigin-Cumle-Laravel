@@ -18,13 +18,13 @@
         </div>
         <div class="dbList">
             <div class="titleLine">
-                <div class="w20">
+                <div class="w10">
                     <span>No</span>
                 </div>
                 <div class="w40">
                     <span>Kategori Grubu</span>
                 </div>
-                <div class="w30">
+                <div class="w40">
                     <span>Link Metni</span>
                 </div>
                 <div class="w10">
@@ -33,13 +33,13 @@
             </div>
             @foreach ($data['data'] as $item)
                 <div class="line">
-                    <div class="w20">
+                    <div class="w10">
                         <span>{{ $item['no'] }}</span>
                     </div>
                     <div class="w40">
                         <span>{{ $item['group_no'] }}</span>
                     </div>
-                    <div class="w30">
+                    <div class="w40">
                         <span>{{ $item['link_url'] }}</span>
                     </div>
                     <div class="actions w10">

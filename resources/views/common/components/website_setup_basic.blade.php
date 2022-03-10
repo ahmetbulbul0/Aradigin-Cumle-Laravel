@@ -41,10 +41,10 @@
         <div class="outAction">
             <div class="inAction">
                 @isset($data['previousPage'])
-                    <a href="{{ route('kurulum', [$data['previousPage']]) }}">Geri</a>
+                    <a href="{{ $data['previousPage'] }}">Geri</a>
                 @endisset
                 @isset($data['nextStage'])
-                    <a href="{{ route('kurulum', [$data['nextStage']]) }}">İleri</a>
+                    <a href="{{ $data['nextStage'] }}">İleri</a>
                 @endisset
             </div>
         </div>

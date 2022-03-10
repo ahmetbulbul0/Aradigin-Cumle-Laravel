@@ -23,7 +23,7 @@ class userDataCheckIfIsUser
 
             if (!$userData) {
                 Session::remove("userData");
-                return response()->view('errors.500');
+                return redirect(route("yazar_girisi"));
             }
 
             Session::put("userData", $userData);

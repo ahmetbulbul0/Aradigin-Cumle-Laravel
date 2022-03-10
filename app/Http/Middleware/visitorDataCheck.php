@@ -18,19 +18,25 @@ class visitorDataCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::get("userData")) {
-            if (Session::get("visitorData")) {
-                $visitorNo = Session::get("visitorData.no");
+        if (Session::get("userData")) {
+            return $next($request);
+        }
 
-                if (!VisitorsModel::where("no", $visitorNo)->count()) {
-                    Session::remove("visitorData");
-                    return response()->view('errors.500');
-                }
-        
-                $visitorData = VisitorsModel::where("no", $visitorNo)->first();
-        
-                Session::put('visitorData', $visitorData);
+        if (!Session::get("visitorData")) {
+            return redirect(Session::previousUrl());
+        }
+
+        if (Session::get("visitorData")) {
+            $visitorNo = Session::get("visitorData.no");
+
+            if (!VisitorsModel::where("no", $visitorNo)->count()) {
+                Session::remove("visitorData");
+                return redirect(Session::previousUrl());
             }
+
+            $visitorData = VisitorsModel::where("no", $visitorNo)->first();
+
+            Session::put('visitorData', $visitorData);
         }
 
         return $next($request);

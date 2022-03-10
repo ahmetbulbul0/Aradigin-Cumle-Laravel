@@ -5,6 +5,9 @@
                 Kaynak Siteler
             </div>
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('kaynak_site_ekle') }}" target="blank">Yeni Kaynak Site Oluştur</a>
+                </div>
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf
@@ -29,13 +32,13 @@
                     <span>No</span>
                 </div>
                 <div class="w20">
-                    <span>Adı</span>
+                    <span>Ad</span>
                 </div>
-                <div class="w20">
+                <div class="w25">
                     <span>Site Linki</span>
                 </div>
-                <div class="w20">
-                    <span>Link</span>
+                <div class="w25">
+                    <span>Link Metni</span>
                 </div>
                 <div class="w10">
                     <span>İşlem</span>
@@ -49,10 +52,10 @@
                     <div class="w20">
                         <span>{{ $item['name'] }}</span>
                     </div>
-                    <div class="w20">
+                    <div class="25">
                         <span>{{ $item['main_url'] }}</span>
                     </div>
-                    <div class="w20">
+                    <div class="25">
                         <span>{{ $item['link_url'] }}</span>
                     </div>
                     <div class="actions w10">
