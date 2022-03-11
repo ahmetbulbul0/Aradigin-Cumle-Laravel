@@ -1597,10 +1597,16 @@ body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
 }
 .outMyNews .inMyNews {
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
     border-radius: 25px;
     box-sizing: border-box;
     padding: 30px;
+}
+body.dark .outMyNews .inMyNews {
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
+}
+body.light .outMyNews .inMyNews {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 }
 .outMyNews .inMyNews .outTitle {
     width: 100%;
@@ -1612,6 +1618,9 @@ body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
     position: relative;
     padding: 0 6px;
 }
+body.light .outMyNews .inMyNews .outTitle .inTitle {
+    color: var(--dark-blue);
+}
 .outMyNews .inMyNews .outTitle .inTitle:after {
     content: "";
     position: absolute;
@@ -1620,6 +1629,21 @@ body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
     height: 2px;
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outMyNews .inMyNews .outTitle .titleSelects .actions {
+    margin-right: 40px;
+}
+.outMyNews .inMyNews .outTitle .titleSelects .actions a {
+    padding: 6px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 80%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+body.light .outMyNews .inMyNews .outTitle .titleSelects .actions a {
+    color: white;
 }
 .outMyNews .inMyNews .outTitle .titleSelects {
     display: flex;
@@ -1650,12 +1674,18 @@ body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
     border: none;
     font-family: "Poppins", sans-serif;
     outline: none;
-    color: var(--light);
-    background-color: var(--dark-blue);
     border-radius: 50px;
     box-sizing: border-box;
     padding: 6px 12px;
     font-size: 80%;
+}
+body.dark .outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox select {
+    background-color: var(--dark-blue);
+    color: var(--light);
+}
+body.light .outMyNews .inMyNews .outTitle .statisticListingSelect .outSelectBox select {
+    background-color: var(--white);
+    color: var(--dark-blue);
 }
 .outMyNews .inMyNews .myNewsList {
     width: 100%;
@@ -1702,8 +1732,11 @@ body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
 .outMyNews .inMyNews .myNewsList .line:nth-child(2) {
     margin-top: 12px;
 }
-.outMyNews .inMyNews .myNewsList .line:nth-child(even) {
+body.dark .outMyNews .inMyNews .myNewsList .line:nth-child(even) {
     background-color: #1112177a;
+}
+body.light .outMyNews .inMyNews .myNewsList .line:nth-child(even) {
+    background-color: #c9c9c97a;
 }
 .outMyNews .inMyNews .myNewsList .line div {
     font-size: 90%;
@@ -1942,6 +1975,9 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
 .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
+body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:hover {
+    color: var(--white);
+}
 .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label input[type="radio"] {
     cursor: pointer;
     margin-left: 12px;
@@ -2077,10 +2113,15 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
 }
 .outCreatedData .inCreatedData .createdData {
     width: 100%;
-    background-color: var(--dark-blue);
     border-radius: 24px;
     box-sizing: border-box;
     padding: 24px;
+}
+body.dark .outCreatedData .inCreatedData .createdData {
+    background-color: var(--dark-blue);
+}
+body.light .outCreatedData .inCreatedData .createdData {
+    background-color: var(--white);
 }
 .outCreatedData .inCreatedData .createdData .titleLine {
     width: 100%;
@@ -2114,6 +2155,201 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     font-size: 90%;
     font-weight: 300;
 }
+/* DB LİST */
+.outDbList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+.outDbList .inDbList {
+    width: 100%;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+body.dark .outDbList .inDbList {
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
+}
+body.light .outDbList .inDbList {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.outDbList .inDbList .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outDbList .inDbList .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+body.light .outDbList .inDbList .outTitle .inTitle {
+    color: var(--dark-blue);
+}
+.outDbList .inDbList .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outDbList .inDbList .outTitle .titleSelects .actions {
+    margin-right: 40px;
+}
+.outDbList .inDbList .outTitle .titleSelects .actions a {
+    padding: 6px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 80%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+body.light .outDbList .inDbList .outTitle .titleSelects .actions a {
+    color: white;
+}
+.outDbList .inDbList .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect:nth-child(1) {
+    margin-left: 0;
+}
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+body.dark .outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox select {
+    color: var(--light);
+    background-color: var(--dark-blue);
+}
+body.light .outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox select {
+    color: var(--dark-blue);
+    background-color: var(--white);
+}
+.outDbList .inDbList .dbList {
+    width: 100%;
+    margin: 24px 0;
+}
+.outDbList .inDbList .dbList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+.outDbList .inDbList .dbList .titleLine div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outDbList .inDbList .dbList .titleLine div span {
+    padding: 0 6px;
+    position: relative;
+}
+.outDbList .inDbList .dbList .titleLine div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outDbList .inDbList .dbList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+.outDbList .inDbList .dbList .line:nth-child(2) {
+    margin-top: 12px;
+}
+body.dark .outDbList .inDbList .dbList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+body.light .outDbList .inDbList .dbList .line:nth-child(even) {
+    background-color: #c9c9c97a;
+}
+.outDbList .inDbList .dbList .line div {
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.outDbList .inDbList .dbList .line div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 300;
+}
+.outDbList .inDbList .dbList .line div.actions {
+    font-size: 95%;
+}
+.outDbList .inDbList .dbList .line div.actions span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outDbList .inDbList .dbList .line div.actions span a {
+    margin-left: 12px;
+    cursor: pointer;
+}
+.outDbList .inDbList .dbList .line div.actions span a:nth-child(1) {
+    margin-left: 0;
+}
+.outDbList .inDbList .dbList .line div.actions span a:hover {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outDbList .inDbList .dbList .line div.actions span a i {
+    cursor: pointer;
+}
+body.light .outDbList .inDbList .dbList .line div.actions span a i {
+    color: var(--dark-blue);
+}
 .w5 {width: 5%;}
 .w8 {width: 8%;}
 .w10 {width: 10%;}
@@ -2132,6 +2368,7 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
 .w80 {width: 80%;}
 .w90 {width: 90%;}
 .w100 {width: 100%;}
+
 
 
 
@@ -3761,210 +3998,75 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/* DB LİST */
 
-.outDbList {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    margin-top: 40px;
-    padding: 0 50px;
-}
 
-.outDbList .inDbList {
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
 
-.outDbList .inDbList .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.outDbList .inDbList .outTitle .inTitle {
-    position: relative;
-    padding: 0 6px;
-}
 
-.outDbList .inDbList .outTitle .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
 
-.outDbList .inDbList .outTitle .titleSelects .actions {
-    margin-right: 40px;
-}
-.outDbList .inDbList .outTitle .titleSelects .actions a {
-    padding: 6px 12px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 300;
-    font-size: 80%;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-.outDbList .inDbList .outTitle .titleSelects .actions a {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-.outDbList .inDbList .outTitle .titleSelects {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
 
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-left: 12px;
-}
 
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect:nth-child(1) {
-    margin-left: 0;
-}
 
-.outDbList .inDbList .outTitle .titleSelects .listingTypeSelect .outSelectBox {
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-sizing: border-box;
-    padding: 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.outDbList
-    .inDbList
-    .outTitle
-    .titleSelects
-    .listingTypeSelect
-    .outSelectBox
-    select {
-    width: 100%;
-    border: none;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    color: var(--light);
-    background-color: var(--dark-blue);
-    border-radius: 50px;
-    box-sizing: border-box;
-    padding: 6px 12px;
-    font-size: 80%;
-}
 
-.outDbList .inDbList .dbList {
-    width: 100%;
-    margin: 24px 0;
-}
 
-.outDbList .inDbList .dbList .titleLine {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 12px;
-    border-radius: 50px;
-}
 
-.outDbList .inDbList .dbList .titleLine div {
-    font-weight: 500;
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.outDbList .inDbList .dbList .titleLine div span {
-    padding: 0 6px;
-    position: relative;
-}
 
-.outDbList .inDbList .dbList .titleLine div span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
 
-.outDbList .inDbList .dbList .line {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 12px;
-    border-radius: 50px;
-}
 
-.outDbList .inDbList .dbList .line:nth-child(2) {
-    margin-top: 12px;
-}
 
-.outDbList .inDbList .dbList .line:nth-child(even) {
-    background-color: #1112177a;
-}
 
-.outDbList .inDbList .dbList .line div {
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
 
-.outDbList .inDbList .dbList .line div span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-weight: 300;
-}
 
-.outDbList .inDbList .dbList .line div.actions {
-    font-size: 95%;
-}
 
-.outDbList .inDbList .dbList .line div.actions span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.outDbList .inDbList .dbList .line div.actions span a {
-    margin-left: 12px;
-    cursor: pointer;
-}
 
-.outDbList .inDbList .dbList .line div.actions span a:nth-child(1) {
-    margin-left: 0;
-}
 
-.outDbList .inDbList .dbList .line div.actions span a:hover {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
-.outDbList .inDbList .dbList .line div.actions span a i {
-    cursor: pointer;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

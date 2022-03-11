@@ -1509,5 +1509,10 @@ body.light .outNewsDetail .inNewsDetail .footer span.resource {
 .outError .inError .outInformation span {
     font-size: 25px;
     font-family: "Righteous", cursive;
+}
+body.dark .outError .inError .outInformation span {
     color: var(--dark-light);
+}
+body.light .outError .inError .outInformation span {
+    color: #7a7a7a7a;
 }

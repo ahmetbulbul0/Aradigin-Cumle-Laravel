@@ -2,6 +2,6 @@
 
 @section('page_title', 'Yetkisiz Giriş')
 
-@section('information', 'Yetkisiz Giriş')
+@section('information', 'yetkisiz giriş')
 
 @section('code', '401')

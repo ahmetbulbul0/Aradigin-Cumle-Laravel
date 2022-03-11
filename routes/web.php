@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\UserSettings\UserSettingDeleteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages\Visitor\HomePageController;
 use App\Http\Controllers\Pages\Visitor\SignInPageController;
@@ -180,11 +179,11 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // KAYNAK SİTE İŞLEMLERİ
                 Route::prefix("/kaynak-site")->group(function () {
                     // KAYNAK SİTE EKLE
-                        Route::get("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
+                        Route::get("/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
                     // KAYNAK SİTE DÜZENLE
-                        Route::get("/sistem-paneli/kaynak-site/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
+                        Route::get("/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
                     // KAYNAK SİTE SİL
-                        Route::get("/sistem-paneli/kaynak-site/sil/{no}", [ResourcePlatformDeletePageController::class, "index"])->name("kaynak_site_sil");
+                        Route::get("/sil/{no}", [ResourcePlatformDeletePageController::class, "index"])->name("kaynak_site_sil");
                 });
             // KAYNAK SİTELER LİSTESİ
                 Route::prefix("/kaynak-siteler")->controller(ResourcePlatformsListPageController::class)->group(function () {
