@@ -69,8 +69,8 @@ class Kernel extends HttpKernel
         "userDataCheck" => \App\Http\Middleware\userDataCheck::class,
         "isTheWebSiteSetup" => \App\Http\Middleware\isTheWebSiteSetup::class,
         "isTheWebSiteNotSetup" => \App\Http\Middleware\isTheWebSiteNotSetup::class,
-        "visitorDataCheck" => \App\Http\Middleware\visitorDataCheck::class,
         "isItVisitor" => \App\Http\Middleware\isItVisitor::class,
+        "visitorDataCheck" => \App\Http\Middleware\visitorDataCheck::class,
         "userDataCheckIfIsUser" => \App\Http\Middleware\userDataCheckIfIsUser::class
     ];
 }

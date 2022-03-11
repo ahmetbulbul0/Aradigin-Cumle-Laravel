@@ -5,6 +5,9 @@
                 Haberlerim
             </div>
             <div class="titleSelects">
+                <div class="actions">
+                    <a href="{{ route('haber_ekle') }}" target="blank">Yeni Haber Oluştur</a>
+                </div>
                 <div class="statisticListingSelect">
                     <div class="outSelectBox">
                         <select name="Kategori Seç">

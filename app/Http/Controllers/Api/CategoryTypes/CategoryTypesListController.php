@@ -34,6 +34,6 @@ class CategoryTypesListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
 }

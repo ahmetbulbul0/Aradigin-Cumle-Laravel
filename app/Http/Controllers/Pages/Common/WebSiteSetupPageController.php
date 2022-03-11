@@ -19,51 +19,16 @@ use App\Http\Controllers\Api\CategoryTypes\CategoryTypeCreateController;
 
 class WebSiteSetupPageController extends Controller
 {
-    public function index($stage = NULL)
+    public function stage1()
     {
         $data["page_title"] = "Aradığın Cümle Kurulum";
 
-        switch ($stage) {
-            case 'asama-1':
-                $data["stage"] = "stage1";
-                $data = $this->stage1($data);
-                $data["nextStage"] = "asama-2";
-                $data["formAction"] = "asama-1";
-                break;
-            case 'asama-2':
-                $data["stage"] = "stage2";
-                $data = $this->stage2($data);
-                $data["previousPage"] = "asama-1";
-                $data["nextStage"] = "asama-3";
-                $data["formAction"] = "asama-2";
-                break;
-            case 'asama-3':
-                $data["stage"] = "stage3";
-                $data = $this->stage3($data);
-                $data["previousPage"] = "asama-2";
-                $data["nextStage"] = "asama-4";
-                $data["formAction"] = "asama-3";
-                break;
-            case 'asama-4':
-                $data["stage"] = "stage4";
-                $data = $this->stage4($data);
-                $data["previousPage"] = "asama-3";
-                $data["nextStage"] = "son";
-                $data["formAction"] = "asama-4";
-                break;
-            case 'son':
-                $data["stage"] = "finish";
-                $data["setupProcess"] = "Kurulum Tamamlandı";
-                break;
-            default:
-                return redirect(route("kurulum", ["asama-1"]));
-                break;
-        }
+        $data["stage"] = "stage1";
 
-        return view("common.pages.website_setup")->with("data", $data);
-    }
-    public function stage1($data)
-    {
+        $data["nextStage"] = "asama-2";
+
+        $data["formAction"] = "asama-1";
+
         $data["setupProcess"] = "Veritabanı Ve Tablolar Kontrolü";
 
         $data["database_tables_check"] = [
@@ -151,10 +116,20 @@ class WebSiteSetupPageController extends Controller
             ]
         ];
 
-        return $data;
+        return view("common.pages.website_setup")->with("data", $data);
     }
-    public function stage2($data)
+    public function stage2()
     {
+        $data["page_title"] = "Aradığın Cümle Kurulum";
+
+        $data["stage"] = "stage2";
+
+        $data["previousPage"] = "asama-1";
+
+        $data["nextStage"] = "asama-3";
+
+        $data["formAction"] = "asama-2";
+
         $data["setupProcess"] = "Kullanıcı Ve Kategori Tipi Oluşturma";
 
         $data["user_and_category_types_create"] = [
@@ -188,10 +163,20 @@ class WebSiteSetupPageController extends Controller
 
         $data["nextStage"] = "asama-3";
 
-        return $data;
+        return view("common.pages.website_setup")->with("data", $data);
     }
-    public function stage3($data)
+    public function stage3()
     {
+        $data["page_title"] = "Aradığın Cümle Kurulum";
+
+        $data["stage"] = "stage3";
+
+        $data["previousPage"] = "asama-2";
+
+        $data["nextStage"] = "asama-4";
+
+        $data["formAction"] = "asama-3";
+
         $data["setupProcess"] = "Sistem Kullanıcısı Oluşturma";
 
         $data["system_user"] = [
@@ -200,10 +185,20 @@ class WebSiteSetupPageController extends Controller
 
         $data["nextStage"] = "asama-4";
 
-        return $data;
+        return view("common.pages.website_setup")->with("data", $data);
     }
-    public function stage4($data)
+    public function stage4()
     {
+        $data["page_title"] = "Aradığın Cümle Kurulum";
+
+        $data["stage"] = "stage4";
+
+        $data["previousPage"] = "asama-3";
+
+        $data["nextStage"] = "son";
+
+        $data["formAction"] = "asama-4";
+
         $data["setupProcess"] = "Ana Kategorileri Oluşturma";
 
         $data["main_categories"] = [
@@ -251,14 +246,22 @@ class WebSiteSetupPageController extends Controller
             ]
         ];
 
-        $data["nextStage"] = "asama-5";
+        return view("common.pages.website_setup")->with("data", $data);
+    }
+    public function finish()
+    {
+        $data["page_title"] = "Aradığın Cümle Kurulum";
 
-        return $data;
+        $data["stage"] = "finish";
+
+        $data["setupProcess"] = "Kurulum Tamamlandı";
+
+        return view("common.pages.website_setup")->with("data", $data);
     }
     public function formStage2(Request $request)
     {
         if (!$request->actionType) {
-            return redirect(route("kurulum"));
+            return redirect(route("website_setup_stage2"));
         }
 
         switch ($request->actionType) {
@@ -268,7 +271,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"][0]["key"] = "user_type_system";
                 $data["data"][0]["value"] = $create["createdData"]["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-2"]));
+                return redirect(route("website_setup_stage2"));
                 break;
             case 'userTypeAuthor':
                 $data["data"]["name"] = "author";
@@ -276,7 +279,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"][0]["key"] = "user_type_author";
                 $data["data"][0]["value"] = $create["createdData"]["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-2"]));
+                return redirect(route("website_setup_stage2"));
                 break;
             case 'categoryTypeMain':
                 $data["data"]["name"] = "main";
@@ -284,7 +287,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"][0]["key"] = "category_type_main";
                 $data["data"][0]["value"] = $create["createdData"]["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-2"]));
+                return redirect(route("website_setup_stage2"));
                 break;
             case 'categoryTypeSub':
                 $data["data"]["name"] = "sub";
@@ -292,17 +295,17 @@ class WebSiteSetupPageController extends Controller
                 $data["data"][0]["key"] = "category_type_sub";
                 $data["data"][0]["value"] = $create["createdData"]["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-2"]));
+                return redirect(route("website_setup_stage2"));
                 break;
             default:
-                return redirect(route("kurulum"));
+                return redirect(route("website_setup_stage2"));
                 break;
         }
     }
     public function formStage3(Request $request)
     {
         if (!$request->actionType) {
-            return redirect(route("kurulum"));
+            return redirect(route("website_setup_stage3"));
         }
 
         switch ($request->actionType) {
@@ -312,17 +315,17 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["password"] = $request->systemUserPassword;
                 $data["data"]["type"] = ConstantsListController::getUserTypeSystemOnlyNotDeleted();
                 $create = UserCreateController::get($data);
-                return redirect(route("kurulum", ["asama-3"]));
+                return redirect(route("website_setup_stage3"));
                 break;
             default:
-                return redirect(route("kurulum", ["asama-3"]));
+                return redirect(route("website_setup_stage3"));
                 break;
         }
     }
     public function formStage4(Request $request)
     {
         if (!$request->actionType) {
-            return redirect(route("kurulum"));
+            return redirect(route("website_setup_stage4"));
         }
 
         switch ($request->actionType) {
@@ -335,7 +338,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category2Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -346,7 +349,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category3Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -357,7 +360,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category4Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -368,7 +371,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category5Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -379,7 +382,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category6Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -390,7 +393,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category7Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -401,7 +404,7 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             case 'category8Create':
                 $data["data"]["name"] = $request->categoryName;
@@ -412,10 +415,10 @@ class WebSiteSetupPageController extends Controller
                 $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
-                return redirect(route("kurulum", ["asama-4"]));
+                return redirect(route("website_setup_stage4"));
                 break;
             default:
-                return redirect(route("kurulum"));
+                return redirect(route("website_setup_stage4"));
                 break;
         }
     }

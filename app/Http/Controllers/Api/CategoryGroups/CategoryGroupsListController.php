@@ -90,7 +90,7 @@ class CategoryGroupsListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first();
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first(): NULL;
     }
     static function getFirstDataWithMainNoOnlyNotDeleted($no)
     {

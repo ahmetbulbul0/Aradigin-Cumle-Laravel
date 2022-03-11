@@ -34,7 +34,7 @@ class CategoryGroupUrlsDeletePageController extends Controller
     public function form(Request $request)
     {
         if ($request->action == "reject") {
-            return redirect(route("haber_kategori_grubu_linkleri"));
+            return redirect(route("kategori_grubu_linkleri"));
         }
 
         $data["data"]["no"] = $request->no;
@@ -42,9 +42,9 @@ class CategoryGroupUrlsDeletePageController extends Controller
         $deleted = CategoryGroupUrlDeleteController::get($data);
 
         if (isset($deleted["errors"])) {
-            return redirect(route("haber_kategori_grubu_linkleri"));
+            return redirect(route("kategori_grubu_linkleri"));
         }
 
-        return redirect(route("haber_kategori_grubu_linkleri"));
+        return redirect(route("kategori_grubu_linkleri"));
     }
 }

@@ -20,25 +20,31 @@ class isItVisitor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::get("userData")) {
-            if (!Session::get("visitorData")) {
-                $visitorNo = NoGenerator::generateVisitorsNo();
-    
-                VisitorsModel::create([
-                    "no" => $visitorNo,
-                    "ip" => $request->ip(),
-                    "browser" => $request->header('User-Agent'),
-                    "last_login_time" => time(),
-                    "website_theme" => "dark"
-                ]);
-    
-                $visitorData = VisitorsModel::where("no", $visitorNo)->first();
-                $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
-    
-                Session::put("visitorData", $visitorData);
-    
-                return $next($request);
-            }
+        if (Session::get("userData") && Session::get("visitorData")) {
+            return response()->view('errors.403');
+        }
+
+        if (Session::get("userData")) {
+            return $next($request);
+        }
+
+        if (!Session::get("visitorData")) {
+            $visitorNo = NoGenerator::generateVisitorsNo();
+
+            VisitorsModel::create([
+                "no" => $visitorNo,
+                "ip" => $request->ip(),
+                "browser" => $request->header('User-Agent'),
+                "last_login_time" => time(),
+                "website_theme" => "dark"
+            ]);
+
+            $visitorData = VisitorsModel::where("no", $visitorNo)->first();
+            $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
+
+            Session::put("visitorData", $visitorData);
+
+            return $next($request);
         }
 
         return $next($request);

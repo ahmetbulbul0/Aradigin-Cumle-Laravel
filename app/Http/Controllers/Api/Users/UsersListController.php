@@ -55,7 +55,7 @@ class UsersListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return UsersModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return UsersModel::where(["is_deleted" => false, "no" => "$no"])->first() ? UsersModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
     {
@@ -65,5 +65,4 @@ class UsersListController extends Controller
     {
         return UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first()->toArray() : NULL;
     }
-
 }

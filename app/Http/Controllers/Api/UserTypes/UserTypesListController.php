@@ -33,6 +33,6 @@ class UserTypesListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
 }

@@ -18,10 +18,6 @@ class isItNotUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::get("userData")) {
-            return $next($request);
-        }
-
         if (Session::get("userData")) {
             if (Session::get("userData.type.no") == ConstantsListController::getUserTypeAuthorOnlyNotDeleted()) {
                 return redirect(route("yazar_paneli_anapanel"));

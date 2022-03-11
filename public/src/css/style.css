@@ -275,8 +275,14 @@ body.light .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button {
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
+body.light .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button.active {
+    color: var(--white);
+}
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+body.light .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button:hover {
+    color: var(--white);
 }
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme i {
     font-size: 125%;
@@ -516,8 +522,14 @@ body.light .outDropdown .inDropdown .header .search .outInputText .iconBox i {
 .outDropdown .inDropdown .header .theme button.active {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
+body.light .outDropdown .inDropdown .header .theme button.active {
+    color: var(--white);
+}
 .outDropdown .inDropdown .header .theme button:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+body.light .outDropdown .inDropdown .header .theme button:hover {
+    color: var(--white);
 }
 .outDropdown .inDropdown .lists {
     width: 100%;
@@ -1497,5 +1509,10 @@ body.light .outNewsDetail .inNewsDetail .footer span.resource {
 .outError .inError .outInformation span {
     font-size: 25px;
     font-family: "Righteous", cursive;
+}
+body.dark .outError .inError .outInformation span {
     color: var(--dark-light);
+}
+body.light .outError .inError .outInformation span {
+    color: #7a7a7a7a;
 }
