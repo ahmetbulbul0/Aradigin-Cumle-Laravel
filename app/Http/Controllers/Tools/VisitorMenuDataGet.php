@@ -7,13 +7,12 @@ use App\Models\CategoriesModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Models\CategoryGroupsModel;
 
 class VisitorMenuDataGet extends Controller
 {
     static function get()
     {
-        $subCategoryType = ConstantsListController::getCategoryTypeSubOnlyNotDeleted();
-
         $data = [
             "category1" => CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()),
             "category2" => CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()),
@@ -25,14 +24,14 @@ class VisitorMenuDataGet extends Controller
             "category8" => CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()),
         ];
 
-        $data["category1Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category1"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category2Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category2"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category3Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category3"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category4Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category4"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category5Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category5"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category6Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category6"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category7Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category7"]["main"]["no"]])->with("mainCategory")->get()->toArray();
-        $data["category8Subs"] = CategoriesModel::where(["type" => $subCategoryType, "main_category" => $data["category8"]["main"]["no"]])->with("mainCategory")->get()->toArray();
+        $data["category1SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category1"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category2SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category2"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category3SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category3"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category4SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category4"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category5SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category5"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category6SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category6"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category7SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category7"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
+        $data["category8SubGroups"] = CategoryGroupsModel::where(["is_deleted" => false, "main" => $data["category8"]["main"]["no"]])->where('sub1', '!=', null)->with("sub1", "linkUrl")->get()->toArray();
 
         return $data;
     }
