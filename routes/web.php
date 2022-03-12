@@ -96,7 +96,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // YAZAR PANELİ ANA PANEL
                 Route::get("/", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
             // HABER EKLE
-                Route::get("/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
+                Route::prefix("/haber/ekle")->controller(NewsCreatePageController::class)->group(function () {
+                    Route::get("/", "index")->name("haber_ekle");
+                    Route::post("/", "form");
+                });
             // HABERLERİM    
                 Route::prefix("/haberlerim")->group(function () {
                     // HABERLERİM LİSTESİ "TODO"
@@ -261,10 +264,13 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/linkUrlAZ", "linkUrlAZ")->name("kategoriler_linkUrlAZ");
                     Route::get("/linkUrlZA", "linkUrlZA")->name("kategoriler_linkUrlZA");
                 });
-            // KATEGORİ İŞLEMLERİ
+            // KATEGORİ GRUPLARI İŞLEMLERİ
                 Route::prefix("/kategori-grubu")->group(function () {
                     // KATEGORİ GRUBU EKLE
-                        Route::get("/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle");
+                        Route::prefix("/ekle")->controller(CategoryGroupCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kategori_grubu_ekle");
+                            Route::post("/", "form");
+                        });
                     // KATEGORİ GRUBU DÜZENLE
                         Route::get("/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
                     // KATEGORİ GRUBU SİL

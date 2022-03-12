@@ -2,85 +2,116 @@
 
 namespace App\Http\Controllers\Pages\Author;
 
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use Illuminate\Http\Request;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsCreateController;
+use App\Http\Controllers\Api\ResourcePlatforms\ResourcePlatformsListController;
 use Illuminate\Support\Facades\Session;
 
 class NewsCreatePageController extends Controller
 {
-    public function index($data = NULL) {
+    public function index($data = NULL)
+    {
         $data["page_title"] = "Haber Ekle";
-        $data["categoryGroups"] = CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->get()->toArray();
-        $data["resourcePlatforms"] = ResourcePlatformsModel::where("is_deleted", false)->orderBy("name")->get();
+        $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
+        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();
         return view("author.pages.news_create")->with("data", $data);
     }
-
-    public function form(Request $request) {
+    public function form(Request $request)
+    {
         $data["data"] = [
             "content" => $request->content,
             "category" => $request->category,
-            "publish_date" => $request->publish_date,
-            "spe_date" => $request->spe_date,
-            "spe_time" => $request->spe_time,
-            "resource_platform" => $request->resource_platform,
-            "resource_url" => $request->resource_url,
+            "publish_date" => $request->publishDate,
+            "spe_date" => $request->speDate,
+            "spe_time" => $request->speTime,
+            "resource_platform" => $request->resourcePlatform,
+            "resource_url" => $request->resourceUrl,
             "author" => Session::get("userData.no")
         ];
 
         $created = NewsCreateController::get($data);
 
-        if (isset($created["errors"])) {return $this->index($created);}
+        if (isset($created["errors"])) {
+            return $this->index($created);
+        }
 
         $created["createdDataName"] = "Haber";
 
         $created["createdData"] = [
             [
-                "column" => "No",
-                "value" => $created["createdData"]["no"]
+                "dataName" => "Haber",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdNewsData"]["no"]
+                    ],
+                    [
+                        "column" => "İçerik",
+                        "value" => $created["createdNewsData"]["content"]
+                    ],
+                    [
+                        "column" => "Yazar",
+                        "value" => $created["createdNewsData"]["author"]["username"] . " [" . $created["createdNewsData"]["author"]["full_name"] . "]"
+                    ],
+                    [
+                        "column" => "Kategori",
+                        "value" => CategoryGroupToText::single($created["createdNewsData"]["category"]["no"])
+                    ],
+                    [
+                        "column" => "Kaynak Site",
+                        "value" => $created["createdNewsData"]["resource_platform"]["name"]
+                    ],
+                    [
+                        "column" => "Kaynak Linki:",
+                        "value" => $created["createdNewsData"]["resource_url"]["no"]
+                    ],
+                    [
+                        "column" => "Yayın Tarihi",
+                        "value" => date("Y-m-d - H:i", $created["createdNewsData"]["publish_date"])
+                    ],
+                    [
+                        "column" => "Yazılma Tarihi",
+                        "value" => date("Y-m-d - H:i", $created["createdNewsData"]["write_time"])
+                    ],
+                    [
+                        "column" => "Listelenme",
+                        "value" => $created["createdNewsData"]["listing"]
+                    ],
+                    [
+                        "column" => "Okunma",
+                        "value" => $created["createdNewsData"]["reading"]
+                    ],
+                    [
+                        "column" => "Haber Linki",
+                        "value" => $created["createdNewsData"]["link_url"]
+                    ]
+                ]
             ],
             [
-                "column" => "İçerik",
-                "value" => $created["createdData"]["content"]
-            ],
-            [
-                "column" => "Yazar",
-                "value" => $created["createdData"]["author"]["username"] . " [" . $created["createdData"]["author"]["full_name"] . "]"
-            ],
-            [
-                "column" => "Kategori",
-                "value" => CategoryGroupToText::single($created["createdData"]["category"]["no"])
-            ],
-            [
-                "column" => "Kaynak Site",
-                "value" => $created["createdData"]["resource_platform"]["name"]
-            ],
-            [
-                "column" => "Kaynak Linki:",
-                "value" => $created["createdData"]["resource_url"]["url"]
-            ],
-            [
-                "column" => "Yayın Tarihi",
-                "value" => date("Y-m-d - H:i", $created["createdData"]["publish_date"])
-            ],
-            [
-                "column" => "Yazılma Tarihi",
-                "value" => date("Y-m-d - H:i", $created["createdData"]["write_time"])
-            ],
-            [
-                "column" => "Listelenme",
-                "value" => $created["createdData"]["listing"]
-            ],
-            [
-                "column" => "Okunma",
-                "value" => $created["createdData"]["reading"]
-            ],
-            [
-                "column" => "Haber Linki",
-                "value" => $created["createdData"]["link_url"]
+                "dataName" => "Haber Kaynak Linki",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdResourceUrlData"]["no"]
+                    ],
+                    [
+                        "column" => "Haber No",
+                        "value" => $created["createdResourceUrlData"]["news_no"]["no"]
+                    ],
+                    [
+                        "column" => "Kaynak Platform Adı",
+                        "value" => $created["createdResourceUrlData"]["resource_platform"]["name"]
+                    ],
+                    [
+                        "column" => "Kaynak Linki",
+                        "value" => $created["createdResourceUrlData"]["url"]
+                    ]
+                ]
             ]
         ];
 

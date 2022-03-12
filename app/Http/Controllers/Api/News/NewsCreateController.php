@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\News;
 
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Api\ResourcePlatforms\ResourcePlatformsListController;
 use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsCreateController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
+use App\Http\Controllers\Api\Users\UsersListController;
 use App\Models\NewsModel;
 use App\Models\UsersModel;
-use Illuminate\Support\Str;
-use App\Models\ResourceUrlsModel;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
@@ -15,9 +17,9 @@ use App\Http\Controllers\Tools\LinkUrlGenerator;
 
 class NewsCreateController extends Controller
 {
-    static function get($data) {
-
-        $content = htmlspecialchars($data["data"]["content"]);
+    static function get($data)
+    {
+        $content = $data["data"]["content"];
         $author = htmlspecialchars($data["data"]["author"]);
         $category = htmlspecialchars($data["data"]["category"]);
         $resourcePlatform = htmlspecialchars($data["data"]["resource_platform"]);
@@ -25,6 +27,10 @@ class NewsCreateController extends Controller
         $publishDate = htmlspecialchars($data["data"]["publish_date"]);
         $speDate = htmlspecialchars($data["data"]["spe_date"]);
         $speTime = htmlspecialchars($data["data"]["spe_time"]);
+
+        $author = intval($author);
+        $category = intval($category);
+        $resourcePlatform = intval($resourcePlatform);
 
         $data["data"] = [
             "content" => $content,
@@ -39,8 +45,8 @@ class NewsCreateController extends Controller
 
         return NewsCreateController::check($data);
     }
-
-    static function check($data) {
+    static function check($data)
+    {
         $content = $data["data"]["content"];
         $author = $data["data"]["author"];
         $category = $data["data"]["category"];
@@ -54,48 +60,44 @@ class NewsCreateController extends Controller
             $data["errors"]["content"] = "İçerik Alanı Zorunludur";
         }
 
-        if (!isset($author) || empty($author)) {
-            $data["errors"]["author"] = "Yazar Alanı Zorunludur";
-        }
-
         if (!isset($category) || empty($category)) {
             $data["errors"]["category"] = "Kategori Alanı Zorunludur";
         }
 
         if (!isset($resourcePlatform) || empty($resourcePlatform)) {
-            $data["errors"]["resource_platform"] = "Kaynak Site Alanı Zorunludur";
+            $data["errors"]["resourcePlatform"] = "Kaynak Site Alanı Zorunludur";
         }
 
         if (!isset($resourceUrl) || empty($resourceUrl)) {
-            $data["errors"]["resource_url"] = "Kaynak Url Alanı Zorunludur";
+            $data["errors"]["resourceUrl"] = "Kaynak Url Alanı Zorunludur";
         }
 
         if (!isset($publishDate) || empty($publishDate)) {
-            $data["errors"]["publish_date"] = "Yayın Tarihi Alanı Zorunludur";
+            $data["errors"]["publishDate"] = "Yayın Tarihi Alanı Zorunludur";
         }
 
-        if (isset($content) && !empty($content) && NewsModel::where("content", $content)->count()) {
+        if (isset($content) && !empty($content) && NewsListController::getFirstDataWithContentOnlyNotDeleted($content)) {
             $data["errors"]["content"] = "[$content] Bu İçerik Daha Önceden Yazılmış";
         }
 
-        if (isset($author) && !empty($author) && !UsersModel::where("no", $author)->count()) {
-            $data["errors"]["author"] = "Böyle Bir Yazar Yok";
+        if (isset($author) && !empty($author) && !UsersListController::getFirstDataWithNoOnlyTypeAuthorOnlyNotDeleted($author)) {
+            $data["errors"]["author"] = "Geççersiz Yazar Hesabı";
         }
 
-        if (isset($category) && !empty($category) && !CategoryGroupsModel::where("no", $category)->count()) {
-            $data["errors"]["category"] = "Böyle Bir Kategori Grubu Yok";
+        if (isset($category) && !empty($category) && !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted($category)) {
+            $data["errors"]["category"] = "Geçersiz Kategori Grubu";
         }
 
-        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsModel::where("no", $resourcePlatform)->count()) {
-            $data["errors"]["resource_platform"] = "[$resourcePlatform] Böyle Bir Kaynak Site Yok";
+        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($resourcePlatform)) {
+            $data["errors"]["resourcePlatform"] = "Geçersiz Kaynak Site";
         }
 
         if ($publishDate == "specialDate") {
             if (!isset($speDate) || empty($speDate)) {
-                $data["errors"]["spe_date"] = "Tarih Seç Alanında Tarih Alanı Zorunludur";
+                $data["errors"]["speDate"] = "Tarih Seç Alanında Tarih Alanı Zorunludur";
             }
             if (!isset($speTime) || empty($speTime)) {
-                $data["errors"]["spe_time"] = "Tarih Seç Alanında Zaman Alanı Zorunludur";
+                $data["errors"]["speTime"] = "Tarih Seç Alanında Zaman Alanı Zorunludur";
             }
         }
 
@@ -111,7 +113,7 @@ class NewsCreateController extends Controller
                 $data["data"]["publish_date"] = strtotime($publishDate);
                 break;
             default:
-                $data["errors"]["publish_date"] = "[$publishDate] Böyle Bir Yayın Durumu Yok";
+                $data["errors"]["publishDate"] = "[$publishDate] Böyle Bir Yayın Durumu Yok";
                 break;
         }
 
@@ -121,8 +123,8 @@ class NewsCreateController extends Controller
 
         return NewsCreateController::work($data);
     }
-
-    static function work($data) {
+    static function work($data)
+    {
         $no = NoGenerator::generateNewsNo();
         $content = $data["data"]["content"];
         $author = $data["data"]["author"];
@@ -133,7 +135,7 @@ class NewsCreateController extends Controller
         $writeTime = time();
         $listing = 0;
         $reading = 0;
-        $linkUrl= LinkUrlGenerator::single($content);
+        $linkUrl = LinkUrlGenerator::single($content, 10);
 
         $dataForResourceUrl["data"] = [
             "news_no" => $no,
@@ -157,9 +159,10 @@ class NewsCreateController extends Controller
 
         $resourceUrl = ResourceUrlsCreateController::get($dataForResourceUrl);
 
-        NewsModel::where("no", $no)->update(["resource_url" => $resourceUrl["createdData"]["no"]]);
+        NewsModel::where(["is_deleted" => false, "no" => $no])->update(["resource_url" => $resourceUrl["createdData"]["no"]]);
 
-        $data["createdData"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["createdNewsData"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["createdResourceUrlData"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($resourceUrl["createdData"]["no"]);
 
         return $data;
     }

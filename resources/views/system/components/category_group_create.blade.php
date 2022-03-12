@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kategori Grubu Ekle
+                {{ $data["page_title"] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
@@ -11,9 +11,9 @@
                     <span class="inputLabel">Ana Kategori:</span>
                     <div class="outSelectBox">
                         <select name="main">
-                            <option selected disabled>Ana Kategoriyi Seç</option>
+                            <option selected value="default" disabled>Ana Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -31,9 +31,9 @@
                     <span class="inputLabel">1. Alt Kategori:</span>
                     <div class="outSelectBox">
                         <select name="sub1"> 
-                            <option selected disabled>1. Alt Kategoriyi Seç</option>
+                            <option selected value="default">1. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -51,9 +51,9 @@
                     <span class="inputLabel">2. Alt Kategori:</span>
                     <div class="outSelectBox">
                         <select name="sub2">
-                            <option selected disabled>2. Alt Kategoriyi Seç</option>
+                            <option selected value="default">2. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -71,9 +71,9 @@
                     <span class="inputLabel">3. Alt Kategori:</span>
                     <div class="outSelectBox">
                         <select name="sub3">
-                            <option selected disabled>3. Alt Kategoriyi Seç</option>
+                            <option selected value="default">3. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -91,9 +91,9 @@
                     <span class="inputLabel">4. Alt Kategori:</span>
                     <div class="outSelectBox">
                         <select name="sub4">
-                            <option selected disabled>4. Alt Kategoriyi Seç</option>
+                            <option selected value="default">4. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -111,9 +111,9 @@
                     <span class="inputLabel">5. Alt Kategori:</span>
                     <div class="outSelectBox">
                         <select name="sub5">
-                            <option selected disabled>5. Alt Kategoriyi Seç</option>
+                            <option selected value="default">5. Alt Kategoriyi Seç</option>
                             @foreach ($data['categories'] as $category)
-                                <option value="{{ $category['no'] }}">{{ $category['name'] }}</option>
+                                <option value="{{ $category['no'] }}">{{ Str::title($category['name']) }}</option>
                             @endforeach
                         </select>
                     </div>

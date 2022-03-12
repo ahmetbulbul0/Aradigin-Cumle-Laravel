@@ -53,7 +53,7 @@ class CategoryGroupUrlsCreateController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["createdData"] = CategoryGroupUrlsModel::where("no", $no)->with("groupNo")->first()->toArray();
+        $data["createdData"] = CategoryGroupUrlsModel::where("no", $no)->first()->toArray();
 
         return $data;
     }

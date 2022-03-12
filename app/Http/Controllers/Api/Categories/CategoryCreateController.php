@@ -109,8 +109,8 @@ class CategoryCreateController extends Controller
                 if (isset($categoryGroupCreate["errors"])) {
                     return $categoryGroupCreate;
                 }
-                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdData"]["no"]);
-                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdData"]["link_url"]["no"]);
+                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdCategoryGroupData"]["no"]);
+                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdCategoryGroupLinkUrlData"]["no"]);
                 break;
             case ConstantsListController::getCategoryTypeSubOnlyNotDeleted():
                 $dataForCategoryGroup["data"] = ["main" => $mainCategory, "sub1" => $no, "sub2" => NULL, "sub3" => NULL, "sub4" => NULL, "sub5" => NULL];
@@ -118,8 +118,8 @@ class CategoryCreateController extends Controller
                 if (isset($categoryGroupCreate["errors"])) {
                     return $categoryGroupCreate;
                 }
-                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdData"]["no"]);
-                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdData"]["link_url"]["no"]);
+                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdCategoryGroupData"]["no"]);
+                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdCategoryGroupLinkUrlData"]["no"]);
                 break;
             default:
                 break;

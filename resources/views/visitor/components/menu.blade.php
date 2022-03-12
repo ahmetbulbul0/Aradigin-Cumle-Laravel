@@ -37,7 +37,7 @@
             </span>
         </div>
 
-        @if (Session::get('visitorData'))
+        {{-- @if (Session::get('visitorData'))
             Hoşgeldin, Merhaba Ziyaretçi
         @endif
         @if (Session::get('userData'))
@@ -52,7 +52,7 @@
 
                 @default
             @endswitch
-        @endif
+        @endif --}}
 
         <div class="bar">
             <section class="brace"></section>
@@ -67,6 +67,22 @@
             <span class="iconBox">
                 <i class="fas fa-adjust themeBtn"></i>
             </span>
+            @if (Session::get('userData'))
+                <section class="brace"></section>
+                <span class="iconBox">
+                    @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeAuthorOnlyNotDeleted())
+                        <a href="{{ route('yazar_paneli_anapanel') }}" target="blank">
+                            <i class="fas fa-book-reader"></i>
+                        </a>
+                    @endif
+
+                    @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeSystemOnlyNotDeleted())
+                        <a href="{{ route('sistem_paneli_anapanel') }}" target="blank">
+                            <i class="fas fa-tools"></i>
+                        </a>
+                    @endif
+                </span>
+            @endif
             <section class="brace"></section>
             <span class="iconBox">
                 @if (!Session::get('userData'))

@@ -22,7 +22,7 @@ class ResourceUrlsListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
     {

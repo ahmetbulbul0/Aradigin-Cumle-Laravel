@@ -89,8 +89,8 @@ class CategoryCreatePageController extends Controller
                         "value" => $created["createdCategoryGroupData"]["sub5"]["name"] ?? "-"
                     ],
                     [
-                        "column" => "Link Metni:",
-                        "value" => $created["createdCategoryGroupData"]["link_url"]["link_url"]
+                        "column" => "Link Metni No",
+                        "value" => $created["createdCategoryGroupData"]["link_url"]["no"]
                     ],
                 ]
             ],
