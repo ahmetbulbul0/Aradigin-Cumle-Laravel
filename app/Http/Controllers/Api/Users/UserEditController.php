@@ -32,7 +32,6 @@ class UserEditController extends Controller
 
         return UserEditController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
@@ -71,7 +70,6 @@ class UserEditController extends Controller
 
         return UserEditController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];

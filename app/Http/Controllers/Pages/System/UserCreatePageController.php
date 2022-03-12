@@ -30,28 +30,56 @@ class UserCreatePageController extends Controller
             return $this->index($created);
         }
 
-        $created["createdDataName"] = "Kullanıcı";
-
         $created["createdData"] = [
             [
-                "column" => "No",
-                "value" => $created["createdData"]["no"]
+                "dataName" => "Kullanıcı",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdUserData"]["no"]
+                    ],
+                    [
+                        "column" => "Tam Adı",
+                        "value" => $created["createdUserData"]["full_name"]
+                    ],
+                    [
+                        "column" => "Kullanıcı Adı",
+                        "value" => $created["createdUserData"]["username"]
+                    ],
+                    [
+                        "column" => "Parola",
+                        "value" => $created["createdUserData"]["password"]
+                    ],
+                    [
+                        "column" => "Kullanıcı Tipi",
+                        "value" => $created["createdUserData"]['type']['name']
+                    ],
+                    [
+                        "column" => "Kullanıcı Ayarı No",
+                        "value" => $created["createdUserData"]['settings']['no']
+                    ]
+                ]
             ],
             [
-                "column" => "Tam Adı",
-                "value" => $created["createdData"]["full_name"]
-            ],
-            [
-                "column" => "Kullanıcı Adı",
-                "value" => $created["createdData"]["username"]
-            ],
-            [
-                "column" => "Parolası",
-                "value" => $created["createdData"]["password"]
-            ],
-            [
-                "column" => "Kullanıcı Tipi",
-                "value" => $created["createdData"]['type']['name']
+                "dataName" => "Kullanıcı Ayarı",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdUserSettingsData"]["no"]
+                    ],
+                    [
+                        "column" => "Kullanıcı No",
+                        "value" => $created["createdUserSettingsData"]["user_no"]
+                    ],
+                    [
+                        "column" => "WebSite Tema",
+                        "value" => $created["createdUserSettingsData"]["website_theme"]
+                    ],
+                    [
+                        "column" => "Panel Tema",
+                        "value" => $created["createdUserSettingsData"]["dashboard_theme"]
+                    ]
+                ]
             ]
         ];
 

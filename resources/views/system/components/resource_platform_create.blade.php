@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kaynak Site Ekle
+                {{ $data['page_title'] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
@@ -10,7 +10,7 @@
                 <div class="line">
                     <span class="inputLabel">Kaynak Site Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="name" placeholder="Kaynak Site adı...">
+                        <input type="text" name="name" placeholder="Kaynak Site Adı...">
                     </div>
                 </div>
                 @isset($data['errors']['name'])
@@ -25,14 +25,23 @@
                 <div class="line">
                     <span class="inputLabel">Kaynak Site Url:</span>
                     <div class="outInputText">
-                        <input type="text" name="main_url" placeholder="Kaynak Site url...">
+                        <input type="text" name="mainUrl" placeholder="Kaynak Site Linki...">
                     </div>
                 </div>
-                @isset($data['errors']['main_url'])
+                @isset($data['errors']['mainUrl'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['main_url'] }}
+                                {{ $data['errors']['mainUrl'] }}
+                            </span>
+                        </div>
+                    </div>
+                @endisset
+                @isset($data['errors']['resourcePlatform'])
+                    <div class="line">
+                        <div class="outErrorBox">
+                            <span>
+                                {{ $data['errors']['resourcePlatform'] }}
                             </span>
                         </div>
                     </div>

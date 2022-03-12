@@ -321,3 +321,9 @@
 ]
 
 
+
+* webbsite kurulum aşamasında başlangıçta aşama 2 ye atıyor
+* kurulum aşamasında responsive tasarımları düzelt
+* asama 4 sonrası direk anasayfa attı
+* açılır menü harici yere tıklanıldığında kapansın
+* 

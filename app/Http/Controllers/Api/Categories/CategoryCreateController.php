@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\Categories;
 
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupCreateController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsListController;
+use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
@@ -20,6 +23,8 @@ class CategoryCreateController extends Controller
         $mainCategory = htmlspecialchars($data["data"]["main_category"]);
 
         $name = Str::lower($name);
+        $type = intval($type);
+        $mainCategory = intval($mainCategory);
 
         $data["data"] = [
             "name" => $name,
@@ -43,19 +48,23 @@ class CategoryCreateController extends Controller
             $data["errors"]["type"] = "Kategori Tipi Alanı Zorunludur";
         }
 
-        if (isset($type) && !empty($type) && !CategoryTypesModel::where("no", $type)->count()) {
-            $data["errors"]["type"] = "[$type] Geçersiz Kategori Tipi";
-        }
-
         if ($type == ConstantsListController::getCategoryTypeSubOnlyNotDeleted() && (!isset($mainCategory) || empty($mainCategory))) {
             $data["errors"]["main_category"] = "Alt Kategoriler İçin Ana Kategori Alanı Zorunludur";
+        }
+
+        if (isset($name) && !empty($name) && CategoriesListController::getFirstDataWithNameOnlyNotDeleted($name)) {
+            $data["errors"]["name"] = "[$name] Bu Kategori Adı Daha Önceden Tanımlanmış, Lütfen Başka Bir Kategori Adı Kullanınız";
+        }
+
+        if (isset($type) && !empty($type) && !CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($type)) {
+            $data["errors"]["type"] = "Geçersiz Kategori Tipi";
         }
 
         if (isset($data["errors"])) {
             return $data;
         }
 
-        if (empty($data["data"]["main_category"])) {
+        if (!isset($data["data"]["main_category"]) || empty($data["data"]["main_category"])) {
             $data["data"]["main_category"] = NULL;
         }
 
@@ -78,7 +87,8 @@ class CategoryCreateController extends Controller
                 $linkUrl = $mainCat["link_url"] . "-" . $linkUrlSub;
                 break;
             default:
-                dd("hata");
+                $data["errors"]["type"] = "Geçersiz Kategori Tipi Değeri, Kategori Tipi Değeri Ya Main Yada Sub Olabilir.";
+                return $data;
                 break;
         }
 
@@ -90,32 +100,31 @@ class CategoryCreateController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        if ($type == ConstantsListController::getCategoryTypeMainOnlyNotDeleted()) {
-            $dataForCategoryGroup["data"] = [
-                "main" => $no,
-                "sub1" => NULL,
-                "sub2" => NULL,
-                "sub3" => NULL,
-                "sub4" => NULL,
-                "sub5" => NULL
-            ];
-            CategoryGroupCreateController::get($dataForCategoryGroup);
+        $data["createdCategoryData"] = CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+
+        switch ($type) {
+            case ConstantsListController::getCategoryTypeMainOnlyNotDeleted():
+                $dataForCategoryGroup["data"] = ["main" => $no, "sub1" => NULL, "sub2" => NULL, "sub3" => NULL, "sub4" => NULL, "sub5" => NULL];
+                $categoryGroupCreate = CategoryGroupCreateController::get($dataForCategoryGroup);
+                if (isset($categoryGroupCreate["errors"])) {
+                    return $categoryGroupCreate;
+                }
+                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdData"]["no"]);
+                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdData"]["link_url"]["no"]);
+                break;
+            case ConstantsListController::getCategoryTypeSubOnlyNotDeleted():
+                $dataForCategoryGroup["data"] = ["main" => $mainCategory, "sub1" => $no, "sub2" => NULL, "sub3" => NULL, "sub4" => NULL, "sub5" => NULL];
+                $categoryGroupCreate = CategoryGroupCreateController::get($dataForCategoryGroup);
+                if (isset($categoryGroupCreate["errors"])) {
+                    return $categoryGroupCreate;
+                }
+                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdData"]["no"]);
+                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdData"]["link_url"]["no"]);
+                break;
+            default:
+                break;
         }
 
-
-        if ($type == ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) {
-            $dataForCategoryGroup["data"] = [
-                "main" => $mainCategory,
-                "sub1" => $no,
-                "sub2" => NULL,
-                "sub3" => NULL,
-                "sub4" => NULL,
-                "sub5" => NULL
-            ];
-            CategoryGroupCreateController::get($dataForCategoryGroup);
-        }
-
-        $data["createdData"] = CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
         return $data;
     }
 }

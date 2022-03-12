@@ -61,6 +61,10 @@ class UsersListController extends Controller
     {
         return UsersModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "settings")->first()->toArray() : NULL;
     }
+    static function getFirstDataWithUsernameOnlyNotDeletedAllRelationships($username)
+    {
+        return UsersModel::where(["is_deleted" => false, "username" => "$username"])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "username" => "$username"])->with("type", "settings")->first()->toArray() : NULL;
+    }
     static function getFirstDataOnlyNotDeletedOnlyTypeSystemAllRelationships()
     {
         return UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeSystemOnlyNotDeleted()])->with("type", "settings")->first()->toArray() : NULL;

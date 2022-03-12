@@ -10,14 +10,12 @@ use App\Http\Controllers\Tools\LinkUrlGenerator;
 
 class ResourcePlatformCreateController extends Controller
 {
-    static function get($data) {
-
+    static function get($data)
+    {
         $name = htmlspecialchars($data["data"]["name"]);
         $mainUrl = htmlspecialchars($data["data"]["main_url"]);
 
-        $name = Str::lower($name);
         $mainUrl = Str::lower($mainUrl);
-
 
         $data["data"] = [
             "name" => $name,
@@ -26,8 +24,8 @@ class ResourcePlatformCreateController extends Controller
 
         return ResourcePlatformCreateController::check($data);
     }
-
-    static function check($data) {
+    static function check($data)
+    {
         $name = $data["data"]["name"];
         $mainUrl = $data["data"]["main_url"];
 
@@ -36,15 +34,21 @@ class ResourcePlatformCreateController extends Controller
         }
 
         if (!isset($mainUrl) || empty($mainUrl)) {
-            $data["errors"]["main_url"] = "Kaynak Platform Site Linki Alanı Zorunludur";
+            $data["errors"]["mainUrl"] = "Kaynak Platform Site Linki Alanı Zorunludur";
         }
 
-        if (isset($name) && !empty($name) && ResourcePlatformsModel::where("name", $name)->count()) {
-            $data["errors"]["name"] = "[$name] Bu Kaynak Platform Daha Önceden Tanımlanmış";
+        if (isset($name) && !empty($name) && ResourcePlatformsListController::getFirstDataWithNameOnlyNotDeleted($name)) {
+            $data["errors"]["name"] = "[$name] Bu Kaynak Platform İsmi Daha Önceden Kullanılmış";
         }
 
-        if (isset($mainUrl) && !empty($mainUrl) && ResourcePlatformsModel::where("main_url", $mainUrl)->count()) {
-            $data["errors"]["main_url"] = "[$mainUrl] Bu Kaynak Platform Url'i Daha Önceden Tanımlanmış";
+        if (isset($mainUrl) && !empty($mainUrl) && ResourcePlatformsListController::getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)) {
+            $data["errors"]["mainUrl"] = "[$mainUrl] Bu Kaynak Platform Site Linki Daha Önceden Kullanılmış";
+        }
+
+        if (ResourcePlatformsListController::getFirstDataWithNameOnlyNotDeleted($name) && ResourcePlatformsListController::getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)) {
+            unset($data["errors"]["name"]);
+            unset($data["errors"]["mainUrl"]);
+            $data["errors"]["resourcePlatform"] = "[$name - $mainUrl] Bu Kaynak Adı - Site Linki İkilisi Zaten Mevcut";
         }
 
         if (isset($data["errors"])) {
@@ -53,8 +57,8 @@ class ResourcePlatformCreateController extends Controller
 
         return ResourcePlatformCreateController::work($data);
     }
-
-    static function work($data) {
+    static function work($data)
+    {
         $no = NoGenerator::generateResourcePlatformsNo();
         $name = $data["data"]["name"];
         $mainUrl = $data["data"]["main_url"];
@@ -66,7 +70,7 @@ class ResourcePlatformCreateController extends Controller
             "link_url" => LinkUrlGenerator::single($name)
         ]);
 
-        $data["createdData"] = ResourcePlatformsModel::where("no", $no)->get();
+        $data["createdData"] = ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($no);
         return $data;
     }
 }

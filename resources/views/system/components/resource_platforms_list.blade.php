@@ -52,10 +52,10 @@
                     <div class="w20">
                         <span>{{ $item['name'] }}</span>
                     </div>
-                    <div class="25">
+                    <div class="w25">
                         <span>{{ $item['main_url'] }}</span>
                     </div>
-                    <div class="25">
+                    <div class="w25">
                         <span>{{ $item['link_url'] }}</span>
                     </div>
                     <div class="actions w10">

@@ -86,11 +86,11 @@ class CategoryGroupsListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray();
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray() : NULL;
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first(): NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
     }
     static function getFirstDataWithMainNoOnlyNotDeleted($no)
     {

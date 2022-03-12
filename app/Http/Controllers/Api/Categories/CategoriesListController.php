@@ -66,6 +66,10 @@ class CategoriesListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+    }
+    static function getFirstDataWithNameOnlyNotDeleted($name)
+    {
+        return CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() ? CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

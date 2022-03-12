@@ -1304,9 +1304,10 @@ body.light .outSignIn .inSignIn .signInForm .formLine .outInputText input[type="
     font-weight: 300;
     font-size: 90%;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 body.light .outSignIn .inSignIn .signInForm .formLine .outButtonBox button {
-    color: var(--dark-blue);
+    color: var(--white);
 }
 /* SİGN İN */
 @media only screen and (max-width: 960px) {

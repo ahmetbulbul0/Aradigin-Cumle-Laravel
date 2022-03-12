@@ -136,7 +136,7 @@ class CategoryGroupCreateController extends Controller
 
         CategoryGroupsModel::where("no", $no)->update(["link_url" => $linkUrl["createdData"]["no"]]);
 
-        $data["createdData"] = CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray();
+        $data["createdData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
 
         return $data;
     }

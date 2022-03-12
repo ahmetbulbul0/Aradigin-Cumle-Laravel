@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kullanıcı Ekle
+                {{ $data['page_title'] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
@@ -58,7 +58,7 @@
                         <select name="type">
                             <option selected disabled>Kullanıcı Tipi Seç</option>
                             @foreach ($data['userTypes'] as $userType)
-                                <option value="{{ $userType['no'] }}">{{ $userType['name'] }}</option>
+                                <option value="{{ $userType['no'] }}">{{ Str::title($userType['name']) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -68,6 +68,15 @@
                         <div class="outErrorBox">
                             <span>
                                 {{ $data['errors']['type'] }}
+                            </span>
+                        </div>
+                    </div>
+                @endisset
+                @isset($data['errors']['user_no'])
+                    <div class="line">
+                        <div class="outErrorBox">
+                            <span>
+                                Kullanıcı Ayarı Oluşturulurken Bir Hata Meydana Geldi: {{ $data['errors']['user_no'] }}
                             </span>
                         </div>
                     </div>

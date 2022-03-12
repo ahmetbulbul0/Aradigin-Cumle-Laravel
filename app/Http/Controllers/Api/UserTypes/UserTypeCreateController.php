@@ -8,7 +8,8 @@ use App\Models\UserTypesModel;
 
 class UserTypeCreateController extends Controller
 {
-    static function get($data) {
+    static function get($data)
+    {
 
         $name = htmlspecialchars($data["data"]["name"]);
 
@@ -18,15 +19,15 @@ class UserTypeCreateController extends Controller
 
         return UserTypeCreateController::check($data);
     }
-
-    static function check($data) {
+    static function check($data)
+    {
         $name = $data["data"]["name"];
 
         if (!isset($name) || empty($name)) {
             $data["errors"]["name"] = "Kullanıcı Tipi Adı Alanı Zorunludur";
         }
 
-        if (isset($name) && !empty($name) && UserTypesModel::where("name", $name)->count()) {
+        if (isset($name) && !empty($name) && UserTypesListController::getFirstDataWithNameOnlyNotDeleted($name)) {
             $data["errors"]["name"] = "[$name] Bu Kullanıcı Tipi Adı Kullanılıyor, Lütfen Başka Bir Ad Kullanınız";
         }
 
@@ -36,8 +37,8 @@ class UserTypeCreateController extends Controller
 
         return UserTypeCreateController::work($data);
     }
-
-    static function work($data) {
+    static function work($data)
+    {
         $no = NoGenerator::generateUserTypesNo();
         $name = $data["data"]["name"];
 

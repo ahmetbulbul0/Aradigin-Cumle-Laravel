@@ -1,17 +1,19 @@
-<div class="outCreatedData">
-    <div class="inCreatedData">
-        <div class="createdData">
-            <div class="titleLine">
-                <span>Yeni {{ $data['createdDataName'] ?? '????' }} Oluşturuldu</span>
-            </div>
-            @isset($data['createdData'])
-                @foreach ($data['createdData'] as $createdData)
-                    <div class="line">
-                        <label>{{ $createdData['column'] }}</label>
-                        <span>{{ $createdData['value'] }}</span>
+@isset($data['createdData'])
+    @foreach ($data['createdData'] as $createdData)
+        <div class="outCreatedData">
+            <div class="inCreatedData">
+                <div class="createdData">
+                    <div class="titleLine">
+                        <span>Yeni {{ $createdData['dataName'] }} Oluşturuldu</span>
                     </div>
-                @endforeach
-            @endisset
+                    @foreach ($createdData['columnValues'] as $columnValues)
+                        <div class="line">
+                            <label>{{ $columnValues['column'] }}</label>
+                            <span>{{ $columnValues['value'] }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    @endforeach
+@endisset
