@@ -13,7 +13,7 @@
                 @if ($data['system_user']['hasSystemUser'])
                     Mevcut <i class="fa-solid fa-circle-check green"></i>
                 @else
-                    Tanımlanmamış <i class="fa-solid fa-circle-exclamation red"></i>
+                    Tanımlanmamış <i class="fa-solid fa-circle-exclamation red" title="Sistem Kullanıcısı, Sistem Üzerindeki Haber Ekleme Dışındaki Bütün İşleri Yapma Yetkisine Sahiptir, Kullanıcı Oluşturabilir, Kategori Oluşturabilir, Sabitleri Düzenleyebilir, Genel Site İstatistiklerini Görebilir, Herhangi Bir Veriyi Düzenleyebilir Silebilir, Yani Bu Kullanıcı Hesabını Ya Sadece Siz Kullanın Yada Sadece Güvendiğiniz Kişilere Verin, Ve Ayrıca Bu Hesabın Şifresini Biraz Zor Yapın Ve Bilgilerini Hiçbir Yabancıya Göstermeyin, Hemen Diğer Kutudaki Form İle Hızlıca Sistem Kullanıcısını Oluşturabilirsiniz, Oluşturulan Kullanıcı Verilerini Kaydetmeyi Unutmayın, Bunun Geri Dönüşü Olmayabilir."></i>
                 @endif
             </span>
         </div>
@@ -72,6 +72,7 @@
             <div class="outSpan">
                 <span>
                     {{ $data['system_user']['hasSystemUser']['no'] }}
+                    <i class="fa-solid fa-circle-info gray" title="Bu Veri Sistem Paneline Giriş Yapmak İçin Gerekicektir, Not Edin, Geri Dönüşü Olmayabilir."></i>
                 </span>
             </div>
         </div>
@@ -102,6 +103,7 @@
             <div class="outSpan">
                 <span>
                     {{ $data['system_user']['hasSystemUser']['password'] }}
+                    <i class="fa-solid fa-circle-info gray" title="Bu Veri Sistem Paneline Giriş Yapmak İçin Gerekicektir, Not Edin, Geri Dönüşü Olmayabilir."></i>
                 </span>
             </div>
         </div>

@@ -15,6 +15,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -29,6 +30,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -43,6 +45,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -57,6 +60,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -71,6 +75,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -85,6 +90,7 @@
                 @else
                     -
                 @endif
+                <i class="fa-solid fa-circle-info gray" title="Bu Veriyi Manuel Olarak Kontrol Etmelisiniz, Değişiklik Gerekiyorsa Env Dosyanızdan Manuel Olarak Değiştirmelisiniz."></i>
             </span>
         </div>
     </div>
@@ -103,11 +109,11 @@
             <div class="outSpan">
                 <span>{{ $table['hasTable'] }} @switch($table["hasTable"])
                         @case('Mevcut')
-                            <i class="fa-solid fa-circle-check green"></i>
+                            <i class="fa-solid fa-circle-check green" title="Bu Tablo VeriTabanınızda Mevcut Ve Erişilebiliyor, Yani Sorun Yok."></i>
                         @break
 
                         @case('Bulunamadı')
-                            <i class="fa-solid fa-circle-exclamation red"></i>
+                            <i class="fa-solid fa-circle-exclamation red" title="Bu Tablo VeriTabanınızda Yok Veya Erişilemiyor, Yani Sorun Var, Sunucunuza Ssh İle Bağlanıp Bu Komutu Çalıştırmanız Gerekmektedir '[php artisan migrate] yada [php artisan migrate:fresh]', Komutu Çalıştırdıktan Sonra Tekrar Kontrol Edilmesi İçin Sayfayı Yenilemelisiniz."></i>
                         @break
                     @endswitch
                 </span>

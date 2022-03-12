@@ -335,7 +335,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category1";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -346,7 +346,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category2";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -357,7 +357,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category3";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -368,7 +368,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category4";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -379,7 +379,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category5";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -390,7 +390,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category6";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -401,7 +401,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category7";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));
@@ -412,7 +412,7 @@ class WebSiteSetupPageController extends Controller
                 $data["data"]["main_category"] = NULL;
                 $create = CategoryCreateController::get($data);
                 $data["data"][0]["key"] = "website_visitor_menu_category8";
-                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdData"]["no"]);
+                $groupNo = CategoryGroupsListController::getFirstDataWithMainNoOnlyNotDeleted($create["createdCategoryGroupData"]["main"]["no"]);
                 $data["data"][0]["value"] = $groupNo["no"];
                 ConstantsUpdateController::check($data);
                 return redirect(route("website_setup_stage4"));

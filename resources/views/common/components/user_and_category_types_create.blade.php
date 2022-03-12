@@ -12,9 +12,9 @@
             <div class="outSpan">
                 <span>
                     @if ($constant['value'])
-                        Mevcut <i class="fa-solid fa-circle-check green"></i>
+                        Mevcut <i class="fa-solid fa-circle-check green" title="Bu Değer Hem Oluşturulmuş Hemde Tanımlanmış, Yani Sorun Yok, Tüm Değerler Mevcut İse İlerleyebilirsiniz"></i>
                     @else
-                        Tanımlanmamış <i class="fa-solid fa-circle-exclamation red"></i>
+                        Tanımlanmamış <i class="fa-solid fa-circle-exclamation red" title="Bu Değer Ya Oluşturulmamış Yada Tanımlanmamış, Oluştur Ve Tanımla Butonu Sayesinde Hızlı BirŞekilde Bu Değeri Oluşturup Sabitlerinize Tanımlayabilirsiniz, Bunu Yapmadan İlerlerseniz Sistem Çalışmaz."></i>
                     @endif
                 </span>
             </div>
@@ -41,9 +41,9 @@
             <div class="outSpan">
                 <span>
                     @if ($constant['value'])
-                        Mevcut <i class="fa-solid fa-circle-check green"></i>
+                        Mevcut <i class="fa-solid fa-circle-check green" title="Bu Değer Hem Oluşturulmuş Hemde Tanımlanmış, Yani Sorun Yok, Tüm Değerler Mevcut İse İlerleyebilirsiniz"></i>
                     @else
-                        Tanımlanmamış <i class="fa-solid fa-circle-exclamation red"></i>
+                        Tanımlanmamış <i class="fa-solid fa-circle-exclamation red" title="Bu Değer Ya Oluşturulmamış Yada Tanımlanmamış, Oluştur Ve Tanımla Butonu Sayesinde Hızlı BirŞekilde Bu Değeri Oluşturup Sabitlerinize Tanımlayabilirsiniz, Bunu Yapmadan İlerlerseniz Sistem Çalışmaz."></i>
                     @endif
                 </span>
             </div>

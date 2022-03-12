@@ -2749,7 +2749,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 250px;
+    padding: 0 50px;
     min-height: 100vh;
 }
 .outWebSiteSetup .inWebSiteSetup {
@@ -2772,16 +2772,16 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
 .outWebSiteSetup .inWebSiteSetup .outContent {
     margin-top: 40px;
     box-sizing: border-box;
-    padding: 3px;
+    padding: 4px;
     background: linear-gradient(298deg, var(--red), var(--yellow));
-    border-radius: 50px;
+    border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent {
     background-color: var(--dark-blue);
-    border-radius: 50px;
+    border-radius: 25px;
     box-sizing: border-box;
-    padding: 50px;
+    padding: 40px;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body {
     width: 100%;
@@ -2790,10 +2790,10 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     align-items: center;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar {
-    width: calc(50% - 25px);
+    width: calc(50% - 20px);
     border-radius: 25px;
     box-sizing: border-box;
-    padding: 25px;
+    padding: 25px 50px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line {
@@ -2801,7 +2801,15 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
+    padding: 12px 12px;
+    border-radius: 25px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line:nth-child(2) {
     margin-top: 20px;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line:nth-child(even) {
+    background-color: #1112177a;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.title {
     justify-content: center;
@@ -2819,17 +2827,15 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line:nth-child(1) {
-    margin-top: 0;
-}
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outLabel {
     width: 60%;
     display: flex;
     justify-content: center;
-    align-items: cnter;
+    align-items: center;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outLabel label {
     font-size: 90%;
+    font-weight: 300;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan {
     width: 40%;
@@ -2839,12 +2845,19 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span {
     font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i {
-    margin-left: 6px;
+    font-size: 16px;
+    margin-left: 12px;
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i.green {
     color: green;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i.gray {
+    color: rgb(161, 161, 161);
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line .outSpan span i.red {
     color: var(--red);
@@ -2872,6 +2885,9 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.buttonWithInputText .outButton {
     width: 20%;
+}
+.outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.oneButton {
+    background-color: var(--dark-blue);
 }
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .bar .line.oneButton .outButton {
     width: 100%;
