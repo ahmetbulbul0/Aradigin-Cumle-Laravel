@@ -13,7 +13,7 @@ class UserTypesListController extends Controller
     }
     static function getAllOnlyNotDeleted()
     {
-        return UserTypesModel::where("is_deleted", false)->get();
+        return UserTypesModel::where("is_deleted", false)->count() ? UserTypesModel::where("is_deleted", false)->get() : NULL;
     }
     static function getAllOnlyNotDeletedOrderByDescNo()
     {
@@ -34,5 +34,9 @@ class UserTypesListController extends Controller
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
         return UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? UserTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+    }
+    static function getFirstDataWithNameOnlyNotDeleted($name)
+    {
+        return UserTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() ? UserTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

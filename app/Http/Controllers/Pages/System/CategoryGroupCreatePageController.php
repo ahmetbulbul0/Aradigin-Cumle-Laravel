@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pages\System;
 
+use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupCreateController;
 use Illuminate\Http\Request;
 use App\Models\CategoriesModel;
@@ -9,13 +10,15 @@ use App\Http\Controllers\Controller;
 
 class CategoryGroupCreatePageController extends Controller
 {
-    public function index($data = NULL) {
+    public function index($data = NULL)
+    {
         $data["page_title"] = "Kategori Grubu Ekle";
-        $data["categories"] = CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->get()->toArray();
+        $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
 
         return view("system.pages.category_group_create", ["data" => $data]);
     }
-    public function form(Request $request) {
+    public function form(Request $request)
+    {
         $data["data"] = [
             "main" => $request->main,
             "sub1" => $request->sub1,
@@ -27,42 +30,64 @@ class CategoryGroupCreatePageController extends Controller
 
         $created = CategoryGroupCreateController::get($data);
 
-        if (isset($created["errors"])) {return $this->index($created);}
-
-        $created["createdDataName"] = "Kategori Grubu";
+        if (isset($created["errors"])) {
+            return $this->index($created);
+        }
 
         $created["createdData"] = [
             [
-                "column" => "No",
-                "value" => $created["createdData"][0]["no"]
+                "dataName" => "Kategori Grubu",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdCategoryGroupData"]["no"]
+                    ],
+                    [
+                        "column" => "Ana Kategori",
+                        "value" => $created["createdCategoryGroupData"]["main"]["name"]
+                    ],
+                    [
+                        "column" => "1.Alt Kategori",
+                        "value" => $created["createdCategoryGroupData"]["sub1"]["name"] ?? "-"
+                    ],
+                    [
+                        "column" => "2.Alt Kategori",
+                        "value" => $created["createdCategoryGroupData"]["sub2"]["name"] ?? "-"
+                    ],
+                    [
+                        "column" => "3.Alt Kategori",
+                        "value" => $created["createdCategoryGroupData"]["sub3"]["name"] ?? "-"
+                    ],
+                    [
+                        "column" => "4.Alt Kategori",
+                        "value" => $created["createdCategoryGroupData"]["sub4"]["name"] ?? "-"
+                    ],
+                    [
+                        "column" => "5.Alt Kategori",
+                        "value" => $created["createdCategoryGroupData"]["sub5"]["name"] ?? "-"
+                    ],
+                    [
+                        "column" => "Link Metni No:",
+                        "value" => $created["createdCategoryGroupData"]["link_url"]["no"]
+                    ],
+                ]
             ],
             [
-                "column" => "Ana Kategori",
-                "value" => $created["createdData"][0]["main"]["name"]
-            ],
-            [
-                "column" => "1.Alt Kategori",
-                "value" => $created["createdData"][0]["sub1"]["name"] ?? "-"
-            ],
-            [
-                "column" => "2.Alt Kategori",
-                "value" => $created["createdData"][0]["sub2"]["name"] ?? "-"
-            ],
-            [
-                "column" => "3.Alt Kategori",
-                "value" => $created["createdData"][0]["sub3"]["name"] ?? "-"
-            ],
-            [
-                "column" => "4.Alt Kategori",
-                "value" => $created["createdData"][0]["sub4"]["name"] ?? "-"
-            ],
-            [
-                "column" => "5.Alt Kategori",
-                "value" => $created["createdData"][0]["sub5"]["name"] ?? "-"
-            ],
-            [
-                "column" => "Url Metni:",
-                "value" => $created["createdData"][0]["link_url"]["link_url"]
+                "dataName" => "Kategori Grup Link Metni",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdCategoryGroupLinkUrlData"]["no"]
+                    ],
+                    [
+                        "column" => "Kategori Grubu No",
+                        "value" => $created["createdCategoryGroupLinkUrlData"]["group_no"]
+                    ],
+                    [
+                        "column" => "Link Metni",
+                        "value" => $created["createdCategoryGroupLinkUrlData"]["link_url"]
+                    ]
+                ]
             ],
         ];
 

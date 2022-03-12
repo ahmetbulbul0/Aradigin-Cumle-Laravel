@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kullanıcı Tipi Ekle
+                {{ $data["page_title"] }}
             </span>
         </div>
         <div class="outNewsCreateForm">

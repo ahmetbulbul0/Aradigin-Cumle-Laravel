@@ -2,15 +2,15 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Haber Ekle
+                {{ $data['page_title'] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
             <form class="inNewsCreateForm" method="POST">
                 <div class="line">
                     <span class="inputLabel">Haber İçerik:</span>
-                    <div class="outInputText">
-                        <input type="text" name="content" placeholder="Haber adı...">
+                    <div class="outTextArea">
+                        <textarea name="content" placeholder="Haber İçeriği..."></textarea>
                     </div>
                 </div>
                 @isset($data['errors']['content'])
@@ -29,21 +29,21 @@
                             <option selected disabled>Kategori Seç</option>
                             @foreach ($data['categoryGroups'] as $category)
                                 <option value="{{ $category['no'] }}">
-                                    #{{ $category['main']['name'] }}
+                                    {{ Str::title($category['main']['name']) }}
                                     @isset($category['sub1']['name'])
-                                        #{{ $category['sub1']['name'] }}
+                                        , {{ Str::title($category['sub1']['name']) }}
                                     @endisset
                                     @isset($category['sub2']['name'])
-                                        #{{ $category['sub2']['name'] }}
+                                        , {{ Str::title($category['sub2']['name']) }}
                                     @endisset
                                     @isset($category['sub3']['name'])
-                                        #{{ $category['sub3']['name'] }}
+                                        , {{ Str::title($category['sub3']['name']) }}
                                     @endisset
                                     @isset($category['sub4']['name'])
-                                        #{{ $category['sub4']['name'] }}
+                                        , {{ Str::title($category['sub4']['name']) }}
                                     @endisset
                                     @isset($category['sub5']['name'])
-                                        #{{ $category['sub5']['name'] }}
+                                        , {{ Str::title($category['sub5']['name']) }}
                                     @endisset
                                 </option>
                             @endforeach
@@ -64,56 +64,56 @@
                     <div class="outRadioBox" id="outRadioBox">
                         <label>
                             Şimdi Yayınla
-                            <input type="radio" name="publish_date" value="now">
+                            <input type="radio" name="publishDate" value="now">
                         </label>
                         <label>
                             Taslak Bırak
-                            <input type="radio" name="publish_date" value="task">
+                            <input type="radio" name="publishDate" value="task">
                         </label>
                         <label class="strong" id="openDateAndTimeBoxBtn">
                             Tarih Seç
-                            <input type="radio" name="publish_date" value="specialDate">
+                            <input type="radio" name="publishDate" value="specialDate">
                         </label>
                     </div>
                     <div class="outDateAndTimeBox" id="outDateAndTimeBox">
-                        <input type="date" name="spe_date">
-                        <input type="time" name="spe_time">
+                        <input type="date" name="speDate" min="{{ date('Y-m-d', time()) }}">
+                        <input type="time" name="speTime" min="{{ date('H:i', time()) }}">
                         <span class="turnBack" id="closeDateAndTimeBoxBtn">
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
                 </div>
-                @isset($data['errors']['publish_date'])
+                @isset($data['errors']['publishDate'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['publish_date'] }}
+                                {{ $data['errors']['publishDate'] }}
                             </span>
                         </div>
                     </div>
                 @endisset
-                @isset($data['errors']['spe_date'])
+                @isset($data['errors']['speDate'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['spe_date'] }}
+                                {{ $data['errors']['speDate'] }}
                             </span>
                         </div>
                     </div>
                 @endisset
-                @isset($data['errors']['spe_time'])
+                @isset($data['errors']['speTime'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['spe_time'] }}
+                                {{ $data['errors']['speTime'] }}
                             </span>
                         </div>
                     </div>
                 @endisset
                 <div class="line">
-                    <span class="inputLabel">Haber Kaynağı:</span>
+                    <span class="inputLabel">Haber Kaynak Site:</span>
                     <div class="outSelectBox">
-                        <select name="resource_platform">
+                        <select name="resourcePlatform">
                             <option selected disabled>Kaynak Site Seç</option>
                             @foreach ($data['resourcePlatforms'] as $resource)
                                 <option value="{{ $resource['no'] }}">{{ $resource['name'] }}</option>
@@ -121,11 +121,11 @@
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['resource_platform'])
+                @isset($data['errors']['resourcePlatform'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resource_platform'] }}
+                                {{ $data['errors']['resourcePlatform'] }}
                             </span>
                         </div>
                     </div>
@@ -133,14 +133,14 @@
                 <div class="line">
                     <span class="inputLabel">Haber Kaynak Linki:</span>
                     <div class="outInputText">
-                        <input type="text" name="resource_url" placeholder="Haber Kaynak Linki...">
+                        <input type="text" name="resourceUrl" placeholder="Haber Kaynak Linki...">
                     </div>
                 </div>
-                @isset($data['errors']['resource_url'])
+                @isset($data['errors']['resourceUrl'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['resource_url'] }}
+                                {{ $data['errors']['resourceUrl'] }}
                             </span>
                         </div>
                     </div>

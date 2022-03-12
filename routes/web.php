@@ -96,7 +96,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // YAZAR PANELİ ANA PANEL
                 Route::get("/", [AuthorDashboardPageController::class, "index"])->name("yazar_paneli_anapanel");
             // HABER EKLE
-                Route::get("/haber/ekle", [NewsCreatePageController::class, "index"])->name("haber_ekle");
+                Route::prefix("/haber/ekle")->controller(NewsCreatePageController::class)->group(function () {
+                    Route::get("/", "index")->name("haber_ekle");
+                    Route::post("/", "form");
+                });
             // HABERLERİM    
                 Route::prefix("/haberlerim")->group(function () {
                     // HABERLERİM LİSTESİ "TODO"
@@ -130,7 +133,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // KULLANICI TİPİ İŞLEMLERİ
                 Route::prefix("/kullanici-tipi")->group(function () {
                     // KULLANICI TİPİ EKLE
-                        Route::get("/ekle", [UserTypeCreatePageController::class, "index"])->name("kullanici_tipi_ekle");
+                        Route::prefix("/ekle")->controller(UserTypeCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kullanici_tipi_ekle");
+                            Route::post("/", "form");
+                        });
                     // KULLANICI TİPİ DÜZENLE
                         Route::get("/düzenle/{no}", [UserTypeEditPageController::class, "index"])->name("kullanici_tipi_düzenle");
                     // KULLANICI TİPİ SİL
@@ -147,7 +153,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // KULLANICI İŞLEMLERİ
                 Route::prefix("/kullanici")->group(function () {
                     // KULLANICI EKLE
-                        Route::get("/ekle", [UserCreatePageController::class, "index"])->name("kullanici_ekle");
+                        Route::prefix("/ekle")->controller(UserCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kullanici_ekle");
+                            Route::post("/", "form");
+                        });
                     // KULLANICI DÜZENLE
                         Route::get("/düzenle/{no}", [UserEditPageController::class, "index"])->name("kullanici_düzenle");
                     // KULLANICI SİL
@@ -179,7 +188,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // KAYNAK SİTE İŞLEMLERİ
                 Route::prefix("/kaynak-site")->group(function () {
                     // KAYNAK SİTE EKLE
-                        Route::get("/ekle", [ResourcePlatformCreatePageController::class, "index"])->name("kaynak_site_ekle");
+                        Route::prefix("/ekle")->controller(ResourcePlatformCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kaynak_site_ekle");
+                            Route::post("/", "form");
+                        });
                     // KAYNAK SİTE DÜZENLE
                         Route::get("/düzenle/{no}", [ResourcePlatformEditPageController::class, "index"])->name("kaynak_site_düzenle");
                     // KAYNAK SİTE SİL
@@ -206,10 +218,13 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 });
             // KAYNAK LİNKLERİ LİSTESİ
                 Route::get("/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler");
-            // KAYNAK LİNKLERİ İŞLEMLERİ
+            // KAYNAK TİPLERİ İŞLEMLERİ
                 Route::prefix("/kategori-tipi")->group(function () {
                     // KATEGORİ TİPİ EKLE
-                        Route::get("/ekle", [CategoryTypeCreatePageController::class, "index"])->name("kategori_tipi_ekle");
+                        Route::prefix("/ekle")->controller(CategoryTypeCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kategori_tipi_ekle");
+                            Route::post("/", "form");
+                        });
                     // KATEGORİ TİPİ DÜZENLE
                         Route::get("/düzenle/{no}", [CategoryTypeEditPageController::class, "index"])->name("kategori_tipi_düzenle");
                     // KATEGORİ TİPİ SİL
@@ -226,7 +241,10 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // KATEGORİ İŞLEMLERİ
                 Route::prefix("/kategori")->group(function () {
                     // KATEGORİ EKLE
-                        Route::get("/ekle", [CategoryCreatePageController::class, "index"])->name("kategori_ekle");
+                        Route::prefix("/ekle")->controller(CategoryCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kategori_ekle");
+                            Route::post("/", "form");
+                        });
                     // KATEGORİ DÜZENLE
                         Route::get("/düzenle/{no}", [CategoryEditPageController::class, "index"])->name("kategori_düzenle");
                     // KATEGORİ SİL
@@ -246,10 +264,13 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/linkUrlAZ", "linkUrlAZ")->name("kategoriler_linkUrlAZ");
                     Route::get("/linkUrlZA", "linkUrlZA")->name("kategoriler_linkUrlZA");
                 });
-            // KATEGORİ İŞLEMLERİ
+            // KATEGORİ GRUPLARI İŞLEMLERİ
                 Route::prefix("/kategori-grubu")->group(function () {
                     // KATEGORİ GRUBU EKLE
-                        Route::get("/ekle", [CategoryGroupCreatePageController::class, "index"])->name("kategori_grubu_ekle");
+                        Route::prefix("/ekle")->controller(CategoryGroupCreatePageController::class)->group(function () {
+                            Route::get("/", "index")->name("kategori_grubu_ekle");
+                            Route::post("/", "form");
+                        });
                     // KATEGORİ GRUBU DÜZENLE
                         Route::get("/düzenle/{no}", [CategoryGroupEditPageController::class, "index"])->name("kategori_grubu_düzenle");
                     // KATEGORİ GRUBU SİL
@@ -339,8 +360,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::post("/yazar-paneli/ayarlar/tema/panel-tema", [AuthorSettingsPageController::class, "dashboardThemeChange"]);
                 Route::post("/yazar-paneli/ayarlar/tema/website-tema", [AuthorSettingsPageController::class, "websiteThemeChange"]);
         /* SYSTEM PAGES */
-            // KULLANICI TİPİ EKLE
-                Route::post("/sistem-paneli/kullanici-tipi/ekle", [UserTypeCreatePageController::class, "form"]);
             // KULLANICI TİPLERİ LİSTESİ
                 Route::post("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "form"]);
                 Route::post("/sistem-paneli/kullanici-tipleri/no09", [UserTypesListPageController::class, "form"]);
@@ -351,8 +370,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::post("/sistem-paneli/kullanici-tipi/düzenle/{no}", [UserTypeEditPageController::class, "form"]);
             // KULLANICI TİPİ SİL
                 Route::post("/sistem-paneli/kullanici-tipi/sil/{no}", [UserTypeDeletePageController::class, "form"]);
-            // KULLANICI EKLE
-                Route::post("/sistem-paneli/kullanici/ekle", [UserCreatePageController::class, "form"]);
             // KULLANICILAR LİSTESİ
                 Route::post("/sistem-paneli/kullanicilar/", [UsersListPageController::class, "form"]);
                 Route::post("/sistem-paneli/kullanicilar/no09", [UsersListPageController::class, "form"]);
@@ -367,8 +384,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::post("/sistem-paneli/kullanici/düzenle/{no}", [UserEditPageController::class, "form"]);
             // KULLANICI SİL
                 Route::post("/sistem-paneli/kullanici/sil/{no}", [UserDeletePageController::class, "form"]);
-            // KAYNAK SİTE EKLE
-                Route::post("/sistem-paneli/kaynak-site/ekle", [ResourcePlatformCreatePageController::class, "form"]);
             // KAYNAK SİTELER
                 Route::post("/sistem-paneli/kaynak-siteler/", [ResourcePlatformsListPageController::class, "form"]);
                 Route::post("/sistem-paneli/kaynak-siteler/no09", [ResourcePlatformsListPageController::class, "form"]);
@@ -395,8 +410,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::post("/sistem-paneli/kategori-tipi/düzenle/{no}", [CategoryTypeEditPageController::class, "form"]);
             // KATEGORİ TİPİ SİL
                 Route::post("/sistem-paneli/kategori-tipi/sil/{no}", [CategoryTypeDeletePageController::class, "form"]);
-            // KATEGORİ EKLE
-                Route::post("/sistem-paneli/kategori/ekle", [CategoryCreatePageController::class, "form"]);
             // KATEGORİ DÜZENLE
                 Route::post("/sistem-paneli/kategori/düzenle/{no}", [CategoryEditPageController::class, "form"]);
             // KATEGORİLER

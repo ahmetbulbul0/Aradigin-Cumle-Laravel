@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kategori Tipi Ekle
+                {{ $data['page_title'] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
@@ -10,7 +10,7 @@
                 <div class="line">
                     <span class="inputLabel">Kategori Tipi Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="name" placeholder="Kategori Tipi adı...">
+                        <input type="text" name="name" placeholder="Kategori Tipi Adı...">
                     </div>
                 </div>
                 @isset($data['errors']['name'])

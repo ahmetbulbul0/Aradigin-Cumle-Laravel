@@ -18,7 +18,7 @@ class CategoriesListController extends Controller
     }
     static function getAllOnlyNotDeletedAllRelationShips()
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->get()->toArray() : NULL;
     }
     static function getAllOnlyNotDeletedAllRelationShipsOrderByDescNo()
     {
@@ -66,6 +66,10 @@ class CategoriesListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+    }
+    static function getFirstDataWithNameOnlyNotDeleted($name)
+    {
+        return CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() ? CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

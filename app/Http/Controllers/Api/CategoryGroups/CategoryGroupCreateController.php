@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Api\CategoryGroups;
 
+use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsCreateController;
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsListController;
 use App\Models\CategoriesModel;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
-use App\Models\CategoryGroupUrlsModel;
 use App\Http\Controllers\Tools\NoGenerator;
-use App\Http\Controllers\Tools\LinkUrlGenerator;
+use App\Models\CategoryGroupUrlsModel;
 
 class CategoryGroupCreateController extends Controller
 {
@@ -20,6 +21,13 @@ class CategoryGroupCreateController extends Controller
         $sub3 = htmlspecialchars($data["data"]["sub3"]);
         $sub4 = htmlspecialchars($data["data"]["sub4"]);
         $sub5 = htmlspecialchars($data["data"]["sub5"]);
+
+        $main = intval($main);
+        $sub1 = intval($sub1);
+        $sub2 = intval($sub2);
+        $sub3 = intval($sub3);
+        $sub4 = intval($sub4);
+        $sub5 = intval($sub5);
 
         $data["data"] = [
             "main" => $main,
@@ -41,65 +49,67 @@ class CategoryGroupCreateController extends Controller
         $sub4 = $data["data"]["sub4"];
         $sub5 = $data["data"]["sub5"];
 
-        if (!isset($main) || empty($main)) {
-            $errors["main"] = "Ana Kategori Alanı Zorunludur";
-        }
-
-        if (!empty($main) && !CategoriesModel::where("no", $main)->count()) {
-            $data["errors"]["main"] = "Böyle Bir Kategori Yok";
-        }
-
-        if (!empty($sub1) && !CategoriesModel::where("no", $sub1)->count()) {
-            $data["errors"]["sub1"] = "Böyle Bir Kategori Yok";
-        }
-
-        if (!empty($sub2) && !CategoriesModel::where("no", $sub2)->count()) {
-            $data["errors"]["sub2"] = "Böyle Bir Kategori Yok";
-        }
-
-        if (!empty($sub3) && !CategoriesModel::where("no", $sub3)->count()) {
-            $data["errors"]["sub3"] = "Böyle Bir Kategori Yok";
-        }
-
-        if (!empty($sub4) && !CategoriesModel::where("no", $sub4)->count()) {
-            $data["errors"]["sub4"] = "Böyle Bir Kategori Yok";
-        }
-
-        if (!empty($sub5) && !CategoriesModel::where("no", $sub5)->count()) {
-            $data["errors"]["sub5"] = "Böyle Bir Kategori Yok";
-        }
-
         if (empty($sub1)) {
             $sub1 = NULL;
+            $sub2 = NULL;
+            $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
         }
         if (empty($sub2)) {
             $sub2 = NULL;
+            $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
         }
         if (empty($sub3)) {
             $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
         }
         if (empty($sub4)) {
             $sub4 = NULL;
+            $sub5 = NULL;
         }
         if (empty($sub5)) {
             $sub5 = NULL;
         }
 
-        if (CategoryGroupsModel::where([
-            "main" => $main,
-            "sub1" => $sub1,
-            "sub2" => $sub2,
-            "sub3" => $sub3,
-            "sub4" => $sub4,
-            "sub5" => $sub5
-        ])->count()) {
+        if (empty($main) || !isset($main)) {
+            $data["errors"]["main"] = "Ana Kategori Alanı Zorunludur";
+        }
+
+        if (!empty($main) && isset($main) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($main)) {
+            $data["errors"]["main"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (!empty($sub1) && isset($sub1) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub1)) {
+            $data["errors"]["sub1"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (!empty($sub2) && isset($sub2) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub2)) {
+            $data["errors"]["sub2"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (!empty($sub3) && isset($sub3) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub3)) {
+            $data["errors"]["sub3"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (!empty($sub4) && isset($sub4) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub4)) {
+            $data["errors"]["sub4"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (!empty($sub5) && isset($sub5) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub5)) {
+            $data["errors"]["sub5"] = "Böyle Bir Kategori Yok";
+        }
+
+        if (CategoryGroupsListController::getFirstDataWithMainMainSub1Sub2Sub3Sub4Sub5OnlyNotDeleted($main, $sub1, $sub2, $sub3, $sub4, $sub5)) {
             $data["errors"]["categoryGroup"] = "Böyle Bir Kategori Grubu Zaten Var";
         }
 
         if (isset($data["errors"])) {
             return $data;
         }
-
         return CategoryGroupCreateController::work($data);
     }
     static function work($data)
@@ -112,12 +122,38 @@ class CategoryGroupCreateController extends Controller
         $sub4 = $data["data"]["sub4"];
         $sub5 = $data["data"]["sub5"];
 
-        $main = CategoriesModel::where([["is_deleted", false], ["no", $main]])->first();
-        $sub1 = CategoriesModel::where([["is_deleted", false], ["no", $sub1]])->first();
-        $sub2 = CategoriesModel::where([["is_deleted", false], ["no", $sub2]])->first();
-        $sub3 = CategoriesModel::where([["is_deleted", false], ["no", $sub3]])->first();
-        $sub4 = CategoriesModel::where([["is_deleted", false], ["no", $sub4]])->first();
-        $sub5 = CategoriesModel::where([["is_deleted", false], ["no", $sub5]])->first();
+        if (empty($sub1)) {
+            $sub1 = NULL;
+            $sub2 = NULL;
+            $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
+        }
+        if (empty($sub2)) {
+            $sub2 = NULL;
+            $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
+        }
+        if (empty($sub3)) {
+            $sub3 = NULL;
+            $sub4 = NULL;
+            $sub5 = NULL;
+        }
+        if (empty($sub4)) {
+            $sub4 = NULL;
+            $sub5 = NULL;
+        }
+        if (empty($sub5)) {
+            $sub5 = NULL;
+        }
+
+        $main = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($main);
+        $sub1 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub1);
+        $sub2 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub2);
+        $sub3 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub3);
+        $sub4 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub4);
+        $sub5 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub5);
 
         CategoryGroupsModel::create([
             "no" => $no,
@@ -132,11 +168,16 @@ class CategoryGroupCreateController extends Controller
 
         $dataForLinkUrl["data"]["group_no"] = $no;
 
-        $linkUrl = CategoryGroupUrlsCreateController::get($dataForLinkUrl);
+        $linkUrlCreate = CategoryGroupUrlsCreateController::get($dataForLinkUrl);
+        if (isset($linkUrlCreate["errors"])) {
+            CategoryGroupsModel::where(["is_deleted" => false, "no", $no])->delete();
+            return $linkUrlCreate;
+        }
 
-        CategoryGroupsModel::where("no", $no)->update(["link_url" => $linkUrl["createdData"]["no"]]);
-
-        $data["createdData"] = CategoryGroupsModel::where("no", $no)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray();
+        CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->update(["link_url" => $linkUrlCreate["createdData"]["no"]]);
+        
+        $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($linkUrlCreate["createdData"]["no"]);
 
         return $data;
     }

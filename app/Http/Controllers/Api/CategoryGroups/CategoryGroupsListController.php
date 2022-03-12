@@ -86,11 +86,11 @@ class CategoryGroupsListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray();
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray() : NULL;
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first(): NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
     }
     static function getFirstDataWithMainNoOnlyNotDeleted($no)
     {
@@ -99,5 +99,10 @@ class CategoryGroupsListController extends Controller
     static function getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5()
     {
         return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->get()->toArray();
+    }
+
+    static function getFirstDataWithMainMainSub1Sub2Sub3Sub4Sub5OnlyNotDeleted($main, $sub1, $sub2, $sub3, $sub4, $sub5)
+    {
+        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
     }
 }

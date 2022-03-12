@@ -50,6 +50,14 @@ class ResourcePlatformsListController extends Controller
     }
     static function getFirstDataWithNoOnlyNotDeleted($no)
     {
-        return ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first();
+        return ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+    }
+    static function getFirstDataWithNameOnlyNotDeleted($name)
+    {
+        return ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
+    }
+    static function getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)
+    {
+        return ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->first() : NULL;
     }
 }

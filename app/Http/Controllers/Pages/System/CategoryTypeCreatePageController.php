@@ -25,16 +25,19 @@ class CategoryTypeCreatePageController extends Controller
             return $this->index($created);
         }
 
-        $created["createdDataName"] = "Kategori Tipi";
-
         $created["createdData"] = [
             [
-                "column" => "No",
-                "value" => $created["createdData"][0]["no"]
-            ],
-            [
-                "column" => "Adı",
-                "value" => $created["createdData"][0]["name"]
+                "dataName" => "Kategori Tipi",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdData"]["no"]
+                    ],
+                    [
+                        "column" => "Adı",
+                        "value" => $created["createdData"]["name"]
+                    ]
+                ]
             ]
         ];
 

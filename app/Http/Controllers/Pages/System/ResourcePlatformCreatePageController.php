@@ -17,7 +17,7 @@ class ResourcePlatformCreatePageController extends Controller
     {
         $data["data"] = [
             "name" => $request->name,
-            "main_url" => $request->main_url
+            "main_url" => $request->mainUrl
         ];
 
         $created = ResourcePlatformCreateController::get($data);
@@ -26,24 +26,27 @@ class ResourcePlatformCreatePageController extends Controller
             return $this->index($created);
         }
 
-        $created["createdDataName"] = "Kaynak Site";
-
         $created["createdData"] = [
             [
-                "column" => "No",
-                "value" => $created["createdData"][0]["no"]
-            ],
-            [
-                "column" => "Adı",
-                "value" => $created["createdData"][0]["name"]
-            ],
-            [
-                "column" => "Site Linki",
-                "value" => $created["createdData"][0]["main_url"]
-            ],
-            [
-                "column" => "Url Metni",
-                "value" => $created["createdData"][0]["link_url"]
+                "dataName" => "Kaynak Site",
+                "columnValues" => [
+                    [
+                        "column" => "No",
+                        "value" => $created["createdData"]["no"]
+                    ],
+                    [
+                        "column" => "Ad",
+                        "value" => $created["createdData"]["name"]
+                    ],
+                    [
+                        "column" => "Site Linki",
+                        "value" => $created["createdData"]["main_url"]
+                    ],
+                    [
+                        "column" => "Link Metni",
+                        "value" => $created["createdData"]["link_url"]
+                    ]
+                ]
             ]
         ];
 

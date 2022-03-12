@@ -19,7 +19,7 @@ class NewsDetailPageController extends Controller
         $linkUrl = htmlspecialchars($linkUrl);
 
         if (!NewsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->count()) {
-            return redirect(route("anasayfa"));
+            return response()->view('errors.404');
         }
 
         $newsNo = NewsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first()->no;

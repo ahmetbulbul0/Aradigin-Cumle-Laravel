@@ -2,7 +2,7 @@
     <div class="inNewsCreate">
         <div class="outNewsCreateTitle">
             <span class="inNewsCreateTitle">
-                Kategori Ekle
+                {{ $data['page_title'] }}
             </span>
         </div>
         <div class="outNewsCreateForm">
@@ -10,7 +10,7 @@
                 <div class="line">
                     <span class="inputLabel">Kategori Adı:</span>
                     <div class="outInputText">
-                        <input type="text" name="name" placeholder="Kategori adı...">
+                        <input type="text" name="name" placeholder="Kategori Adı...">
                     </div>
                 </div>
                 @isset($data['errors']['name'])
@@ -28,7 +28,8 @@
                         <select name="type">
                             <option selected disabled>Kategori Tipi Seç</option>
                             @foreach ($data['categoryTypes'] as $categoryTypes)
-                                <option value="{{ $categoryTypes['no'] }}">{{ $categoryTypes['name'] }}</option>
+                                <option value="{{ $categoryTypes['no'] }}">{{ Str::title($categoryTypes['name']) }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -46,18 +47,19 @@
                     <span class="inputLabel">Ana Kategori:</span>
                     <div class="outSelectBox">
                         <select name="mainCategory">
-                            <option value="default" selected disabled>Ana Kategoriyi Seç (Alt Kategori Ekliyorsanız)</option>
+                            <option value="default" selected>Ana Kategoriyi Seç (Alt Kategori Ekliyorsanız)</option>
                             @foreach ($data['categories'] as $categories)
-                                <option value="{{ $categories['no'] }}">{{ $categories['name'] }}</option>
+                                <option value="{{ $categories['no'] }}">{{ Str::title($categories['name']) }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                @isset($data['errors']['main_category'])
+                @isset($data['errors']['mainCategory'])
                     <div class="line">
                         <div class="outErrorBox">
                             <span>
-                                {{ $data['errors']['main_category'] }}
+                                {{ $data['errors']['mainCategory'] }}
                             </span>
                         </div>
                     </div>
