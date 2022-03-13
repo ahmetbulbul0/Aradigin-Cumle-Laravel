@@ -96,4 +96,24 @@ class SystemSettingsPageController extends Controller
 
         return redirect(route("ayarlar_sabitler"));
     }
+    public function dashboardThemeChange(Request $request)
+    {
+        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
+
+        if ($request->dashboardTheme) {
+            $userSettings->update(["dashboard_theme" => $request->dashboardTheme]);
+        }
+
+        return redirect(Session::previousUrl());
+    }
+    public function websiteThemeChange(Request $request)
+    {
+        $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
+
+        if ($request->websiteTheme) {
+            $userSettings->update(["website_theme" => $request->websiteTheme]);
+        }
+
+        return redirect(Session::previousUrl());
+    }
 }

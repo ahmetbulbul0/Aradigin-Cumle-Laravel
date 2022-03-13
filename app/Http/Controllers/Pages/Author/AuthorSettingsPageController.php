@@ -51,7 +51,6 @@ class AuthorSettingsPageController extends Controller
     }
     public function dashboardThemeChange(Request $request)
     {
-
         $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
 
         if ($request->dashboardTheme) {
@@ -62,7 +61,6 @@ class AuthorSettingsPageController extends Controller
     }
     public function websiteThemeChange(Request $request)
     {
-
         $userSettings = UsersSettingsModel::where(["is_deleted" => false, "user_no" => Session::get("userData.no")]);
 
         if ($request->websiteTheme) {

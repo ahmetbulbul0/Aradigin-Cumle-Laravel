@@ -45,13 +45,6 @@
             <section class="brace">
             </section>
             <span class="iconBox">
-                <a href="{{ route('anasayfa') }}" target="blank">
-                    <i class="fas fa-external-link-alt"></i>
-                </a>
-            </span>
-            <section class="brace">
-            </section>
-            <span class="iconBox">
                 <i class="fas fa-adjust" id="openFullLineThemeIcon"></i>
             </span>
             <section class="brace">
@@ -64,12 +57,18 @@
             <section class="brace">
             </section>
             <span class="iconBox">
+                <a href="{{ route('anasayfa') }}" target="blank">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </span>
+            <section class="brace"></section>
+            <span class="iconBox">
                 <a href="{{ route('cikis_yap') }}">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </span>
             <section class="brace">
-            </section>
+            </section>  
         </div>
         <div class="outFullLine" id="fullLine">
             <div class="inFullLine">
@@ -83,7 +82,7 @@
                 <div class="outTheme" id="fullLineTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                        <form method="POST" action="{{ route("author_user_fast_dashboard_theme_change") }}">
                             @csrf
                             <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
                                 value="dark">Koyu</button>
@@ -128,7 +127,7 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <form method="POST" action="/yazar-paneli/ayarlar/tema/panel-tema">
+                    <form method="POST" action="{{ route("author_user_fast_dashboard_theme_change") }}">
                         @csrf
                         <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
                             value="dark">Koyu</button>
