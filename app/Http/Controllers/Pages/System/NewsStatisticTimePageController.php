@@ -8,6 +8,7 @@ class NewsStatisticTimePageController extends Controller
 {
     public function index()
     {
-        return "HABER İSTATİSTİKLERİ ZAMANA GÖRE";
+        $data["page_title"] = "Haber İstatistikleri Zaman";
+        return view("system.pages.news_statistic_time")->with("data", $data);
     }
 }

@@ -338,14 +338,14 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/writeTimeAZ", "writeTimeAZ")->name("haberler_writeTimeAZ");
                     Route::get("/writeTimeZA", "writeTimeZA")->name("haberler_writeTimeZA");
                 });
-            // HABERLERİM İSTATİSTİKLERİ "TODO"
+            // HABER İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberler/istatistikleri")->group(function () {
                     // HABER İSTATİSTİKLERİ "TODO"
                         Route::get("/", [NewsStatisticsPageController::class, "index"]);
                     // HABER İSTATİSTİKLERİ ZAMANA GÖRE "TODO"
-                        Route::get("/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
+                        Route::get("/zaman", [NewsStatisticTimePageController::class, "index"]);
                     // HABER İSTATİSTİKLERİ DETAY "TODO"
-                        Route::get("/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
+                        Route::get("/detay", [NewsStatisticDetailPageController::class, "index"]);
                 });
 
 

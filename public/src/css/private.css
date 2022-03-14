@@ -1,41 +1,7 @@
-/* [C]FONTS */
+/* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* [C]PRİMARY */
+/* PRİMARY */
 :root {
     --white: #ffffff;
     --light: #f0eff3;
@@ -68,40 +34,6 @@ body.light {
     background-color: var(--white);
     color: var(--black);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* MENU */
 .outMenu {
     width: 100%;
@@ -404,40 +336,51 @@ body.light .outMenu .inMenu .brace {
 .outMenu .inMenu .brace#homeIconBrace {
     display: none;
 }
+@media only screen and (max-width: 1155px) {
+    .outMenu {
+        padding: 0;
+    }
 
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 24px;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .outMenu .inMenu .bar .textBox {
+        padding: 0 18px;
+    }
 
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 18px;
+    }
+}
+@media only screen and (max-width: 1020px) {
+    .outMenu .inMenu .bar .textBox {
+        padding: 0 12px;
+    }
 
+    .outMenu .inMenu .bar .textBox:nth-child(1) {
+        padding-left: 12px;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .outMenu .inMenu .bar {
+        display: none;
+    }
 
+    .outMenu .inMenu .mobile_bar {
+        display: flex;
+    }
+}
+@media only screen and (max-width: 1075px) {
+    .outMenu .inMenu .outFullLine {
+        width: 100%;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .outMenu .inMenu .outFullLine .inFullLine {
+        border: none;
+    }
+}
 /* DROPDOWN */
 .outDropdown {
     position: absolute;
@@ -626,40 +569,111 @@ body.light .outDropdown .inDropdown .header .theme button:hover {
 .outDropdown .inDropdown .lists .listsBar .outList .list .item span {
     cursor: pointer;
 }
+@media only screen and (max-width: 1620px) {
+    .outDropdown {
+        padding: 0;
+    }
 
+    .outDropdown .inDropdown {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+        border-left: 0;
+    }
 
+    .outDropdown .inDropdown .lists {
+        display: block;
+    }
 
+    .outDropdown .inDropdown .lists .listsBar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+    }
 
+    .outDropdown .inDropdown .lists .listsBar .outList {
+        width: 25%;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .outDropdown .inDropdown .header {
+        display: block;
+    }
 
+    .outDropdown .inDropdown .header .search {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .outDropdown .inDropdown .header .search .outInputText {
+        width: 75%;
+    }
 
+    .outDropdown .inDropdown .header .themeAndLinks {
+        margin-top: 24px;
+        width: 100%;
+    }
 
+    .outDropdown .inDropdown .lists .listsBar {
+        display: block;
+    }
 
+    .outDropdown .inDropdown .lists .listsBar .outList {
+        width: 100%;
+        text-align: center;
+        margin-top: 24px;
+    }
 
+    .outDropdown .inDropdown .lists .listsBar .outList .titleBox {
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .outDropdown .inDropdown .header .themeAndLinks {
+        box-sizing: border-box;
+        padding: 0 12px;
+        justify-content: space-between;
+    }
 
+    .outDropdown .inDropdown .header .search .outInputText {
+        width: 100%;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .outDropdown .inDropdown .header .outInputText input[type="text"] {
+        width: 90%;
+        background-color: var(--dark-blue);
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        box-sizing: border-box;
+        padding: 4px 12px;
+        font-size: 90%;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .outDropdown .inDropdown .header .themeAndLinks {
+        padding: 0;
+        display: block;
+    }
+    .outDropdown .inDropdown .header .themeAndLinks .linkBar {
+        display: flex;
+        margin-top: 24px;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .outDropdown .inDropdown .header .themeAndLinks .linkBar {
+        display: block;
+    }
+    .outDropdown .inDropdown .header .themeAndLinks .linkBar span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 24px;
+    }
+}
 /* 4 VALUES BOX */
 .outValues4Box {
     width: 100%;
@@ -801,40 +815,6 @@ body.light .outValues4Box .inValues4Box .valuesBar .outValueBox .footer:hover {
         margin-top: 0;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FAST FORM "TODO" */
 .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm {
     width: 25%;
@@ -1010,40 +990,6 @@ body.dark .chart {
 body.light .chart {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* SETTİNGS */
 .outSettings {
     width: 100%;
@@ -1590,40 +1536,6 @@ body.light .outSettings .inSettings .outSettingsContent .inSettingsContent .line
         font-size: 100%;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* DELETE CONFİRM */
 .outDeleteConfirm {
     width: 100%;
@@ -1735,40 +1647,6 @@ body.light .outDeleteConfirm .inDeleteConfirm .body .outItemDetail .inItemDetail
 body.light .outDeleteConfirm .inDeleteConfirm .footer button:hover {
     color: var(--white);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* MY NEWS */ 
 .outMyNews {
     width: 100%;
@@ -2016,42 +1894,297 @@ body.light .outMyNews .inMyNews .myNewsList .line:nth-child(even) {
 .outMyNews .inMyNews .myNewsList .line div.actions span a i {
     cursor: pointer;
 }
+@media only screen and (max-width: 1680px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 6%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 42%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 6%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 6%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+@media only screen and (max-width: 1540px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 6%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 38%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 7%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 14%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 35%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 8%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 8%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .outMyNews {
+        padding: 0;
+    }
 
+    .outMyNews .inMyNews {
+        border-radius: 0;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 9%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 12%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 14%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 35%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.resource {
+        width: 8%;
+        display: none;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 10%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 10%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 10%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 10%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 16%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 22%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 40%;
+    }
 
+    .outMyNews .inMyNews .myNewsList div.listing {
+        width: 10%;
+        display: none;
+    }
 
-/* FORMS LAYOUT CSS "NEWS CREATE" */
-.outNewsCreate {
+    .outMyNews .inMyNews .myNewsList div.reading {
+        width: 10%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 12%;
+    }
+}
+@media only screen and (max-width: 760px) {
+    .outMyNews .inMyNews .myNewsList .line {
+        padding: 18px 12px;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 14%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.category {
+        width: 16%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 26%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 46%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 16%;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 20%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.publish_date {
+        width: 26%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 60%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 20%;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .outMyNews .inMyNews .outTitle {
+        display: block;
+    }
+
+    .outMyNews .inMyNews .outTitle .inTitle {
+        position: relative;
+        text-align: center;
+        padding: 0;
+    }
+
+    .outMyNews .inMyNews .outTitle .titleSelects {
+        margin-top: 18px;
+        justify-content: center;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 25%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 50%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 25%;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .outMyNews .inMyNews .outTitle .titleSelects {
+        margin-top: 18px;
+        display: block;
+    }
+
+    .outMyNews .inMyNews .outTitle .titleSelects .statisticListingSelect {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 18px;
+    }
+
+    .outMyNews .inMyNews .outTitle .statisticListingSelect:nth-child(1) {
+        margin-top: 0;
+    }
+
+    .outMyNews .inMyNews {
+        padding: 12px;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.no {
+        width: 25%;
+        display: none;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 75%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 25%;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .outMyNews .inMyNews .myNewsList div.content {
+        width: 65%;
+    }
+
+    .outMyNews .inMyNews .myNewsList div.actions {
+        width: 35%;
+    }
+}
+/* BİG FORM */
+.outBigForm {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -2060,29 +2193,29 @@ body.light .outMyNews .inMyNews .myNewsList .line:nth-child(even) {
     margin-top: 40px;
     padding: 0 50px;
 }
-.outNewsCreate .inNewsCreate {
+.outBigForm .inBigForm {
     border-radius: 25px;
     box-sizing: border-box;
     padding: 25px;
     width: 100%;
 }
-body.dark .outNewsCreate .inNewsCreate {
+body.dark .outBigForm .inBigForm {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 7px 29px 0px;
 }
-body.light .outNewsCreate .inNewsCreate {
+body.light .outBigForm .inBigForm {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateTitle {
+.outBigForm .inBigForm .outBigFormTitle {
     width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle {
+.outBigForm .inBigForm .outBigFormTitle .inBigFormTitle {
     position: relative;
     padding: 0 6px;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateTitle .inNewsCreateTitle:after {
+.outBigForm .inBigForm .outBigFormTitle .inBigFormTitle:after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -2091,31 +2224,31 @@ body.light .outNewsCreate .inNewsCreate {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm {
+.outBigForm .inBigForm .outBigFormContent {
     width: 100%;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent {
     width: 100%;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 18px;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line:nth-child(1) {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line:nth-child(1) {
     margin-top: 0;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .inputLabel {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .inputLabel {
     width: 200px;
     font-weight: 300;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outInputText {
     width: calc(100% - 200px);
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
@@ -2125,7 +2258,7 @@ body.light .outNewsCreate .inNewsCreate {
     justify-content: center;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextArea {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextArea {
     width: calc(100% - 200px);
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
@@ -2135,7 +2268,7 @@ body.light .outNewsCreate .inNewsCreate {
     justify-content: center;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextArea textarea {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextArea textarea {
     width: 100%;
     border-radius: 25px;
     box-sizing: border-box;
@@ -2145,13 +2278,13 @@ body.light .outNewsCreate .inNewsCreate {
     cursor: text;
     height: 100px;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextArea textarea {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextArea textarea {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextArea textarea {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextArea textarea {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText input[type="text"] {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outInputText input[type="text"] {
     width: 100%;
     border-radius: 50px;
     box-sizing: border-box;
@@ -2160,13 +2293,13 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     font-size: 90%;
     cursor: text;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText input[type="text"] {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outInputText input[type="text"] {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outInputText input[type="text"] {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outInputText input[type="text"] {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox {
     width: calc(100% - 200px);
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
@@ -2176,7 +2309,7 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     justify-content: space-between;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     width: 100%;
     border: none;
     font-family: "Poppins", sans-serif;
@@ -2187,26 +2320,26 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     padding: 6px 12px;
     font-size: 90%;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     color: var(--light);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     color: var(--dark-blue);
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSelectBox select {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox {
     width: calc(100% - 200px);
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1px 0;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2216,23 +2349,23 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     border-radius: 25px;
     cursor: pointer;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:hover {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label:hover {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label:hover {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label:hover {
     color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label input[type="radio"] {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label input[type="radio"] {
     cursor: pointer;
     margin-left: 12px;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label.strong {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label.strong {
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outRadioBox label.strong {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox label.strong {
     color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox {
     width: calc(100% - 200px);
     box-sizing: border-box;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -2242,13 +2375,13 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     border-radius: 50px;
     padding: 1px;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="date"] {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="date"] {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="date"] {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="date"] {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="date"] {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="date"] {
     width: calc(100% - 40% - 50px);
     text-align: center;
     border-top-left-radius: 25px;
@@ -2258,20 +2391,20 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     box-sizing: border-box;
     padding: 6px 0;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="time"] {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="time"] {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="time"] {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="time"] {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox input[type="time"] {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox input[type="time"] {
     width: calc(100% - 45% - 50px);
     text-align: center;
     font-weight: 300;
     font-size: 90%;
     padding: 6px 0;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack {
     width: 50px;
     height: 100%;
     border-top-right-radius: 25px;
@@ -2283,35 +2416,35 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     justify-content: center;
     align-items: center;
 }
-body.dark .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack {
+body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack {
     background-color: var(--dark-blue);
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack {
     background-color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack i {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack i {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     border-radius: 100px;
     padding: 3px 9px;
     cursor: pointer;
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outDateAndTimeBox .turnBack i {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack i {
     color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outTextBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextBox {
     width: calc(100% - 150px);
     font-weight: 400;
     color: var(--dark-light);
     box-sizing: border-box;
     padding: 5px 12px;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSubmitBox {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox button {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSubmitBox button {
     font-weight: 300;
     font-size: 90%;
     padding: 4px 12px;
@@ -2320,10 +2453,10 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     cursor: pointer;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outSubmitBox button {
+body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSubmitBox button {
     color: var(--white);
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outErrorBox {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outErrorBox {
     width: 100%;
     font-weight: 400;
     padding: 5px 0;
@@ -2331,46 +2464,115 @@ body.light .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .li
     justify-content: center;
     align-items: center;
 }
-.outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line .outErrorBox span {
+.outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outErrorBox span {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+@media only screen and (max-width: 1000px) {
+    .outBigForm {
+        padding: 0;
+    }
+    .outBigForm .inBigForm {
+        border-radius: 0;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line {
+        display: block;
+        border-top: 1px solid var(--dark-light);
+        padding: 12px 0;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line:nth-child(1) {
+        border-top: 0;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .inputLabel {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outInputText {
+        width: 100%;
+        margin-top: 12px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox {
+        width: 100%;
+        margin-top: 12px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox {
+        width: 100%;
+        margin-top: 12px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox {
+        width: 100%;
+        margin-top: 12px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outTextBox {
+        width: 100%;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 490px) {
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox {
+        display: block;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox
+        label {
+        margin-top: 12px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox
+        label:nth-child(1) {
+        margin-top: 0;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox {
+        border-radius: 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox
+        input[type="date"] {
+        width: 100%;
+        border-radius: 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 11px 0;
+    }
 
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox
+        input[type="time"] {
+        width: 100%;
+        margin-top: 1px;
+        padding: 11px 0;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outDateAndTimeBox .turnBack {
+        width: 100%;
+        height: auto;
+        margin-top: 1px;
+        border-radius: 0;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        padding: 7.8px 0;
+    }
+}
 /* CREATED DATA */
 .outCreatedData {
     width: 100%;
@@ -2433,40 +2635,6 @@ body.light .outCreatedData .inCreatedData .createdData {
     font-size: 90%;
     font-weight: 300;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* DB LİST */
 .outDbList {
     width: 100%;
@@ -2662,40 +2830,7 @@ body.light .outDbList .inDbList .dbList .line:nth-child(even) {
 body.light .outDbList .inDbList .dbList .line div.actions span a i {
     color: var(--dark-blue);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* FAST STYLE SHORTCLASSES */
 .w5 {width: 5%;}
 .w8 {width: 8%;}
 .w10 {width: 10%;}
@@ -2714,34 +2849,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
 .w80 {width: 80%;}
 .w90 {width: 90%;}
 .w100 {width: 100%;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* WEBSİTE SETUP */
 .outWebSiteSetup {
     width: 100%;
@@ -2992,38 +3099,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
 .outWebSiteSetup .inWebSiteSetup .outContent .inContent .body .outFinish .outLinks a:nth-child(1) {
     margin-left: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* [C]ADMİN NEWS STATİSTİCS */
-
+/* NEWS STATİSTİCS */
 .outNewsStatistics {
     width: 100%;
     margin-top: 40px;
@@ -3033,7 +3109,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: center;
     align-items: center;
 }
-
 .outNewsStatistics .inNewsStatistics {
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
@@ -3041,19 +3116,16 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     box-sizing: border-box;
     padding: 30px;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .inTitle {
     position: relative;
     padding: 0 6px;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .inTitle:after {
     content: "";
     position: absolute;
@@ -3063,24 +3135,20 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .titleSelects {
     display: flex;
     justify-content: right;
     align-items: center;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect {
     display: flex;
     justify-content: right;
     align-items: center;
     margin-left: 12px;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect:nth-child(1) {
     margin-left: 0;
 }
-
 .outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect .outSelectBox {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
@@ -3091,9 +3159,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: space-between;
     align-items: center;
 }
-
-.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect .outSelectBox
-    select {
+.outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect .outSelectBox select {
     width: 100%;
     border: none;
     font-family: "Poppins", sans-serif;
@@ -3105,12 +3171,10 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     padding: 6px 12px;
     font-size: 80%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList {
     width: 100%;
     margin: 24px 0;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .titleLine {
     width: 100%;
     display: flex;
@@ -3120,7 +3184,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     padding: 0 12px;
     border-radius: 50px;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .titleLine div {
     font-weight: 500;
     font-size: 90%;
@@ -3128,12 +3191,10 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: center;
     align-items: center;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .titleLine div span {
     padding: 0 6px;
     position: relative;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .titleLine div span:after {
     content: "";
     position: absolute;
@@ -3143,43 +3204,33 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     width: 100%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.no {
     width: 6%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.writer {
     width: 8%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.publish_date {
     width: 11%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.category {
     width: 11%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.content {
     width: 38%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.resource {
     width: 8%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.listing {
     width: 6%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.reading {
     width: 6%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList div.detail {
     width: 6%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line {
     width: 100%;
     display: flex;
@@ -3189,7 +3240,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     padding: 12px;
     border-radius: 50px;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div {
     font-weight: 300;
     font-size: 90%;
@@ -3197,2067 +3247,64 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: center;
     align-items: center;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line:nth-child(2) {
     margin-top: 12px;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line:nth-child(even) {
     background-color: #1112177a;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.no {
     color: var(--dark-light);
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.writer {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.publish_date {
     color: var(--dark-light);
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.category {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.resource {
     color: var(--dark-light);
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.listing {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.reading {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.detail {
     font-size: 90%;
 }
-
 .outNewsStatistics .inNewsStatistics .statisticList .line div.detail span {
     background: linear-gradient(298deg, var(--red), var(--yellow));
     padding: 3px 12px;
     border-radius: 50px;
     cursor: pointer;
 }
-
-/* NEWS STATİSTİC DETAİL */
-
-.outNewsStatisticDetail {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 50px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail {
-    width: 100%;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
-    width: 74%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle {
-    position: relative;
-    padding: 0 6px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    margin-top: 16px;
-    padding: 0 24px;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line#bgDarkLight {
-    box-sizing: border-box;
-    padding: 16px 24px;
-    border-radius: 25px;
-    background: #1112177a;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line:nth-child(1) {
-    margin-top: 0;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outNewsDetail
-    .inNewsDetail
-    .line
-    label {
-    width: 200px;
-    font-weight: 300;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outNewsDetail
-    .inNewsDetail
-    .line
-    span {
-    max-width: calc(100% - 200px);
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outNewsDetail
-    .inNewsDetail
-    .line
-    span#darkLight {
-    /* font-weight: 400; */
-    color: var(--dark-light);
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outNewsDetail
-    .inNewsDetail
-    .line
-    span#gradient {
-    /* font-weight: 400; */
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outNewsDetail
-    .inNewsDetail
-    .line
-    span#thin {
-    font-weight: 300;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph {
-    width: 24%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph {
-    width: 100%;
-    height: 100%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value {
-    width: 100%;
-    height: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value:nth-child(1) {
-    height: 34%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value
-    div
-    .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value
-    div
-    .outTitle
-    .inTitle {
-    position: relative;
-    padding: 0 6px;
-    font-size: 125%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value
-    div
-    .outTitle
-    .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value
-    div
-    .outValue {
-    width: 100%;
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailAndGraph
-    .inNewsDetailAndGraph
-    .outGraph
-    .inGraph
-    .value
-    div
-    .outValue
-    .inValue {
-    font-weight: 300;
-    font-size: 125%;
-}
-
-.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics {
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .inTitle {
-    position: relative;
-    padding: 0 6px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .titleSelects {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .statisticListingSelect {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-left: 12px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .statisticListingSelect:nth-child(1) {
-    margin-left: 0;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .statisticListingSelect
-    .outSelectBox {
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-sizing: border-box;
-    padding: 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .outTitle
-    .statisticListingSelect
-    .outSelectBox
-    select {
-    width: 100%;
-    border: none;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    color: var(--light);
-    background-color: var(--dark-blue);
-    border-radius: 50px;
-    box-sizing: border-box;
-    padding: 6px 12px;
-    font-size: 80%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList {
-    width: 100%;
-    margin: 30px 0;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .titleLine {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 12px;
-    border-radius: 50px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .titleLine
-    .bar
-    div {
-    font-weight: 500;
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .titleLine
-    .bar
-    div
-    span {
-    padding: 0 6px;
-    position: relative;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .titleLine
-    .bar
-    div
-    span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.date {
-    width: 40%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.dateStart {
-    width: 30%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.dateFinish {
-    width: 30%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.listinng {
-    width: 25%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.reading {
-    width: 25%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar
-    div.listingReadingRate {
-    width: 50%;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 12px;
-    border-radius: 50px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .bar {
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line:nth-child(2) {
-    margin-top: 12px;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line:nth-child(even) {
-    background-color: #1112177a;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div
-    label {
-    display: none;
-    margin-right: 12px;
-    position: relative;
-    padding: 0 6px;
-    font-weight: 300;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div
-    label:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div
-    span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div.date
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div.dateStart
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div.dateFinish
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    .bar
-    div.listinng
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    div.reading
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outNewsStatisticDetail
-    .inNewsStatisticDetail
-    .outNewsDetailStatistics
-    .inNewsDetailStatistics
-    .statisticList
-    .line
-    div.listingReadingRate
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* NEWS STATİSTİCS FOR TİME */
-
-.outNewsStatisticsForTime {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 50px;
-    margin-top: 40px;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime {
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
-    border-radius: 25px;
-    box-sizing: border-box;
-    padding: 30px;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle {
-    position: relative;
-    padding: 0 6px;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .outTitle
-    .statisticListingSelect {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-left: 12px;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .outTitle
-    .statisticListingSelect:nth-child(1) {
-    margin-left: 0;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .outTitle
-    .statisticListingSelect
-    .outSelectBox {
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    box-sizing: border-box;
-    padding: 1px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .outTitle
-    .statisticListingSelect
-    .outSelectBox
-    select {
-    width: 100%;
-    border: none;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    color: var(--light);
-    background-color: var(--dark-blue);
-    border-radius: 50px;
-    box-sizing: border-box;
-    padding: 6px 12px;
-    font-size: 80%;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList {
-    width: 100%;
-    margin: 30px 0;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 12px;
-    border-radius: 50px;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .titleLine
-    .bar
-    div {
-    font-weight: 500;
-    font-size: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .titleLine
-    .bar
-    div
-    span {
-    padding: 0 6px;
-    position: relative;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .titleLine
-    .bar
-    div
-    span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar
-    div.date {
-    width: 40%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar
-    div.dateStart {
-    width: 30%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar
-    div.dateFinish {
-    width: 30%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar
-    div.content {
-    width: 70%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar
-    div.detail {
-    width: 30%;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 12px;
-    border-radius: 50px;
-}
-
-.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar:nth-child(1) {
-    width: 70%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .bar:nth-child(2) {
-    width: 30%;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line:nth-child(2) {
-    margin-top: 12px;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line:nth-child(even) {
-    background-color: #1112177a;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div
-    label {
-    display: none;
-    margin-right: 12px;
-    position: relative;
-    padding: 0 6px;
-    font-weight: 300;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div
-    label:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div
-    span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div.date
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div.dateStart
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div.dateFinish
-    span {
-    color: var(--dark-light);
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    .bar
-    div.content
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    div.detail
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    padding: 3px 12px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 90%;
-    font-weight: 300;
-}
-
-.outNewsStatisticsForTime
-    .inNewsStatisticsForTime
-    .statisticList
-    .line
-    div.listingReadingRate
-    span {
-    background: linear-gradient(298deg, var(--red), var(--yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* MENU */
-
-@media only screen and (max-width: 1155px) {
-    .outMenu {
-        padding: 0;
-    }
-
-    .outMenu .inMenu .bar .textBox:nth-child(1) {
-        padding-left: 24px;
-    }
-}
-
-@media only screen and (max-width: 1080px) {
-    .outMenu .inMenu .bar .textBox {
-        padding: 0 18px;
-    }
-
-    .outMenu .inMenu .bar .textBox:nth-child(1) {
-        padding-left: 18px;
-    }
-}
-
-@media only screen and (max-width: 1020px) {
-    .outMenu .inMenu .bar .textBox {
-        padding: 0 12px;
-    }
-
-    .outMenu .inMenu .bar .textBox:nth-child(1) {
-        padding-left: 12px;
-    }
-}
-
-@media only screen and (max-width: 960px) {
-    .outMenu .inMenu .bar {
-        display: none;
-    }
-
-    .outMenu .inMenu .mobile_bar {
-        display: flex;
-    }
-}
-
-/* MENU FULL LİNE */
-
-@media only screen and (max-width: 1075px) {
-    .outMenu .inMenu .outFullLine {
-        width: 100%;
-    }
-
-    .outMenu .inMenu .outFullLine .inFullLine {
-        border: none;
-    }
-}
-
-/* MENU DROPDOWN */
-
-@media only screen and (max-width: 1620px) {
-    .outDropdown {
-        padding: 0;
-    }
-
-    .outDropdown .inDropdown {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: 0;
-        border-left: 0;
-    }
-
-    .outDropdown .inDropdown .lists {
-        display: block;
-    }
-
-    .outDropdown .inDropdown .lists .listsBar {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 24px;
-    }
-
-    .outDropdown .inDropdown .lists .listsBar .outList {
-        width: 25%;
-    }
-}
-
-@media only screen and (max-width: 960px) {
-    .outDropdown .inDropdown .header {
-        display: block;
-    }
-
-    .outDropdown .inDropdown .header .search {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outDropdown .inDropdown .header .search .outInputText {
-        width: 75%;
-    }
-
-    .outDropdown .inDropdown .header .themeAndLinks {
-        margin-top: 24px;
-        width: 100%;
-    }
-
-    .outDropdown .inDropdown .lists .listsBar {
-        display: block;
-    }
-
-    .outDropdown .inDropdown .lists .listsBar .outList {
-        width: 100%;
-        text-align: center;
-        margin-top: 24px;
-    }
-
-    .outDropdown .inDropdown .lists .listsBar .outList .titleBox {
-        justify-content: center;
-    }
-}
-
-@media only screen and (max-width: 720px) {
-    .outDropdown .inDropdown .header .themeAndLinks {
-        box-sizing: border-box;
-        padding: 0 12px;
-        justify-content: space-between;
-    }
-
-    .outDropdown .inDropdown .header .search .outInputText {
-        width: 100%;
-    }
-
-    .outDropdown .inDropdown .header .outInputText input[type="text"] {
-        width: 90%;
-        background-color: var(--dark-blue);
-        border-top-left-radius: 50px;
-        border-bottom-left-radius: 50px;
-        box-sizing: border-box;
-        padding: 4px 12px;
-        font-size: 90%;
-    }
-}
-
-@media only screen and (max-width: 560px) {
-    .outDropdown .inDropdown .header .themeAndLinks {
-        padding: 0;
-        display: block;
-    }
-    .outDropdown .inDropdown .header .themeAndLinks .linkBar {
-        display: flex;
-        margin-top: 24px;
-        justify-content: center;
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    .outDropdown .inDropdown .header .themeAndLinks .linkBar {
-        display: block;
-    }
-    .outDropdown .inDropdown .header .themeAndLinks .linkBar span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 24px;
-    }
-}
-
-/* 3 VALUES AND FAST FORM */
-
-/* @media only screen and (max-width: 1280px) {
-    .out3ValuesAndFastForm {
-        padding: 0;
-    }
-
-    .out3ValuesAndFastForm
-        .in3ValuesAndFastForm
-        .outValues3Box
-        .inValues3Box
-        .outValueBox {
-        border-radius: 0;
-    }
-
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
-        border-radius: 0;
-    }
-
-    .out3ValuesAndFastForm
-        .in3ValuesAndFastForm
-        .outValues3Box
-        .inValues3Box
-        .outValueBox
-        .footer {
-        border-radius: 0;
-        padding: 6px 0;
-    }
-
-    .out3ValuesAndFastForm
-        .in3ValuesAndFastForm
-        .outFastForm
-        .inFastForm
-        .step
-        .footer
-        span {
-        padding: 6px 12px;
-    }
-} */
-
-/* @media only screen and (max-width: 1075px) {
-    .out3ValuesAndFastForm .in3ValuesAndFastForm {
-        display: block;
-    }
-
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box {
-        width: 100%;
-    }
-
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm {
-        width: 100%;
-    }
-
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
-        width: 50%;
-    }
-} */
-
-/* @media only screen and (max-width: 835px) {
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outValues3Box .inValues3Box {
-        display: block;
-    }
-
-    .out3ValuesAndFastForm
-        .in3ValuesAndFastForm
-        .outValues3Box
-        .inValues3Box
-        .outValueBox {
-        width: 100%;
-        margin-top: 40px;
-    }
-
-    .out3ValuesAndFastForm
-        .in3ValuesAndFastForm
-        .outValues3Box
-        .inValues3Box
-        .outValueBox:nth-child(1) {
-        margin-top: 0;
-    }
-
-    .out3ValuesAndFastForm .in3ValuesAndFastForm .outFastForm .inFastForm {
-        width: 100%;
-    }
-} */
-
-/* 3 VALUES AND FAST FORM */
-
-/* @media only screen and (max-width: 1280px) {
-    .outChartAndWelcomeHowAreYou {
-        padding: 0;
-    }
-
-    .outChartAndWelcomeHowAreYou
-        .inChartAndWelcomeHowAreYou
-        .outWelcomeHowAreYou
-        .inWelcomeHowAreYou {
-        border-radius: 0;
-    }
-
-    .chart {
-        border-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 1075px) {
-    .outChartAndWelcomeHowAreYou .inChartAndWelcomeHowAreYou {
-        display: block;
-    }
-
-    .chart {
-        width: 100%;
-    }
-
-    .outChartAndWelcomeHowAreYou
-        .inChartAndWelcomeHowAreYou
-        .outWelcomeHowAreYou {
-        width: 100%;
-    }
-
-    .outChartAndWelcomeHowAreYou
-        .inChartAndWelcomeHowAreYou
-        .outWelcomeHowAreYou
-        .inWelcomeHowAreYou {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 835px) {
-    .outChartAndWelcomeHowAreYou
-        .inChartAndWelcomeHowAreYou
-        .outWelcomeHowAreYou
-        .inWelcomeHowAreYou {
-        width: 100%;
-    }
-} */
-
-/* MY ACCOUNT SETTİNGS */
-
-
-/* MY NEWS */
-
-@media only screen and (max-width: 1680px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 6%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 42%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.resource {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.listing {
-        width: 6%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.reading {
-        width: 6%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 8%;
-    }
-}
-
-@media only screen and (max-width: 1540px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 6%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 38%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.resource {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.listing {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.reading {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 8%;
-    }
-}
-
-@media only screen and (max-width: 1300px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 7%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 14%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 35%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.resource {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.listing {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.reading {
-        width: 8%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 8%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .outMyNews {
-        padding: 0;
-    }
-
-    .outMyNews .inMyNews {
-        border-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 1150px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 9%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 12%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 14%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 35%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.resource {
-        width: 8%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.listing {
-        width: 10%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.reading {
-        width: 10%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 10%;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 10%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 16%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 22%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 40%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.listing {
-        width: 10%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.reading {
-        width: 10%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 12%;
-    }
-}
-
-@media only screen and (max-width: 760px) {
-    .outMyNews .inMyNews .myNewsList .line {
-        padding: 18px 12px;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 14%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.category {
-        width: 16%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 26%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 46%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 16%;
-    }
-}
-
-@media only screen and (max-width: 660px) {
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 20%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.publish_date {
-        width: 26%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 60%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 20%;
-    }
-}
-
-@media only screen and (max-width: 560px) {
-    .outMyNews .inMyNews .outTitle {
-        display: block;
-    }
-
-    .outMyNews .inMyNews .outTitle .inTitle {
-        position: relative;
-        text-align: center;
-        padding: 0;
-    }
-
-    .outMyNews .inMyNews .outTitle .titleSelects {
-        margin-top: 18px;
-        justify-content: center;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 25%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 50%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 25%;
-    }
-}
-
-@media only screen and (max-width: 460px) {
-    .outMyNews .inMyNews .outTitle .titleSelects {
-        margin-top: 18px;
-        display: block;
-    }
-
-    .outMyNews .inMyNews .outTitle .titleSelects .statisticListingSelect {
-        display: flex;
-        justify-content: right;
-        align-items: center;
-        margin-left: 0;
-        margin-top: 18px;
-    }
-
-    .outMyNews .inMyNews .outTitle .statisticListingSelect:nth-child(1) {
-        margin-top: 0;
-    }
-
-    .outMyNews .inMyNews {
-        padding: 12px;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.no {
-        width: 25%;
-        display: none;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 75%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 25%;
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    .outMyNews .inMyNews .myNewsList div.content {
-        width: 65%;
-    }
-
-    .outMyNews .inMyNews .myNewsList div.actions {
-        width: 35%;
-    }
-}
-
-/* NEWS CREATE */
-
-@media only screen and (max-width: 1000px) {
-    .outNewsCreate {
-        padding: 0;
-    }
-
-    .outNewsCreate .inNewsCreate {
-        border-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 660px) {
-    .outNewsCreate .inNewsCreate .outNewsCreateForm .inNewsCreateForm .line {
-        display: block;
-        border-top: 1px solid var(--dark-light);
-        padding: 12px 0;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line:nth-child(1) {
-        border-top: 0;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .inputLabel {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outInputText {
-        width: 100%;
-        margin-top: 12px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outSelectBox {
-        width: 100%;
-        margin-top: 12px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outRadioBox {
-        width: 100%;
-        margin-top: 12px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outDateAndTimeBox {
-        width: 100%;
-        margin-top: 12px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outTextBox {
-        width: 100%;
-        margin-top: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-@media only screen and (max-width: 490px) {
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outRadioBox {
-        display: block;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outRadioBox
-        label {
-        margin-top: 12px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outRadioBox
-        label:nth-child(1) {
-        margin-top: 0;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outDateAndTimeBox {
-        border-radius: 0;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outDateAndTimeBox
-        input[type="date"] {
-        width: 100%;
-        border-radius: 0;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        padding: 11px 0;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outDateAndTimeBox
-        input[type="time"] {
-        width: 100%;
-        margin-top: 1px;
-        padding: 11px 0;
-    }
-
-    .outNewsCreate
-        .inNewsCreate
-        .outNewsCreateForm
-        .inNewsCreateForm
-        .line
-        .outDateAndTimeBox
-        .turnBack {
-        width: 100%;
-        height: auto;
-        margin-top: 1px;
-        border-radius: 0;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        padding: 7.8px 0;
-    }
-}
-
-/* NEWS STATİSTİCS */
-
 @media only screen and (max-width: 1680px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 7%;
@@ -5295,7 +3342,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 6%;
     }
 }
-
 @media only screen and (max-width: 1540px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 7%;
@@ -5333,7 +3379,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 7%;
     }
 }
-
 @media only screen and (max-width: 1300px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 8%;
@@ -5371,7 +3416,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 8%;
     }
 }
-
 @media only screen and (max-width: 1200px) {
     .outNewsStatistics {
         padding: 0;
@@ -5381,7 +3425,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         border-radius: 0;
     }
 }
-
 @media only screen and (max-width: 1150px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 8%;
@@ -5420,7 +3463,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 9%;
     }
 }
-
 @media only screen and (max-width: 1000px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 8%;
@@ -5455,7 +3497,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 10%;
     }
 }
-
 @media only screen and (max-width: 900px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 10%;
@@ -5486,7 +3527,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 12%;
     }
 }
-
 @media only screen and (max-width: 800px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 12%;
@@ -5514,7 +3554,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 14%;
     }
 }
-
 @media only screen and (max-width: 700px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 18%;
@@ -5533,7 +3572,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 18%;
     }
 }
-
 @media only screen and (max-width: 610px) {
     .outNewsStatistics .inNewsStatistics .outTitle {
         display: block;
@@ -5550,7 +3588,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         justify-content: center;
     }
 }
-
 @media only screen and (max-width: 500px) {
     .outNewsStatistics .inNewsStatistics .statisticList div.no {
         width: 18%;
@@ -5565,7 +3602,6 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         width: 20%;
     }
 }
-
 @media only screen and (max-width: 460px) {
     .outNewsStatistics .inNewsStatistics {
         padding-left: 12px;
@@ -5585,11 +3621,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         display: block;
     }
 
-    .outNewsStatistics
-        .inNewsStatistics
-        .outTitle
-        .titleSelects
-        .statisticListingSelect {
+    .outNewsStatistics .inNewsStatistics .outTitle .titleSelects .statisticListingSelect {
         display: flex;
         justify-content: right;
         align-items: center;
@@ -5597,99 +3629,394 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         margin-top: 18px;
     }
 
-    .outNewsStatistics
-        .inNewsStatistics
-        .outTitle
-        .statisticListingSelect:nth-child(1) {
+    .outNewsStatistics .inNewsStatistics .outTitle .statisticListingSelect:nth-child(1) {
         margin-top: 0;
     }
 }
-
 /* NEWS STATİSTİC DETAİL */
-
+.outNewsStatisticDetail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail {
+    width: 100%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
+    width: 74%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 16px;
+    padding: 0 24px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line#bgDarkLight {
+    box-sizing: border-box;
+    padding: 16px 24px;
+    border-radius: 25px;
+    background: #1112177a;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line:nth-child(1) {
+    margin-top: 0;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line label {
+    width: 200px;
+    font-weight: 300;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span {
+    max-width: calc(100% - 200px);
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#darkLight {
+    color: var(--dark-light);
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#gradient {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line span#thin {
+    font-weight: 300;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph {
+    width: 24%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
+    width: 100%;
+    height: 100%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value:nth-child(1) {
+    height: 34%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+    font-size: 125%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outValue {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value div .outValue .inValue {
+    font-weight: 300;
+    font-size: 125%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList {
+    width: 100%;
+    margin: 30px 0;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div span {
+    padding: 0 6px;
+    position: relative;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine .bar div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.date {
+    width: 40%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateStart {
+    width: 30%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.dateFinish {
+    width: 30%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listinng {
+    width: 25%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.reading {
+    width: 25%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar div.listingReadingRate {
+    width: 50%;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line:nth-child(2) {
+    margin-top: 12px;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div label {
+    display: none;
+    margin-right: 12px;
+    position: relative;
+    padding: 0 6px;
+    font-weight: 300;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar di label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.date span {
+    color: var(--dark-light);
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.dateStart span {
+    color: var(--dark-light);
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.dateFinish span {
+    color: var(--dark-light);
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar div.listinng span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line div.reading span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line div.listingReadingRate span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 @media only screen and (max-width: 1200px) {
     .outNewsStatisticDetail {
         padding: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
         width: 100%;
         border-radius: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph {
         width: 100%;
         border-radius: 0;
         margin-top: 40px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph
-        .inGraph {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
         display: flex;
         justify-content: space-between;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph
-        .inGraph
-        .value {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
         width: 30%;
         height: 100%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
         border-radius: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .titleLine {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .titleLine {
         display: none;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -5698,162 +4025,81 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         padding-top: 12px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar:nth-child(1) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar:nth-child(1) {
         padding-bottom: 12px;
         padding-top: 0;
         border-top: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div
         label {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.date {
         width: 50%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.dateStart {
         width: 25%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.dateFinish {
         width: 25%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.listinng {
         width: 25%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.reading {
         width: 25%;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar
         div.listingReadingRate {
         width: 50%;
     }
 }
-
 @media only screen and (max-width: 920px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .bar {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .bar {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
         padding: 24px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div {
         width: 100%;
         margin-top: 12px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div:nth-child(1) {
         margin-top: 0;
     }
 }
-
 @media only screen and (max-width: 740px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph
-        .inGraph {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph
-        .inGraph
-        .value {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value {
         width: 100%;
         height: auto;
         margin-top: 24px;
@@ -5861,50 +4107,25 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         border-top: 1px solid var(--dark-light);
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outGraph
-        .inGraph
-        .value:nth-child(1) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outGraph .inGraph .value:nth-child(1) {
         margin-top: 0;
         border-top: 0;
         padding-top: 0;
     }
 }
-
 @media only screen and (max-width: 640px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail
-        .inNewsDetail
-        .line {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail
-        .inNewsDetail
-        .line
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line
         label {
         width: 100%;
         display: flex;
         align-items: center;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail
-        .inNewsDetail
-        .line
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line
         span {
         margin-top: 6px;
         width: 100%;
@@ -5914,57 +4135,29 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         font-weight: 300;
     }
 }
-
 @media only screen and (max-width: 620px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle
-        .inTitle {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .inTitle {
         position: relative;
         text-align: center;
         padding: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle
-        .titleSelects {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
         margin-top: 18px;
         justify-content: center;
     }
 }
-
 @media only screen and (max-width: 540px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div {
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div
         label {
         display: flex;
@@ -5973,13 +4166,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         padding-bottom: 6px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line .bar
         div
         span {
         margin-top: 6px;
@@ -5988,52 +4175,25 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         align-items: center;
     }
 }
-
 @media only screen and (max-width: 440px) {
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail {
         padding: 18px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail
-        .inNewsDetail {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail {
         padding: 18px 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailAndGraph
-        .inNewsDetailAndGraph
-        .outNewsDetail
-        .inNewsDetail
-        .line {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailAndGraph .inNewsDetailAndGraph .outNewsDetail .inNewsDetail .line {
         padding: 0 12px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle
-        .titleSelects {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects {
         margin-top: 18px;
         display: block;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle
-        .titleSelects
-        .statisticListingSelect {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .titleSelects .statisticListingSelect {
         display: flex;
         justify-content: right;
         align-items: center;
@@ -6041,43 +4201,229 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         margin-top: 18px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle
-        .statisticListingSelect:nth-child(1) {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle .statisticListingSelect:nth-child(1) {
         margin-top: 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics {
         padding: 30px 0;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .outTitle {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .outTitle {
         box-sizing: border-box;
         padding: 0 24px;
     }
 
-    .outNewsStatisticDetail
-        .inNewsStatisticDetail
-        .outNewsDetailStatistics
-        .inNewsDetailStatistics
-        .statisticList
-        .line {
+    .outNewsStatisticDetail .inNewsStatisticDetail .outNewsDetailStatistics .inNewsDetailStatistics .statisticList .line {
         border-radius: 0;
     }
 }
-
-/* NEWS STATİSTİCS TİME */
-
+/* NEWS STATİSTİCS FOR TİME */
+.outNewsStatisticsForTime {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 50px;
+    margin-top: 40px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle {
+    position: relative;
+    padding: 0 6px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .inTitle:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-left: 12px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect:nth-child(1) {
+    margin-left: 0;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect .outSelectBox {
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    box-sizing: border-box;
+    padding: 1px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect .outSelectBox select {
+    width: 100%;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    color: var(--light);
+    background-color: var(--dark-blue);
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    font-size: 80%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList {
+    width: 100%;
+    margin: 30px 0;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 50px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div {
+    font-weight: 500;
+    font-size: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div span {
+    padding: 0 6px;
+    position: relative;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine .bar div span:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.date {
+    width: 40%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.dateStart {
+    width: 30%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.dateFinish {
+    width: 30%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.content {
+    width: 70%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar div.detail {
+    width: 30%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 50px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(1) {
+    width: 70%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(2) {
+    width: 30%;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line:nth-child(2) {
+    margin-top: 12px;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line:nth-child(even) {
+    background-color: #1112177a;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label {
+    display: none;
+    margin-right: 12px;
+    position: relative;
+    padding: 0 6px;
+    font-weight: 300;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.date span {
+    color: var(--dark-light);
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateStart span {
+    color: var(--dark-light);
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.dateFinish span {
+    color: var(--dark-light);
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar div.content span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line div.detail span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    padding: 3px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: 300;
+}
+.outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line div.listingReadingRate span {
+    background: linear-gradient(298deg, var(--red), var(--yellow));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 @media only screen and (max-width: 1200px) {
     .outNewsStatisticsForTime {
         padding: 0;
@@ -6087,10 +4433,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         border-radius: 0;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .titleLine {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .titleLine {
         display: none;
     }
 
@@ -6107,20 +4450,14 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         padding-top: 12px;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .bar:nth-child(1) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(1) {
         width: 100%;
         padding-bottom: 12px;
         padding-top: 0;
         border-top: 0;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .bar:nth-child(2) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar:nth-child(2) {
         width: 100%;
     }
 
@@ -6130,62 +4467,37 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         justify-content: space-between;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div
         label {
         display: block;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.date {
         width: 50%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.dateStart {
         width: 25%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.dateFinish {
         width: 25%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.content {
         width: 75%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.detail {
         width: 25%;
     }
 }
-
 @media only screen and (max-width: 920px) {
     .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .bar {
         display: block;
@@ -6195,70 +4507,41 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         padding: 24px;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div {
         margin-top: 12px;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.date {
         width: 100%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.dateStart {
         width: 100%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.dateFinish {
         width: 100%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.content {
         width: 100%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div.detail {
         width: 100%;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div:nth-child(1) {
         margin-top: 0;
     }
 }
-
 @media only screen and (max-width: 620px) {
     .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle {
         display: block;
@@ -6275,22 +4558,13 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         justify-content: center;
     }
 }
-
 @media only screen and (max-width: 540px) {
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div {
         display: block;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div
         label {
         display: flex;
@@ -6299,11 +4573,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         padding-bottom: 6px;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .statisticList
-        .line
-        .bar
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .statisticList .line .bar
         div
         span {
         margin-top: 6px;
@@ -6312,18 +4582,13 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         align-items: center;
     }
 }
-
 @media only screen and (max-width: 440px) {
     .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects {
         margin-top: 18px;
         display: block;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .outTitle
-        .titleSelects
-        .statisticListingSelect {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .titleSelects .statisticListingSelect {
         display: flex;
         justify-content: right;
         align-items: center;
@@ -6331,10 +4596,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         margin-top: 18px;
     }
 
-    .outNewsStatisticsForTime
-        .inNewsStatisticsForTime
-        .outTitle
-        .statisticListingSelect:nth-child(1) {
+    .outNewsStatisticsForTime .inNewsStatisticsForTime .outTitle .statisticListingSelect:nth-child(1) {
         margin-top: 0;
     }
 
@@ -6351,3 +4613,5 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
         border-radius: 0;
     }
 }
+
+
