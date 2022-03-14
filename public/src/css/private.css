@@ -1201,29 +1201,33 @@ body.light .outSettings .inSettings .outSettingsContent .inSettingsContent .line
     width: 50%;
     font-weight: 300;
 }
-.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText {
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outSelectBox {
     width: 50%;
     background: linear-gradient(298deg, var(--red), var(--yellow));
     box-sizing: border-box;
     padding: 1px;
     border-radius: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
-.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText input[type="text"] {
+.outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outSelectBox select {
     width: 100%;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+
     border-radius: 50px;
     box-sizing: border-box;
-    padding: 4px 12px;
-    font-weight: 300;
+    padding: 6px 12px;
     font-size: 90%;
-    cursor: text;
 }
-body.dark .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText input[type="text"] {
+body.dark .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outSelectBox select {
+    color: var(--light);
     background-color: var(--dark-blue);
 }
-body.light .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outInputText input[type="text"] {
+body.light .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListItem .outSelectBox select {
+    color: var(--dark-blue);
     background-color: var(--white);
 }
 .outSettings .inSettings .outSettingsContent .inSettingsContent .line .changeListSubmit {
@@ -2322,14 +2326,10 @@ body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .ou
 }
 body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     color: var(--light);
-}
-body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
-    color: var(--dark-blue);
-}
-body.dark .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
     background-color: var(--dark-blue);
 }
 body.light .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outSelectBox select {
+    color: var(--dark-blue);
     background-color: var(--white);
 }
 .outBigForm .inBigForm .outBigFormContent .inBigFormContent .line .outRadioBox {

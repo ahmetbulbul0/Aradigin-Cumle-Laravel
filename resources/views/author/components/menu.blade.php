@@ -9,10 +9,7 @@
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="{{ route('haber_ekle') }}">
-                    Haber
-                    Ekle
-                </a>
+                <a href="{{ route('haber_ekle') }}">Haber Ekle</a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
@@ -29,23 +26,13 @@
             </span>
         </div>
         <div class="bar">
-            <section class="brace">
-            </section>
-            <span class="iconBox" id="homeIconBox">
-                <a href="{{ route('yazar_paneli_anapanel') }}">
-                    <i class="far fa-newspaper"></i>
-                </a>
-            </span>
-            <section class="brace" id="homeIconBrace">
-            </section>
+            <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-bars" id="openMenuIcon"></i>
-                <i class="fas fa-bars" id="closeMenuIcon"></i>
+                <i class="fas fa-bars menuBtn"></i>
             </span>
-            <section class="brace">
-            </section>
+            <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-adjust" id="openFullLineThemeIcon"></i>
+                <i class="fas fa-adjust themeBtn"></i>
             </span>
             <section class="brace">
             </section>
@@ -68,7 +55,7 @@
                 </a>
             </span>
             <section class="brace">
-            </section>  
+            </section>
         </div>
         <div class="outFullLine" id="fullLine">
             <div class="inFullLine">
@@ -76,28 +63,27 @@
                     <div class="outInputText">
                         <input type="text" placeholder="Aradığın cümle ile ilgili birkaç kelime yazabilirsin">
                         <i class="fas fa-search"></i>
-                        <i class="fas fa-times" id="closeFullLineSearchIcon"></i>
+                        <i class="fas fa-times closeSearch"></i>
                     </div>
                 </div>
                 <div class="outTheme" id="fullLineTheme">
                     <div class="inTheme">
                         <label for="#">Tema:</label>
-                        <form method="POST" action="{{ route("author_user_fast_dashboard_theme_change") }}">
+                        <form method="POST" action="{{ route('author_user_fast_dashboard_theme_change') }}">
                             @csrf
                             <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
                                 value="dark">Koyu</button>
                             <button class='@if (Session::get('userData.settings.dashboard_theme') == 'light') active @endif' name="dashboardTheme"
                                 value="light">Açık</button>
                         </form>
-                        <i class="fas fa-times" id="closeFullLineThemeIcon"></i>
+                        <i class="fas fa-times closeTheme"></i>
                     </div>
                 </div>
             </div>
         </div>
         <div class="mobile_bar">
             <span class="iconBox">
-                <i class="fas fa-bars" id="openMenuIcon1"></i>
-                <i class="fas fa-bars" id="closeMenuIcon1"></i>
+                <i class="fas fa-bars mobilMenuBtn"></i>
             </span>
             <span class="logoBox">
                 <a href="{{ route('yazar_paneli_anapanel') }}">
@@ -106,7 +92,7 @@
                 </a>
             </span>
             <span class="iconBox">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search mobilSearchBtn"></i>
             </span>
         </div>
     </div>
@@ -127,7 +113,7 @@
             <div class="themeAndLinks">
                 <div class="theme">
                     <label for="#">Tema:</label>
-                    <form method="POST" action="{{ route("author_user_fast_dashboard_theme_change") }}">
+                    <form method="POST" action="{{ route('author_user_fast_dashboard_theme_change') }}">
                         @csrf
                         <button class='@if (Session::get('userData.settings.dashboard_theme') == 'dark') active @endif' name="dashboardTheme"
                             value="dark">Koyu</button>

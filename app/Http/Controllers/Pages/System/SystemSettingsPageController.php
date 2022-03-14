@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Pages\System;
 
+use App\Http\Controllers\Api\Categories\CategoriesListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use Illuminate\Http\Request;
 use App\Models\ConstantsModel;
@@ -10,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
 use App\Http\Controllers\Api\UserSettings\UserSettingsListController;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 
 class SystemSettingsPageController extends Controller
 {
@@ -37,6 +41,9 @@ class SystemSettingsPageController extends Controller
     {
         $data["page_title"] = "Ayarlar [Sabitler]";
         $data["constants"] = ConstantsListController::getAllOnlyNotDeleted();
+        $data["categoryTypes"] = CategoryTypesListController::getAllOnlyNotDeleted();
+        $data["userTypes"] = UserTypesListController::getAllOnlyNotDeleted();
+        $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShips();
         return view("system.pages.settings_constants")->with("data", $data);
     }
     public function constantsForm(Request $request)

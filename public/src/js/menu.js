@@ -42,3 +42,15 @@ closeTheme.addEventListener("click", () => {
     fullLine.classList.remove("open");
     theme.classList.remove("open");
 });
+
+document.addEventListener("click", (e) => {
+    if (!e.composedPath().includes(menu.querySelector(".inDropdown"))) {
+        if (menu.classList.contains("open")) {
+            if (!e.composedPath().includes(menuBtn)) {
+                if (!e.composedPath().includes(mobilMenuBtn)) {
+                    menu.classList.remove("open");
+                }
+            }
+        }
+    }
+});
