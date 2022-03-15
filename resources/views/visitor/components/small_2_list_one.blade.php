@@ -9,15 +9,17 @@
                 </span>
             </div>
             <div class="inList">
-                @foreach ($data['smallList2One'][0]['data'] as $news)
-                    <div class="item">
-                        <div class="content">
-                            <a href="{{ route('haber_detay', [$news['link_url']]) }}">
-                                {{ $news['content'] }}
-                            </a>
+                @isset($data['smallList2One'][0]['data'])
+                    @foreach ($data['smallList2One'][0]['data'] as $news)
+                        <div class="item">
+                            <div class="content">
+                                <a href="{{ route('haber_detay', [$news['link_url']]) }}">
+                                    {{ $news['content'] }}
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endisset
                 <div class="outMore">
                     <a href="{{ $data['smallList2One'][0]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
                 </div>
@@ -32,15 +34,17 @@
                 </span>
             </div>
             <div class="inList">
-                @foreach ($data['smallList2One'][1]['data'] as $news)
-                    <div class="item">
-                        <div class="content">
-                            <a href="{{ route('haber_detay', [$news['link_url']]) }}">
-                                {{ $news['content'] }}
-                            </a>
+                @isset($data['smallList2One'][1]['data'])
+                    @foreach ($data['smallList2One'][1]['data'] as $news)
+                        <div class="item">
+                            <div class="content">
+                                <a href="{{ route('haber_detay', [$news['link_url']]) }}">
+                                    {{ $news['content'] }}
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endisset
                 <div class="outMore">
                     <a href="{{ $data['smallList2One'][1]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
                 </div>

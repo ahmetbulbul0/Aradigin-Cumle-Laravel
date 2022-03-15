@@ -24,7 +24,7 @@ class NewsDetailPageController extends Controller
 
         $newsNo = NewsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first()->no;
 
-        $data["newsDetail"]["data"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($newsNo);
+        $data["newsDetail"]["data"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($newsNo);
 
         $data["newsDetail"]["data"]["publish_date"] = UnixTimeToTextDateController::TimeToDate($data["newsDetail"]["data"]["publish_date"]);
         

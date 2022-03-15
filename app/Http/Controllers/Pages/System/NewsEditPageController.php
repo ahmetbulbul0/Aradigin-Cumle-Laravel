@@ -19,13 +19,13 @@ class NewsEditPageController extends Controller
         $data["resourcePlatforms"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();;
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
-            $data["data"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($data["data"]["no"]);
+            $data["data"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($data["data"]["no"]);
             return view("system.pages.news_edit")->with("data", $data);
         }
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["data"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
 
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";

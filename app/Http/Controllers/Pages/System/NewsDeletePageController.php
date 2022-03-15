@@ -15,7 +15,7 @@ class NewsDeletePageController extends Controller
     {
         $data["page_title"] = "Haber Sil";
         $data["basic_text"] = "haberi";
-        $itemData = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $itemData = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

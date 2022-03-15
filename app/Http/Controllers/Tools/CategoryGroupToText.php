@@ -9,10 +9,13 @@ class CategoryGroupToText extends Controller
 {
     static function multiple($data)
     {
-        $count = count($data["data"]);
-        for ($i = 0; $i < $count; $i++) {
-            $item = $data["data"][$i]["category"]["no"];
-            $data["data"][$i]["category"]["text"] = CategoryGroupToText::single($item);
+        if ($data["data"]) {
+            $count = count($data["data"]);
+            for ($i = 0; $i < $count; $i++) {
+                $item = $data["data"][$i]["category"]["no"];
+                $data["data"][$i]["category"]["text"] = CategoryGroupToText::single($item);
+            }
+            return $data;
         }
         return $data;
     }

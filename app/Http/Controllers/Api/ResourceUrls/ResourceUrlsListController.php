@@ -28,4 +28,8 @@ class ResourceUrlsListController extends Controller
     {
         return ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->with("newsNo", "resourcePlatform")->first()->toArray();
     }
+    static function getAllWithResourcePlatformOnlyNotDeletedAllRelationships($resourcePlatform)
+    {
+        return ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->get() : NULL;
+    }
 }

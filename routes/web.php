@@ -104,10 +104,16 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::prefix("/haberlerim")->group(function () {
                     // HABERLERİM LİSTESİ "TODO"
                         Route::get("/", [MyNewsListPageController::class, "index"])->name("haberlerim");
-                    // HABERLERİMDEN HABER DÜZENLE "TODO"
-                        Route::get("/düzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
+                    // HABERLERİMDEN HABER DÜZENLE
+                    Route::prefix("/düzenle/{no}")->controller(MyNewsEditPageController::class)->group(function () {
+                        Route::get("/", "index")->name("haberlerim_düzenle");
+                        Route::post("/", "form");
+                    });
                     // HABERLERİMDEN HABER SİL "TODO"
-                        Route::get("/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
+                        Route::prefix("/sil/{no}")->controller(MyNewsDeletePageController::class)->group(function () {
+                            Route::get("/", "index")->name("haberlerim_sil");
+                            Route::post("/", "form");
+                        });
                 });
             // HABERLERİM İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberlerim/istatistikleri")->group(function () {
@@ -347,9 +353,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     // HABER İSTATİSTİKLERİ DETAY "TODO"
                         Route::get("/detay", [NewsStatisticDetailPageController::class, "index"]);
                 });
-
-
-
             // SİSTEM PANELİ AYARLAR
                 Route::prefix("/ayarlar")->controller(SystemSettingsPageController::class)->group(function () {
                     // YAZAR PANELİ AYARLAR TEMA

@@ -10,7 +10,7 @@
                 </div>
                 <div class="statisticListingSelect">
                     <div class="outSelectBox">
-                        <select name="Kategori Seç">
+                        <select name="Kategori Seç" disabled>
                             <option value="" selected>Tüm Zamanlar</option>
                             <option value="">24 Saat</option>
                             <option value="">1 Hafta</option>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="statisticListingSelect">
                     <div class="outSelectBox">
-                        <select name="Kategori Seç">
+                        <select name="Kategori Seç" disabled>
                             <option value="" selected>Sırala</option>
                             <option value="">Yayınlanma (Önce En Yeni)</option>
                             <option value="">Yayınlanma (Önce En Eski)</option>
@@ -67,55 +67,57 @@
                     <span>İşlem</span>
                 </div>
             </div>
-            @foreach ($data['data'] as $item)
-                <div class="line">
-                    <div class="no">
-                        <span>
-                            #{{ $item['no'] }}
-                        </span>
+            @isset($data['data'])
+                @foreach ($data['data'] as $item)
+                    <div class="line">
+                        <div class="no">
+                            <span>
+                                #{{ $item['no'] }}
+                            </span>
+                        </div>
+                        <div class="publish_date">
+                            <span>
+                                {{ $item['publish_date']['text'] }}
+                            </span>
+                        </div>
+                        <div class="category">
+                            <span>
+                                {{ $item['category']['text'] }}
+                            </span>
+                        </div>
+                        <div class="content">
+                            <span>
+                                {{ $item['content'] }}
+                            </span>
+                        </div>
+                        <div class="resource">
+                            <span>
+                                {{ $item['resource_platform']['name'] }}
+                            </span>
+                        </div>
+                        <div class="listing">
+                            <span>
+                                {{ $item['listing'] }}
+                            </span>
+                        </div>
+                        <div class="reading">
+                            <span>
+                                {{ $item['reading'] }}
+                            </span>
+                        </div>
+                        <div class="actions">
+                            <span>
+                                <a href="{{ route('haberlerim_düzenle', [$item['no']]) }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{{ route('haberlerim_sil', [$item['no']]) }}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </span>
+                        </div>
                     </div>
-                    <div class="publish_date">
-                        <span>
-                            {{ $item['publish_date']['text'] }}
-                        </span>
-                    </div>
-                    <div class="category">
-                        <span>
-                            {{ $item['category']['text'] }}
-                        </span>
-                    </div>
-                    <div class="content">
-                        <span>
-                            {{ $item['content'] }}
-                        </span>
-                    </div>
-                    <div class="resource">
-                        <span>
-                            {{ $item['resource_platform']['name'] }}
-                        </span>
-                    </div>
-                    <div class="listing">
-                        <span>
-                            {{ $item['listing'] }}
-                        </span>
-                    </div>
-                    <div class="reading">
-                        <span>
-                            {{ $item['reading'] }}
-                        </span>
-                    </div>
-                    <div class="actions">
-                        <span>
-                            <a href="/yazar-paneli/haberlerim/düzenle/{{ $item['no'] }}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="/yazar-paneli/haberlerim/sil/{{ $item['no'] }}">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endisset
         </div>
     </div>
 </div>

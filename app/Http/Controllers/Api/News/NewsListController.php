@@ -8,128 +8,136 @@ use Illuminate\Http\Request;
 
 class NewsListController extends Controller
 {
-    static function getAll()
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return NewsModel::get();
+        return NewsModel::count() ? NewsModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->get();
+        return NewsModel::with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationships()
+    static function getAllDataOnlyNotDeletedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->count() ? NewsModel::where("is_deleted", false)->get() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($author) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "ASC")->get()->toArray();
+        return NewsModel::where(["is_deleted" => false, "author" => "$author"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "author" => "$author"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescContent()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatform) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "DESC")->get()->toArray();
+        return NewsModel::where(["is_deleted" => false, "resource_platform" => "$resourcePlatform"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "resource_platform" => "$resourcePlatform"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscContent()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($category) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "ASC")->get()->toArray();
+        return NewsModel::where(["is_deleted" => false, "category" => "$category"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "category" => "$category"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescAuthor()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourceUrl($resourceUrl) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "DESC")->get()->toArray();
+        return NewsModel::where(["is_deleted" => false, "resource_url" => "$resourceUrl"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "resource_url" => "$resourceUrl"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscAuthor()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescCategory()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("no", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscCategory()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescContent() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescResourcePlatform()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscContent() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("content", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscResourcePlatform()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescAuthor() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescResourceUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscAuthor() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("author", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscResourceUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescCategory() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDate()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscCategory() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("category", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDateMaxLimit($limit)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescResourcePlatform() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscPublishDate()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscResourcePlatform() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_platform", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescWriteTime()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescResourceUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscWriteTime()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscResourceUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("resource_url", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDate() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDateLimit($limit) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescReading()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscPublishDate() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByDescReadingMaxLimit($limit)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescWriteTime() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationshipsOrderByAscReading()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscWriteTime() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("write_time", "ASC")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first() ? NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray() : NULL;
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedWithAuthorNoAllRelationships($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where(["is_deleted" => false, "author" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("link_url", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedWithResourcePlatformNoAllRelationships($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescReading() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where(["is_deleted" => false, "resource_platform" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedWitCategoryNoAllRelationships($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescReadingLimit($limit) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where(["is_deleted" => false, "category" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($categoryNo, $limit)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscReading() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return NewsModel::where(["is_deleted" => false, "category" => $categoryNo])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray();
+        return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithContentOnlyNotDeleted($content)
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($category, $limit)
     {
-        return NewsModel::where(["is_deleted" => false, "content" => "$content"])->first() ? NewsModel::where(["is_deleted" => false, "content" => "$content"])->first() : NULL;
+        return NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->count() ? NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray() : NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "no" => "$no"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray() : NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereContent($content) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return NewsModel::where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray() : NULL;
     }
 }

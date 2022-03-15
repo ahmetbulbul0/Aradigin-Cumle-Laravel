@@ -32,4 +32,12 @@ class UserSettingsListController extends Controller
     {
         return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first(): NULL;
     }
+
+
+
+
+    static function getFirstDataWithUserNoOnlyNotDeleted($userNo)
+    {
+        return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() : NULL;
+    }
 }

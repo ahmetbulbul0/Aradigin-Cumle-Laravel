@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\ResourceUrls;
 
+use App\Http\Controllers\Api\News\NewsDeleteController;
+use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Controller;
 use App\Models\ResourceUrlsModel;
 use Illuminate\Http\Request;
@@ -46,7 +48,16 @@ class ResourceUrlDeleteController extends Controller
             "is_deleted" => true
         ]);
 
+        $newsUseThisResourceUrl = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourceUrl($no);
+        if ($newsUseThisResourceUrl) {
+            foreach ($newsUseThisResourceUrl as $news) {
+                $data["data"]["no"] = $news["no"];
+                NewsDeleteController::get($data);
+            }
+        }
+
         $data["status"] = "success";
         return $data;
     }
 }
+    

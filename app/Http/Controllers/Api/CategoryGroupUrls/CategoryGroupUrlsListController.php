@@ -28,4 +28,8 @@ class CategoryGroupUrlsListController extends Controller
     {
         return CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
     }
+    static function getFirstDataWithGroupNoOnlyNotDeleted($groupNo)
+    {
+        return CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->first() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->first() : NULL;
+    }
 }

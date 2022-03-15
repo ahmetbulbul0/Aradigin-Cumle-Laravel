@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Categories;
 
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupDeleteController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Http\Controllers\Controller;
 use App\Models\CategoriesModel;
 
@@ -41,9 +43,32 @@ class CategoryDeleteController extends Controller
     {
         $no = $data["data"]["no"];
 
+        $categoryUseThisCategoryAsMainCategory = CategoriesListController::getAllOnlyNotDeletedWithMainCategoryTypeSub($no);
+        if ($categoryUseThisCategoryAsMainCategory) {
+            foreach ($categoryUseThisCategoryAsMainCategory as $category) {
+                CategoriesModel::where(["is_deleted" => false, "no" => $category["no"]])->update([
+                    "is_deleted" => true
+                ]);
+                $editedCategoryGroups = CategoryGroupsListController::getAllWithCategoryOnlyNotDeleted($category["no"]);
+                if ($editedCategoryGroups) {
+                    foreach ($editedCategoryGroups as $editedCategoryGroup) {
+                        $data["data"]["no"] = $editedCategoryGroup["no"];
+                        CategoryGroupDeleteController::get($data);
+                    }
+                }
+            }
+        }
+
         CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "is_deleted" => true
         ]);
+        $editedCategoryGroups = CategoryGroupsListController::getAllWithCategoryOnlyNotDeleted($no);
+        if ($editedCategoryGroups) {
+            foreach ($editedCategoryGroups as $editedCategoryGroup) {
+                $data["data"]["no"] = $editedCategoryGroup["no"];
+                CategoryGroupDeleteController::get($data);
+            }
+        }
 
         $data["status"] = "success";
         return $data;

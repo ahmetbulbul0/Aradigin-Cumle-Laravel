@@ -145,7 +145,7 @@ class NewsEditController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["editedData"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["editedData"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
 
         return $data;
     }

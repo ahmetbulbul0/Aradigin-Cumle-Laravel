@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Users;
 
+use App\Http\Controllers\Api\UserSettings\UserSettingDeleteController;
+use App\Http\Controllers\Api\UserSettings\UserSettingsListController;
 use App\Http\Controllers\Controller;
 use App\Models\UsersModel;
 
@@ -44,6 +46,12 @@ class UserDeleteController extends Controller
         UsersModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "is_deleted" => true
         ]);
+
+        $userSettings = UserSettingsListController::getFirstDataWithUserNoOnlyNotDeleted($no);
+        if ($userSettings) {
+            $dataForUserSettingDelete["data"]["no"] = $userSettings["no"];
+            UserSettingDeleteController::get($dataForUserSettingDelete);
+        }
 
         $data["status"] = "success";
         return $data;
