@@ -4,30 +4,17 @@
 * FrontEnd [
     - yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
     - tüm butonlara 3d stili tanımlanacak 
-    - [FİNİSH]açık tema tasarımı yapılacak
-    - [FİNİSH]açık tema koyu tema geçisi yapılacak
-    - [FİNİSH]genel hata kodları için hata sayfa şablonu yapılacak
 ]
 * BackEnd [
-    - [FİNİSH]çıkış yapma sistemi yapılacak
-    - [FİNİSH]login ve ziyaretçi sistemindeki sessionlar için geliştirme yapılacak
     - form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
-    - [FİNİSH]users settings modelinin api controllerları yapılacak
-    - [FİNİSH]resource urls modelinin api controllerları yapılacak
-    - [FİNİSH]category group urls modelinin api controllerları yapılacak
     - listings modelinin api controllerları yapılacak
     - listings detail modelinin api controllerları yapılacak
     - readings modelinin api controllerları yapılacak
     - readings detail modelinin api controllerları yapılacak
     - visitors modelinin api controllerları yapılacak
     - writings modelinin api controllerları yapılacak
-    - modeller için test verisi ekleme işini kolaylaştırmak için factory dosyaları yazılacak
     - lists view componentlerindeki title selectslerdeki url href alanları kontrol edilicek
-    - lists api coontrollerlarındaki sorgularda is_deleted false koşulu eklenecek
-    - update ve edit api controllerlarındaki check fonksiyonu içerisindeki var olma kontrollerine is_deleted false sorgusu eklenecek
     - my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
-    - [FİNİSH]pagination sistemi geliştirilicek ve uyarlanıcak
-    - çıkış yap için middleware yapılacak
 ]
 
 *Models & Migrations*
@@ -62,9 +49,9 @@
     * Author [
         * [FİNİSH]AuthorDashboardPageController
         * [FİNİSH]AuthorSettingsPageController
-        * MyNewsDeletePageController
-        * MyNewsEditPageController
-        * MyNewsListPageController 
+        * [FİNİSH]MyNewsDeletePageController
+        * [FİNİSH]MyNewsEditPageController
+        * [FİNİSH]MyNewsListPageController 
         * MyNewsStatisticDetailPageController
         * MyNewsStatisticsPageController
         * MyNewStatisticTimePageController
@@ -319,11 +306,3 @@
         - false => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir
     ]
 ]
-
-
-
-* webbsite kurulum aşamasında başlangıçta aşama 2 ye atıyor
-* kurulum aşamasında responsive tasarımları düzelt
-* asama 4 sonrası direk anasayfa attı
-* açılır menü harici yere tıklanıldığında kapansın
-* 
