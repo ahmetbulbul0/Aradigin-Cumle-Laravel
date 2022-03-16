@@ -235,10 +235,11 @@ body.light .outMenu .inMenu .outFullLine .inFullLine .search .outInputText i {
     display: flex;
 }
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme {
-    padding: 7px 12px;
+    padding: 8px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50px;
 }
 body.dark .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme {
     background: #1112177a;
@@ -261,10 +262,12 @@ body.light .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme {
 }
 .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button {
     padding: 0 12px;
+    padding-bottom: 3px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 300;
     margin-left: 6px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 body.light .outMenu .inMenu .outFullLine .inFullLine .outTheme .inTheme button {
     color: var(--dark-blue);
