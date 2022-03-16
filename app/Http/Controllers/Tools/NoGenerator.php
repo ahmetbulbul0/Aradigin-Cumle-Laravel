@@ -66,20 +66,20 @@ class NoGenerator extends Controller
     static function generateListingsDetailNo() // length: 16
     {
         $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ListingsDetailModel::where(["is_deleted" => false, 'no' => $no])->count();
+        $noCheck = ListingsDetailModel::where(['no' => $no])->count();
         while ($noCheck == 1) {
             $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ListingsDetailModel::where(["is_deleted" => false, 'no' => $no])->count();
+            $noCheck = ListingsDetailModel::where(['no' => $no])->count();
         }
         return $no;
     }
     static function generateListingsNo() // length: 16
     {
         $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ListingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        $noCheck = ListingsModel::where(['no' => $no])->count();
         while ($noCheck == 1) {
             $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ListingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+            $noCheck = ListingsModel::where(['no' => $no])->count();
         }
         return $no;
     }
@@ -96,20 +96,20 @@ class NoGenerator extends Controller
     static function generateReadingsDetailNo() // length: 16
     {
         $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ReadingsDetailModel::where(["is_deleted" => false, 'no' => $no])->count();
+        $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
         while ($noCheck == 1) {
             $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ReadingsDetailModel::where(["is_deleted" => false, 'no' => $no])->count();
+            $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
         }
         return $no;
     }
     static function generateReadingsNo() // length: 16
     {
         $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ReadingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        $noCheck = ReadingsModel::where(['no' => $no])->count();
         while ($noCheck == 1) {
             $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ReadingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+            $noCheck = ReadingsModel::where(['no' => $no])->count();
         }
         return $no;
     }

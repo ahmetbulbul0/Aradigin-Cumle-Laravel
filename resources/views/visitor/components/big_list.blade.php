@@ -10,6 +10,7 @@
         <div class="bigList">
             @isset($data['bigList']['data'])
                 @foreach ($data['bigList']['data'] as $news)
+                    @php App\Http\Controllers\Api\Listings\ListingCreateController::work($news["no"]); @endphp
                     <div class="item">
                         <div class="category">
                             <a
