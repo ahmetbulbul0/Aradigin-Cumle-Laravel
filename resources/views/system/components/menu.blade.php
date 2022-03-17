@@ -249,7 +249,7 @@
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="####">Haber İstatistikleri</a>
+                                <a href="{{ route('haber_istatistikleri') }}">Haber İstatistikleri</a>
                             </span>
                         </div>
                     </div>
