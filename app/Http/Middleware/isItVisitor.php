@@ -29,21 +29,28 @@ class isItVisitor
         }
 
         if (!Session::get("visitorData")) {
-            $visitorNo = NoGenerator::generateVisitorsNo();
+            $visitorIp = $request->ip();
+            $visitorBrowser = $request->header('User-Agent');
 
+            if (VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->count()) {
+                VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->update(["last_login_time" => time()]);
+                $visitorData = VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->first();
+                $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
+                Session::put("visitorData", $visitorData);
+                return $next($request);
+            }
+
+            $visitorNo = NoGenerator::generateVisitorsNo();
             VisitorsModel::create([
                 "no" => $visitorNo,
-                "ip" => $request->ip(),
-                "browser" => $request->header('User-Agent'),
+                "ip" => $visitorIp,
+                "browser" => $visitorBrowser,
                 "last_login_time" => time(),
                 "website_theme" => "dark"
             ]);
-
             $visitorData = VisitorsModel::where("no", $visitorNo)->first();
             $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
-
             Session::put("visitorData", $visitorData);
-
             return $next($request);
         }
 

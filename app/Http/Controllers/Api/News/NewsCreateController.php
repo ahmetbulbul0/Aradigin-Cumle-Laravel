@@ -76,7 +76,7 @@ class NewsCreateController extends Controller
             $data["errors"]["publishDate"] = "Yayın Tarihi Alanı Zorunludur";
         }
 
-        if (isset($content) && !empty($content) && NewsListController::getFirstDataWithContentOnlyNotDeleted($content)) {
+        if (isset($content) && !empty($content) && NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereContent($content)) {
             $data["errors"]["content"] = "[$content] Bu İçerik Daha Önceden Yazılmış";
         }
 
@@ -161,7 +161,7 @@ class NewsCreateController extends Controller
 
         NewsModel::where(["is_deleted" => false, "no" => $no])->update(["resource_url" => $resourceUrl["createdData"]["no"]]);
 
-        $data["createdNewsData"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["createdNewsData"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["createdResourceUrlData"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($resourceUrl["createdData"]["no"]);
 
         return $data;

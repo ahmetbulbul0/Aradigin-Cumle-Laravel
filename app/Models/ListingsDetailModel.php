@@ -11,7 +11,7 @@ class ListingsDetailModel extends Model
     use HasFactory;
 
     protected $table = "listings_detail";
-    
+
     protected $primaryKey = "no";
 
     protected $fillable = [
@@ -20,12 +20,11 @@ class ListingsDetailModel extends Model
         "time",
         "news_no"
     ];
-    
+
     protected $hidden = [
         "id",
         "created_at",
-        "updated_at",
-        "is_deleted"
+        "updated_at"
     ];
 
     public function visitorNo()

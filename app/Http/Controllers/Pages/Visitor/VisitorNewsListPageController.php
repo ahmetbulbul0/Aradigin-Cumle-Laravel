@@ -29,18 +29,21 @@ class VisitorNewsListPageController extends Controller
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["son-yayinlananlar"]);
                 $data["bigList"]["listTitle"] = "Son Yayınlananlar";
                 $data["bigList"]["allListLink"] = route("haberler_listesi", ["son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["cok-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Çok Okunanlar";
                 $data["bigList"]["allListLink"] = route("haberler_listesi", ["cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["az-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Az Okunanlar";
                 $data["bigList"]["allListLink"] = route("haberler_listesi", ["az-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             default:
                 dd("HATA");
@@ -73,18 +76,21 @@ class VisitorNewsListPageController extends Controller
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
                 $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $author["full_name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $author["full_name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Az Okunanlar [" . $author["full_name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             default:
                 return "HATA";
@@ -116,18 +122,21 @@ class VisitorNewsListPageController extends Controller
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "son-yayinlananlar"]);
                 $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $resourcePlatform["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, $resourcePlatform["no"], NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "cok-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $resourcePlatform["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, $resourcePlatform["no"], NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "az-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Az Okunanlar [" . $resourcePlatform["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             default:
                 return "HATA";
@@ -161,18 +170,21 @@ class VisitorNewsListPageController extends Controller
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "son-yayinlananlar"]);
                 $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $categoryGroup["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, $categoryGroup["no"], $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "cok-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $categoryGroup["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, $categoryGroup["no"], $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "az-okunanlar"]);
                 $data["bigList"]["listTitle"] = "Az Okunanlar [" . $categoryGroup["name"] . "]";
                 $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"]["listTitle"];
                 break;
             default:
                 return "HATA";
@@ -190,39 +202,39 @@ class VisitorNewsListPageController extends Controller
     {
         switch ($listType) {
             case 'son-yayinlananlar':
-                $dataNumber = count(NewsListController::getAllOnlyNotDeleted());
+                $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatas() ? count(NewsListController::getAllDataOnlyNotDeletedDatas()) : 0;
                 if ($authorNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithAuthorNoAllRelationships($authorNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo)) : 0;
                 }
                 if ($resourcePlatformNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithResourcePlatformNoAllRelationships($resourcePlatformNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo)) : 0;
                 }
                 if ($categoryGroupNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWitCategoryNoAllRelationships($categoryGroupNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo)) : 0;
                 }
                 break;
             case 'cok-okunanlar':
-                $dataNumber = count(NewsListController::getAllOnlyNotDeleted());
+                $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescReading() ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescReading()) : 0;
                 if ($authorNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithAuthorNoAllRelationships($authorNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo)) : 0;
                 }
                 if ($resourcePlatformNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithResourcePlatformNoAllRelationships($resourcePlatformNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo)) : 0;
                 }
                 if ($categoryGroupNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWitCategoryNoAllRelationships($categoryGroupNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo)) : 0;
                 }
                 break;
             case 'az-okunanlar':
-                $dataNumber = count(NewsListController::getAllOnlyNotDeleted());
+                $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscReading() ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscReading()) : 0;
                 if ($authorNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithAuthorNoAllRelationships($authorNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($authorNo)) : 0;
                 }
                 if ($resourcePlatformNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWithResourcePlatformNoAllRelationships($resourcePlatformNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourcePlatform($resourcePlatformNo)) : 0;
                 }
                 if ($categoryGroupNo) {
-                    $dataNumber = count(NewsListController::getAllOnlyNotDeletedWitCategoryNoAllRelationships($categoryGroupNo));
+                    $dataNumber = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo) ? count(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($categoryGroupNo)) : 0;
                 }
                 break;
             default:

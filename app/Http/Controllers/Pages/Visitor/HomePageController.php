@@ -18,16 +18,20 @@ class HomePageController extends Controller
     public function index()
     {
         $data["page_title"] = "AnaSayfa";
+
         $data["menu"] = VisitorMenuDataGet::get();
         $data["smallList2One"] = $this->Small2ListOne();
         $data["middle2List"] = $this->Middle2List();
         $data["bigList"] = $this->BigList();
-        $data["pagination"] = $this->GetData($data["bigList"]["data"], 1, 5);
-        $data["bigList"]["data"] = $data["pagination"]["data"];
-        $data["pagination"] = $data["pagination"]["pagination"];
-        $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
-        $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["bigList"]["data"]);
 
+        if ($data["bigList"]["data"]) {
+            $data["pagination"] = $this->GetData($data["bigList"]["data"], 1, 5);
+            $data["bigList"]["data"] = $data["pagination"]["data"];
+            $data["pagination"] = $data["pagination"]["pagination"];
+            $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
+            $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["bigList"]["data"]);
+        }
+        
         return view("visitor.pages.home")->with("data", $data);
     }
     public function Small2ListOne()
@@ -35,12 +39,12 @@ class HomePageController extends Controller
         $data = [
             [
                 "listTitle" => "Son Yayınlananlar",
-                "data" => NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDateMaxLimit(5),
+                "data" => NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDateLimit(5),
                 "allListLink" => route("haberler_listesi", "son-yayinlananlar")
             ],
             [
                 "listTitle" => "Çok Okunanlar",
-                "data" => NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescReadingMaxLimit(5),
+                "data" => NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescReadingLimit(5),
                 "allListLink" => route("haberler_listesi", "cok-okunanlar")
             ]
         ];
@@ -54,12 +58,12 @@ class HomePageController extends Controller
         $data = [
             [
                 "listTitle" => Str::title($constantCategory1Data["main"]["name"]),
-                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($constantCategory1Data["no"], 5)),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory1Data["no"], 5)),
                 "allListLink" => route("haberler_listesi_kategori", [$constantCategory1Data["link_url"]["link_url"], "son-yayinlananlar"])
             ],
             [
                 "listTitle" => Str::title($constantCategory2Data["main"]["name"]),
-                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllOnlyNotDeletedWithCategoryNoAllRelationshipsOrderByDescPublishDateMaxLimit($constantCategory2Data["no"], 5)),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory2Data["no"], 5)),
                 "allListLink" => route("haberler_listesi_kategori", [$constantCategory2Data["link_url"]["link_url"], "son-yayinlananlar"])
             ]
         ];
@@ -70,7 +74,7 @@ class HomePageController extends Controller
     {
         $data = [
             "listTitle" => "Son Yayınlananlar",
-            "data" => NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDate(),
+            "data" => NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDate(),
             "allListLink" => route("haberler_listesi", ["son-yayinlananlar"]),
             "listType" => "son-yayinlananlar"
         ];

@@ -14,7 +14,7 @@ class SystemNewsListPageController extends Controller
     {
         $data["page_title"] = "Haberler";
         if (!isset($data["data"])) {
-            $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationships();
+            $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         $data = CategoryGroupToText::multiple($data);
         $data["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
@@ -87,72 +87,72 @@ class SystemNewsListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscNo();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescNo();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo();
         return $this->index($data);
     }
     public function contentAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscContent();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscContent();
         return $this->index($data);
     }
     public function contentZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescContent();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescContent();
         return $this->index($data);
     }
     public function authorAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscAuthor();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscAuthor();
         return $this->index($data);
     }
     public function authorZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescAuthor();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescAuthor();
         return $this->index($data);
     }
     public function categoryAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscCategory();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscCategory();
         return $this->index($data);
     }
     public function categoryZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescCategory();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescCategory();
         return $this->index($data);
     }
     public function resourcePlatformAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscResourcePlatform();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscResourcePlatform();
         return $this->index($data);
     }
     public function resourcePlatformZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescResourcePlatform();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescResourcePlatform();
         return $this->index($data);
     }
     public function publishDateAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscPublishDate();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscPublishDate();
         return $this->index($data);
     }
     public function publishDateZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescPublishDate();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDate();
         return $this->index($data);
     }
     public function writeTimeAZ()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscWriteTime();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscWriteTime();
         return $this->index($data);
     }
     public function writeTimeZA()
     {
-        $data["data"] = NewsListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescWriteTime();
+        $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescWriteTime();
         return $this->index($data);
     }
 }

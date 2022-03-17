@@ -16,12 +16,14 @@ class MyNewsListPageController extends Controller
         $data["page_title"] = "Haberlerim";
 
         if (!isset($data["data"])) {
-            $data["data"] = NewsListController::getAllOnlyNotDeletedWithAuthorNoAllRelationships(Session::get("userData.no"));
+            $data["data"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor(Session::get("userData.no"));
         }
 
         $data = CategoryGroupToText::multiple($data);
-        $data["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
-        $data["data"] = UnixTimeToTextDateController::MultipleTimeToDateForWriteTime($data["data"]);
+        if ($data["data"]) {
+            $data["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
+            $data["data"] = UnixTimeToTextDateController::MultipleTimeToDateForWriteTime($data["data"]);
+        }
 
         return view("author.pages.my_news_list")->with("data", $data);
     }

@@ -9,26 +9,31 @@ class UnixTimeToTextDateController extends Controller
 
     static function MultipleTimeToDateForWriteTime($data)
     {
-        $count = count($data);
-        
-        for ($i = 0; $i < $count; $i++) {
-            $unix = $data[$i]["write_time"];
-            $data[$i]["write_time"] = UnixTimeToTextDateController::TimeToDate($unix);
-        }
+        if ($data) {
+            $count = count($data);
 
-        return $data;
+            for ($i = 0; $i < $count; $i++) {
+                $unix = $data[$i]["write_time"];
+                $data[$i]["write_time"] = UnixTimeToTextDateController::TimeToDate($unix);
+            }
+
+            return $data;
+        }
     }
 
     static function MultipleTimeToDate($data)
     {
-        $count = count($data);
+        if ($data) {
+            $count = count($data);
+            for ($i = 0; $i < $count; $i++) {
+                $unix = $data[$i]["publish_date"];
+                $data[$i]["publish_date"] = UnixTimeToTextDateController::TimeToDate($unix);
+            }
 
-        for ($i = 0; $i < $count; $i++) {
-            $unix = $data[$i]["publish_date"];
-            $data[$i]["publish_date"] = UnixTimeToTextDateController::TimeToDate($unix);
+            return $data;
         }
 
-        return $data;
+        return NULL;
     }
 
     static function TimeToDate($unix)

@@ -14,7 +14,7 @@ class CategoryTypesListController extends Controller
     }
     static function getAllOnlyNotDeleted()
     {
-        return CategoryTypesModel::where("is_deleted", false)->get();
+        return CategoryTypesModel::where("is_deleted", false)->count() ? CategoryTypesModel::where("is_deleted", false)->get() : NULL;
     }
     static function getAllOnlyNotDeletedOrderByDescNo()
     {

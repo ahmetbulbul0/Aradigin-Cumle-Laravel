@@ -87,8 +87,7 @@ class CategoryCreateController extends Controller
                 $linkUrl = $mainCat["link_url"] . "-" . $linkUrlSub;
                 break;
             default:
-                $data["errors"]["type"] = "Geçersiz Kategori Tipi Değeri, Kategori Tipi Değeri Ya Main Yada Sub Olabilir.";
-                return $data;
+                $linkUrl = LinkUrlGenerator::single($name);
                 break;
         }
 
@@ -122,6 +121,13 @@ class CategoryCreateController extends Controller
                 $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdCategoryGroupLinkUrlData"]["no"]);
                 break;
             default:
+                $dataForCategoryGroup["data"] = ["main" => $no, "sub1" => NULL, "sub2" => NULL, "sub3" => NULL, "sub4" => NULL, "sub5" => NULL];
+                $categoryGroupCreate = CategoryGroupCreateController::get($dataForCategoryGroup);
+                if (isset($categoryGroupCreate["errors"])) {
+                    return $categoryGroupCreate;
+                }
+                $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupCreate["createdCategoryGroupData"]["no"]);
+                $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($categoryGroupCreate["createdCategoryGroupLinkUrlData"]["no"]);
                 break;
         }
 

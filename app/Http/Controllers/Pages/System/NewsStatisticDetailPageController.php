@@ -8,6 +8,7 @@ class NewsStatisticDetailPageController extends Controller
 {
     public function index()
     {
-        return "HABER İSTATİSTİĞİ DETAY";
+        $data["page_title"] = "Haber İstatistikleri Detay";
+        return view("system.pages.news_statistic_detail")->with("data", $data);
     }
 }

@@ -104,10 +104,16 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::prefix("/haberlerim")->group(function () {
                     // HABERLERİM LİSTESİ "TODO"
                         Route::get("/", [MyNewsListPageController::class, "index"])->name("haberlerim");
-                    // HABERLERİMDEN HABER DÜZENLE "TODO"
-                        Route::get("/düzenle/{no}", [MyNewsEditPageController::class, "index"])->name("haberlerim_düzenle");
+                    // HABERLERİMDEN HABER DÜZENLE
+                    Route::prefix("/düzenle/{no}")->controller(MyNewsEditPageController::class)->group(function () {
+                        Route::get("/", "index")->name("haberlerim_düzenle");
+                        Route::post("/", "form");
+                    });
                     // HABERLERİMDEN HABER SİL "TODO"
-                        Route::get("/sil/{no}", [MyNewsDeletePageController::class, "index"])->name("haberlerim_sil");
+                        Route::prefix("/sil/{no}")->controller(MyNewsDeletePageController::class)->group(function () {
+                            Route::get("/", "index")->name("haberlerim_sil");
+                            Route::post("/", "form");
+                        });
                 });
             // HABERLERİM İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberlerim/istatistikleri")->group(function () {
@@ -121,9 +127,17 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // YAZAR PANELİ AYARLAR
                 Route::prefix("/ayarlar")->controller(AuthorSettingsPageController::class)->group(function () {
                     // YAZAR PANELİ AYARLAR PROFİLİM
-                        Route::get("/profilim", "myAccount")->name("yazar_paneli_ayarlar_profilim");
+                    Route::prefix("/profilim")->group(function () {
+                        Route::get("/", "myAccount")->name("yazar_paneli_ayarlar_profilim");
+                        Route::post("/", "myAccountForm");
+                    });
                     // YAZAR PANELİ AYARLAR TEMA
-                        Route::get("/tema", "theme")->name("yazar_paneli_ayarlar_tema");
+                        Route::prefix("/tema")->group(function () {
+                            Route::get("/", "theme")->name("yazar_paneli_ayarlar_tema");
+                            Route::post("", "themeForm");
+                            Route::post("/panel", "dashboardThemeChange")->name("author_user_fast_dashboard_theme_change");
+                            Route::post("/website", "websiteThemeChange")->name("author_user_fast_website_theme_change");;
+                        });
                 });
         });
     /* SYSTEM PAGES */
@@ -330,35 +344,42 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/writeTimeAZ", "writeTimeAZ")->name("haberler_writeTimeAZ");
                     Route::get("/writeTimeZA", "writeTimeZA")->name("haberler_writeTimeZA");
                 });
-            // HABERLERİM İSTATİSTİKLERİ "TODO"
+            // HABER İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberler/istatistikleri")->group(function () {
                     // HABER İSTATİSTİKLERİ "TODO"
-                        Route::get("/", [NewsStatisticsPageController::class, "index"]);
+                        Route::get("/", [NewsStatisticsPageController::class, "index"])->name("haber_istatistikleri");
                     // HABER İSTATİSTİKLERİ ZAMANA GÖRE "TODO"
-                        Route::get("/zaman/{timeType}/{listType}", [NewsStatisticTimePageController::class, "index"]);
+                        Route::get("/zaman", [NewsStatisticTimePageController::class, "index"]);
                     // HABER İSTATİSTİKLERİ DETAY "TODO"
-                        Route::get("/detay/{newsNo}", [NewsStatisticDetailPageController::class, "index"]);
+                        Route::get("/detay", [NewsStatisticDetailPageController::class, "index"]);
                 });
-
-
-
             // SİSTEM PANELİ AYARLAR
                 Route::prefix("/ayarlar")->controller(SystemSettingsPageController::class)->group(function () {
                     // YAZAR PANELİ AYARLAR TEMA
-                        Route::get("/tema", "theme")->name("sistem_paneli_ayarlar_tema");
+                        Route::prefix("/ayarlar")->controller(SystemSettingsPageController::class)->group(function () {
+                            // SİSTEM PANELİ AYARLAR SABİTLER
+                            Route::prefix("/sabitler")->group(function () {
+                                Route::get("/", "constants")->name("ayarlar_sabitler");
+                                Route::post("/", "constantsForm");
+                            });
+                            // SİSTEM PANELİ AYARLAR TEMA
+                                Route::prefix("/tema")->group(function () {
+                                    Route::get("/", "theme")->name("sistem_paneli_ayarlar_tema");
+                                    Route::post("", "themeForm");
+                                    Route::post("/panel", "dashboardThemeChange")->name("system_user_fast_dashboard_theme_change");
+                                    Route::post("/website", "websiteThemeChange")->name("system_user_fast_website_theme_change");;
+                                });
+                        });
+
+
                     // YAZAR PANELİ AYARLAR SABİTLER
-                        Route::get("/sabitler", "constants")->name("ayarlar_sabitler");
+                        
                 });
         });
     // FORM
         /* AUTHOR PAGES */
             // HABER EKLE
                 Route::post("/yazar-paneli/haber/ekle", [NewsCreatePageController::class, "form"]);
-            // YAZAR PANELİ AYARLAR
-                Route::post("/yazar-paneli/ayarlar/profilim", [AuthorSettingsPageController::class, "myAccountForm"]);
-                Route::post("/yazar-paneli/ayarlar/tema", [AuthorSettingsPageController::class, "themeForm"]);
-                Route::post("/yazar-paneli/ayarlar/tema/panel-tema", [AuthorSettingsPageController::class, "dashboardThemeChange"]);
-                Route::post("/yazar-paneli/ayarlar/tema/website-tema", [AuthorSettingsPageController::class, "websiteThemeChange"]);
         /* SYSTEM PAGES */
             // KULLANICI TİPLERİ LİSTESİ
                 Route::post("/sistem-paneli/kullanici-tipleri/", [UserTypesListPageController::class, "form"]);
@@ -470,9 +491,6 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 Route::post("/sistem-paneli/haber/düzenle/{no}", [NewsEditPageController::class, "form"]);
             // HABER SİL
                 Route::post("/sistem-paneli/haber/sil/{no}", [NewsDeletePageController::class, "form"]);
-            // SİSTEM PANELİ AYARLAR
-                Route::post("/sistem-paneli/ayarlar/tema", [SystemSettingsPageController::class, "themeForm"]);
-                Route::post("/sistem-paneli/ayarlar/sabitler", [SystemSettingsPageController::class, "constantsForm"]);
             // KULLANICI AYARI DÜZENLE
                 Route::post("/sistem-paneli/kullanici-ayari/düzenle/{no}", [UserSettingEditPageController::class, "form"]);
             // KULLANICI AYARI SİL

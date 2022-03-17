@@ -25,8 +25,7 @@ class ListingsModel extends Model
     protected $hidden = [
         "id",
         "created_at",
-        "updated_at",
-        "is_deleted"
+        "updated_at"
     ];
 
     public function newsNo()

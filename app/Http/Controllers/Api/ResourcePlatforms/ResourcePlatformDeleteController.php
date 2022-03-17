@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\ResourcePlatforms;
 
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlDeleteController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
 use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
 
@@ -44,6 +46,14 @@ class ResourcePlatformDeleteController extends Controller
         ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "is_deleted" => true
         ]);
+
+        $resourceUrls = ResourceUrlsListController::getAllWithResourcePlatformOnlyNotDeletedAllRelationships($no);
+        if ($resourceUrls) {
+            foreach ($resourceUrls as $resourceUrl) {
+                $data["data"]["no"] = $resourceUrl["no"];
+                ResourceUrlDeleteController::get($data);
+            }
+        }
 
         $data["status"] = "success";
         return $data;

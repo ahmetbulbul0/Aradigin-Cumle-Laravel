@@ -61,11 +61,11 @@
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-search searchBtn"></i>
+                <i class="fas fa-adjust themeBtn"></i>
             </span>
             <section class="brace"></section>
             <span class="iconBox">
-                <i class="fas fa-adjust themeBtn"></i>
+                <i class="fas fa-search searchBtn"></i>
             </span>
             @if (Session::get('userData'))
                 <section class="brace"></section>
@@ -112,12 +112,19 @@
                         <label for="#">Tema:</label>
 
                         @if (Session::get('userData'))
-                            <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
-                                @csrf
-                                <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
-                                    value="dark">Koyu</button>
-                                <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
-                                    value="light">Açık</button>
+                            @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeAuthorOnlyNotDeleted())
+                                <form method="POST" action="{{ route('author_user_fast_website_theme_change') }}">
+                            @endif
+
+                            @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeSystemOnlyNotDeleted())
+                                <form method="POST" action="{{ route('system_user_fast_website_theme_change') }}">
+                            @endif
+
+                            @csrf
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                                value="dark">Koyu</button>
+                            <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                                value="light">Açık</button>
                             </form>
                         @endif
 
@@ -169,15 +176,21 @@
                 <div class="theme">
                     <label for="#">Tema:</label>
                     @if (Session::get('userData'))
-                        <form method="POST" action="/yazar-paneli/ayarlar/tema/website-tema">
-                            @csrf
-                            <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
-                                value="dark">Koyu</button>
-                            <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
-                                value="light">Açık</button>
+                        @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeAuthorOnlyNotDeleted())
+                            <form method="POST" action="{{ route('author_user_fast_website_theme_change') }}">
+                        @endif
+
+                        @if (Session::get('userData.type.no') == App\Http\Controllers\Api\Constants\ConstantsListController::getUserTypeSystemOnlyNotDeleted())
+                            <form method="POST" action="{{ route('system_user_fast_website_theme_change') }}">
+                        @endif
+
+                        @csrf
+                        <button class='@if (Session::get('userData.settings.website_theme') == 'dark') active @endif' name="websiteTheme"
+                            value="dark">Koyu</button>
+                        <button class='@if (Session::get('userData.settings.website_theme') == 'light') active @endif' name="websiteTheme"
+                            value="light">Açık</button>
                         </form>
                     @endif
-
                     @if (Session::get('visitorData'))
                         <form method="POST" action="{{ route('visitor_website_theme_change') }}">
                             @csrf

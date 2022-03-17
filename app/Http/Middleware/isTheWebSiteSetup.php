@@ -71,43 +71,43 @@ class isTheWebSiteSetup
             return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getUserTypeSystemOnlyNotDeleted()) || !UserTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getUserTypeSystemOnlyNotDeleted())) {
-            return redirect(route("website_setup_stage2"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getUserTypeAuthorOnlyNotDeleted()) || !UserTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getUserTypeAuthorOnlyNotDeleted())) {
-            return redirect(route("website_setup_stage2"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getCategoryTypeMainOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getCategoryTypeMainOnlyNotDeleted())) {
-            return redirect(route("website_setup_stage2"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getCategoryTypeSubOnlyNotDeleted())) {
-            return redirect(route("website_setup_stage2"));
+            return redirect(route("website_setup_stage1"));
         }
         if (!UsersListController::getFirstDataOnlyNotDeletedOnlyTypeSystemAllRelationships()) {
-            return redirect(route("website_setup_stage3"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
         if (empty(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted())) {
-            return redirect(route("website_setup_stage4"));
+            return redirect(route("website_setup_stage1"));
         }
 
         return $next($request);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\CategoryGroups;
 
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlDeleteController;
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsListController;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryGroupsModel;
 
@@ -44,6 +46,12 @@ class CategoryGroupDeleteController extends Controller
         CategoryGroupsModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "is_deleted" => true
         ]);
+
+        $categoryGroupUrl = CategoryGroupUrlsListController::getFirstDataWithGroupNoOnlyNotDeleted($no);
+        if ($categoryGroupUrl) {
+            $dataForDeleteCategoryGroupUrl["data"]["no"] = $categoryGroupUrl["no"];
+            CategoryGroupUrlDeleteController::get($dataForDeleteCategoryGroupUrl);
+        }
 
         $data["status"] = "success";
         return $data;

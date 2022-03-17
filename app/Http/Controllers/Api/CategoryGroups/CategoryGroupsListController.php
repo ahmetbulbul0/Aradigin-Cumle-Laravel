@@ -18,7 +18,7 @@ class CategoryGroupsListController extends Controller
     }
     static function getAllOnlyNotDeletedAllRelationShips()
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray() : NULL;
     }
     static function getAllOnlyNotDeletedAllRelationShipsOrderByDescNo()
     {
@@ -104,5 +104,14 @@ class CategoryGroupsListController extends Controller
     static function getFirstDataWithMainMainSub1Sub2Sub3Sub4Sub5OnlyNotDeleted($main, $sub1, $sub2, $sub3, $sub4, $sub5)
     {
         return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
+    }
+
+    static function getAllWithCategoryOnlyNotDeleted($category)
+    {
+        return CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->count() ? CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->get()->toArray() : NULL;
+    }
+    static function getFirstDataWithLinkUrlOnlyNotDeleted($linkUrl)
+    {
+        return CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first() ?  CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first() : NULL;
     }
 }

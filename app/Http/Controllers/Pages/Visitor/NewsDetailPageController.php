@@ -9,6 +9,7 @@ use App\Http\Controllers\Tools\VisitorMenuDataGet;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
+use App\Http\Controllers\Api\Readings\ReadingCreateController;
 
 class NewsDetailPageController extends Controller
 {
@@ -24,11 +25,13 @@ class NewsDetailPageController extends Controller
 
         $newsNo = NewsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first()->no;
 
-        $data["newsDetail"]["data"] = NewsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($newsNo);
+        $data["newsDetail"]["data"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($newsNo);
 
         $data["newsDetail"]["data"]["publish_date"] = UnixTimeToTextDateController::TimeToDate($data["newsDetail"]["data"]["publish_date"]);
         
         $data["newsDetail"]["data"]["category"]["text"] = CategoryGroupToText::single($data["newsDetail"]["data"]["category"]["no"]);
+
+        ReadingCreateController::work($newsNo);
 
         return view("visitor.pages.news_detail")->with("data", $data);
     }

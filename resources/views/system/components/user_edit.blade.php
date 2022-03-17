@@ -1,12 +1,12 @@
-<div class="outNewsCreate">
-    <div class="inNewsCreate">
-        <div class="outNewsCreateTitle">
-            <span class="inNewsCreateTitle">
+<div class="outBigForm">
+    <div class="inBigForm">
+        <div class="outBigFormTitle">
+            <span class="inBigFormTitle">
                 Kullanıcı Düzenle
             </span>
         </div>
-        <div class="outNewsCreateForm">
-            <form class="inNewsCreateForm" method="POST">
+        <div class="outBigFormContent">
+            <form class="inBigFormContent" method="POST">
                 <div class="line">
                     <span class="inputLabel">Tam Adı:</span>
                     <div class="outInputText">
