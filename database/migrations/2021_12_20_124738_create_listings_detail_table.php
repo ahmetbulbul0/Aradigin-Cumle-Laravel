@@ -15,8 +15,8 @@ class CreateListingsDetailTable extends Migration
     {
         Schema::create('listings_detail', function (Blueprint $table) {
             $table->id();
-            $table->integer("no");
-            $table->integer("visitor_no");
+            $table->bigInteger("no");
+            $table->bigInteger("visitor_no");
             $table->integer("time");
             $table->integer("news_no");
             $table->timestamps();

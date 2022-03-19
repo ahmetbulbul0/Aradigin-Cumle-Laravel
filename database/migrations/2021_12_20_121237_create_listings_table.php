@@ -15,7 +15,7 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->integer("no");
+            $table->bigInteger("no");
             $table->integer("time_start");
             $table->integer("time_finish");
             $table->integer("news_no");

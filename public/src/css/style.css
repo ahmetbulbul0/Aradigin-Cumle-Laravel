@@ -1374,8 +1374,8 @@ body.light .outNewsDetail .inNewsDetail {
     align-items: center;
 }
 .outNewsDetail .inNewsDetail .header span {
-    font-weight: 300;
-    font-size: 90%;
+    font-weight: 400;
+    font-size: 100%;
 }
 .outNewsDetail .inNewsDetail .header span.category {
     background: linear-gradient(298deg, var(--red), var(--yellow));
