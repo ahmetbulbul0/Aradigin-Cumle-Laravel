@@ -31,6 +31,10 @@ class NewsDetailPageController extends Controller
         
         $data["newsDetail"]["data"]["category"]["text"] = CategoryGroupToText::single($data["newsDetail"]["data"]["category"]["no"]);
 
+        $data["someRecentNews"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($data["newsDetail"]["data"]["category"]["no"], 5);
+        $data["mostReadNews"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescReadingLimit($data["newsDetail"]["data"]["category"]["no"], 5);
+        $data["lessReadNews"] = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByAscReadingLimit($data["newsDetail"]["data"]["category"]["no"], 5);
+
         ReadingCreateController::work($newsNo);
 
         return view("visitor.pages.news_detail")->with("data", $data);

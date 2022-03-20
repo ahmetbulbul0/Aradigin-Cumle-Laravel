@@ -128,9 +128,21 @@ class NewsListController extends Controller
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->get()->toArray() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDate($category)
+    {
+        return NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->count() ? NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->get()->toArray() : NULL;
+    }
     static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($category, $limit)
     {
         return NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->count() ? NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("publish_date", "DESC")->limit($limit)->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescReadingLimit($category, $limit)
+    {
+        return NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->count() ? NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "DESC")->limit($limit)->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByAscReadingLimit($category, $limit)
+    {
+        return NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->limit($limit)->count() ? NewsModel::where(["is_deleted" => false, "category" => $category])->with("author", "category", "resourcePlatform", "resourceUrl")->orderBy("reading", "ASC")->limit($limit)->get()->toArray() : NULL;
     }
     static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
