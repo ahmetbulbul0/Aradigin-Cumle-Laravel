@@ -18,7 +18,7 @@ class CreateVisitorsTable extends Migration
             $table->bigInteger("no");
             $table->string("ip");
             $table->longText("browser");
-            $table->string("last_login_time");
+            $table->integer("last_login_time");
             $table->string("website_theme");
             $table->timestamps();
         });

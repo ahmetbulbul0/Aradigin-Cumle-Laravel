@@ -23,116 +23,6 @@ use App\Models\WritingsModel;
 
 class NoGenerator extends Controller
 {
-    static function generateCategoriesNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = CategoriesModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = CategoriesModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateCategoryGroupsNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = CategoryGroupsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = CategoryGroupsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateCategoryTypesNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = CategoryTypesModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = CategoryTypesModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateCategoryGroupUrlsNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = CategoryGroupUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = CategoryGroupUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateListingsDetailNo() // length: 16
-    {
-        $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ListingsDetailModel::where(['no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ListingsDetailModel::where(['no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateListingsNo() // length: 16
-    {
-        $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ListingsModel::where(['no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ListingsModel::where(['no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateNewsNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = NewsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = NewsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateReadingsDetailNo() // length: 16
-    {
-        $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateReadingsNo() // length: 16
-    {
-        $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = ReadingsModel::where(['no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = ReadingsModel::where(['no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateResourcePlatformsNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = ResourcePlatformsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = ResourcePlatformsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
-    static function generateResourceUrlsNo() // length: 6
-    {
-        $no = rand(100000, 999999);
-        $noCheck = ResourceUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        while ($noCheck == 1) {
-            $no = rand(100000, 999999);
-            $noCheck = ResourceUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
-        }
-        return $no;
-    }
     static function generateUsersNo() // length: 6
     {
         $no = rand(100000, 999999);
@@ -153,6 +43,106 @@ class NoGenerator extends Controller
         }
         return $no;
     }
+    static function generateNewsNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = NewsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = NewsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateCategoriesNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = CategoriesModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = CategoriesModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateCategoryGroupsNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = CategoryGroupsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = CategoryGroupsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateResourcePlatformsNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = ResourcePlatformsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = ResourcePlatformsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateListingsNo() // length: 16
+    {
+        $no = rand(1000000000000000, 9999999999999999);
+        $noCheck = ListingsModel::where(['no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(1000000000000000, 9999999999999999);
+            $noCheck = ListingsModel::where(['no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateReadingsNo() // length: 16
+    {
+        $no = rand(1000000000000000, 9999999999999999);
+        $noCheck = ReadingsModel::where(['no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(1000000000000000, 9999999999999999);
+            $noCheck = ReadingsModel::where(['no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateWritingsNo() // length: 16
+    {
+        $no = rand(1000000000000000, 9999999999999999);
+        $noCheck = WritingsModel::where(['no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(1000000000000000, 9999999999999999);
+            $noCheck = WritingsModel::where(['no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateCategoryTypesNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = CategoryTypesModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = CategoryTypesModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateListingsDetailNo() // length: 16
+    {
+        $no = rand(1000000000000000, 9999999999999999);
+        $noCheck = ListingsDetailModel::where(['no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(1000000000000000, 9999999999999999);
+            $noCheck = ListingsDetailModel::where(['no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateReadingsDetailNo() // length: 16
+    {
+        $no = rand(1000000000000000, 9999999999999999);
+        $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(1000000000000000, 9999999999999999);
+            $noCheck = ReadingsDetailModel::where(['no' => $no])->count();
+        }
+        return $no;
+    }
     static function generateVisitorsNo() // length: 16
     {
         $no = rand(1000000000000000, 9999999999999999);
@@ -163,13 +153,23 @@ class NoGenerator extends Controller
         }
         return $no;
     }
-    static function generateWritingsNo() // length: 16
+    static function generateResourceUrlsNo() // length: 6
     {
-        $no = rand(1000000000000000, 9999999999999999);
-        $noCheck = WritingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        $no = rand(100000, 999999);
+        $noCheck = ResourceUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
         while ($noCheck == 1) {
-            $no = rand(1000000000000000, 9999999999999999);
-            $noCheck = WritingsModel::where(["is_deleted" => false, 'no' => $no])->count();
+            $no = rand(100000, 999999);
+            $noCheck = ResourceUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        }
+        return $no;
+    }
+    static function generateCategoryGroupUrlsNo() // length: 6
+    {
+        $no = rand(100000, 999999);
+        $noCheck = CategoryGroupUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
+        while ($noCheck == 1) {
+            $no = rand(100000, 999999);
+            $noCheck = CategoryGroupUrlsModel::where(["is_deleted" => false, 'no' => $no])->count();
         }
         return $no;
     }
