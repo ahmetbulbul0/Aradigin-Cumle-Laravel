@@ -2856,7 +2856,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 50px;
+    padding: 50px;
     min-height: 100vh;
 }
 .outWebSiteSetup .inWebSiteSetup {
@@ -3039,7 +3039,7 @@ body.light .outDbList .inDbList .dbList .line div.actions span a i {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 .outWebSiteSetup .inWebSiteSetup .outAction .inAction {
     width: 100%;

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\Api\Users\UsersListController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
@@ -22,6 +23,9 @@ class isTheWebSiteNotSetup
      */
     public function handle(Request $request, Closure $next)
     {
+        if (Route::is('website_setup_stage4')) {
+            return $next($request);
+        }
         if (!Schema::hasTable("categories")) {
             return $next($request);
         }
@@ -110,6 +114,6 @@ class isTheWebSiteNotSetup
             return $next($request);
         }
 
-        return redirect(route("anasayfa"));
+        return response()->view('errors.404');
     }
 }
