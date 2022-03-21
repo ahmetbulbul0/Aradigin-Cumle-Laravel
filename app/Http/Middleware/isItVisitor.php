@@ -24,35 +24,45 @@ class isItVisitor
             return response()->view('errors.403');
         }
 
-        if (Session::get("userData")) {
+        if (Session::get("userData") || Session::get("visitorData")) {
             return $next($request);
         }
 
-        if (!Session::get("visitorData")) {
-            $visitorIp = $request->ip();
-            $visitorBrowser = $request->header('User-Agent');
+        $visitor = [
+            "ip" => $request->ip(),
+            "browser" => $request->header('User-Agent'),
+            "lastLoginTime" => time()
+        ];
+        
 
-            if (VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->count()) {
-                VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->update(["last_login_time" => time()]);
-                $visitorData = VisitorsModel::where(["ip" => $visitorIp, "browser" => $visitorBrowser])->first();
-                $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
-                Session::put("visitorData", $visitorData);
-                return $next($request);
-            }
+        if (VisitorsModel::where(["ip" => $visitor["ip"], "browser" => $visitor["browser"]])->count()) {
 
-            $visitorNo = NoGenerator::generateVisitorsNo();
-            VisitorsModel::create([
-                "no" => $visitorNo,
-                "ip" => $visitorIp,
-                "browser" => $visitorBrowser,
-                "last_login_time" => time(),
-                "website_theme" => "dark"
-            ]);
-            $visitorData = VisitorsModel::where("no", $visitorNo)->first();
+            VisitorsModel::where(["ip" =>  $visitor["ip"], "browser" => $visitor["browser"]])->update(["last_login_time" => $visitor["lastLoginTime"]]);
+
+            $visitorData = VisitorsModel::where(["ip" => $visitor["ip"], "browser" => $visitor["browser"]])->first();
+
             $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
+
             Session::put("visitorData", $visitorData);
+
             return $next($request);
         }
+
+        $visitor["no"] = NoGenerator::generateVisitorsNo();
+
+        VisitorsModel::create([
+            "no" => $visitor["no"],
+            "ip" => $visitor["ip"],
+            "browser" => $visitor["browser"],
+            "last_login_time" => $visitor["lastLoginTime"],
+            "website_theme" => "dark"
+        ]);
+
+        $visitorData = VisitorsModel::where("no", $visitor["no"])->first();
+
+        $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
+
+        Session::put("visitorData", $visitorData);
 
         return $next($request);
     }

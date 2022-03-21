@@ -15,7 +15,7 @@ class CreateWritingsTable extends Migration
     {
         Schema::create('writings', function (Blueprint $table) {
             $table->id();
-            $table->integer("no");
+            $table->bigInteger("no");
             $table->integer("time_start");
             $table->integer("time_finish");
             $table->integer("number");

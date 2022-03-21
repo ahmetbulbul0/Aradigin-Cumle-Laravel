@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\VisitorsModel;
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\VisitorsModel;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 
 class visitorDataCheck
 {
@@ -19,7 +20,7 @@ class visitorDataCheck
     public function handle(Request $request, Closure $next)
     {
         if (Session::get("userData")) {
-            return $next($request);
+            return $next($request); 
         }
 
         if (!Session::get("visitorData")) {
@@ -27,6 +28,7 @@ class visitorDataCheck
         }
 
         if (Session::get("visitorData")) {
+
             $visitorNo = Session::get("visitorData.no");
 
             if (!VisitorsModel::where("no", $visitorNo)->count()) {
@@ -35,6 +37,8 @@ class visitorDataCheck
             }
 
             $visitorData = VisitorsModel::where("no", $visitorNo)->first();
+
+            $visitorData["last_login_time"] = UnixTimeToTextDateController::TimeToDate($visitorData["last_login_time"]);
 
             Session::put('visitorData', $visitorData);
         }

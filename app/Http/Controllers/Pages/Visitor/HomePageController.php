@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use Illuminate\Support\Facades\Session;
 
 class HomePageController extends Controller
 {
@@ -31,7 +32,7 @@ class HomePageController extends Controller
             $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
             $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["bigList"]["data"]);
         }
-        
+
         return view("visitor.pages.home")->with("data", $data);
     }
     public function Small2ListOne()

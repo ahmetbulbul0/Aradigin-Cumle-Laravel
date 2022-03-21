@@ -16,7 +16,7 @@ class CreateUsersSettingsTable extends Migration
         Schema::create('users_settings', function (Blueprint $table) {
             $table->id();
             $table->integer("no");
-            $table->string("user_no");
+            $table->integer("user_no");
             $table->string("website_theme")->nullable();
             $table->string("dashboard_theme")->nullable();
             $table->boolean("is_deleted")->default(false);
