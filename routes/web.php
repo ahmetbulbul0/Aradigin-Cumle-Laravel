@@ -60,6 +60,8 @@ use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
+use App\Http\Controllers\Pages\Visitor\AllNewsListingsCheckPageController;
+use App\Http\Controllers\Pages\Visitor\AllNewsReadingsCheckPageController;
 use App\Http\Controllers\Pages\Visitor\VisitorChangeWebSiteThemePageController;
 
 Route::prefix("/kurulum")->controller(WebSiteSetupPageController::class)->group(function () {
