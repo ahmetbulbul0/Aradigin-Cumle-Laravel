@@ -47,7 +47,7 @@ class UserSettingDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $userData = UsersListController::getFirstDataWithSettingsOnlyNotDeleted($no);
+        $userData = UsersListController::getFirstDataOnlyNotDeletedDatasWhereSettings($no);
         if ($userData) {
             $dataForUserDelete["data"]["no"] = $userData["no"];
             UserDeleteController::get($dataForUserDelete);

@@ -15,8 +15,8 @@ class NewsEditPageController extends Controller
     public function index($no, $data = NULL)
     {
         $data["page_title"] = "Haber Düzenle";
-        $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
-        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();;
+        $data["categoryGroups"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
+        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscName();;
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
             $data["data"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($data["data"]["no"]);

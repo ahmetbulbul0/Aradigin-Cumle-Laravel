@@ -12,7 +12,7 @@ class UserCreatePageController extends Controller
     public function index($data = NULL)
     {
         $data["page_title"] = "Kullanıcı Ekle";
-        $data["userTypes"] = UserTypesListController::getAllOnlyNotDeleted();
+        $data["userTypes"] = UserTypesListController::getAllDataOnlyNotDeletedDatas();
         return view("system.pages.user_create")->with("data", $data);
     }
     public function form(Request $request)

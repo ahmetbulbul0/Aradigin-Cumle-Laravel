@@ -19,7 +19,7 @@ class UserTypeEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["data"] = UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

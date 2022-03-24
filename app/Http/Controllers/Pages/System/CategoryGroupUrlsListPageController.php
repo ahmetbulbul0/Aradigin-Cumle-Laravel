@@ -13,7 +13,7 @@ class CategoryGroupUrlsListPageController extends Controller
     {
         $data["page_title"] = "Kategori Grup Link Metinleri";
         if (!isset($data["data"])) {
-            $data["data"] = CategoryGroupUrlsListController::getAllOnlyNotDeletedAllRelationShips();
+            $data["data"] = CategoryGroupUrlsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
             for ($i = 0; $i < count($data["data"]); $i++) {
                 $data["data"][$i]["group_no"] = CategoryGroupToText::single($data["data"][$i]["group_no"]);
             }

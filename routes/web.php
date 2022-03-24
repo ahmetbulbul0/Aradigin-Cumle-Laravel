@@ -13,11 +13,14 @@ use App\Http\Controllers\Pages\Author\NewsCreatePageController;
 use App\Http\Controllers\Pages\System\NewsDeletePageController;
 use App\Http\Controllers\Pages\System\UserCreatePageController;
 use App\Http\Controllers\Pages\System\UserDeletePageController;
+use App\Http\Controllers\Pages\System\VisitorBanPageController;
 use App\Http\Controllers\Pages\Visitor\NewsDetailPageController;
 use App\Http\Controllers\Pages\Author\MyNewsDeletePageController;
 use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
 use App\Http\Controllers\Pages\System\CategoryEditPageController;
 use App\Http\Controllers\Pages\System\UserTypeEditPageController;
+use App\Http\Controllers\Pages\System\VisitorsListPageController;
+use App\Http\Controllers\Pages\System\VisitorUnBanPageController;
 use App\Http\Controllers\Pages\System\UserTypesListPageController;
 use App\Http\Controllers\Pages\Author\AuthorSettingsPageController;
 use App\Http\Controllers\Pages\System\CategoriesListPageController;
@@ -35,6 +38,7 @@ use App\Http\Controllers\Pages\System\UserSettingEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticsPageController;
 use App\Http\Controllers\Pages\System\CategoryTypeEditPageController;
 use App\Http\Controllers\Pages\System\ResourceUrlsListPageController;
+use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 use App\Http\Controllers\Pages\Visitor\VisitorNewsListPageController;
 use App\Http\Controllers\Pages\System\CategoryGroupEditPageController;
 use App\Http\Controllers\Pages\System\CategoryTypesListPageController;
@@ -56,7 +60,6 @@ use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformDeletePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsDeletePageController;
-use App\Http\Controllers\Pages\System\UserSettingsListPageController;
 use App\Http\Controllers\Pages\Visitor\VisitorChangeWebSiteThemePageController;
 
 Route::prefix("/kurulum")->controller(WebSiteSetupPageController::class)->group(function () {
@@ -344,6 +347,18 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/writeTimeAZ", "writeTimeAZ")->name("haberler_writeTimeAZ");
                     Route::get("/writeTimeZA", "writeTimeZA")->name("haberler_writeTimeZA");
                 });
+            // ZİYARETÇİLER LİSTESİ
+                Route::get("/ziyaretciler", [VisitorsListPageController::class, "index"])->name("ziyaretciler");
+            // ZİYARETÇİ YASAKLA
+                Route::prefix("/ziyaretci/yasakla/{no}")->controller(VisitorBanPageController::class)->group(function () {
+                    Route::get("/", "index")->name("ziyaretci_yasakla");
+                    Route::post("/", "form");
+                });
+            // ZİYARETÇİ YASAKLA
+                Route::prefix("/ziyaretci/yasak-kaldir/{no}")->controller(VisitorUnBanPageController::class)->group(function () {
+                    Route::get("/", "index")->name("ziyaretci_yasak_kaldir");
+                    Route::post("/", "form");
+                });
             // HABER İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberler/istatistikleri")->group(function () {
                     // HABER İSTATİSTİKLERİ "TODO"
@@ -351,17 +366,22 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     // HABER İSTATİSTİKLERİ ZAMANA GÖRE "TODO"
                         Route::get("/zaman", [NewsStatisticTimePageController::class, "index"]);
                     // HABER İSTATİSTİKLERİ DETAY "TODO"
-                        Route::get("/detay", [NewsStatisticDetailPageController::class, "index"]);
+                        Route::get("/detay/{no}", [NewsStatisticDetailPageController::class, "index"])->name("haber_istatistikleri_detay");
                 });
             // SİSTEM PANELİ AYARLAR
                 Route::prefix("/ayarlar")->controller(SystemSettingsPageController::class)->group(function () {
-                    // YAZAR PANELİ AYARLAR TEMA
+                    // YAZAR PANELİ AYARLAR
                         Route::prefix("/ayarlar")->controller(SystemSettingsPageController::class)->group(function () {
                             // SİSTEM PANELİ AYARLAR SABİTLER
-                            Route::prefix("/sabitler")->group(function () {
-                                Route::get("/", "constants")->name("ayarlar_sabitler");
-                                Route::post("/", "constantsForm");
-                            });
+                                Route::prefix("/sabitler")->group(function () {
+                                    Route::get("/", "constants")->name("ayarlar_sabitler");
+                                    Route::post("/", "constantsForm");
+                                });
+                            // SİSTEM PANELİ AYARLAR PROFİLİM
+                                Route::prefix("/profilim")->group(function () {
+                                    Route::get("/", "myAccount")->name("sistem_paneli_ayarlar_profilim");
+                                    Route::post("/", "myAccountForm");
+                                });
                             // SİSTEM PANELİ AYARLAR TEMA
                                 Route::prefix("/tema")->group(function () {
                                     Route::get("/", "theme")->name("sistem_paneli_ayarlar_tema");

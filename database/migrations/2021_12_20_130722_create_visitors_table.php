@@ -20,6 +20,7 @@ class CreateVisitorsTable extends Migration
             $table->longText("browser");
             $table->integer("last_login_time");
             $table->string("website_theme");
+            $table->boolean("is_banned")->default(false);
             $table->timestamps();
         });
     }

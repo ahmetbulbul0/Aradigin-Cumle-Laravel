@@ -27,11 +27,11 @@ class UserSettingCreateController extends Controller
             $data["errors"]["user_no"] = "Kullanıcı No Alanı Zorunludur";
         }
 
-        if (isset($userNo) && !empty($userNo) && !UsersListController::getFirstDataWithNoOnlyNotDeleted($userNo)) {
+        if (isset($userNo) && !empty($userNo) && !UsersListController::getFirstDataOnlyNotDeletedDatasWhereNo($userNo)) {
             $data["errors"]["user_no"] = "Geçersiz Kullanıcı";
         }
 
-        if (isset($userNo) && !empty($userNo) && UserSettingsListController::getFirstDataWithUserNoOnlyNotDeletedAllRelationships($userNo)) {
+        if (isset($userNo) && !empty($userNo) && UserSettingsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereUserNo($userNo)) {
             $data["errors"]["user_no"] = "Bu Kullanıcının Zaten Bir Kullanıcı Ayar Kaydı Var";
         }
 
@@ -55,7 +55,7 @@ class UserSettingCreateController extends Controller
             "dashboard_theme" => $dashboardTheme
         ]);
 
-        $data["createdData"] = UserSettingsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["createdData"] = UserSettingsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
 
         return $data;
     }

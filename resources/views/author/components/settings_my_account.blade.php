@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="inSettingsMenu">
-                <div class="outSettingsMenuItem">
+                <div class="outSettingsMenuItem active">
                     <a href="{{ route('yazar_paneli_ayarlar_profilim') }}" class="inSettingsMenuItem">Profilim</a>
                 </div>
                 <div class="outSettingsMenuItem">

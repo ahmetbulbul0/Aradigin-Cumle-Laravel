@@ -74,43 +74,43 @@ class isTheWebSiteNotSetup
         if (!Schema::hasTable("writings")) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getUserTypeSystemOnlyNotDeleted()) || !UserTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getUserTypeSystemOnlyNotDeleted())) {
+        if (empty(ConstantsListController::getUserTypeSystemOnlyNotDeleted()) || !UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getUserTypeSystemOnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getUserTypeAuthorOnlyNotDeleted()) || !UserTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getUserTypeAuthorOnlyNotDeleted())) {
+        if (empty(ConstantsListController::getUserTypeAuthorOnlyNotDeleted()) || !UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getUserTypeAuthorOnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getCategoryTypeMainOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getCategoryTypeMainOnlyNotDeleted())) {
+        if (empty(ConstantsListController::getCategoryTypeMainOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getCategoryTypeMainOnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getCategoryTypeSubOnlyNotDeleted())) {
+        if (empty(ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) || !CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getCategoryTypeSubOnlyNotDeleted())) {
             return $next($request);
         }
-        if (!UsersListController::getFirstDataOnlyNotDeletedOnlyTypeSystemAllRelationships()) {
+        if (!UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereTypeSystem()) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted())) {
             return $next($request);
         }
-        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted())) {
+        if (empty(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted()) || !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted())) {
             return $next($request);
         }
 

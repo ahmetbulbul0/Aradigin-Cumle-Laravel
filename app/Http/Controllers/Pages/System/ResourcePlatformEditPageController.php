@@ -19,7 +19,7 @@ class ResourcePlatformEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["data"] = ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

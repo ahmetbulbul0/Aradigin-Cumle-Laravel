@@ -13,7 +13,7 @@ class ResourcePlatformDeletePageController extends Controller
     {
         $data["page_title"] = "Kaynak Site Sil";
         $data["basic_text"] = "kaynak siteyi";
-        $itemData = ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $itemData = ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

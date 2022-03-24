@@ -17,8 +17,8 @@ class NewsCreatePageController extends Controller
     public function index($data = NULL)
     {
         $data["page_title"] = "Haber Ekle";
-        $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
-        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();
+        $data["categoryGroups"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMainSub1Sub2Sub3Sub4Sub5();
+        $data["resourcePlatforms"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscName();
         return view("author.pages.news_create")->with("data", $data);
     }
     public function form(Request $request)

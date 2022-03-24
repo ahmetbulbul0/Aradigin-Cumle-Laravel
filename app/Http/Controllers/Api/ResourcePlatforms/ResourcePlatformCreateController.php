@@ -37,15 +37,15 @@ class ResourcePlatformCreateController extends Controller
             $data["errors"]["mainUrl"] = "Kaynak Platform Site Linki Alanı Zorunludur";
         }
 
-        if (isset($name) && !empty($name) && ResourcePlatformsListController::getFirstDataWithNameOnlyNotDeleted($name)) {
+        if (isset($name) && !empty($name) && ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereName($name)) {
             $data["errors"]["name"] = "[$name] Bu Kaynak Platform İsmi Daha Önceden Kullanılmış";
         }
 
-        if (isset($mainUrl) && !empty($mainUrl) && ResourcePlatformsListController::getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)) {
+        if (isset($mainUrl) && !empty($mainUrl) && ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereMainUrl($mainUrl)) {
             $data["errors"]["mainUrl"] = "[$mainUrl] Bu Kaynak Platform Site Linki Daha Önceden Kullanılmış";
         }
 
-        if (ResourcePlatformsListController::getFirstDataWithNameOnlyNotDeleted($name) && ResourcePlatformsListController::getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)) {
+        if (ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereName($name) && ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereMainUrl($mainUrl)) {
             unset($data["errors"]["name"]);
             unset($data["errors"]["mainUrl"]);
             $data["errors"]["resourcePlatform"] = "[$name - $mainUrl] Bu Kaynak Adı - Site Linki İkilisi Zaten Mevcut";
@@ -70,7 +70,7 @@ class ResourcePlatformCreateController extends Controller
             "link_url" => LinkUrlGenerator::single($name)
         ]);
 
-        $data["createdData"] = ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["createdData"] = ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         return $data;
     }
 }

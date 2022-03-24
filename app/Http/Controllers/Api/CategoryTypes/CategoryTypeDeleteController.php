@@ -47,7 +47,7 @@ class CategoryTypeDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $editedCategories = CategoriesListController::getAllOnlyNotDeletedWithCategoryType($no);
+        $editedCategories = CategoriesListController::getAllDataOnlyNotDeletedDatasWhereType($no);
         if ($editedCategories) {
             foreach ($editedCategories as $editedCategory) {
                 $data["data"]["no"] = $editedCategory["no"];

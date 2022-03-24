@@ -13,8 +13,8 @@ class CategoryEditPageController extends Controller
     public function index($no, $data = NULL)
     {
         $data["page_title"] = "Kategori Düzenle";
-        $data["categoryTypes"] = CategoryTypesListController::getAllOnlyNotDeleted();
-        $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
+        $data["categoryTypes"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatas();
+        $data["categories"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationships();
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
             return view("system.pages.category_edit")->with("data", $data);
@@ -22,7 +22,7 @@ class CategoryEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["data"] = CategoriesListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

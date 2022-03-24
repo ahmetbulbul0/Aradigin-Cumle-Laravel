@@ -14,16 +14,16 @@ class CategoryGroupEditPageController extends Controller
     {
         $data["page_title"] = "Kategori Grubu Düzenle";
 
-        $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
+        $data["categories"] = CategoriesListController::getAllDataAllRelationships();
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
-            $data["data"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($data["data"]["no"]);
+            $data["data"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($data["data"]["no"]);
             return view("system.pages.category_group_edit")->with("data", $data);
         }
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["data"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
 
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
@@ -86,7 +86,7 @@ class CategoryGroupEditPageController extends Controller
             ],
         ];
 
-        $data["data"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($data["data"]["no"]);
+        $data["data"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($data["data"]["no"]);
 
         return $this->index(NULL, $edited);
     }

@@ -4,47 +4,47 @@
             <div class="inNewsDetailAndGraph">
                 <div class="outNewsDetail">
                     <div class="outTitle">
-                        <span class="inTitle">
+                        <span class="inTitle">,
                             Haber Detay
                         </span>
                     </div>
                     <div class="inNewsDetail">
                         <div class="line">
                             <label>No:</label>
-                            <span id="darkLight">#946821</span>
+                            <span id="darkLight">#{{ $data['news']['no'] }}</span>
                         </div>
                         <div class="line">
                             <label>Yazar:</label>
-                            <span id="gradient">guaypayy (Ahmet Bülbül)</span>
+                            <span id="gradient">{{ $data['news']['author']['username'] }}
+                                ({{ Str::title($data['news']['author']['full_name']) }})</span>
                         </div>
                         <div class="line">
                             <label>Yayınlanma:</label>
-                            <span id="darkLight">21.12.2021 - 15.48</span>
+                            <span id="darkLight">{{ $data['news']['publish_date']['text'] }}</span>
                         </div>
                         <div class="line">
                             <label>Kategori:</label>
-                            <span id="gradient">ekonomi</span>
+                            <span id="gradient">{{ $data['news']['category']['text'] }}</span>
                         </div>
                         <div class="line" id="bgDarkLight">
                             <label>İçerik:</label>
-                            <span id="thin">Nulla anim fugiat ullamco nostrud labore mollit et. Reprehenderit commodo
-                                consectetur dolore ex velit ea ullamco esse aliquip ex amet et laborum deserunt. Ea anim
-                                aliqua magna dolore tempor adipisicing sint consequat do ea laborum. Ea sint sunt
-                                incididunt anim irure nostrud. Ea sint eiusmod nulla culpa qui reprehenderit sit mollit
-                                consectetur. Veniam officia in officia cupidatat do quis irure eu eu. Ad eiusmod ipsum
-                                veniam ullamco Lorem.</span>
+                            <span id="thin">{{ $data['news']['content'] }}</span>
                         </div>
                         <div class="line">
-                            <label>Kaynak:</label>
-                            <span id="darkLight">CNN Türk</span>
+                            <label>Kaynak Platform:</label>
+                            <span id="darkLight">{{ $data['news']['resource_platform']['name'] }}</span>
+                        </div>
+                        <div class="line">
+                            <label>Kaynak Link:</label>
+                            <span id="darkLight">{{ $data['news']['resource_url']['url'] }}</span>
                         </div>
                         <div class="line">
                             <label>Toplam Listelenme:</label>
-                            <span id="gradient">52.874</span>
+                            <span id="gradient">{{ $data['news']['listing'] }}</span>
                         </div>
                         <div class="line">
                             <label>Toplam Okunma:</label>
-                            <span id="gradient">34.567</span>
+                            <span id="gradient">{{ $data['news']['reading'] }}</span>
                         </div>
                     </div>
                 </div>
@@ -159,156 +159,40 @@
                             </div>
                         </div>
                     </div>
-                    <div class="line">
-                        <div class="bar">
-                            <div class="date">
-                                <label>Tarih:</label>
-                                <span>07.12.2021</span>
+                    @isset ($data['news_statistics'])
+                        @foreach ($data['news_statistics'] as $newsStatistic)
+                            <div class="line">
+                                <div class="bar">
+                                    <div class="date">
+                                        <label>Tarih:</label>
+                                        <span>{{ $newsStatistic['date'] }}</span>
+                                    </div>
+                                    <div class="dateStart">
+                                        <label>Başlangıç:</label>
+                                        <span>{{ $newsStatistic['time_start'] }}</span>
+                                    </div>
+                                    <div class="dateFinish">
+                                        <label>Bitiş:</label>
+                                        <span>{{ $newsStatistic['time_finish'] }}</span>
+                                    </div>
+                                </div>
+                                <div class="bar">
+                                    <div class="listinng">
+                                        <label>Listelenme:</label>
+                                        <span>{{ $newsStatistic['listings'] }}</span>
+                                    </div>
+                                    <div class="reading">
+                                        <label>Okunma:</label>
+                                        <span>{{ $newsStatistic['readings'] }}</span>
+                                    </div>
+                                    <div class="listingReadingRate">
+                                        <label>Listelenme/Okunma Oranı:</label>
+                                        <span>{{ $newsStatistic['ratio'] }}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dateStart">
-                                <label>Başlangıç:</label>
-                                <span>15:00</span>
-                            </div>
-                            <div class="dateFinish">
-                                <label>Bitiş:</label>
-                                <span>16:00</span>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="listinng">
-                                <label>Listelenme:</label>
-                                <span>284</span>
-                            </div>
-                            <div class="reading">
-                                <label>Okunma:</label>
-                                <span>142</span>
-                            </div>
-                            <div class="listingReadingRate">
-                                <label>Listelenme/Okunma Oranı:</label>
-                                <span>0.5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="bar">
-                            <div class="date">
-                                <label>Tarih:</label>
-                                <span>07.12.2021</span>
-                            </div>
-                            <div class="dateStart">
-                                <label>Başlangıç:</label>
-                                <span>15:00</span>
-                            </div>
-                            <div class="dateFinish">
-                                <label>Bitiş:</label>
-                                <span>16:00</span>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="listinng">
-                                <label>Listelenme:</label>
-                                <span>284</span>
-                            </div>
-                            <div class="reading">
-                                <label>Okunma:</label>
-                                <span>142</span>
-                            </div>
-                            <div class="listingReadingRate">
-                                <label>Listelenme/Okunma Oranı:</label>
-                                <span>0.5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="bar">
-                            <div class="date">
-                                <label>Tarih:</label>
-                                <span>07.12.2021</span>
-                            </div>
-                            <div class="dateStart">
-                                <label>Başlangıç:</label>
-                                <span>15:00</span>
-                            </div>
-                            <div class="dateFinish">
-                                <label>Bitiş:</label>
-                                <span>16:00</span>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="listinng">
-                                <label>Listelenme:</label>
-                                <span>284</span>
-                            </div>
-                            <div class="reading">
-                                <label>Okunma:</label>
-                                <span>142</span>
-                            </div>
-                            <div class="listingReadingRate">
-                                <label>Listelenme/Okunma Oranı:</label>
-                                <span>0.5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="bar">
-                            <div class="date">
-                                <label>Tarih:</label>
-                                <span>07.12.2021</span>
-                            </div>
-                            <div class="dateStart">
-                                <label>Başlangıç:</label>
-                                <span>15:00</span>
-                            </div>
-                            <div class="dateFinish">
-                                <label>Bitiş:</label>
-                                <span>16:00</span>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="listinng">
-                                <label>Listelenme:</label>
-                                <span>284</span>
-                            </div>
-                            <div class="reading">
-                                <label>Okunma:</label>
-                                <span>142</span>
-                            </div>
-                            <div class="listingReadingRate">
-                                <label>Listelenme/Okunma Oranı:</label>
-                                <span>0.5</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line">
-                        <div class="bar">
-                            <div class="date">
-                                <label>Tarih:</label>
-                                <span>07.12.2021</span>
-                            </div>
-                            <div class="dateStart">
-                                <label>Başlangıç:</label>
-                                <span>15:00</span>
-                            </div>
-                            <div class="dateFinish">
-                                <label>Bitiş:</label>
-                                <span>16:00</span>
-                            </div>
-                        </div>
-                        <div class="bar">
-                            <div class="listinng">
-                                <label>Listelenme:</label>
-                                <span>284</span>
-                            </div>
-                            <div class="reading">
-                                <label>Okunma:</label>
-                                <span>142</span>
-                            </div>
-                            <div class="listingReadingRate">
-                                <label>Listelenme/Okunma Oranı:</label>
-                                <span>0.5</span>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endisset
                 </div>
             </div>
         </div>

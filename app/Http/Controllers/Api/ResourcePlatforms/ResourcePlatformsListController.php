@@ -4,60 +4,59 @@ namespace App\Http\Controllers\Api\ResourcePlatforms;
 
 use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
-use Illuminate\Http\Request;
 
 class ResourcePlatformsListController extends Controller
 {
-    static function getAll()
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::get();
+        return ResourcePlatformsModel::count() ? ResourcePlatformsModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataOnlyNotDeletedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->count() ? ResourcePlatformsModel::where("is_deleted", false)->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescNo()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "DESC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "DESC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscNo()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "ASC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "ASC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("no", "ASC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescName()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "DESC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "DESC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscName()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "ASC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "ASC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("name", "ASC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscWebsiteLink()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescMainUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "ASC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "DESC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescWebsiteLink()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscMainUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "DESC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "ASC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("main_url", "ASC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "ASC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "DESC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "DESC")->get();
+        return ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "ASC")->count() ? ResourcePlatformsModel::where("is_deleted", false)->orderBy("link_url", "ASC")->get() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+        return ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->count() ? ResourcePlatformsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
-    static function getFirstDataWithNameOnlyNotDeleted($name)
+    static function getFirstDataOnlyNotDeletedDatasWhereName($name) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
+        return ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->count() ? ResourcePlatformsModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
-    static function getFirstDataWithMainUrlOnlyNotDeleted($mainUrl)
+    static function getFirstDataOnlyNotDeletedDatasWhereMainUrl($mainUrl) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->first() ? ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->first() : NULL;
+        return ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->count() ? ResourcePlatformsModel::where(["is_deleted" => false, "main_url" => "$mainUrl"])->first() : NULL;
     }
 }

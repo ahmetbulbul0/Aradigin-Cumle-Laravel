@@ -12,7 +12,7 @@ class UsersListPageController extends Controller
     {
         $data["page_title"] = "Kullanıcılar";
         if (!isset($data["data"])) {
-            $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationships();
+            $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         return view("system.pages.users_list")->with("data", $data);
     }
@@ -52,42 +52,42 @@ class UsersListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscNo();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescNo();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo();
         return $this->index($data);
     }
     public function fullNameAZ()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscFullName();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscFullName();
         return $this->index($data);
     }
     public function fullNameZA()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescFullName();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescFullName();
         return $this->index($data);
     }
     public function usernameAZ()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscUsername();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscUsername();
         return $this->index($data);
     }
     public function usernameZA()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescUsername();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescUsername();
         return $this->index($data);
     }
     public function typeAZ()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByAscType();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscType();
         return $this->index($data);
     }
     public function typeZA()
     {
-        $data["data"] = UsersListController::getAllOnlyNotDeletedAllRelationshipsOrderByDescType();
+        $data["data"] = UsersListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescType();
         return $this->index($data);
     }
 }

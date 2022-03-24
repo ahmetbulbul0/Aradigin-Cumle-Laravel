@@ -1,7 +1,7 @@
 <div class="outDeleteConfirm">
     <div class="inDeleteConfirm">
         <div class="header">
-            <span>Silme İşlemini Onayla</span>
+            <span>{{ Str::title($data["action_name"]) ?? "Silme" }} İşlemini Onayla</span>
         </div>
         <div class="body">
             <div class="outItemDetail">
@@ -20,14 +20,14 @@
             </div>
             <div class="outBasictext">
                 <div class="inBasicText">
-                    yukarıda bilgileri verilen {{ $data['basic_text'] }} silme işlemini onaylıyormusunuz?
+                    yukarıda bilgileri verilen {{ $data['basic_text'] }} {{ $data["action_name"] ?? "silme" }} işlemini onaylıyormusunuz?
                 </div>
             </div>
         </div>
         <form class="footer" method="POST">
             @csrf
-            <button name="action" value="approve">Onayla, Sil</button>
-            <button name="action" value="reject">Vazgeçtim, Silme</button>
+            <button name="action" value="approve">Onayla</button>
+            <button name="action" value="reject">Vazgeçtim, İptal Et</button>
         </form>
     </div>
 </div>

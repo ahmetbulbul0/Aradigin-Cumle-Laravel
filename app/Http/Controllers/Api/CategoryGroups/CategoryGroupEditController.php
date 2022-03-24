@@ -120,7 +120,7 @@ class CategoryGroupEditController extends Controller
             "sub5" => $sub5
         ]);
 
-        $data["editedData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["editedData"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         return $data;
     }   
 }

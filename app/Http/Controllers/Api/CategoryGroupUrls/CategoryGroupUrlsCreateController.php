@@ -59,14 +59,14 @@ class CategoryGroupUrlsCreateController extends Controller
     }
     static function linkUrlCreator($groupNo)
     {
-        $groupData = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted($groupNo);
+        $groupData = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupNo);
 
-        $main = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["main"]);
-        $sub1 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub1"]);
-        $sub2 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub2"]);
-        $sub3 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub3"]);
-        $sub4 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub4"]);
-        $sub5 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($groupData["sub5"]);
+        $main = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["main"]);
+        $sub1 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["sub1"]);
+        $sub2 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["sub2"]);
+        $sub3 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["sub3"]);
+        $sub4 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["sub4"]);
+        $sub5 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($groupData["sub5"]);
 
         $linkUrl["main"] = LinkUrlGenerator::single($main["name"]);
 

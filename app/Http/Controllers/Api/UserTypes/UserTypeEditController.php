@@ -50,7 +50,7 @@ class UserTypeEditController extends Controller
             "name" => $name
         ]);
 
-        $data["editedData"] = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["editedData"] = UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         return $data;
     }
 }

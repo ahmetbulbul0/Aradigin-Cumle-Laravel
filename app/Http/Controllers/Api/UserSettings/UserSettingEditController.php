@@ -62,7 +62,7 @@ class UserSettingEditController extends Controller
             "dashboard_theme" => $dashboardTheme
         ]);
 
-        $data["editedData"] = UserSettingsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["editedData"] = UserSettingsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
 
         return $data;
     }

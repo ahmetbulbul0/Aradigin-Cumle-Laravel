@@ -8,110 +8,112 @@ use Illuminate\Http\Request;
 
 class CategoryGroupsListController extends Controller
 {
-    static function getAll()
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::get();
+        return CategoryGroupsModel::count() ? CategoryGroupsModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->get();
+        return CategoryGroupsModel::with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->count() ? CategoryGroupsModel::with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShips()
+    static function getAllDataOnlyNotDeletedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return CategoryGroupsModel::where("is_deleted", false)->count() ? CategoryGroupsModel::where("is_deleted", false)->get() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("no", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescMain()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescMain() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscMain()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMain() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescSub1()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub1() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscSub1()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub1() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub1", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescSub2()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub2() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscSub2()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub2() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub2", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescSub3()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub3() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscSub3()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub3() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub3", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescSub4()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub4() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscSub4()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub4() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub4", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescSub5()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub5() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscSub5()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub5() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("sub5", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescLinkurl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "DESC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "DESC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscLinkurl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "ASC")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "ASC")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("link_url", "ASC")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray() : NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->count() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->first()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->count() ? CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
     }
-    static function getFirstDataWithMainNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasWhereMain($main) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $no])->first();
+        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main])->count() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main])->first() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscMainSub1Sub2Sub3Sub4Sub5()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMainSub1Sub2Sub3Sub4Sub5() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->get()->toArray();
+        return CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->count() ? CategoryGroupsModel::where("is_deleted", false)->with("main", "sub1", "sub2", "sub3", "sub4", "sub5", "linkUrl")->orderBy("main")->orderBy("sub1")->orderBy("sub2")->orderBy("sub3")->orderBy("sub4")->orderBy("sub5")->get()->toArray() : NULL;
     }
-
-    static function getFirstDataWithMainMainSub1Sub2Sub3Sub4Sub5OnlyNotDeleted($main, $sub1, $sub2, $sub3, $sub4, $sub5)
+    static function getFirstDataOnlyNotDeletedDatasWhereMainWhereSub1WhereSub2WhereSub3WhereSub4WhereSub5($main, $sub1, $sub2, $sub3, $sub4, $sub5) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->first() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->count() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
     }
-
-    static function getAllWithCategoryOnlyNotDeleted($category)
+    static function getAllDataOnlyNotDeletedDatasOrWhereCategory($category) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->count() ? CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->get()->toArray() : NULL;
     }
-    static function getFirstDataWithLinkUrlOnlyNotDeleted($linkUrl)
+    static function getFirstDataOnlyNotDeletedDatasWhereLinkUrl($linkUrl) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first() ?  CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first() : NULL;
+        return CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->count() ? CategoryGroupsModel::where(["is_deleted" => false, "link_url" => $linkUrl])->first() : NULL;
     }
 }

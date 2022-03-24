@@ -48,7 +48,7 @@ class UserTypeDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $editedUsers = UsersListController::getAllWithTypeOnlyNotDeleted($no);
+        $editedUsers = UsersListController::getAllDataOnlyNotDeletedDatasWhereType($no);
         if ($editedUsers) {
             foreach ($editedUsers as $editedUser) {
                 $data["data"]["no"] = $editedUser["no"];

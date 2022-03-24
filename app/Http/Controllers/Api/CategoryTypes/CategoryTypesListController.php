@@ -8,36 +8,36 @@ use Illuminate\Http\Request;
 
 class CategoryTypesListController extends Controller
 {
-    static function getAll()
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return CategoryTypesModel::get();
+        return CategoryTypesModel::count() ? CategoryTypesModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataOnlyNotDeletedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
         return CategoryTypesModel::where("is_deleted", false)->count() ? CategoryTypesModel::where("is_deleted", false)->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescNo()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return CategoryTypesModel::where("is_deleted", false)->orderBy("no", "DESC")->get();
+        return CategoryTypesModel::where("is_deleted", false)->orderBy("no", "DESC")->count() ? CategoryTypesModel::where("is_deleted", false)->orderBy("no", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscNo()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return CategoryTypesModel::where("is_deleted", false)->orderBy("no", "ASC")->get();
+        return CategoryTypesModel::where("is_deleted", false)->orderBy("no", "ASC")->count() ? CategoryTypesModel::where("is_deleted", false)->orderBy("no", "ASC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByDescName()
+    static function getAllDataOnlyNotDeletedDatasOrderByDescName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return CategoryTypesModel::where("is_deleted", false)->orderBy("name", "DESC")->get();
+        return CategoryTypesModel::where("is_deleted", false)->orderBy("name", "DESC")->count() ? CategoryTypesModel::where("is_deleted", false)->orderBy("name", "DESC")->get() : NULL;
     }
-    static function getAllOnlyNotDeletedOrderByAscName()
+    static function getAllDataOnlyNotDeletedDatasOrderByAscName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
     {
-        return CategoryTypesModel::where("is_deleted", false)->orderBy("name", "ASC")->get();
+        return CategoryTypesModel::where("is_deleted", false)->orderBy("name", "ASC")->count() ? CategoryTypesModel::where("is_deleted", false)->orderBy("name", "ASC")->get() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+        return CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->count() ? CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
-    static function getFirstDataWithNameOnlyNotDeleted($name)
+    static function getFirstDataOnlyNotDeletedDatasWhereName($name) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoryTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() ? CategoryTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
+        return CategoryTypesModel::where(["is_deleted" => false, "name" => "$name"])->count() ? CategoryTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

@@ -13,7 +13,7 @@ class UserEditPageController extends Controller
     public function index($no, $data = NULL)
     {
         $data["page_title"] = "Kullanıcı Düzenle";
-        $data["userTypes"] = UserTypesListController::getAllOnlyNotDeleted();
+        $data["userTypes"] = UserTypesListController::getAllDataOnlyNotDeletedDatas();
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
             return view("system.pages.user_edit")->with("data", $data);
@@ -21,7 +21,7 @@ class UserEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = UsersListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["data"] = UsersListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

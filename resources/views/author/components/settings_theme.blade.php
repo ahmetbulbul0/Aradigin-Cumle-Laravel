@@ -10,7 +10,7 @@
                 <div class="outSettingsMenuItem">
                     <a href="{{ route("yazar_paneli_ayarlar_profilim") }}" class="inSettingsMenuItem">Profilim</a>
                 </div>
-                <div class="outSettingsMenuItem">
+                <div class="outSettingsMenuItem active">
                     <a href="{{ route("yazar_paneli_ayarlar_tema") }}" class="inSettingsMenuItem">Tema</a>
                 </div>
             </div>

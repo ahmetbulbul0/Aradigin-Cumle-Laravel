@@ -9,76 +9,80 @@ use App\Http\Controllers\Controller;
 
 class CategoriesListController extends Controller
 {
-    static function getAll()
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::get();
+        return CategoriesModel::count() ? CategoriesModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->get();
+        return CategoriesModel::with("type", "mainCategory")->count() ? CategoriesModel::with("type", "mainCategory")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShips()
+    static function getAllDataOnlyNotDeletedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return CategoriesModel::where("is_deleted", false)->count() ? CategoriesModel::where("is_deleted", false)->get() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasWhereType($type)
+    {
+        return CategoriesModel::where(["is_deleted" => false, "type" => $type])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => $type])->get() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasWhereMainCategoryWhereTypeSub($mainCategory)
+    {   
+        return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->get() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "DESC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "DESC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscNo()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "ASC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "ASC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("no", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescName()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "DESC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "DESC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscName()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscName() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "ASC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "ASC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("name", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescType()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescType() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "DESC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "DESC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscType()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscType() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "ASC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "ASC")->get()->toArray() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("type", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescMainCategory()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescMainCategory() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "DESC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "DESC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscMainCategory()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMainCategory() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "ASC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "ASC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("main_category", "ASC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByDescLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "DESC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "DESC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "DESC")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShipsOrderByAscLinkUrl()
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscLinkUrl() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "ASC")->get()->toArray();
+        return CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "ASC")->count() ? CategoriesModel::where("is_deleted", false)->with("type", "mainCategory")->orderBy("link_url", "ASC")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no)
     {
-        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "mainCategory")->first()->toArray();
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "mainCategory")->count() ? CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->with("type", "mainCategory")->first()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no)
     {
-        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() ? CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
+        return CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->count() ? CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
-    static function getFirstDataWithNameOnlyNotDeleted($name)
+    static function getFirstDataOnlyNotDeletedDatasWhereName($name)
     {
-        return CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() ? CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
-    }
-    static function getAllOnlyNotDeletedWithCategoryType($categoryType)
-    {
-        return CategoriesModel::where(["is_deleted" => false, "type" => $categoryType])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => $categoryType])->get() : NULL;
-    }
-    static function getAllOnlyNotDeletedWithMainCategoryTypeSub($mainCategory)
-    {
-        return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->get() : NULL;
+        return CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->count() ? CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

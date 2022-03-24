@@ -70,37 +70,41 @@
                     <span>Detay</span>
                 </div>
             </div>
-            @foreach ($data["news"] as $news)
-                <div class="line">
-                    <div class="no">
-                        <span>#{{ $news["no"] }}</span>
+            @if ($data['news'])
+                @foreach ($data['news'] as $news)
+                    <div class="line">
+                        <div class="no">
+                            <span>#{{ $news['no'] }}</span>
+                        </div>
+                        <div class="writer">
+                            <span>{{ $news['author']['username'] }}</span>
+                        </div>
+                        <div class="publish_date">
+                            <span>{{ $news['publish_date']['text'] }}</span>
+                        </div>
+                        <div class="category">
+                            <span>{{ $news['category']['text'] }}</span>
+                        </div>
+                        <div class="content">
+                            <span>{{ $news['content'] }}</span>
+                        </div>
+                        <div class="resource">
+                            <span>{{ $news['resource_platform']['name'] }}</span>
+                        </div>
+                        <div class="listing">
+                            <span>{{ $news['listing'] }}</span>
+                        </div>
+                        <div class="reading">
+                            <span>{{ $news['reading'] }}</span>
+                        </div>
+                        <div class="detail">
+                            <span>
+                                <a href="{{ route("haber_istatistikleri_detay", [$news["no"]]) }}">Detay</a>
+                            </span>
+                        </div>
                     </div>
-                    <div class="writer">
-                        <span>{{ $news["author"]["username"] }}</span>
-                    </div>
-                    <div class="publish_date">
-                        <span>{{ $news["publish_date"]["text"] }}</span>
-                    </div>
-                    <div class="category">
-                        <span>{{ $news["category"]["text"] }}</span>
-                    </div>
-                    <div class="content">
-                        <span>{{ $news["content"] }}</span>
-                    </div>
-                    <div class="resource">
-                        <span>{{ $news["resource_platform"]["name"] }}</span>
-                    </div>
-                    <div class="listing">
-                        <span>{{ $news["listing"] }}</span>
-                    </div>
-                    <div class="reading">
-                        <span>{{ $news["reading"] }}</span>
-                    </div>
-                    <div class="detail">
-                        <span>Detay</span>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
     </div>
 </div>

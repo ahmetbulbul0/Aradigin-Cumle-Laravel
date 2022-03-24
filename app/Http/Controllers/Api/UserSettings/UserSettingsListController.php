@@ -8,36 +8,36 @@ use Illuminate\Http\Request;
 
 class UserSettingsListController extends Controller
 {
-    static function getAll()
+    static function getAllData()
     {
-        return UsersSettingsModel::get();
+        return UsersSettingsModel::count() ? UsersSettingsModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataAllRelationships()
     {
-        return UsersSettingsModel::where("is_deleted", false)->get();
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationships()
+    static function getAllDataOnlyNotDeletedDatas()
     {
-        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->get()->toArray();
+        return UsersSettingsModel::where("is_deleted", false)->count() ? UsersSettingsModel::where("is_deleted", false)->get() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeletedAllRelationships($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationships()
     {
-        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->with("userNo")->first()->toArray() : NULL;
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithUserNoOnlyNotDeletedAllRelationships($userNo)
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no)
     {
-        return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->with("userNo")->first()->toArray() : NULL;
+        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->with("userNo")->count() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->with("userNo")->first()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDelete($no)
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereUserNo($userNo)
     {
-        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first(): NULL;
+        return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->with("userNo")->count() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->with("userNo")->first()->toArray() : NULL;
     }
-
-
-
-
-    static function getFirstDataWithUserNoOnlyNotDeleted($userNo)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no)
     {
-        return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() : NULL;
+        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->count() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first(): NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasWhereUserNo($userNo)
+    {
+        return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->count() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() : NULL;
     }
 }

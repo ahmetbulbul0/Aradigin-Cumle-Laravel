@@ -11,7 +11,7 @@
             <div class="inList">
                 @isset($data['smallList2One'][0]['data'])
                     @foreach ($data['smallList2One'][0]['data'] as $news)
-                        @php App\Http\Controllers\Api\Listings\ListingCreateController::work($news["no"]); @endphp
+                        @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
                         <div class="item">
                             <div class="content">
                                 <a href="{{ route('haber_detay', [$news['link_url']]) }}">
@@ -37,7 +37,7 @@
             <div class="inList">
                 @isset($data['smallList2One'][1]['data'])
                     @foreach ($data['smallList2One'][1]['data'] as $news)
-                        @php App\Http\Controllers\Api\Listings\ListingCreateController::work($news["no"]); @endphp
+                        @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
                         <div class="item">
                             <div class="content">
                                 <a href="{{ route('haber_detay', [$news['link_url']]) }}">

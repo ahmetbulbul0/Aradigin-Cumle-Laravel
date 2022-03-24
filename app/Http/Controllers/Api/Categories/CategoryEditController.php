@@ -85,7 +85,7 @@ class CategoryEditController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["editedData"] = CategoriesListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["editedData"] = CategoriesListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         return $data;
     }
 }

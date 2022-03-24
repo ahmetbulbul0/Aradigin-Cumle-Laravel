@@ -14,7 +14,7 @@ class CategoryGroupUrlsDeletePageController extends Controller
     {
         $data["page_title"] = "Kategori Grubu Link Metnş Sil";
         $data["basic_text"] = "kategori grubu link metnini";
-        $itemData = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $itemData = CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "no",
