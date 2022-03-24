@@ -75,7 +75,7 @@ class ResourcePlatformEditController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["editedData"] = ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["editedData"] = ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         return $data;
     }
 }

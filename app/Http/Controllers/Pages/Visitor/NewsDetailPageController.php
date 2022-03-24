@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Pages\Visitor;
 
 use App\Models\NewsModel;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\VisitorMenuDataGet;
 use App\Http\Controllers\Tools\CategoryGroupToText;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
-use App\Http\Controllers\Api\Readings\ReadingCreateController;
+use App\Http\Controllers\Pages\Visitor\NewsReadingsWorkPageController;
 
 class NewsDetailPageController extends Controller
 {
@@ -31,7 +30,7 @@ class NewsDetailPageController extends Controller
         
         $data["newsDetail"]["data"]["category"]["text"] = CategoryGroupToText::single($data["newsDetail"]["data"]["category"]["no"]);
 
-        ReadingCreateController::work($newsNo);
+        NewsReadingsWorkPageController::index($newsNo);
 
         return view("visitor.pages.news_detail")->with("data", $data);
     }

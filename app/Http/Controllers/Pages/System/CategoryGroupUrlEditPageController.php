@@ -20,7 +20,7 @@ class CategoryGroupUrlEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["data"] = CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

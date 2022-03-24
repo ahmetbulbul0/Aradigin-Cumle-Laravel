@@ -60,7 +60,7 @@ class ResourceUrlEditController extends Controller
             "url" => $url
         ]);
 
-        $data["editedData"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["editedData"] = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         return $data;
     }
 }

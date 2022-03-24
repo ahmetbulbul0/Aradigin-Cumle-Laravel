@@ -27,7 +27,7 @@ class UserTypeCreateController extends Controller
             $data["errors"]["name"] = "Kullanıcı Tipi Adı Alanı Zorunludur";
         }
 
-        if (isset($name) && !empty($name) && UserTypesListController::getFirstDataWithNameOnlyNotDeleted($name)) {
+        if (isset($name) && !empty($name) && UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereName($name)) {
             $data["errors"]["name"] = "[$name] Bu Kullanıcı Tipi Adı Kullanılıyor, Lütfen Başka Bir Ad Kullanınız";
         }
 
@@ -47,7 +47,7 @@ class UserTypeCreateController extends Controller
             "name" => $name
         ]);
 
-        $data["createdData"] = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["createdData"] = UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         return $data;
     }
 }

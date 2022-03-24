@@ -19,7 +19,7 @@ class CategoryTypeEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["data"] = CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

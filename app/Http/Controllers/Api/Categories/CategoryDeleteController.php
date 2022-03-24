@@ -43,13 +43,13 @@ class CategoryDeleteController extends Controller
     {
         $no = $data["data"]["no"];
 
-        $categoryUseThisCategoryAsMainCategory = CategoriesListController::getAllOnlyNotDeletedWithMainCategoryTypeSub($no);
+        $categoryUseThisCategoryAsMainCategory = CategoriesListController::getAllDataOnlyNotDeletedDatasWhereMainCategoryWhereTypeSub($no);
         if ($categoryUseThisCategoryAsMainCategory) {
             foreach ($categoryUseThisCategoryAsMainCategory as $category) {
                 CategoriesModel::where(["is_deleted" => false, "no" => $category["no"]])->update([
                     "is_deleted" => true
                 ]);
-                $editedCategoryGroups = CategoryGroupsListController::getAllWithCategoryOnlyNotDeleted($category["no"]);
+                $editedCategoryGroups = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasOrWhereCategory($category["no"]);
                 if ($editedCategoryGroups) {
                     foreach ($editedCategoryGroups as $editedCategoryGroup) {
                         $data["data"]["no"] = $editedCategoryGroup["no"];
@@ -62,7 +62,7 @@ class CategoryDeleteController extends Controller
         CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "is_deleted" => true
         ]);
-        $editedCategoryGroups = CategoryGroupsListController::getAllWithCategoryOnlyNotDeleted($no);
+        $editedCategoryGroups = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasOrWhereCategory($no);
         if ($editedCategoryGroups) {
             foreach ($editedCategoryGroups as $editedCategoryGroup) {
                 $data["data"]["no"] = $editedCategoryGroup["no"];

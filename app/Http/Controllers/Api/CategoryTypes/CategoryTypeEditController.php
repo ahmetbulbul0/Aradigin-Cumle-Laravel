@@ -49,7 +49,7 @@ class CategoryTypeEditController extends Controller
             "name" => $name
         ]);
 
-        $data["editedData"] = CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["editedData"] = CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         return $data;
     }
 }

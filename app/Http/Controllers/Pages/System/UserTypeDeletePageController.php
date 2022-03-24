@@ -13,7 +13,7 @@ class UserTypeDeletePageController extends Controller
     {
         $data["page_title"] = "Kullanıcı Tipi Sil";
         $data["basic_text"] = "kullanıcı tipini";
-        $itemData = UserTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $itemData = UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

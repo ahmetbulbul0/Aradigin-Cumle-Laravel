@@ -2,25 +2,44 @@
 
 namespace App\Http\Controllers\Pages\System;
 
-use App\Http\Controllers\Api\Categories\CategoriesListController;
-use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
-use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
-use App\Http\Controllers\Api\Constants\ConstantsListController;
+use App\Models\UsersModel;
 use Illuminate\Http\Request;
-use App\Models\ConstantsModel;
 use App\Models\UsersSettingsModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Api\Users\UsersListController;
+use App\Http\Controllers\Api\Constants\ConstantsListController;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
 use App\Http\Controllers\Api\UserSettings\UserSettingsListController;
-use App\Http\Controllers\Api\UserTypes\UserTypesListController;
+use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 
 class SystemSettingsPageController extends Controller
 {
+    public function myAccount()
+    {
+        $data["page_title"] = "Ayarlar [Profilim]";
+        $data["user_data"] = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(Session::get("userData.no"));
+        return view("system.pages.settings_my_account")->with("data", $data);
+    }
+    public function myAccountForm(Request $request)
+    {
+        $userData = UsersModel::where(["is_deleted" => false, "no" => Session::get("userData.no")]);
+        if ($request->username) {
+            $userData->update(["username" => $request->username]);
+        }
+
+        if ($request->fullName) {
+            $userData->update(["full_name" => $request->fullName]);
+        }
+
+        return redirect(route("sistem_paneli_ayarlar_profilim"));
+    }
     public function theme()
     {
         $data["page_title"] = "Ayarlar [Tema]";
-        $data["user_settings"] = UserSettingsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(Session::get("userData.settings.no"));
+        $data["user_settings"] = UserSettingsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(Session::get("userData.settings.no"));
         return view("system.pages.settings_theme")->with("data", $data);
     }
     public function themeForm(Request $request)
@@ -40,10 +59,10 @@ class SystemSettingsPageController extends Controller
     public function constants()
     {
         $data["page_title"] = "Ayarlar [Sabitler]";
-        $data["constants"] = ConstantsListController::getAllOnlyNotDeleted();
-        $data["categoryTypes"] = CategoryTypesListController::getAllOnlyNotDeleted();
-        $data["userTypes"] = UserTypesListController::getAllOnlyNotDeleted();
-        $data["categoryGroups"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShips();
+        $data["constants"] = ConstantsListController::getAllDataOnlyNotDeletedDatas();
+        $data["categoryTypes"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatas();
+        $data["userTypes"] = UserTypesListController::getAllDataOnlyNotDeletedDatas();
+        $data["categoryGroups"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         return view("system.pages.settings_constants")->with("data", $data);
     }
     public function constantsForm(Request $request)

@@ -14,7 +14,7 @@ class AuthorSettingsPageController extends Controller
     public function myAccount()
     {
         $data["page_title"] = "Ayarlar [Profilim]";
-        $data["user_data"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(Session::get("userData.no"));
+        $data["user_data"] = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(Session::get("userData.no"));
         return view("author.pages.settings_my_account")->with("data", $data);
     }
     public function myAccountForm(Request $request)

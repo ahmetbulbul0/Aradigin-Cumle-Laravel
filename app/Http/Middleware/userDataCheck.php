@@ -25,12 +25,12 @@ class userDataCheck
 
         $userNo = Session::get("userData.no");
 
-        if (!UsersListController::getFirstDataWithNoOnlyNotDeleted($userNo)) {
+        if (!UsersListController::getFirstDataOnlyNotDeletedDatasWhereNo($userNo)) {
             Session::remove("userData");
             return response()->view('errors.404');
         }
 
-        $userData = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($userNo);
+        $userData = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($userNo);
 
         Session::put('userData', $userData);
 

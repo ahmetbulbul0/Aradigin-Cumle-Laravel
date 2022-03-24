@@ -11,7 +11,7 @@ class ResourceUrlsListPageController extends Controller
     {
         $data["page_title"] = "Kaynak Linkleri";
         if (!isset($data["data"])) {
-            $data["data"] = ResourceUrlsListController::getAllOnlyNotDeletedAllRelationships();
+            $data["data"] = ResourceUrlsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         return view("system.pages.resource_urls_list")->with("data", $data);
     }

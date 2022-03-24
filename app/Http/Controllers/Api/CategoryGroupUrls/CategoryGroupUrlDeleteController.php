@@ -46,7 +46,7 @@ class CategoryGroupUrlDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $categoryGroup = CategoryGroupsListController::getFirstDataWithLinkUrlOnlyNotDeleted($no);
+        $categoryGroup = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereLinkUrl($no);
         if ($categoryGroup) {
             $dataForDeleteCategoryGroup["data"]["no"] = $categoryGroup["no"];
             CategoryGroupDeleteController::get($dataForDeleteCategoryGroup);

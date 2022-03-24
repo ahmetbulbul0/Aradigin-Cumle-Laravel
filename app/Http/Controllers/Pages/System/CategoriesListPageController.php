@@ -12,7 +12,7 @@ class CategoriesListPageController extends Controller
     {
         $data["page_title"] = "Kategoriler";
         if (!isset($data["data"])) {
-            $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
+            $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         return view("system.pages.categories_list")->with("data", $data);
     }
@@ -58,52 +58,52 @@ class CategoriesListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscNo();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescNo();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo();
         return $this->index($data);
     }
     public function nameAZ()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscName();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscName();
         return $this->index($data);
     }
     public function nameZA()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescName();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescName();
         return $this->index($data);
     }
     public function typeAZ()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscType();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscType();
         return $this->index($data);
     }
     public function typeZA()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescType();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescType();
         return $this->index($data);
     }
     public function mainCategoryAZ()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMainCategory();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMainCategory();
         return $this->index($data);
     }
     public function mainCategoryZA()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescMainCategory();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescMainCategory();
         return $this->index($data);
     }
     public function linkUrlAZ()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscLinkUrl();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscLinkUrl();
         return $this->index($data);
     }
     public function linkUrlZA()
     {
-        $data["data"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescLinkUrl();
+        $data["data"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescLinkUrl();
         return $this->index($data);
     }
 }

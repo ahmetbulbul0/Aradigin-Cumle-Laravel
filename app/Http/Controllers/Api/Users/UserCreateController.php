@@ -58,11 +58,11 @@ class UserCreateController extends Controller
             $data["errors"]["type"] = "Kullanıcı Tipi Alanı Zorunludur";
         }
 
-        if (isset($username) && !empty($username) && UsersListController::getFirstDataWithUsernameOnlyNotDeletedAllRelationships($username)) {
+        if (isset($username) && !empty($username) && UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereUsername($username)) {
             $data["errors"]["username"] = "[$username] Bu Kullanıcı Adı Kullanılıyor, Lütfen Başka Bir Kullanıcı Ad Kullanınız";
         }
 
-        if (isset($type) && !empty($type) && !UserTypesListController::getFirstDataWithNoOnlyNotDeleted($type)) {
+        if (isset($type) && !empty($type) && !UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($type)) {
             $data["errors"]["type"] = "Geçersiz Kullanıcı Tipi";
         }
 
@@ -100,8 +100,8 @@ class UserCreateController extends Controller
 
         UsersModel::where("no", $no)->update(["settings" => $userSettings["createdData"]["no"]]);
         
-        $data["createdUserData"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
-        $data["createdUserSettingsData"] = UserSettingsListController::getFirstDataWithNoOnlyNotDelete($userSettings["createdData"]["no"]);
+        $data["createdUserData"] = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
+        $data["createdUserSettingsData"] = UserSettingsListController::getFirstDataOnlyNotDeletedDatasWhereNo($userSettings["createdData"]["no"]);
 
         return $data;
     }

@@ -20,7 +20,6 @@ class UnixTimeToTextDateController extends Controller
             return $data;
         }
     }
-
     static function MultipleTimeToDate($data)
     {
         if ($data) {
@@ -35,12 +34,25 @@ class UnixTimeToTextDateController extends Controller
 
         return NULL;
     }
+    static function MultipleTimeToDateForEveryColumn($data, $column)
+    {
+        if ($data) {
+            $count = count($data);
+            for ($i = 0; $i < $count; $i++) {
+                $unix = $data[$i][$column];
+                $data[$i][$column] = UnixTimeToTextDateController::TimeToDate($unix);
+            }
 
+            return $data;
+        }
+
+        return NULL;
+    }
     static function TimeToDate($unix)
     {
         return [
             "unix" => $unix,
-            "text" => date("Y.m.d - h:i:s", $unix)
+            "text" => date("Y.m.d - H:i:s", $unix)
         ];
     }
 }

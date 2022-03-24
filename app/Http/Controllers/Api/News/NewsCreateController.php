@@ -80,15 +80,15 @@ class NewsCreateController extends Controller
             $data["errors"]["content"] = "[$content] Bu İçerik Daha Önceden Yazılmış";
         }
 
-        if (isset($author) && !empty($author) && !UsersListController::getFirstDataWithNoOnlyTypeAuthorOnlyNotDeleted($author)) {
+        if (isset($author) && !empty($author) && !UsersListController::getFirstDataOnlyNotDeletedDatasWhereWhereNoWhereTypeAuthor($author)) {
             $data["errors"]["author"] = "Geççersiz Yazar Hesabı";
         }
 
-        if (isset($category) && !empty($category) && !CategoryGroupsListController::getFirstDataWithNoOnlyNotDeleted($category)) {
+        if (isset($category) && !empty($category) && !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereNo($category)) {
             $data["errors"]["category"] = "Geçersiz Kategori Grubu";
         }
 
-        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsListController::getFirstDataWithNoOnlyNotDeleted($resourcePlatform)) {
+        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($resourcePlatform)) {
             $data["errors"]["resourcePlatform"] = "Geçersiz Kaynak Site";
         }
 
@@ -162,7 +162,7 @@ class NewsCreateController extends Controller
         NewsModel::where(["is_deleted" => false, "no" => $no])->update(["resource_url" => $resourceUrl["createdData"]["no"]]);
 
         $data["createdNewsData"] = NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
-        $data["createdResourceUrlData"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($resourceUrl["createdData"]["no"]);
+        $data["createdResourceUrlData"] = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($resourceUrl["createdData"]["no"]);
 
         return $data;
     }

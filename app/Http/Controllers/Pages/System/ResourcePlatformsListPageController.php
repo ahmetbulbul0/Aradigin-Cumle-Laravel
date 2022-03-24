@@ -12,7 +12,7 @@ class ResourcePlatformsListPageController extends Controller
     {
         $data["page_title"] = "Kaynak Siteleri";
         if (!isset($data["data"])) {
-            $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeleted();
+            $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatas();
         }
         return view("system.pages.resource_platforms_list")->with("data", $data);
     }
@@ -52,42 +52,42 @@ class ResourcePlatformsListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscNo();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByDescNo();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByDescNo();
         return $this->index($data);
     }
     public function nameAZ()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscName();
         return $this->index($data);
     }
     public function nameZA()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByDescName();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByDescName();
         return $this->index($data);
     }
     public function websiteLinkAZ()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscWebsiteLink();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscMainUrl();
         return $this->index($data);
     }
     public function websiteLinkZA()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByDescWebsiteLink();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByDescMainUrl();
         return $this->index($data);
     }
     public function linkUrlAZ()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByAscName();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByAscName();
         return $this->index($data);
     }
     public function linkUrlZA()
     {
-        $data["data"] = ResourcePlatformsListController::getAllOnlyNotDeletedOrderByDescName();
+        $data["data"] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatasOrderByDescName();
         return $this->index($data);
     }
 }

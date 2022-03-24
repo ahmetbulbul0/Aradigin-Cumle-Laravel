@@ -19,6 +19,7 @@ class VisitorsModel extends Model
         "browser",
         "last_login_time",
         "website_theme",
+        "is_banned"
     ];
     
     protected $hidden = [

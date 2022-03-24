@@ -13,7 +13,7 @@ class UserDeletePageController extends Controller
     {
         $data["page_title"] = "Kullanıcı Sil";
         $data["basic_text"] = "kullanıcıyı";
-        $itemData = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $itemData = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

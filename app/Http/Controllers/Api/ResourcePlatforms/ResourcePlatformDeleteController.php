@@ -47,7 +47,7 @@ class ResourcePlatformDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $resourceUrls = ResourceUrlsListController::getAllWithResourcePlatformOnlyNotDeletedAllRelationships($no);
+        $resourceUrls = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasWhereResourcePlatform($no);
         if ($resourceUrls) {
             foreach ($resourceUrls as $resourceUrl) {
                 $data["data"]["no"] = $resourceUrl["no"];

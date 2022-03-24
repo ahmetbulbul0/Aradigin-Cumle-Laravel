@@ -11,7 +11,7 @@ class UserSettingsListPageController extends Controller
     {
         $data["page_title"] = "Kullanıcı Ayarları";
         if (!isset($data["data"])) {
-            $data["data"] = UserSettingsListController::getAllOnlyNotDeletedAllRelationships();
+            $data["data"] = UserSettingsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         return view("system.pages.user_settings_list")->with("data", $data);
     }

@@ -13,7 +13,7 @@ class ResourceUrlDeletePageController extends Controller
     {
         $data["page_title"] = "Kaynak Linki Sil";
         $data["basic_text"] = "kaynak linkini";
-        $itemData = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $itemData = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

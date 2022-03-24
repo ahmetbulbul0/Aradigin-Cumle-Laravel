@@ -86,7 +86,7 @@ class UserEditController extends Controller
             "type" => $type
         ]);
 
-        $data["editedData"] = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["editedData"] = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         return $data;
     }
 }

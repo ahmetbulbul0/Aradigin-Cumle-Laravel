@@ -19,7 +19,7 @@ class userDataCheckIfIsUser
     public function handle(Request $request, Closure $next)
     {
         if (Session::get("userData")) {
-            $userData = UsersListController::getFirstDataWithNoOnlyNotDeletedAllRelationships(Session::get("userData.no"));
+            $userData = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(Session::get("userData.no"));
 
             if (!$userData) {
                 Session::remove("userData");

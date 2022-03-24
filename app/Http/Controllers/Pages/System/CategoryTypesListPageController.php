@@ -12,7 +12,7 @@ class CategoryTypesListPageController extends Controller
     {
         $data["page_title"] = "Kategori Tipleri";
         if (!isset($data["data"])) {
-            $data["data"] = CategoryTypesListController::getAllOnlyNotDeleted();
+            $data["data"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatas();
         }
         return view("system.pages.category_types_list")->with("data", $data);
     }
@@ -40,22 +40,22 @@ class CategoryTypesListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = CategoryTypesListController::getAllOnlyNotDeletedOrderByAscNo();
+        $data["data"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatasOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = CategoryTypesListController::getAllOnlyNotDeletedOrderByDescNo();
+        $data["data"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatasOrderByDescNo();
         return $this->index($data);
     }
     public function nameAZ()
     {
-        $data["data"] = CategoryTypesListController::getAllOnlyNotDeletedOrderByAscName();
+        $data["data"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatasOrderByAscName();
         return $this->index($data);
     }
     public function nameZA()
     {
-        $data["data"] = CategoryTypesListController::getAllOnlyNotDeletedOrderByDescName();
+        $data["data"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatasOrderByDescName();
         return $this->index($data);
     }
 }

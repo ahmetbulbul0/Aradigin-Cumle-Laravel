@@ -79,31 +79,31 @@ class CategoryGroupCreateController extends Controller
             $data["errors"]["main"] = "Ana Kategori Alanı Zorunludur";
         }
 
-        if (!empty($main) && isset($main) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($main)) {
+        if (!empty($main) && isset($main) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($main)) {
             $data["errors"]["main"] = "Böyle Bir Kategori Yok";
         }
 
-        if (!empty($sub1) && isset($sub1) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub1)) {
+        if (!empty($sub1) && isset($sub1) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub1)) {
             $data["errors"]["sub1"] = "Böyle Bir Kategori Yok";
         }
 
-        if (!empty($sub2) && isset($sub2) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub2)) {
+        if (!empty($sub2) && isset($sub2) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub2)) {
             $data["errors"]["sub2"] = "Böyle Bir Kategori Yok";
         }
 
-        if (!empty($sub3) && isset($sub3) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub3)) {
+        if (!empty($sub3) && isset($sub3) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub3)) {
             $data["errors"]["sub3"] = "Böyle Bir Kategori Yok";
         }
 
-        if (!empty($sub4) && isset($sub4) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub4)) {
+        if (!empty($sub4) && isset($sub4) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub4)) {
             $data["errors"]["sub4"] = "Böyle Bir Kategori Yok";
         }
 
-        if (!empty($sub5) && isset($sub5) && !CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub5)) {
+        if (!empty($sub5) && isset($sub5) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub5)) {
             $data["errors"]["sub5"] = "Böyle Bir Kategori Yok";
         }
 
-        if (CategoryGroupsListController::getFirstDataWithMainMainSub1Sub2Sub3Sub4Sub5OnlyNotDeleted($main, $sub1, $sub2, $sub3, $sub4, $sub5)) {
+        if (CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereMainWhereSub1WhereSub2WhereSub3WhereSub4WhereSub5($main, $sub1, $sub2, $sub3, $sub4, $sub5)) {
             $data["errors"]["categoryGroup"] = "Böyle Bir Kategori Grubu Zaten Var";
         }
 
@@ -148,12 +148,12 @@ class CategoryGroupCreateController extends Controller
             $sub5 = NULL;
         }
 
-        $main = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($main);
-        $sub1 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub1);
-        $sub2 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub2);
-        $sub3 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub3);
-        $sub4 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub4);
-        $sub5 = CategoriesListController::getFirstDataWithNoOnlyNotDeleted($sub5);
+        $main = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($main);
+        $sub1 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub1);
+        $sub2 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub2);
+        $sub3 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub3);
+        $sub4 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub4);
+        $sub5 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub5);
 
         CategoryGroupsModel::create([
             "no" => $no,
@@ -176,8 +176,8 @@ class CategoryGroupCreateController extends Controller
 
         CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->update(["link_url" => $linkUrlCreate["createdData"]["no"]]);
         
-        $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
-        $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeleted($linkUrlCreate["createdData"]["no"]);
+        $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
+        $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasWhereNo($linkUrlCreate["createdData"]["no"]);
 
         return $data;
     }

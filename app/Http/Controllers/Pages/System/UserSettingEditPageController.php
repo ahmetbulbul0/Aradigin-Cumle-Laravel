@@ -19,7 +19,7 @@ class UserSettingEditPageController extends Controller
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = UserSettingsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["data"] = UserSettingsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

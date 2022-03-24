@@ -12,7 +12,6 @@ use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
-use Illuminate\Support\Facades\Session;
 
 class HomePageController extends Controller
 {
@@ -54,8 +53,8 @@ class HomePageController extends Controller
     }
     public function Middle2List()
     {
-        $constantCategory1Data = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted());
-        $constantCategory2Data = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted());
+        $constantCategory1Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted());
+        $constantCategory2Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted());
         $data = [
             [
                 "listTitle" => Str::title($constantCategory1Data["main"]["name"]),

@@ -13,16 +13,16 @@ class ResourceUrlEditPageController extends Controller
     public function index($no, $data = NULL)
     {
         $data["page_title"] = "Kaynak Linki Düzenle";
-        $data['resourcePlatforms'] = ResourcePlatformsListController::getAllOnlyNotDeleted();
+        $data['resourcePlatforms'] = ResourcePlatformsListController::getAllDataOnlyNotDeletedDatas();
 
         if (!empty($data["editedData"]) || !empty($data["errors"])) {
-            $data["data"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($data["data"]["no"]);
+            $data["data"] = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($data["data"]["no"]);
             return view("system.pages.resource_url_edit")->with("data", $data);
         }
 
         $no = htmlspecialchars($no);
         $no = intval($no);
-        $data["data"] = ResourceUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationships($no);
+        $data["data"] = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         if (empty($data["data"])) {
             return "HATA_SAYFASI_OLUŞTURULACAK";
         }

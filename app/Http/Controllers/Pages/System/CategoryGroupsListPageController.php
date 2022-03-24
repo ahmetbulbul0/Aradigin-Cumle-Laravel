@@ -12,7 +12,7 @@ class CategoryGroupsListPageController extends Controller
     {
         $data["page_title"] = "Kategori Grupları";
         if (!isset($data["data"])) {
-            $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShips();
+            $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         }
         return view("system.pages.category_groups_list")->with("data", $data);
     }
@@ -76,82 +76,82 @@ class CategoryGroupsListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscNo();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescNo();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo();
         return $this->index($data);
     }
     public function mainAZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscMain();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscMain();
         return $this->index($data);
     }
     public function mainZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescMain();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescMain();
         return $this->index($data);
     }
     public function sub1AZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscSub1();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub1();
         return $this->index($data);
     }
     public function sub1ZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescSub1();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub1();
         return $this->index($data);
     }
     public function sub2AZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscSub2();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub2();
         return $this->index($data);
     }
     public function sub2ZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescSub2();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub2();
         return $this->index($data);
     }
     public function sub3AZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscSub3();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub3();
         return $this->index($data);
     }
     public function sub3ZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescSub3();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub3();
         return $this->index($data);
     }
     public function sub4AZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscSub4();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub4();
         return $this->index($data);
     }
     public function sub4ZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescSub4();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub4();
         return $this->index($data);
     }
     public function sub5AZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscSub5();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscSub5();
         return $this->index($data);
     }
     public function sub5ZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescSub5();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescSub5();
         return $this->index($data);
     }
     public function linkUrlAZ()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByAscLinkUrl();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscLinkUrl();
         return $this->index($data);
     }
     public function linkUrlZA()
     {
-        $data["data"] = CategoryGroupsListController::getAllOnlyNotDeletedAllRelationShipsOrderByDescLinkUrl();
+        $data["data"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescLinkUrl();
         return $this->index($data);
     }
 }

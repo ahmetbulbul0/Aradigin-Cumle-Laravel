@@ -13,7 +13,7 @@ class CategoryTypeDeletePageController extends Controller
     {
         $data["page_title"] = "Kategori Tipi Sil";
         $data["basic_text"] = "kategori tipini";
-        $itemData = CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $itemData = CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "No",

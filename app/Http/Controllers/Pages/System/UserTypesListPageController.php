@@ -12,7 +12,7 @@ class UserTypesListPageController extends Controller
     {
         $data["page_title"] = "Kullanıcı Tipleri";
         if (!isset($data["data"])) {
-            $data["data"] = UserTypesListController::getAllOnlyNotDeleted();
+            $data["data"] = UserTypesListController::getAllDataOnlyNotDeletedDatas();
         }
         return view("system.pages.user_types_list")->with("data", $data);
     }
@@ -40,22 +40,22 @@ class UserTypesListPageController extends Controller
     }
     public function no09()
     {
-        $data["data"] = UserTypesListController::getAllOnlyNotDeletedOrderByAscNo();
+        $data["data"] = UserTypesListController::getAllDataOnlyNotDeletedDatasOrderByAscNo();
         return $this->index($data);
     }
     public function no90()
     {
-        $data["data"] = UserTypesListController::getAllOnlyNotDeletedOrderByDescNo();
+        $data["data"] = UserTypesListController::getAllDataOnlyNotDeletedDatasOrderByDescNo();
         return $this->index($data);
     }
     public function nameAZ()
     {
-        $data["data"] = UserTypesListController::getAllOnlyNotDeletedOrderByAscName();
+        $data["data"] = UserTypesListController::getAllDataOnlyNotDeletedDatasOrderByAscName();
         return $this->index($data);
     }
     public function nameZA()
     {
-        $data["data"] = UserTypesListController::getAllOnlyNotDeletedOrderByDescName();
+        $data["data"] = UserTypesListController::getAllDataOnlyNotDeletedDatasOrderByDescName();
         return $this->index($data);
     }
 }

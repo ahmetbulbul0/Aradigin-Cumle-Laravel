@@ -8,28 +8,32 @@ use App\Models\CategoryGroupUrlsModel;
 
 class CategoryGroupUrlsListController extends Controller
 {
-    static function getAll()
+    static function getAllData()
     {
-        return CategoryGroupUrlsModel::get();
+        return CategoryGroupUrlsModel::count() ? CategoryGroupUrlsModel::get() : NULL;
     }
-    static function getAllOnlyNotDeleted()
+    static function getAllDataAllRelationships()
     {
-        return CategoryGroupUrlsModel::where("is_deleted", false)->get();
+        return CategoryGroupUrlsModel::with("groupNo")->count() ? CategoryGroupUrlsModel::with("groupNo")->get()->toArray() : NULL;
     }
-    static function getAllOnlyNotDeletedAllRelationShips()
+    static function getAllDataOnlyNotDeletedDatas()
     {
-        return CategoryGroupUrlsModel::where("is_deleted", false)->with("groupNo")->get()->toArray();
+        return CategoryGroupUrlsModel::where("is_deleted", false)->count() ? CategoryGroupUrlsModel::where("is_deleted", false)->get() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeletedAllRelationShips($no)
+    static function getAllDataOnlyNotDeletedDatasAllRelationships()
     {
-        return CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->with("groupNo")->first()->toArray();
+        return CategoryGroupUrlsModel::where("is_deleted", false)->with("groupNo")->count() ? CategoryGroupUrlsModel::where("is_deleted", false)->with("groupNo")->get()->toArray() : NULL;
     }
-    static function getFirstDataWithNoOnlyNotDeleted($no)
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no)
     {
-        return CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->first() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
+        return CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->with("groupNo")->count() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->with("groupNo")->first()->toArray() : NULL;
     }
-    static function getFirstDataWithGroupNoOnlyNotDeleted($groupNo)
+    static function getFirstDataOnlyNotDeletedDatasWhereNo($no)
     {
-        return CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->first() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->first() : NULL;
+        return CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->count() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->first() : NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasWhereGroupNo($groupNo)
+    {
+        return CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->count() ? CategoryGroupUrlsModel::where(["is_deleted" => false, "group_no" => $groupNo])->first() : NULL;
     }
 }

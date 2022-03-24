@@ -29,7 +29,7 @@ class CategoryTypeCreateController extends Controller
             $data["errors"]["name"] = "Kategori Tipi Adı Alanı Zorunludur";
         }
 
-        if (isset($name) && !empty($name) && CategoryTypesListController::getFirstDataWithNameOnlyNotDeleted($name)) {
+        if (isset($name) && !empty($name) && CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereName($name)) {
             $data["errors"]["name"] = "[$name] Bu Kategori Tipi Adı Kullanılıyor, Lütfen Başka Bir Ad Kullanınız";
         }
 
@@ -49,7 +49,7 @@ class CategoryTypeCreateController extends Controller
             "name" => $name
         ]);
 
-        $data["createdData"] = CategoryTypesListController::getFirstDataWithNoOnlyNotDeleted($no);
+        $data["createdData"] = CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
 
         return $data;
     }

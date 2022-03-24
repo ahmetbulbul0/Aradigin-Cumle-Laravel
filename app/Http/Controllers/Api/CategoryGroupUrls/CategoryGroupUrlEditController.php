@@ -49,7 +49,7 @@ class CategoryGroupUrlEditController extends Controller
             "link_url" => $linkUrl
         ]);
 
-        $data["editedData"] = CategoryGroupUrlsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $data["editedData"] = CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         return $data;
     }
 }

@@ -1,20 +1,6 @@
 <div class="outSettings">
     <div class="inSettings">
-        <div class="outSettingsMenu">
-            <div class="outTitle">
-                <div class="inTitle">
-                    Ayarlar
-                </div>
-            </div>
-            <div class="inSettingsMenu">
-                <div class="outSettingsMenuItem">
-                    <a href="{{ route('sistem_paneli_ayarlar_tema') }}" class="inSettingsMenuItem">Tema</a>
-                </div>
-                <div class="outSettingsMenuItem">
-                    <a href="{{ route('ayarlar_sabitler') }}" class="inSettingsMenuItem">Sabitler</a>
-                </div>
-            </div>
-        </div>
+        @include('system.components.settings_menu')
         <div class="outSettingsContent">
             <div class="outTitle">
                 <div class="inTitle">

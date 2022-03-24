@@ -161,7 +161,7 @@ class VisitorNewsListPageController extends Controller
         }
 
         $categoryGroupUrl = CategoryGroupUrlsModel::where(["is_deleted" => false, "link_url" => $categoryGroupLinkUrl])->first();
-        $categoryGroup = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($categoryGroupUrl->group_no);
+        $categoryGroup = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($categoryGroupUrl->group_no);
         $categoryGroup["name"] = CategoryGroupToText::single($categoryGroup["no"]);
 
         switch ($listType) {

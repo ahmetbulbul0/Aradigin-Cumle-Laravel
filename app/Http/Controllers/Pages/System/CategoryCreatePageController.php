@@ -13,8 +13,8 @@ class CategoryCreatePageController extends Controller
     public function index($data = NULL)
     {
         $data["page_title"] = "Kategori Ekle";
-        $data["categoryTypes"] = CategoryTypesListController::getAllOnlyNotDeleted();
-        $data["categories"] = CategoriesListController::getAllOnlyNotDeletedAllRelationShips();
+        $data["categoryTypes"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatas();
+        $data["categories"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationships();
         return view("system.pages.category_create")->with("data", $data);
     }
     public function form(Request $request)

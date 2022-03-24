@@ -13,7 +13,7 @@ class CategoryGroupDeletePageController extends Controller
     {
         $data["page_title"] = "Kategori Grubu Sil";
         $data["basic_text"] = "kategori grubunu";
-        $itemData = CategoryGroupsListController::getFirstDataWithNoOnlyNotDeletedAllRelationShips($no);
+        $itemData = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["itemData"] = [
             [
                 "label" => "no",
