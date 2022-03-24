@@ -19,4 +19,16 @@ class GetTimeRangeController extends Controller
         $newTime = $timeExplode[0] . " " . $newTime;
         return $newTime;
     }
+    static function getValueTimeRange($timeValue) {
+        $nowTime = $timeValue;
+        $timeText = date('d-m-Y H:i:s', $nowTime);
+        $timeExplode = explode(" ", $timeText);
+        $timeHoursMinutes = $timeExplode[1];
+        $timeHoursMinutes = explode(":", $timeHoursMinutes);
+        $timeHoursMinutes[1] = "00";
+        $timeHoursMinutes[2] = "00";
+        $newTime = implode(":", $timeHoursMinutes);
+        $newTime = $timeExplode[0] . " " . $newTime;
+        return $newTime;
+    }
 }
