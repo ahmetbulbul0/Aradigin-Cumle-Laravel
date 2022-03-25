@@ -121,7 +121,7 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                         });
                 });
             // HABERLERİM İSTATİSTİKLERİ "TODO"
-                Route::prefix("/haberlerim/istatistikleri")->group(function () {
+                Route::prefix("/haber/istatistiklerim")->group(function () {
                     // HABERLERİM İSTATİSTİKLERİ "TODO"
                         Route::get("/", [MyNewsStatisticsPageController::class, "index"])->name("haber_istatistiklerim");
                     // HABERLERİM İSTATİSTİKLERİ ZAMANA GÖRE "TODO"
