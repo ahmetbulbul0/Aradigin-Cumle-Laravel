@@ -1,8 +1,8 @@
-@extends('private.layout')
+@extends('author.layout')
 
 @section('content')
-    @include("private.components.menu")
+    @include("author.components.menu")
     
-    @include("private.components.news_statistics")
+    @include("author.components.my_news_statistics")
 @endsection
 

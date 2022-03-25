@@ -123,11 +123,11 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
             // HABERLERİM İSTATİSTİKLERİ "TODO"
                 Route::prefix("/haberlerim/istatistikleri")->group(function () {
                     // HABERLERİM İSTATİSTİKLERİ "TODO"
-                        Route::get("/", [MyNewsStatisticsPageController::class, "index"]);
+                        Route::get("/", [MyNewsStatisticsPageController::class, "index"])->name("haber_istatistiklerim");
                     // HABERLERİM İSTATİSTİKLERİ ZAMANA GÖRE "TODO"
-                        Route::get("/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"]);
+                        Route::get("/zaman/{timeType}/{listType}", [MyNewsStatisticTimePageController::class, "index"])->name("haber_istatistiklerim_zaman");
                     // HABERLERİM İSTATİSTİKLERİ DETAY "TODO"
-                        Route::get("/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"]);
+                        Route::get("/detay/{newsNo}", [MyNewsStatisticDetailPageController::class, "index"])->name("haber_istatistiklerim_detay");
                 });
             // YAZAR PANELİ AYARLAR
                 Route::prefix("/ayarlar")->controller(AuthorSettingsPageController::class)->group(function () {
