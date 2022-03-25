@@ -113,6 +113,9 @@
                                 <a href="{{ route('haberlerim_sil', [$item['no']]) }}">
                                     <i class="fas fa-trash"></i>
                                 </a>
+                                <a href="{{ route('haber_istatistiklerim_detay', [$item['no']]) }}">
+                                    <i class="fas fa-chart-bar"></i>
+                                </a>
                             </span>
                         </div>
                     </div>

@@ -155,8 +155,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="listsBar">
                 <div class="outList">
                     <div class="titleBox">
                         <span>
