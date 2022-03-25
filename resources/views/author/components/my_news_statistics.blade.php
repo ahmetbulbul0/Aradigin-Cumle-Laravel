@@ -1,13 +1,11 @@
-<div class="outMyNews">
-    <div class="inMyNews">
+<div class="outNewsStatistics">
+    <div class="inNewsStatistics">
         <div class="outTitle">
             <div class="inTitle">
-                Haberlerim
+                {{ $data['page_title'] }}
             </div>
+
             <div class="titleSelects">
-                <div class="actions">
-                    <a href="{{ route('haber_ekle') }}" target="blank">Yeni Haber Oluştur</a>
-                </div>
                 <div class="statisticListingSelect">
                     <div class="outSelectBox">
                         <select name="Kategori Seç" disabled>
@@ -25,6 +23,8 @@
                             <option value="" selected>Sırala</option>
                             <option value="">Yayınlanma (Önce En Yeni)</option>
                             <option value="">Yayınlanma (Önce En Eski)</option>
+                            <option value="">Yazar (A - Z)</option>
+                            <option value="">Yazar (Z - A)</option>
                             <option value="">Kategori (A - Z)</option>
                             <option value="">Kategori (Z - A)</option>
                             <option value="">İçerik (A - Z)</option>
@@ -40,10 +40,13 @@
                 </div>
             </div>
         </div>
-        <div class="myNewsList">
+        <div class="statisticList">
             <div class="titleLine">
                 <div class="no">
                     <span>No</span>
+                </div>
+                <div class="writer">
+                    <span>Yazar</span>
                 </div>
                 <div class="publish_date">
                     <span>Yayınlanma</span>
@@ -63,64 +66,45 @@
                 <div class="reading">
                     <span>Okunma</span>
                 </div>
-                <div class="actions">
-                    <span>İşlem</span>
+                <div class="detail">
+                    <span>Detay</span>
                 </div>
             </div>
-            @isset($data['data'])
-                @foreach ($data['data'] as $item)
+            @if ($data['news'])
+                @foreach ($data['news'] as $news)
                     <div class="line">
                         <div class="no">
-                            <span>
-                                #{{ $item['no'] }}
-                            </span>
+                            <span>#{{ $news['no'] }}</span>
+                        </div>
+                        <div class="writer">
+                            <span>{{ $news['author']['username'] }}</span>
                         </div>
                         <div class="publish_date">
-                            <span>
-                                {{ $item['publish_date']['text'] }}
-                            </span>
+                            <span>{{ $news['publish_date']['text'] }}</span>
                         </div>
                         <div class="category">
-                            <span>
-                                {{ $item['category']['text'] }}
-                            </span>
+                            <span>{{ $news['category']['text'] }}</span>
                         </div>
                         <div class="content">
-                            <span>
-                                {{ $item['content'] }}
-                            </span>
+                            <span>{{ $news['content'] }}</span>
                         </div>
                         <div class="resource">
-                            <span>
-                                {{ $item['resource_platform']['name'] }}
-                            </span>
+                            <span>{{ $news['resource_platform']['name'] }}</span>
                         </div>
                         <div class="listing">
-                            <span>
-                                {{ $item['listing'] }}
-                            </span>
+                            <span>{{ $news['listing'] }}</span>
                         </div>
                         <div class="reading">
-                            <span>
-                                {{ $item['reading'] }}
-                            </span>
+                            <span>{{ $news['reading'] }}</span>
                         </div>
-                        <div class="actions">
+                        <div class="detail">
                             <span>
-                                <a href="{{ route('haberlerim_düzenle', [$item['no']]) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="{{ route('haberlerim_sil', [$item['no']]) }}">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <a href="{{ route('haber_istatistiklerim_detay', [$item['no']]) }}">
-                                    <i class="fas fa-chart-bar"></i>
-                                </a>
+                                <a href="{{ route("haber_istatistiklerim_detay", [$news["no"]]) }}">Detay</a>
                             </span>
                         </div>
                     </div>
                 @endforeach
-            @endisset
+            @endif
         </div>
     </div>
 </div>

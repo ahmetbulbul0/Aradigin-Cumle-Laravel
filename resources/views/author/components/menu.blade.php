@@ -19,9 +19,8 @@
             </span>
             <span class="brace"></span>
             <span class="textBox">
-                <a href="####">
-                    Haberlerim
-                    İstatistikleri
+                <a href="{{ route('haber_istatistiklerim') }}">
+                    Haber İstatistiklerim
                 </a>
             </span>
         </div>
@@ -144,20 +143,18 @@
                     <div class="list">
                         <div class="item">
                             <span>
-                                <a href="{{ route('haber_ekle') }}">Haber
-                                    Ekle</a>
+                                <a href="{{ route('haber_ekle') }}">Haber Ekle</a>
                             </span>
                         </div>
                         <div class="item">
                             <span>
-                                <a href="####">Haberlerim
-                                    İstatistikleri</a>
+                                <a href="{{ route('haber_istatistiklerim') }}">
+                                    Haber İstatistiklerim
+                                </a>
                             </span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="listsBar">
                 <div class="outList">
                     <div class="titleBox">
                         <span>
