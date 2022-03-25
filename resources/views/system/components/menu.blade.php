@@ -273,7 +273,7 @@
                         </div>
                         <div class="item">
                             <span>
-                                <a href="####">Site İstatistikleri</a>
+                                <a href="{{ route('ziyaretciler') }}">Ziyaretçiler</a>
                             </span>
                         </div>
                     </div>

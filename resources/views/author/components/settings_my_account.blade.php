@@ -1,20 +1,6 @@
 <div class="outSettings">
     <div class="inSettings">
-        <div class="outSettingsMenu">
-            <div class="outTitle">
-                <div class="inTitle">
-                    Ayarlar
-                </div>
-            </div>
-            <div class="inSettingsMenu">
-                <div class="outSettingsMenuItem active">
-                    <a href="{{ route('yazar_paneli_ayarlar_profilim') }}" class="inSettingsMenuItem">Profilim</a>
-                </div>
-                <div class="outSettingsMenuItem">
-                    <a href="{{ route('yazar_paneli_ayarlar_tema') }}" class="inSettingsMenuItem">Tema</a>
-                </div>
-            </div>
-        </div>
+        @include('author.components.settings_menu')
         <div class="outSettingsContent">
             <div class="outTitle">
                 <div class="inTitle">
