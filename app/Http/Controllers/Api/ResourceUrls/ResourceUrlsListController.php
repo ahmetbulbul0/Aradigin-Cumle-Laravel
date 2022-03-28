@@ -24,6 +24,10 @@ class ResourceUrlsListController extends Controller
     {
         return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->get()->toArray() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasWhereResourcePlatform($resourcePlatform) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->get() : NULL;
+    }
     static function getFirstDataOnlyNotDeletedDatasWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
@@ -34,7 +38,7 @@ class ResourceUrlsListController extends Controller
     }
     static function getFirstDataOnlyNotDeletedDatasWhereResourcePlatform($resourcePlatform) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
-        return ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->get() : NULL;
+        return ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->first() : NULL;
     }
     static function getFirstDataOnlyNotDeletedDatasWhereNewsNo($newsNo) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\Categories;
 
-use App\Http\Controllers\Api\CategoryGroups\CategoryGroupDeleteController;
-use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
-use App\Http\Controllers\Controller;
 use App\Models\CategoriesModel;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\Categories\CategoriesListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupDeleteController;
 
 class CategoryDeleteController extends Controller
 {
@@ -13,23 +14,22 @@ class CategoryDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return CategoryDeleteController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "kategori No Alanı Boş Olamaz";
+            $data["errors"]["no"] = "No Alanı Boş Olamaz";
         }
 
-        if (isset($no) && !empty($no) && !CategoriesModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz kategori No Değeri";
+        if (isset($no) && !empty($no) && !CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no)) {
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -38,12 +38,12 @@ class CategoryDeleteController extends Controller
 
         return CategoryDeleteController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
 
         $categoryUseThisCategoryAsMainCategory = CategoriesListController::getAllDataOnlyNotDeletedDatasWhereMainCategoryWhereTypeSub($no);
+
         if ($categoryUseThisCategoryAsMainCategory) {
             foreach ($categoryUseThisCategoryAsMainCategory as $category) {
                 CategoriesModel::where(["is_deleted" => false, "no" => $category["no"]])->update([
@@ -59,18 +59,21 @@ class CategoryDeleteController extends Controller
             }
         }
 
-        CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->update([
-            "is_deleted" => true
-        ]);
-        $editedCategoryGroups = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasOrWhereCategory($no);
-        if ($editedCategoryGroups) {
-            foreach ($editedCategoryGroups as $editedCategoryGroup) {
-                $data["data"]["no"] = $editedCategoryGroup["no"];
-                CategoryGroupDeleteController::get($data);
+        if (!$categoryUseThisCategoryAsMainCategory) {
+            CategoriesModel::where(["is_deleted" => false, "no" => "$no"])->update([
+                "is_deleted" => true
+            ]);
+            $editedCategoryGroups = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasOrWhereCategory($no);
+            if ($editedCategoryGroups) {
+                foreach ($editedCategoryGroups as $editedCategoryGroup) {
+                    $data["data"]["no"] = $editedCategoryGroup["no"];
+                    CategoryGroupDeleteController::get($data);
+                }
             }
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
+
         return $data;
     }
 }

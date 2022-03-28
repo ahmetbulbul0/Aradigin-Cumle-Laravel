@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\News;
 
-use App\Http\Controllers\Api\ResourceUrls\ResourceUrlDeleteController;
-use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
-use App\Http\Controllers\Controller;
 use App\Models\NewsModel;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\News\NewsListController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlDeleteController;
 
 class NewsDeleteController extends Controller
 {
@@ -13,9 +14,9 @@ class NewsDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return NewsDeleteController::check($data);
     }
@@ -24,11 +25,11 @@ class NewsDeleteController extends Controller
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "haber No Alanı Boş Olamaz";
+            $data["errors"]["no"] = "No Alanı Boş Olamaz";
         }
 
-        if (isset($no) && !empty($no) && !NewsModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz haber No Değeri";
+        if (isset($no) && !empty($no) && !NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no)) {
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -41,7 +42,7 @@ class NewsDeleteController extends Controller
     {
         $no = $data["data"]["no"];
 
-        NewsModel::where(["is_deleted" => false, "no" => "$no"])->update([
+        NewsModel::where(["is_deleted" => false, "no" => $no])->update([
             "is_deleted" => true
         ]);
 
@@ -51,7 +52,8 @@ class NewsDeleteController extends Controller
             ResourceUrlDeleteController::get($data);
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
+        
         return $data;
     }
 }

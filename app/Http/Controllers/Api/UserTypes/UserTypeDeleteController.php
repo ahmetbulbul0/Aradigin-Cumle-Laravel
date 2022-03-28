@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\UserTypes;
 
-use App\Http\Controllers\Api\Users\UserDeleteController;
-use App\Http\Controllers\Api\Users\UsersListController;
-use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\Users\UsersListController;
+use App\Http\Controllers\Api\Users\UserDeleteController;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 
 class UserTypeDeleteController extends Controller
 {
@@ -14,23 +14,22 @@ class UserTypeDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return UserTypeDeleteController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "Kullanıcı Tipi No Alanı Boş Olamaz";
+            $data["errors"]["no"] = "No Alanı Boş Olamaz";
         }
 
-        if (isset($no) && !empty($no) && !UserTypesModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz Kullanıcı Tipi No Değeri";
+        if (isset($no) && !empty($no) && !UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no)) {
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -39,7 +38,6 @@ class UserTypeDeleteController extends Controller
 
         return UserTypeDeleteController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
@@ -48,15 +46,17 @@ class UserTypeDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $editedUsers = UsersListController::getAllDataOnlyNotDeletedDatasWhereType($no);
-        if ($editedUsers) {
-            foreach ($editedUsers as $editedUser) {
-                $data["data"]["no"] = $editedUser["no"];
+        $users = UsersListController::getAllDataOnlyNotDeletedDatasWhereType($no);
+        if ($users) {
+            foreach ($users as $user) {
+                $data["data"]["no"] = $user["no"];
                 UserDeleteController::get($data);
             }
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
+
+
         return $data;
     }
 }
