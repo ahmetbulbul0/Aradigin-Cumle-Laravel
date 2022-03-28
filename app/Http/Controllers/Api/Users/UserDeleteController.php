@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Users;
 
+use App\Http\Controllers\Api\News\NewsDeleteController;
+use App\Http\Controllers\Api\News\NewsListController;
 use App\Models\UsersModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\Users\UsersListController;
@@ -50,6 +52,14 @@ class UserDeleteController extends Controller
         if ($userSettings) {
             $data["data"]["no"] = $userSettings["no"];
             UserSettingDeleteController::get($data);
+        }
+
+        $news = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereAuthor($no);
+        if ($news) {
+            foreach ($news as $n1ws) {
+                $data["data"]["no"] = $n1ws["no"];
+                NewsDeleteController::get($data);
+            }
         }
 
         $data["status"] = 200;
