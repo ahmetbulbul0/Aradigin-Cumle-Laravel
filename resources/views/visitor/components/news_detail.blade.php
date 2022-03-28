@@ -6,7 +6,7 @@
                     <div class="line">
                         <span class="content">{{ $data['newsDetail']['data']['content'] }}</span>
                     </div>
-                    <div class="line">
+                    <div class="line dateAuthor">
                         <span class="writer">Yazar: <a href="{{ route('haberler_listesi_yazar', [$data['newsDetail']['data']['author']['username'], 'son-yayinlananlar']) }}">{{ $data['newsDetail']['data']['author']['username'] }} [{{ Str::title($data['newsDetail']['data']['author']['full_name']) }}]</a></span>
                         <span class="date">{{ $data['newsDetail']['data']['publish_date']['text'] }}</span>
                     </div>
