@@ -8,10 +8,7 @@ use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsCreateController;
 use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
 use App\Http\Controllers\Api\Users\UsersListController;
 use App\Models\NewsModel;
-use App\Models\UsersModel;
-use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
-use App\Models\ResourcePlatformsModel;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Http\Controllers\Tools\LinkUrlGenerator;
 

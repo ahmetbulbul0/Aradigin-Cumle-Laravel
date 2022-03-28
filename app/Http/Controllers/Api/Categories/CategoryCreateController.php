@@ -22,7 +22,7 @@ class CategoryCreateController extends Controller
         $type = htmlspecialchars($data["data"]["type"]);
         $mainCategory = htmlspecialchars($data["data"]["main_category"]);
 
-        $name = Str::lower($name);
+        $name = Str::lower($data["data"]["name"]);
         $type = intval($type);
         $mainCategory = intval($mainCategory);
 
@@ -76,20 +76,7 @@ class CategoryCreateController extends Controller
         $name = $data["data"]["name"];
         $type = $data["data"]["type"];
         $mainCategory = $data["data"]["main_category"];
-
-        switch ($type) {
-            case ConstantsListController::getCategoryTypeMainOnlyNotDeleted():
-                $linkUrl = LinkUrlGenerator::single($name);
-                break;
-            case ConstantsListController::getCategoryTypeSubOnlyNotDeleted():
-                $linkUrlSub = LinkUrlGenerator::single($name);
-                $mainCat = CategoriesListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($mainCategory);
-                $linkUrl = $mainCat["link_url"] . "-" . $linkUrlSub;
-                break;
-            default:
-                $linkUrl = LinkUrlGenerator::single($name);
-                break;
-        }
+        $linkUrl = LinkUrlGenerator::single($name);
 
         CategoriesModel::create([
             "no" => $no,

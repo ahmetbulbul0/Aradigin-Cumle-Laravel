@@ -40,6 +40,10 @@ class ResourceUrlsListController extends Controller
     {
         return ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "resource_platform" => $resourcePlatform])->first() : NULL;
     }
+    static function getFirstDataOnlyNotDeletedDatasWhereUrl($url) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return ResourceUrlsModel::where(["is_deleted" => false, "url" => $url])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "url" => $url])->first() : NULL;
+    }
     static function getFirstDataOnlyNotDeletedDatasWhereNewsNo($newsNo) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return ResourceUrlsModel::where(["is_deleted" => false, "news_no" => "$newsNo"])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "news_no" => "$newsNo"])->first() : NULL;

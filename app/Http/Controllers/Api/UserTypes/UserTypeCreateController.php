@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\UserTypes;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Models\UserTypesModel;
+use Illuminate\Support\Str;
 
 class UserTypeCreateController extends Controller
 {
@@ -12,6 +13,8 @@ class UserTypeCreateController extends Controller
     {
 
         $name = htmlspecialchars($data["data"]["name"]);
+
+        $name = Str::lower($name);
 
         $data["data"] = [
             "name" => $name

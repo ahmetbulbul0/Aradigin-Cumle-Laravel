@@ -39,22 +39,6 @@
                         </div>
                     </div>
                 @endisset
-                <div class="line">
-                    <span class="inputLabel">Link Metni:</span>
-                    <div class="outInputText">
-                        <input type="text" name="linkUrl" value="{{ $data['data']['link_url'] }}"
-                            placeholder="Kaynak Site url...">
-                    </div>
-                </div>
-                @isset($data['errors']['linkUrl'])
-                    <div class="line">
-                        <div class="outErrorBox">
-                            <span>
-                                {{ $data['errors']['linkUrl'] }}
-                            </span>
-                        </div>
-                    </div>
-                @endisset
                 @csrf
                 <div class="line">
                     <div class="outSubmitBox">
