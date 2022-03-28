@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api\ResourceUrls;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Tools\NoGenerator;
 use App\Models\NewsModel;
-use App\Models\ResourcePlatformsModel;
-use App\Models\ResourceUrlsModel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\ResourceUrlsModel;
+use App\Http\Controllers\Controller;
+use App\Models\ResourcePlatformsModel;
+use App\Http\Controllers\Tools\NoGenerator;
 
 class ResourceUrlsCreateController extends Controller
 {
@@ -17,6 +18,10 @@ class ResourceUrlsCreateController extends Controller
         $resourcePlatform = htmlspecialchars($data["data"]["resource_platform"]);
         $url = htmlspecialchars($data["data"]["url"]);
 
+        $newsNo = intval($newsNo);
+        $resourcePlatform = intval($resourcePlatform);
+        $url = Str::lower($url);
+
         $data["data"] = [
             "news_no" => $newsNo,
             "resource_platform" => $resourcePlatform,
@@ -25,7 +30,6 @@ class ResourceUrlsCreateController extends Controller
 
         return ResourceUrlsCreateController::check($data);
     }
-
     static function check($data)
     {
         $newsNo = $data["data"]["news_no"];
@@ -58,7 +62,6 @@ class ResourceUrlsCreateController extends Controller
 
         return ResourceUrlsCreateController::work($data);
     }
-
     static function work($data)
     {
         $no = NoGenerator::generateResourceUrlsNo();

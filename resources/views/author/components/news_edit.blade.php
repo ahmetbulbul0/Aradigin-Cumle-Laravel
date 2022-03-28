@@ -148,22 +148,6 @@
                         </div>
                     </div>
                 @endisset
-                <div class="line">
-                    <span class="inputLabel">Haber Url Metni:</span>
-                    <div class="outInputText">
-                        <input type="text" name="linkUrl" value="{{ $data['data']['link_url'] }}"
-                            placeholder="Haber Url Metni...">
-                    </div>
-                </div>
-                @isset($data['errors']['linkurl'])
-                    <div class="line">
-                        <div class="outErrorBox">
-                            <span>
-                                {{ $data['errors']['linkUrl'] }}
-                            </span>
-                        </div>
-                    </div>
-                @endisset
                 @isset($data['errors']['author'])
                     <div class="line">
                         <div class="outErrorBox">

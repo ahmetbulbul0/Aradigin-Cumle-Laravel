@@ -39,4 +39,8 @@ class UserTypesListController extends Controller
     {
         return UserTypesModel::where(["is_deleted" => false, "name" => "$name"])->count() ? UserTypesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
+    static function getFirstDataOnlyNotDeletedDatasWhereNameWhereNotNo($no, $name) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return UserTypesModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "name" => "$name"])->count() ? UserTypesModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
+    }
 }

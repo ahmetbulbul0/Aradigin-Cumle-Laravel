@@ -155,6 +155,7 @@ class CategoryGroupCreateController extends Controller
         $sub4 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub4);
         $sub5 = CategoriesListController::getFirstDataOnlyNotDeletedDatasWhereNo($sub5);
 
+
         CategoryGroupsModel::create([
             "no" => $no,
             "main" => $main["no"],
@@ -165,7 +166,7 @@ class CategoryGroupCreateController extends Controller
             "sub5" => $sub5["no"] ?? NULL,
             "link_url" => 0
         ]);
-
+        
         $dataForLinkUrl["data"]["group_no"] = $no;
 
         $linkUrlCreate = CategoryGroupUrlsCreateController::get($dataForLinkUrl);
@@ -175,7 +176,7 @@ class CategoryGroupCreateController extends Controller
         }
 
         CategoryGroupsModel::where(["is_deleted" => false, "no" => $no])->update(["link_url" => $linkUrlCreate["createdData"]["no"]]);
-        
+
         $data["createdCategoryGroupData"] = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
         $data["createdCategoryGroupLinkUrlData"] = CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasWhereNo($linkUrlCreate["createdData"]["no"]);
 

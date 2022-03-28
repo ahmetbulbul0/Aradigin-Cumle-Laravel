@@ -13,23 +13,22 @@ class CategoryTypeDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return CategoryTypeDeleteController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "kategori tipi No Alanı Boş Olamaz";
+            $data["errors"]["no"] = "No Alanı Boş Olamaz";
         }
 
         if (isset($no) && !empty($no) && !CategoryTypesModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz kategori tipi No Değeri";
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -38,24 +37,24 @@ class CategoryTypeDeleteController extends Controller
 
         return CategoryTypeDeleteController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
 
-        CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->update([
+        CategoryTypesModel::where(["is_deleted" => false, "no" => $no])->update([
             "is_deleted" => true
         ]);
 
-        $editedCategories = CategoriesListController::getAllDataOnlyNotDeletedDatasWhereType($no);
-        if ($editedCategories) {
-            foreach ($editedCategories as $editedCategory) {
-                $data["data"]["no"] = $editedCategory["no"];
+        $categories = CategoriesListController::getAllDataOnlyNotDeletedDatasWhereType($no);
+        if ($categories) {
+            foreach ($categories as $category) {
+                $data["data"]["no"] = $category["no"];
                 CategoryDeleteController::get($data);
             }
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
+
         return $data;
     }
 }

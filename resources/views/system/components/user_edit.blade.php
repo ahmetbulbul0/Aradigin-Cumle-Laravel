@@ -40,22 +40,6 @@
                     </div>
                 @endisset
                 <div class="line">
-                    <span class="inputLabel">Parola:</span>
-                    <div class="outInputText">
-                        <input type="text" name="password" value="{{ $data['data']['password'] }}"
-                            placeholder="Parola...">
-                    </div>
-                </div>
-                @isset($data['errors']['password'])
-                    <div class="line">
-                        <div class="outErrorBox">
-                            <span>
-                                {{ $data['errors']['password'] }}
-                            </span>
-                        </div>
-                    </div>
-                @endisset
-                <div class="line">
                     <span class="inputLabel">Kullanıcı Tipi:</span>
                     <div class="outSelectBox">
                         <select name="type">

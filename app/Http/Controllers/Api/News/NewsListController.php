@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class NewsListController extends Controller
 {
-    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return NewsModel::count() ? NewsModel::get() : NULL;
     }
@@ -147,5 +147,9 @@ class NewsListController extends Controller
     static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereContent($content) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return NewsModel::where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray() : NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereContentWhereNotNo($no, $content) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return NewsModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "content" => "$content"])->with("author", "category", "resourcePlatform", "resourceUrl")->first()->toArray() : NULL;
     }
 }

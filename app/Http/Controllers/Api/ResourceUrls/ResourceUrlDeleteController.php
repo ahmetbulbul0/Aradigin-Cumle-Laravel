@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\ResourceUrls;
 
-use App\Http\Controllers\Api\News\NewsDeleteController;
-use App\Http\Controllers\Api\News\NewsListController;
-use App\Http\Controllers\Controller;
 use App\Models\ResourceUrlsModel;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\News\NewsListController;
+use App\Http\Controllers\Api\News\NewsDeleteController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
 
 class ResourceUrlDeleteController extends Controller
 {
@@ -14,23 +14,22 @@ class ResourceUrlDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return ResourceUrlDeleteController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "kaynak linki No Alanı Boş Olamaz";
+            $data["errors"]["no"] = "No Alanı Boş Olamaz";
         }
 
-        if (isset($no) && !empty($no) && !ResourceUrlsModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz kaynak linki No Değeri";
+        if (isset($no) && !empty($no) && !ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no)) {
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -39,7 +38,6 @@ class ResourceUrlDeleteController extends Controller
 
         return ResourceUrlDeleteController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
@@ -48,16 +46,15 @@ class ResourceUrlDeleteController extends Controller
             "is_deleted" => true
         ]);
 
-        $newsUseThisResourceUrl = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourceUrl($no);
-        if ($newsUseThisResourceUrl) {
-            foreach ($newsUseThisResourceUrl as $news) {
-                $data["data"]["no"] = $news["no"];
+        $news = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereResourceUrl($no);
+        if ($news) {
+            foreach ($news as $n1ws) {
+                $data["data"]["no"] = $n1ws["no"];
                 NewsDeleteController::get($data);
             }
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
         return $data;
     }
 }
-    

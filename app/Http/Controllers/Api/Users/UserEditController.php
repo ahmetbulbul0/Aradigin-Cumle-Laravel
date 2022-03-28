@@ -7,7 +7,9 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Tools\CharChecker;
 use App\Http\Controllers\Api\Users\UsersListController;
+use App\Http\Controllers\Api\UserTypes\UserTypesListController;
 
 class UserEditController extends Controller
 {
@@ -16,17 +18,17 @@ class UserEditController extends Controller
         $no = htmlspecialchars($data["data"]["no"]);
         $fullName = htmlspecialchars($data["data"]["full_name"]);
         $username = htmlspecialchars($data["data"]["username"]);
-        $password = htmlspecialchars($data["data"]["password"]);
         $type = htmlspecialchars($data["data"]["type"]);
 
-        $fullName = Str::title($fullName);
+        $fullName = Str::lower($fullName);
+        $fullName = CharChecker::specialChars($fullName);
         $username = Str::lower($username);
+        $username = CharChecker::allChars($username);
 
         $data["data"] = [
             "no" => $no,
             "full_name" => $fullName,
             "username" => $username,
-            "password" => $password,
             "type" => $type
         ];
 
@@ -37,31 +39,26 @@ class UserEditController extends Controller
         $no = $data["data"]["no"];
         $fullName = $data["data"]["full_name"];
         $username = $data["data"]["username"];
-        $password = $data["data"]["password"];
         $type = $data["data"]["type"];
 
         if (!isset($fullName) || empty($fullName)) {
-            $data["errors"]["fullName"] = "Kullanıcı Tam Adı Alanı Boş Olamaz";
+            $data["errors"]["fullName"] = "Tam Adı Alanı Boş Olamaz";
         }
 
         if (!isset($username) || empty($username)) {
             $data["errors"]["username"] = "Kullanıcı Adı Alanı Boş Olamaz";
         }
 
-        if (!isset($password) || empty($password)) {
-            $data["errors"]["password"] = "Parola Adı Alanı Boş Olamaz";
-        }
-
         if (!isset($type) || empty($type)) {
             $data["errors"]["type"] = "Kullanıcı Tipi Alanı Boş Olamaz";
         }
 
-        if (isset($username) && !empty($username) && UsersModel::where([["no", "!=", $no], ["username", $username]])->count()) {
+        if (isset($username) && !empty($username) && UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereUsernameWhereNotNo($no, $username)) {
             $data["errors"]["username"] = "[$username] Bu Kullanıcı Adı Kullanılıyor, Lütfen Başka Bir Kullanıcı Ad Kullanınız";
         }
 
-        if (isset($type) && !empty($type) && !UserTypesModel::where("no", $type)->count()) {
-            $data["errors"]["type"] = "[$type] Böyle Bir Kullanıcı Tipi Yok";
+        if (isset($type) && !empty($type) && !UserTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($type)) {
+            $data["errors"]["type"] = "Geçersiz Kullanıcı Tipi Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -75,18 +72,17 @@ class UserEditController extends Controller
         $no = $data["data"]["no"];
         $fullName = $data["data"]["full_name"];
         $username = $data["data"]["username"];
-        $password = $data["data"]["password"];
         $type = $data["data"]["type"];
 
         UsersModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "no" => $no,
             "full_name" => $fullName,
             "username" => $username,
-            "password" => $password,
             "type" => $type
         ]);
 
         $data["editedData"] = UsersListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
+        
         return $data;
     }
 }

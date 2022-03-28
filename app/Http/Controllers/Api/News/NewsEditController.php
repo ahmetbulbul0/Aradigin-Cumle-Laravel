@@ -2,27 +2,30 @@
 
 namespace App\Http\Controllers\Api\News;
 
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Models\NewsModel;
-use App\Models\UsersModel;
-use App\Models\ResourceUrlsModel;
-use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
-use App\Models\ResourcePlatformsModel;
-use App\Http\Controllers\Tools\NoGenerator;
 use App\Http\Controllers\Tools\LinkUrlGenerator;
+use App\Http\Controllers\Api\News\NewsListController;
+use App\Http\Controllers\Api\ResourcePlatforms\ResourcePlatformsListController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsCreateController;
+use App\Http\Controllers\Api\ResourceUrls\ResourceUrlsListController;
 
 class NewsEditController extends Controller
 {
     static function get($data)
     {
         $no = htmlspecialchars($data["data"]["no"]);
-        $content = htmlspecialchars($data["data"]["content"]);
+        $content = $data["data"]["content"];
         $category = htmlspecialchars($data["data"]["category"]);
         $publishDate = htmlspecialchars($data["data"]["publish_date"]);
         $speDate = htmlspecialchars($data["data"]["spe_date"]);
         $speTime = htmlspecialchars($data["data"]["spe_time"]);
         $resourcePlatform = htmlspecialchars($data["data"]["resource_platform"]);
         $resourceUrl = htmlspecialchars($data["data"]["resource_url"]);
+
+        $category = intval($category);
+        $resourcePlatform = intval($resourcePlatform);
 
         $data["data"] = [
             "no" => $no,
@@ -37,7 +40,6 @@ class NewsEditController extends Controller
 
         return NewsEditController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
@@ -69,15 +71,15 @@ class NewsEditController extends Controller
             $data["errors"]["publish_date"] = "Yayın Tarihi Alanı Boş Olamaz";
         }
 
-        if (isset($content) && !empty($content) && NewsModel::where([["no", "!=", $no], ["content", $content]])->count()) {
+        if (isset($content) && !empty($content) && NewsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereContentWhereNotNo($no, $content)) {
             $data["errors"]["content"] = "[$content] Bu İçerik Daha Önceden Yazılmış, Başka Bir İçerik Metni Ekleyiniz";
         }
 
-        if (isset($category) && !empty($category) && !CategoryGroupsModel::where("no", $category)->count()) {
+        if (isset($category) && !empty($category) && !CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($category)) {
             $data["errors"]["category"] = "Böyle Bir Kategori Grubu Yok";
         }
 
-        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsModel::where("no", $resourcePlatform)->count()) {
+        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($resourcePlatform)) {
             $data["errors"]["resource_platform"] = "Böyle Bir Kaynak Site Yok";
         }
 
@@ -102,7 +104,7 @@ class NewsEditController extends Controller
                 $data["data"]["publish_date"] = strtotime($publishDate);
                 break;
             default:
-                $data["errors"]["publish_date"] = "[$publishDate] Böyle Bir Yayın Durumu Yok";
+                $data["errors"]["publish_date"] = "Geçersiz Yayın Durumu";
                 break;
         }
 
@@ -112,7 +114,6 @@ class NewsEditController extends Controller
 
         return NewsEditController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
@@ -121,24 +122,32 @@ class NewsEditController extends Controller
         $resourcePlatform = $data["data"]["resource_platform"];
         $resourceUrl = $data["data"]["resource_url"];
         $publishDate = $data["data"]["publish_date"];
-        $linkUrl = LinkUrlGenerator::single($content);
+        $linkUrl = LinkUrlGenerator::single($content, 10);
 
-        if (isset($resourceUrl) && !empty($resourceUrl) && ResourceUrlsModel::where("url", $resourceUrl)->count()) {
-            $resourceUrlNo = ResourceUrlsModel::where("url", $resourceUrl)->first()->no;
+        if (ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasWhereUrl($resourceUrl)) {
+            $resourceUrlNo = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasWhereUrl($resourceUrl)->no;
         }
-        if (isset($resourceUrl) && !empty($resourceUrl) && !ResourceUrlsModel::where("url", $resourceUrl)->count()) {
-            $resourceUrlNo = NoGenerator::generateResourceUrlsNo();
-            ResourceUrlsModel::create([
-                "no" => $resourceUrlNo,
+
+        if (!ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasWhereUrl($resourceUrl)) {
+
+            $dataForResourceUrl["data"] = [
                 "news_no" => $no,
                 "resource_platform" => $resourcePlatform,
                 "url" => $resourceUrl
-            ]);
+            ];
+
+            $resourceUrlCreate = ResourceUrlsCreateController::get($dataForResourceUrl);
+
+            if ($resourceUrlCreate["errors"]) {
+                dd("HATA");
+            }
+
+            $resourceUrlNo = $resourceUrlCreate["createdData"]["no"];
         }
 
         NewsModel::where(["is_deleted" => false, "no" => "$no"])->update([
             "content" => $content,
-            "category" => $category,    
+            "category" => $category,
             "resource_platform" => $resourcePlatform,
             "resource_url" => $resourceUrlNo,
             "publish_date" => $publishDate,

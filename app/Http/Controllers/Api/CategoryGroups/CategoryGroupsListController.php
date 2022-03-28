@@ -108,6 +108,10 @@ class CategoryGroupsListController extends Controller
     {
         return CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->count() ? CategoryGroupsModel::where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
     }
+    static function getFirstDataOnlyNotDeletedDatasWhereMainWhereSub1WhereSub2WhereSub3WhereSub4WhereSub5WhereNotNo($no, $main, $sub1, $sub2, $sub3, $sub4, $sub5) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return CategoryGroupsModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub5" => $sub5])->count() ? CategoryGroupsModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "main" => $main, "sub1" => $sub1, "sub2" => $sub2, "sub3" => $sub3, "sub4" => $sub4, "sub4" => $sub4])->first() : NULL;
+    }
     static function getAllDataOnlyNotDeletedDatasOrWhereCategory($category) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->count() ? CategoryGroupsModel::where("is_deleted", false)->where("main", $category)->orWhere("sub1", $category)->orWhere("sub2", $category)->orWhere("sub3", $category)->orWhere("sub4", $category)->orWhere("sub5", $category)->get()->toArray() : NULL;

@@ -26,7 +26,7 @@ class CategoriesListController extends Controller
         return CategoriesModel::where(["is_deleted" => false, "type" => $type])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => $type])->get() : NULL;
     }
     static function getAllDataOnlyNotDeletedDatasWhereMainCategoryWhereTypeSub($mainCategory)
-    {   
+    {
         return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->get() : NULL;
     }
     static function getAllDataOnlyNotDeletedDatasAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
@@ -84,5 +84,9 @@ class CategoriesListController extends Controller
     static function getFirstDataOnlyNotDeletedDatasWhereName($name)
     {
         return CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->count() ? CategoriesModel::where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
+    }
+    static function getFirstDataOnlyNotDeletedDatasWhereNameWhereNotNo($no, $name)
+    {
+        return CategoriesModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "name" => "$name"])->count() ? CategoriesModel::where([["no", "!=", $no]])->where(["is_deleted" => false, "name" => "$name"])->first() : NULL;
     }
 }

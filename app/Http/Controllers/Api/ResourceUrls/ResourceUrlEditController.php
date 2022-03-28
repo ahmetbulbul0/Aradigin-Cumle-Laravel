@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api\ResourceUrls;
 
+use App\Http\Controllers\Api\ResourcePlatforms\ResourcePlatformsListController;
 use Illuminate\Http\Request;
 use App\Models\ResourceUrlsModel;
 use App\Http\Controllers\Controller;
 use App\Models\ResourcePlatformsModel;
+use Illuminate\Support\Str;
 
 class ResourceUrlEditController extends Controller
 {
@@ -15,6 +17,10 @@ class ResourceUrlEditController extends Controller
         $resourcePlatform = htmlspecialchars($data["data"]["resource_platform"]);
         $url = htmlspecialchars($data["data"]["url"]);
 
+        $no = intval($no);
+        $resourcePlatform = intval($resourcePlatform);
+        $url = Str::lower($url);
+
         $data["data"] = [
             "no" => $no,
             "resource_platform" => $resourcePlatform,
@@ -23,7 +29,6 @@ class ResourceUrlEditController extends Controller
 
         return ResourceUrlEditController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
@@ -38,8 +43,8 @@ class ResourceUrlEditController extends Controller
             $data["errors"]["url"] = "Kaynak Linki Url Alanı Boş Olamaz";
         }
 
-        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsModel::where([["no", "!=", $no], ["no", $resourcePlatform]])->count()) {
-            $data["errors"]["resource_platform"] = "[$resourcePlatform] Bu Kaynak Link Platform No Değeri Geçersiz";
+        if (isset($resourcePlatform) && !empty($resourcePlatform) && !ResourcePlatformsListController::getFirstDataOnlyNotDeletedDatasWhereNo($resourcePlatform)) {
+            $data["errors"]["resource_platform"] = "Kaynak Platform Değeri Geçersiz";
         }
 
         if (isset($data["errors"])) {
@@ -48,7 +53,6 @@ class ResourceUrlEditController extends Controller
 
         return ResourceUrlEditController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
@@ -61,6 +65,7 @@ class ResourceUrlEditController extends Controller
         ]);
 
         $data["editedData"] = ResourceUrlsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo($no);
+        
         return $data;
     }
 }

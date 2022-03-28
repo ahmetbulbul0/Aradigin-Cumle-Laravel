@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api\CategoryGroupUrls;
 
 use App\Http\Controllers\Api\Categories\CategoriesListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
-use Illuminate\Http\Request;
 use App\Models\CategoryGroupsModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\LinkUrlGenerator;

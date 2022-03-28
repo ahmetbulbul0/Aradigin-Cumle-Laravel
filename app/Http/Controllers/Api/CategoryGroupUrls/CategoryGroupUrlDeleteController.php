@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api\CategoryGroupUrls;
 
-use App\Http\Controllers\Api\CategoryGroups\CategoryGroupDeleteController;
-use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryGroupUrlsModel;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Api\CategoryGroups\CategoryGroupDeleteController;
+use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsListController;
 
 class CategoryGroupUrlDeleteController extends Controller
 {
@@ -14,9 +14,9 @@ class CategoryGroupUrlDeleteController extends Controller
     {
         $no = htmlspecialchars($data["data"]["no"]);
 
-        $data["data"] = [
-            "no" => $no
-        ];
+        $no = intval($no);
+
+        $data["data"]["no"] = $no;
 
         return CategoryGroupUrlDeleteController::check($data);
     }
@@ -25,11 +25,11 @@ class CategoryGroupUrlDeleteController extends Controller
         $no = $data["data"]["no"];
 
         if (!isset($no) || empty($no)) {
-            $data["errors"]["name"] = "kategori grubu link metni No Alanı Boş Olamaz";
+            $data["errors"]["name"] = "No Alanı Boş Olamaz";
         }
 
-        if (isset($no) && !empty($no) && !CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->count()) {
-            $data["errors"]["no"] = "Geçersiz kategori grubu link metni No Değeri";
+        if (isset($no) && !empty($no) && !CategoryGroupUrlsListController::getFirstDataOnlyNotDeletedDatasWhereNo($no)) {
+            $data["errors"]["no"] = "Geçersiz No Değeri";
         }
 
         if (isset($data["errors"])) {
@@ -42,17 +42,18 @@ class CategoryGroupUrlDeleteController extends Controller
     {
         $no = $data["data"]["no"];
 
-        CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => "$no"])->update([
+        CategoryGroupUrlsModel::where(["is_deleted" => false, "no" => $no])->update([
             "is_deleted" => true
         ]);
 
         $categoryGroup = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasWhereLinkUrl($no);
         if ($categoryGroup) {
-            $dataForDeleteCategoryGroup["data"]["no"] = $categoryGroup["no"];
-            CategoryGroupDeleteController::get($dataForDeleteCategoryGroup);
+            $data["data"]["no"] = $categoryGroup["no"];
+            CategoryGroupDeleteController::get($data);
         }
 
-        $data["status"] = "success";
+        $data["status"] = 200;
+
         return $data;
     }
 }

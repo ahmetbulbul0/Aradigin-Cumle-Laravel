@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api\CategoryTypes;
 
-use App\Http\Controllers\Controller;
-use App\Models\CategoryTypesModel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\CategoryTypesModel;
+use App\Http\Controllers\Controller;
 
 class CategoryTypeEditController extends Controller
 {
@@ -13,6 +14,9 @@ class CategoryTypeEditController extends Controller
         $no = htmlspecialchars($data["data"]["no"]);
         $name = htmlspecialchars($data["data"]["name"]);
 
+        $no = intval($no);
+        $name = Str::lower($name);
+
         $data["data"] = [
             "no" => $no,
             "name" => $name
@@ -20,7 +24,6 @@ class CategoryTypeEditController extends Controller
 
         return CategoryTypeEditController::check($data);
     }
-
     static function check($data)
     {
         $no = $data["data"]["no"];
@@ -29,7 +32,7 @@ class CategoryTypeEditController extends Controller
         if (!isset($name) || empty($name)) {
             $data["errors"]["name"] = "Kategori Tipi Adı Alanı Boş Olamaz";
         }
-        if (isset($name) && !empty($name) && CategoryTypesModel::where([["no", "!=", $no], ["name", $name]])->count()) {
+        if (isset($name) && !empty($name) && CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNameWhereNotNo($no, $name)) {
             $data["errors"]["name"] = "[$name] Bu Kategori Tipi Adı Kullanılıyor, Lütfen Başka Bir Ad Kullanınız";
         }
 
@@ -39,17 +42,17 @@ class CategoryTypeEditController extends Controller
 
         return CategoryTypeEditController::work($data);
     }
-
     static function work($data)
     {
         $no = $data["data"]["no"];
         $name = $data["data"]["name"];
 
-        CategoryTypesModel::where(["is_deleted" => false, "no" => "$no"])->update([
+        CategoryTypesModel::where(["is_deleted" => false, "no" => $no])->update([
             "name" => $name
         ]);
 
         $data["editedData"] = CategoryTypesListController::getFirstDataOnlyNotDeletedDatasWhereNo($no);
+
         return $data;
     }
 }
