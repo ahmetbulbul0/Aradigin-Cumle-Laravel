@@ -36,24 +36,6 @@
                 </a>
             </span>
         </div>
-
-        {{-- @if (Session::get('visitorData'))
-            Hoşgeldin, Merhaba Ziyaretçi
-        @endif
-        @if (Session::get('userData'))
-            @switch(Session::get("userData.type.name"))
-                @case('author')
-                    Hoşgeldin, Merhaba[{{ Session::get('userData.full_name') }}]
-                @break
-
-                @case('system')
-                    Hoşgeldin, Merhaba [{{ Session::get('userData.full_name') }}]
-                @break
-
-                @default
-            @endswitch
-        @endif --}}
-
         <div class="bar">
             <section class="brace"></section>
             <span class="iconBox">
@@ -242,7 +224,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -260,7 +242,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -278,7 +260,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -296,7 +278,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -316,7 +298,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -334,7 +316,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -352,7 +334,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
@@ -370,7 +352,7 @@
                             <div class="item">
                                 <span>
                                     <a
-                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ $subCategory['sub1']['name'] }}</a>
+                                        href="{{ route('haberler_listesi_kategori', [$subCategory['link_url']['link_url'], 'son-yayinlananlar']) }}">{{ Str::title($subCategory['sub1']['name']) }}</a>
                                 </span>
                             </div>
                         @endforeach
