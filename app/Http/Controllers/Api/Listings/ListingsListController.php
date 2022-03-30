@@ -12,6 +12,10 @@ class ListingsListController extends Controller
     {
         return ListingsModel::where(["no" => $no])->count() ? ListingsModel::where(["no" => $no])->first() : NULL;
     }
+    static function getAllDataWhere($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return ListingsModel::where(["no" => $no])->count() ? ListingsModel::where(["no" => $no])->first() : NULL;
+    }
     static function getAllDataWhereNewsNoOrderByDescTimeFinish($newsNo) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return ListingsModel::where(["news_no" => $newsNo])->orderBy("time_finish", "DESC")->count() ? ListingsModel::where(["news_no" => $newsNo])->orderBy("time_finish", "DESC")->get() : NULL;

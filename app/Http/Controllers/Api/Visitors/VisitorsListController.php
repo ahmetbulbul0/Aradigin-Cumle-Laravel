@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 
 class VisitorsListController extends Controller
 {
-    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA 
+    static function getAllData() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return VisitorsModel::count() ? VisitorsModel::get() : NULL;
     }
     static function getAllDataOnlyNotBannedDatas() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return VisitorsModel::where("is_banned", false)->count() ? VisitorsModel::where("is_banned", false)->get() : NULL;
+    }
+    static function getAllDataOnlyNotBannedDatasWhereLastLoginTimeInLast24Hours() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
+    {
+        return VisitorsModel::where("is_banned", false)->where([["last_login_time", ">", strtotime("-1 days", time())]])->count() ? VisitorsModel::where("is_banned", false)->where([["last_login_time", ">", strtotime("-1 days", time())]])->get() : NULL;
     }
     static function getFirstDataOnlyNotBannedDatasWhereNo($no) // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {

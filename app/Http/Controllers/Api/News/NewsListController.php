@@ -20,6 +20,9 @@ class NewsListController extends Controller
     {
         return NewsModel::where("is_deleted", false)->count() ? NewsModel::where("is_deleted", false)->get() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasWherePublishDateInLast24Hours() {
+        return NewsModel::where("is_deleted", false)->where([["publish_date", ">", strtotime("-1 days", time())]])->count() ? NewsModel::where("is_deleted", false)->where([["publish_date", ">", strtotime("-1 days", time())]])->get() : NULL;
+    }
     static function getAllDataOnlyNotDeletedDatasAllRelationships() // TODO: BU FONKSİYONUN NE İŞE YARADIĞINI AÇIKLA
     {
         return NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->count() ? NewsModel::where("is_deleted", false)->with("author", "category", "resourcePlatform", "resourceUrl")->get()->toArray() : NULL;

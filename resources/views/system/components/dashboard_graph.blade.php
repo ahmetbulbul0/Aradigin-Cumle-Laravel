@@ -6,53 +6,79 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
-<script src="{{ URL::asset('src/js/chart.js') }}"></script>
+<script>
+    const ctx = document.getElementById("myChart").getContext("2d");
 
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
 
+    gradient.addColorStop(0, "rgba(218, 44, 77, 0.8)");
+    gradient.addColorStop(1, "rgba(248, 171, 55, 0.2)");
 
-{{-- <div class="outChartAndWelcomeHowAreYou">
-    <div class="inChartAndWelcomeHowAreYou">
-        <div class="chart">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="outWelcomeHowAreYou">
-            <form class="inWelcomeHowAreYou">
-                <div class="step" id="defaultOptions">
-                    <div class="header">
-                        <span>Hoşgeldin, Bugün Nasılsın?</span>
-                    </div>
-                    <div class="body">
-                        <span>Hoşbuldum, iyiyim</span>
-                    </div>
-                    <div class="body">
-                        <span>Hoşbulmadım</span>
-                    </div>
-                    <div class="body">
-                        <div class="strong">
-                            <span onclick="welcomeHowAreYouHaveDifferentThink()">Hoşbuldum, başka birşey var</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="step" id="haveDifferentThink">
-                    <div class="header">
-                        <span>Hoşgeldin, Bugün Nasılsın?</span>
-                    </div>
-                    <div class="body">
-                        <div class="outInputText">
-                            <input type="text" placeholder="nasıl hissediyorsun bugün">
-                        </div>
-                    </div>
-                    <div class="body">
-                        <div class="strong">
-                            <span>işte böyle</span>
-                        </div>
-                        <div class="strong">
-                            <span onclick="welcomeHowAreYouHaveDefaultOption()">vazgeçtim</span>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
-{{-- <script src="{{ URL::asset('src/js/welcome_how_are_you.js') }}"></script> --}}
+    let delayed;
+
+    const labels = {!! json_encode($data['graph']['labels']) !!};
+
+    const listings = {!! json_encode($data['graph']['listings']) !!};
+
+    const readings = {!! json_encode($data['graph']['readings']) !!};
+
+    const data = {
+        labels,
+        datasets: [{
+                data: listings,
+                min: -100,
+                label: "Listelenme",
+                fill: true,
+                backgroundColor: "rgba(218, 44, 77, 0.2)",
+                borderColor: "rgba(218, 44, 77, 0.6)",
+                pointBackgroundColor: "rgba(218, 44, 77, 0.2)",
+                tension: 0.5,
+            },
+            {
+                data: readings,
+                min: -100,
+                label: "Okunma",
+                fill: true,
+                backgroundColor: "rgba(248, 171, 55, 0.2)",
+                borderColor: "rgba(248, 171, 55, 0.6)",
+                pointBackgroundColor: "rgba(248, 171, 55, 0.2)",
+                tension: 0.5,
+            }
+        ]
+    }
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            radius: 5,
+            hitRadius: 30,
+            hoverRadius: 10,
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                onComplete: () => {
+                    delayed = true;
+                },
+                delay: (context) => {
+                    let delay = 0;
+                    if (context.type === "data" && context.mode === "default" && !delayed) {
+                        delay = context.dataIndex * 300 + context.datasetIndex * 100;
+                    }
+                    return delay;
+                },
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Son 1 Haftanın Haber Grafiği '
+                }
+            },
+        },
+    };
+
+    const myChart = new Chart(ctx, config);
+</script>
