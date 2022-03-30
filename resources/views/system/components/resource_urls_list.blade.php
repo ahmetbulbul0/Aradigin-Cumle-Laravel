@@ -2,15 +2,22 @@
     <div class="inDbList">
         <div class="outTitle">
             <div class="inTitle">
-                Kaynak Linkler
+                {{ $data['page_title'] }}
             </div>
             <div class="titleSelects">
                 <div class="listingTypeSelect">
                     <form method="POST" class="outSelectBox">
                         @csrf
                         <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
-                            <option value="default" @if (Route::is('kaynak_siteleri')) selected @endif>Varsayılan
-                            </option>
+                            <option value="default" @if (Route::is('kaynak_linkler')) selected @endif>Varsayılan</option>
+                            <option value="no09" @if (Route::is('kaynak_linkler_no09')) selected @endif>No (0 - 9)</option>
+                            <option value="no90" @if (Route::is('kaynak_linkler_no90')) selected @endif>No (9 - 0)</option>
+                            <option value="newsAZ" @if (Route::is('kaynak_linkler_newsAZ')) selected @endif>Haber (A - Z)</option>
+                            <option value="newsZA" @if (Route::is('kaynak_linkler_newsZA')) selected @endif>Haber (Z - A)</option>
+                            <option value="resourcePlatformAZ" @if (Route::is('kaynak_linkler_resourcePlatformAZ')) selected @endif>Kaynak Platform (A - Z)</option>
+                            <option value="resourcePlatformZA" @if (Route::is('kaynak_linkler_resourcePlatformZA')) selected @endif>Kaynak Platform (Z - A)</option>
+                            <option value="urlAZ" @if (Route::is('kaynak_linkler_urlAZ')) selected @endif>Url (A - Z)</option>
+                            <option value="urlZA" @if (Route::is('kaynak_linkler_urlZA')) selected @endif>Url (Z - A)</option>
                         </select>
                     </form>
                 </div>
@@ -24,7 +31,7 @@
                 <div class="w30">
                     <span>Haber</span>
                 </div>
-                <div class="20">
+                <div class="w20">
                     <span>Platform</span>
                 </div>
                 <div class="w30">
@@ -51,10 +58,10 @@
                         </div>
                         <div class="actions w10">
                             <span>
-                                <a href="/sistem-paneli/kaynak-linki/düzenle/{{ $item['no'] }}">
+                                <a href="{{ route('kaynak_linki_düzenle', $item['no']) }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="/sistem-paneli/kaynak-linki/sil/{{ $item['no'] }}">
+                                <a href="{{ route('kaynak_linki_sil', $item['no']) }}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </span>

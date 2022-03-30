@@ -12,7 +12,8 @@
                     <form method="POST" class="outSelectBox">
                         @csrf
                         <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
-                            <option value="default" @if (Route::is('kullanici_tipleri')) selected @endif>Varsayılan</option>
+                            <option value="default" @if (Route::is('kullanici_tipleri')) selected @endif>Varsayılan
+                            </option>
                             <option value="no09" @if (Route::is('kullanici_tipleri_no09')) selected @endif>No (0 - 9)</option>
                             <option value="no90" @if (Route::is('kullanici_tipleri_no90')) selected @endif>No (9 - 0)</option>
                             <option value="nameAZ" @if (Route::is('kullanici_tipleri_nameAZ')) selected @endif>Ad (A - Z)</option>
@@ -44,10 +45,10 @@
                     </div>
                     <div class="actions w20">
                         <span>
-                            <a href="/sistem-paneli/kullanici-tipi/düzenle/{{ $item['no'] }}">
+                            <a href="{{ route('kullanici_tipi_düzenle', $item['no']) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kullanici-tipi/sil/{{ $item['no'] }}">
+                            <a href="{{ route('kullanici_tipi_sil', $item['no']) }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

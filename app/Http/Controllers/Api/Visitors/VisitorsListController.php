@@ -28,4 +28,44 @@ class VisitorsListController extends Controller
     {
         return VisitorsModel::where(["is_banned" => true, "no" => "$no"])->count() ? VisitorsModel::where(["is_banned" => true, "no" => "$no"])->first() : NULL;
     }
+    static function getAllDataOrderByAscNo()
+    {
+        return VisitorsModel::orderBy("no", "ASC")->count() ? VisitorsModel::orderBy("no", "ASC")->get() : NULL;
+    }
+    static function getAllDataOrderByDescNo()
+    {
+        return VisitorsModel::orderBy("no", "DESC")->count() ? VisitorsModel::orderBy("no", "DESC")->get() : NULL;
+    }
+    static function getAllDataOrderByAscIp()
+    {
+        return VisitorsModel::orderBy("ip", "ASC")->count() ? VisitorsModel::orderBy("ip", "ASC")->get() : NULL;
+    }
+    static function getAllDataOrderByDescIp()
+    {
+        return VisitorsModel::orderBy("ip", "DESC")->count() ? VisitorsModel::orderBy("ip", "DESC")->get() : NULL;
+    }
+    static function getAllDataOrderByAscBrowser()
+    {
+        return VisitorsModel::orderBy("browser", "ASC")->count() ? VisitorsModel::orderBy("browser", "ASC")->get() : NULL;
+    }
+    static function getAllDataOrderByDescBrowser()
+    {
+        return VisitorsModel::orderBy("browser", "DESC")->count() ? VisitorsModel::orderBy("browser", "DESC")->get() : NULL;
+    }
+    static function getAllDataOrderByAscLastLoginTime()
+    {
+        return VisitorsModel::orderBy("last_login_time", "ASC")->count() ? VisitorsModel::orderBy("last_login_time", "ASC")->get() : NULL;
+    }
+    static function getAllDataOrderByDescLastLoginTime()
+    {
+        return VisitorsModel::orderBy("last_login_time", "DESC")->count() ? VisitorsModel::orderBy("last_login_time", "DESC")->get() : NULL;
+    }
+    static function getAllDataOrderByAscWebSiteTheme()
+    {
+        return VisitorsModel::orderBy("website_theme", "ASC")->count() ? VisitorsModel::orderBy("website_theme", "ASC")->get() : NULL;
+    }
+    static function getAllDataOrderByDescWebSiteTheme()
+    {
+        return VisitorsModel::orderBy("website_theme", "DESC")->count() ? VisitorsModel::orderBy("website_theme", "DESC")->get() : NULL;
+    }
 }

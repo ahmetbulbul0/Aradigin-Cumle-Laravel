@@ -10,7 +10,17 @@
                     <form method="POST" class="outSelectBox">
                         @csrf
                         <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
-                            <option value="default" @if (Route::is('ziyaretciler')) selected @endif>Varsayılan </option>
+                            <option value="default" @if (Route::is('ziyaretciler')) selected @endif>Varsayılan</option>
+                            <option value="no09" @if (Route::is('ziyaretciler_no09')) selected @endif>No (0 - 9)</option>
+                            <option value="no90" @if (Route::is('ziyaretciler_no90')) selected @endif>No (9 - 0)</option>
+                            <option value="ip09" @if (Route::is('ziyaretciler_ip09')) selected @endif>İp (0 - 9)</option>
+                            <option value="ip90" @if (Route::is('ziyaretciler_ip90')) selected @endif>İp (9 - 0)</option>
+                            <option value="browserAZ" @if (Route::is('ziyaretciler_browserAZ')) selected @endif>Tarayıcı (A - Z)</option>
+                            <option value="browserZA" @if (Route::is('ziyaretciler_browserZA')) selected @endif>Tarayıcı (Z - A)</option>
+                            <option value="lastLoginTimeAZ" @if (Route::is('ziyaretciler_lastLoginTimeAZ')) selected @endif>Son Giriş Tarihi (A - Z)</option>
+                            <option value="lastLoginTimeZA" @if (Route::is('ziyaretciler_lastLoginTimeZA')) selected @endif>Son Giriş Tarihi (Z - A)</option>
+                            <option value="webSiteThemeAZ" @if (Route::is('ziyaretciler_webSiteThemeAZ')) selected @endif>WebSite Tema (A - Z)</option>
+                            <option value="webSiteThemeZA" @if (Route::is('ziyaretciler_webSiteThemeZA')) selected @endif>WebSite Tema (Z - A)</option>
                         </select>
                     </form>
                 </div>

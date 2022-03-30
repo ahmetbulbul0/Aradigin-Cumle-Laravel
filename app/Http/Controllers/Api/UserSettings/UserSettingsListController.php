@@ -34,10 +34,42 @@ class UserSettingsListController extends Controller
     }
     static function getFirstDataOnlyNotDeletedDatasWhereNo($no)
     {
-        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->count() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first(): NULL;
+        return UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->count() ? UsersSettingsModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
     static function getFirstDataOnlyNotDeletedDatasWhereUserNo($userNo)
     {
         return UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->count() ? UsersSettingsModel::where(["is_deleted" => false, "user_no" => "$userNo"])->first() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("no", "ASC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("no", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("no", "DESC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("no", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscUserNo()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("user_no", "ASC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("user_no", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescUserNo()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("user_no", "DESC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("user_no", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscWebSiteTheme()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("website_theme", "ASC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("website_theme", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescWebSiteTheme()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("website_theme", "DESC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("website_theme", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscDashboardTheme()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("dashboard_theme", "ASC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("dashboard_theme", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescDashboardTheme()
+    {
+        return UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("dashboard_theme", "DESC")->count() ? UsersSettingsModel::where("is_deleted", false)->with("userNo")->orderBy("dashboard_theme", "DESC")->get()->toArray() : NULL;
     }
 }
