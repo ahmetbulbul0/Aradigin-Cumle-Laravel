@@ -2,7 +2,7 @@
     <div class="inDbList">
         <div class="outTitle">
             <div class="inTitle">
-                Kullanıcı Ayarları
+                {{ $data['page_title'] }}
             </div>
             <div class="titleSelects">
                 <div class="listingTypeSelect">
@@ -10,6 +10,14 @@
                         @csrf
                         <select name="listingType" onchange="if(this.value != 0) { this.form.submit(); }">
                             <option value="default" @if (Route::is('kullanici_ayarlari')) selected @endif>Varsayılan</option>
+                            <option value="no09" @if (Route::is('kullanici_ayarlari_no09')) selected @endif>No (0 - 9)</option>
+                            <option value="no90" @if (Route::is('kullanici_ayarlari_no90')) selected @endif>No (9 - 0)</option>
+                            <option value="userAZ" @if (Route::is('kullanici_ayarlari_userAZ')) selected @endif>Kullanıcı (A - Z)</option>
+                            <option value="userZA" @if (Route::is('kullanici_ayarlari_userZA')) selected @endif>Kullanıcı (Z - A)</option>
+                            <option value="webSiteThemeAZ" @if (Route::is('kullanici_ayarlari_webSiteThemeAZ')) selected @endif>WebSite Tema (A - Z)</option>
+                            <option value="webSiteThemeZA" @if (Route::is('kullanici_ayarlari_webSiteThemeZA')) selected @endif>WebSite Tema (Z - A)</option>
+                            <option value="dashboardThemeAZ" @if (Route::is('kullanici_ayarlari_dashboardThemeAZ')) selected @endif>Panel Tema (A - Z)</option>
+                            <option value="dashboardThemeZA" @if (Route::is('kullanici_ayarlari_dashboardThemeZA')) selected @endif>Panel Tema (Z - A)</option>
                         </select>
                     </form>
                 </div>
@@ -44,19 +52,21 @@
                     <div class="w20">
                         <span>{{ $item['website_theme'] }} @empty($item['website_theme'])
                                 -
-                            @endempty</span>
+                            @endempty
+                        </span>
                     </div>
                     <div class="w20">
                         <span>{{ $item['dashboard_theme'] }} @empty($item['dashboard_theme'])
                                 -
-                            @endempty</span>
+                            @endempty
+                        </span>
                     </div>
                     <div class="actions w10">
                         <span>
-                            <a href="/sistem-paneli/kullanici-ayari/düzenle/{{ $item['no'] }}">
+                            <a href="{{ route('kullanici_ayari_düzenle', $item['no']) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="/sistem-paneli/kullanici-ayari/sil/{{ $item['no'] }}">
+                            <a href="{{ route('kullanici_ayari_sil', $item['no']) }}">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </span>

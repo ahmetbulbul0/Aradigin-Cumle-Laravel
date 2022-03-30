@@ -21,7 +21,7 @@ class CategoryGroupsListPageController extends Controller
         $listingType = $request->listingType;
         switch ($listingType) {
             case 'default':
-                return redirect(route("kategoriler"));
+                return redirect(route("kategori_gruplari"));
                 break;
             case 'no09':
                 return redirect(route("kategori_gruplari_no09"));

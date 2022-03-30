@@ -105,7 +105,7 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/", "index")->name("haber_ekle");
                     Route::post("/", "form");
                 });
-            // HABERLERİM    
+            // HABERLERİM
                 Route::prefix("/haberlerim")->group(function () {
                     // HABERLERİM LİSTESİ "TODO"
                         Route::get("/", [MyNewsListPageController::class, "index"])->name("haberlerim");
@@ -202,7 +202,42 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                 });
             // KULLANICI AYARLARI LİSTESİ
                 Route::prefix("/kullanici-ayarlari")->controller(UserSettingsListPageController::class)->group(function () {
-                    Route::get("/", "index")->name("kullanici_ayarlari");
+                    Route::prefix("/")->group(function () {
+                        Route::get("/", "index")->name("kullanici_ayarlari");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no09")->group(function () {
+                        Route::get("/", "no09")->name("kullanici_ayarlari_no09");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no90")->group(function () {
+                        Route::get("/", "no90")->name("kullanici_ayarlari_no90");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/userAZ")->group(function () {
+                        Route::get("/", "userAZ")->name("kullanici_ayarlari_userAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/userZA")->group(function () {
+                        Route::get("/", "userZA")->name("kullanici_ayarlari_userZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/webSiteThemeAZ")->group(function () {
+                        Route::get("/", "webSiteThemeAZ")->name("kullanici_ayarlari_webSiteThemeAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/webSiteThemeZA")->group(function () {
+                        Route::get("/", "webSiteThemeZA")->name("kullanici_ayarlari_webSiteThemeZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/dashboardThemeAZ")->group(function () {
+                        Route::get("/", "dashboardThemeAZ")->name("kullanici_ayarlari_dashboardThemeAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/dashboardThemeZA")->group(function () {
+                        Route::get("/", "dashboardThemeZA")->name("kullanici_ayarlari_dashboardThemeZA");
+                        Route::post("/", "form");
+                    });
                 });
             // KAYNAK SİTE İŞLEMLERİ
                 Route::prefix("/kaynak-site")->group(function () {
@@ -236,7 +271,44 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                         Route::get("/düzenle/{no}", [ResourceUrlEditPageController::class, "index"])->name("kaynak_linki_düzenle");
                 });
             // KAYNAK LİNKLERİ LİSTESİ
-                Route::get("/kaynak-linkleri", [ResourceUrlsListPageController::class, "index"])->name("kaynak_linkler");
+                Route::prefix("/kaynak-linkleri")->controller(ResourceUrlsListPageController::class)->group(function () {
+                    Route::prefix("/")->group(function () {
+                        Route::get("/", "index")->name("kaynak_linkler");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no09")->group(function () {
+                        Route::get("/", "no09")->name("kaynak_linkler_no09");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no90")->group(function () {
+                        Route::get("/", "no90")->name("kaynak_linkler_no90");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/newsAZ")->group(function () {
+                        Route::get("/", "newsAZ")->name("kaynak_linkler_newsAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/newsZA")->group(function () {
+                        Route::get("/", "newsZA")->name("kaynak_linkler_newsZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/resourcePlatformAZ")->group(function () {
+                        Route::get("/", "resourcePlatformAZ")->name("kaynak_linkler_resourcePlatformAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/resourcePlatformZA")->group(function () {
+                        Route::get("/", "resourcePlatformZA")->name("kaynak_linkler_resourcePlatformZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/urlAZ")->group(function () {
+                        Route::get("/", "urlAZ")->name("kaynak_linkler_urlAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/urlZA")->group(function () {
+                        Route::get("/", "urlZA")->name("kaynak_linkler_urlZA");
+                        Route::post("/", "form");
+                    });
+                });
             // KAYNAK TİPLERİ İŞLEMLERİ
                 Route::prefix("/kategori-tipi")->group(function () {
                     // KATEGORİ TİPİ EKLE
@@ -323,7 +395,36 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                         Route::get("/sil/{no}", [CategoryGroupUrlsDeletePageController::class, "index"])->name("kategori_grubu_linki_sil");
                 });
             // KATEGORİ GRUBU LİNK METİNLERİ LİSTESİ
-                Route::get("/kategori-grubu-link-metinleri", [CategoryGroupUrlsListPageController::class, "index"])->name("kategori_grubu_linkleri");
+                Route::prefix("/kategori-grubu-link-metinleri")->controller(CategoryGroupUrlsListPageController::class)->group(function () {
+                    Route::prefix("/")->group(function () {
+                        Route::get("/", "index")->name("kategori_grubu_linkleri");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no09")->group(function () {
+                        Route::get("/", "no09")->name("kategori_grubu_linkleri_no09");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no90")->group(function () {
+                        Route::get("/", "no90")->name("kategori_grubu_linkleri_no90");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/categoryGroupAZ")->group(function () {
+                        Route::get("/", "categoryGroupAZ")->name("kategori_grubu_linkleri_categoryGroupAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/categoryGroupZA")->group(function () {
+                        Route::get("/", "categoryGroupZA")->name("kategori_grubu_linkleri_categoryGroupZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/linkUrlAZ")->group(function () {
+                        Route::get("/", "linkUrlAZ")->name("kategori_grubu_linkleri_linkUrlAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/linkUrlZA")->group(function () {
+                        Route::get("/", "linkUrlZA")->name("kategori_grubu_linkleri_linkUrlZA");
+                        Route::post("/", "form");
+                    });
+                });
             // HABER İŞLEMLERİ
                 Route::prefix("/haber")->group(function () {
                     // HABER DÜZENLE
@@ -350,7 +451,52 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/writeTimeZA", "writeTimeZA")->name("haberler_writeTimeZA");
                 });
             // ZİYARETÇİLER LİSTESİ
-                Route::get("/ziyaretciler", [VisitorsListPageController::class, "index"])->name("ziyaretciler");
+                Route::prefix("/ziyaretciler")->controller(VisitorsListPageController::class)->group(function () {
+                    Route::prefix("/")->group(function () {
+                        Route::get("/", "index")->name("ziyaretciler");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no09")->group(function () {
+                        Route::get("/", "no09")->name("ziyaretciler_no09");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/no90")->group(function () {
+                        Route::get("/", "no90")->name("ziyaretciler_no90");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/ip09")->group(function () {
+                        Route::get("/", "ip09")->name("ziyaretciler_ip09");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/ip90")->group(function () {
+                        Route::get("/", "ip90")->name("ziyaretciler_ip90");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/browserAZ")->group(function () {
+                        Route::get("/", "browserAZ")->name("ziyaretciler_browserAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/browserZA")->group(function () {
+                        Route::get("/", "browserZA")->name("ziyaretciler_browserZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/lastLoginTimeAZ")->group(function () {
+                        Route::get("/", "lastLoginTimeAZ")->name("ziyaretciler_lastLoginTimeAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/lastLoginTimeZA")->group(function () {
+                        Route::get("/", "lastLoginTimeZA")->name("ziyaretciler_lastLoginTimeZA");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/webSiteThemeAZ")->group(function () {
+                        Route::get("/", "webSiteThemeAZ")->name("ziyaretciler_webSiteThemeAZ");
+                        Route::post("/", "form");
+                    });
+                    Route::prefix("/webSiteThemeZA")->group(function () {
+                        Route::get("/", "webSiteThemeZA")->name("ziyaretciler_webSiteThemeZA");
+                        Route::post("/", "form");
+                    });
+                });
             // ZİYARETÇİ YASAKLA
                 Route::prefix("/ziyaretci/yasakla/{no}")->controller(VisitorBanPageController::class)->group(function () {
                     Route::get("/", "index")->name("ziyaretci_yasakla");
@@ -395,7 +541,7 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
 
 
                     // YAZAR PANELİ AYARLAR SABİTLER
-                        
+
                 });
         });
     // FORM

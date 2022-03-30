@@ -20,7 +20,7 @@ class visitorDataCheck
     public function handle(Request $request, Closure $next)
     {
         if (Session::get("userData")) {
-            return $next($request); 
+            return $next($request);
         }
 
         if (!Session::get("visitorData")) {
@@ -34,6 +34,10 @@ class visitorDataCheck
             if (!VisitorsModel::where("no", $visitorNo)->count()) {
                 Session::remove("visitorData");
                 return redirect(Session::previousUrl());
+            }
+
+            if (VisitorsModel::where(["no" => $visitorNo, "is_banned" => true])->count()) {
+                return response()->view('errors.banned');
             }
 
             $visitorData = VisitorsModel::where("no", $visitorNo)->first();

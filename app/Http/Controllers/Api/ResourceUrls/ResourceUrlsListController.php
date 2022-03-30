@@ -48,4 +48,36 @@ class ResourceUrlsListController extends Controller
     {
         return ResourceUrlsModel::where(["is_deleted" => false, "news_no" => "$newsNo"])->count() ? ResourceUrlsModel::where(["is_deleted" => false, "news_no" => "$newsNo"])->first() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNo()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("no", "ASC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("no", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNo()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("no", "DESC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("no", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscNews()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("news_no", "ASC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("news_no", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescNews()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("news_no", "DESC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("news_no", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscResourcePlatform()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("resource_platform", "ASC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("resource_platform", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescResourcePlatform()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("resource_platform", "DESC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("resource_platform", "DESC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByAscUrl()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("url", "ASC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("url", "ASC")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescUrl()
+    {
+        return ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("url", "DESC")->count() ? ResourceUrlsModel::where("is_deleted", false)->with("newsNo", "resourcePlatform")->orderBy("url", "DESC")->get()->toArray() : NULL;
+    }
 }

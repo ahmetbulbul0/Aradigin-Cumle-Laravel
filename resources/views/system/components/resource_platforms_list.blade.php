@@ -2,7 +2,7 @@
     <div class="inDbList">
         <div class="outTitle">
             <div class="inTitle">
-                Kaynak Siteler
+                {{ $data["page_title"] }}
             </div>
             <div class="titleSelects">
                 <div class="actions">
