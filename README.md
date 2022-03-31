@@ -1,66 +1,288 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+![aradigin_cumle_landspace_poster](https://i.hizliresim.com/hcy8bom.png)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
 
-## About Laravel
+# Notes
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## To Do List
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* FrontEnd
+  * yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
+  * tüm butonlara 3d stili tanımlanacak
+  * html elementine "lang" özelliği eklenecek
+  * renkler ve font kalınlık-boyut değerleri düzeltilecek
+* BackEnd
+  * form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
+  * writings modelinin api controllerları yapılacak
+  * my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Models & Migrations
 
-## Learning Laravel
+* Models
+  * Categories
+  * CategoryGroups
+  * CategoryGroupUrls
+  * CategoryTypes
+  * Constants
+  * ListingsDetail
+  * Listings
+  * News
+  * ReadingsDetail
+  * Readings
+  * ResourcePlatforms
+  * ResourceUrls
+  * Users
+  * UsersSettings
+  * UserTypes
+  * Visitors
+  * Writings
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Controllers
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Pages
+  * Visitor
+    * AllNewsListingsCheck
+    * AllNewsReadingsCheck
+    * Home
+    * NewsDetail
+    * NewsListingsWork
+    * NewsReadingsWork
+    * SignIn
+    * SignOut
+    * VisitorChangeWebSiteTheme
+    * VisitorNewsList
+  * Common
+    * WebSiteSetup
+  * Author
+    * AuthorDashboard
+    * AuthorSettings
+    * MyNewsDelete
+    * MyNewsEdit
+    * MyNewsList
+    * MyNewsStatisticDetail
+    * MyNewsStatistics
+    * MyNewStatisticTime
+    * NewsCreate
+  * System
+    * CategoriesList
+    * CategoryCreate
+    * CategoryDelete
+    * CategoryEdit
+    * CategoryGroupCreate
+    * CategoryGroupDelete
+    * CategoryGroupEdit
+    * CategoryGroupsList
+    * CategoryGroupUrlEdit
+    * CategoryGroupUrlsDelete
+    * CategoryGroupUrlsList
+    * CategoryTypeCreate
+    * CategoryTypeDelete
+    * CategoryTypeEdit
+    * CategoryTypesList
+    * NewsDelete
+    * NewsEdit
+    * NewsStatisticDetail
+    * NewsStatistics
+    * NewsStatisticTime
+    * ResourcePlatformCreate
+    * ResourcePlatformDelete
+    * ResourcePlatformEdit
+    * ResourcePlatformsList
+    * ResourceUrlDelete
+    * ResourceUrlEdit
+    * ResourceUrlsList
+    * SystemDashboard
+    * SystemNewsList
+    * SystemSettings
+    * UserCreate
+    * UserDelete
+    * UserEdit
+    * UserSettingDelete
+    * UserSettingEdit
+    * UserSettingsList
+    * UsersList
+    * UserTypeCreate
+    * UserTypeDelete
+    * UserTypeEdit
+    * UserTypesList
+    * VisitorBan
+    * VisitorsList
+    * VisitorUnBan
+* Api
+  * Categories
+    * CategoryCreateController
+    * CategoryDeleteController
+    * CategoryEditController
+    * CategoriesListController
+  * CategoryGroups
+    * CategoryGroupCreateController
+    * CategoryGroupDeleteController
+    * CategoryGroupEditController
+    * CategoryGroupsListController
+  * CategoryGroupUrls
+    * CategoryGroupUrlsCreateController
+    * CategoryGroupUrlsDeleteController
+    * CategoryGroupUrlsEditController
+    * CategoryGroupUrlsListController
+  * CategoryTypes
+    * CategoryTypesCreateController
+    * CategoryTypesDeleteController
+    * CategoryTypesEditController
+    * CategoryTypesListController
+  * Constants
+    * ConstantsListController
+    * ConstantsUpdateController
+  * ListingsDetail
+    * ListingsDetailCreateController
+    * ListingsDetailDeleteController
+    * ListingsDetailEditController
+    * ListingsDetailListController
+  * Listings
+    * ListingsCreateController
+    * ListingsDeleteController
+    * ListingsEditController
+    * ListingsListController
+  * News
+    * NewsCreateController
+    * NewsDeleteController
+    * NewsEditController
+    * NewsListController
+  * ReadingsDetail
+    * ReadingsDetailCreateController
+    * ReadingsDetailDeleteController
+    * ReadingsDetailEditController
+    * ReadingsDetailListController
+  * Readings
+    * ReadingsCreateController
+    * ReadingsDeleteController
+    * ReadingsEditController
+    * ReadingsListController
+  * ResourcePlatforms
+    * ResourcePlatformsCreateController
+    * ResourcePlatformsDeleteController
+    * ResourcePlatformsEditController
+    * ResourcePlatformsListController
+  * ResourceUrls
+    * ResourceUrlsCreateController
+    * ResourceUrlsDeleteController
+    * ResourceUrlsEditController
+    * ResourceUrlsListController
+  * Users
+    * UsersCreateController
+    * UsersDeleteController
+    * UsersEditController
+    * UsersListController
+  * UserTypes
+    * UserTypesCreateController
+    * UserTypesDeleteController
+    * UserTypesEditController
+    * UserTypesListController
+    * UserSignInController
+  * UserSettings
+    * UserSettingsCreateController
+    * UserSettingsDeleteController
+    * UserSettingsEditController
+    * UserSettingsListController
+  * Visitors
+    * VisitorsCreateController
+    * VisitorsDeleteController
+    * VisitorsEditController
+    * VisitorsListController
+  * Writings
+    * WritingsCreateController
+    * WritingsDeleteController
+    * WritingsEditController
+    * WritingsListController
 
-## Laravel Sponsors
+## Pages / Views
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* Visitor
+  * Home
+  * News Detail
+  * News List
+  * Sign In
+* Author
+  * Dashboard
+  * Delete Confirm
+  * My News Edit
+  * My News List
+  * My News Statistic Detail
+  * My News Statistic Time
+  * My News Statistics
+  * News Create
+  * Settings
+    * My Account
+    * Theme
+* System
+  * Categories List
+  * Category Create
+  * Category Edit
+  * Category Group Create
+  * Category Group Edit
+  * Category Group Url Edit
+  * Category Group Urls List
+  * Category Groups List
+  * Category Type Create
+  * Category Type Edit
+  * Category Types List
+  * Dashboard
+  * Delete Confirm
+  * News Edit
+  * News List
+  * News Statistic Detail
+  * News Statistic Time
+  * News Statistics
+  * Resource Platform Create
+  * Resource Platform Edit
+  * Resource Platform List
+  * Resource Url Edit
+  * Resource Urls List
+  * Settings
+    * Constants
+    * My Account
+    * Theme
+  * User Create
+  * User Edit
+  * User Setting Edit
+  * User Settings List
+  * User Type Create
+  * User Type Edit
+  * User Types List
+  * Users List
+  * Visitors List
 
-### Premium Partners
+## MiddleWares
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* All
+  * isItAuthor
+    * true => kullanıcı hesabı varsa ve kullanıcı yazar ise geçişe izin verilir
+    * false => kullanıcı hesabı yoksa yada kullanıcı yazar değilse 404 hata sayfasına yönlendirilir
+  * isItSystem
+    * true => kullanıcı hesabı varsa ve kullanıcı sistem ise geçişe izin verilir
+    * false => kullanıcı hesabı yoksa yada kullanıcı sistem değilse 404 hata sayfasına yönlendirilir
+  * isItNotUser
+    * true => kullanıcı hesabı yoksa girişe izin verilir
+    * false => kullanıcı hesabı varsa kullanıcı hesabı tipine göre panel yönlendirilmesi yapılır
+  * userDataCheck
+    * true => kullanıcı hesabı varsa ve session üzerindeki kullanıcı bilgileri veritabanı ile uyuşuyorsa session güncellenir ve geçişe izin verilir
+    * false => kullanıcı hesabı yoksa yada session üzerindeki kullanıcı bilgileri veritabanı ile uyuşmuyorsa userData session silinir 404 hata sayfasına yönlendirilir
+  * isTheWebSiteSetup
+    * true => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise geçişe izin verilir
+    * false => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise uygun olan kurulum aşamasına yönlendirilir
+  * isTheWebSiteNotSetup
+    * true => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise geçişe izin verilir
+    * false => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise anasayfa sayfasına yönlendirilir
+  * isItVisitor
+    * true => userData session varsa geçişe izin verilir
+    * true => userData session değeri yoksa ve visitorData session varsa geçişe izin verilir
+    * true => hem userData değeri hem de visitorData değeri yoksa yeni bir visitor kaydı oluşturulup visitorData session değeri oluşturulur ve geçişe izin verilir
+    * false => hem userData değeri hem de visitorData değeri varsa 403 hata sayfasına yönlendirilir
+  * visitorDataCheck
+    * true => userData session varsa geçişe izin verilir
+    * true => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçerli ise visitorData session değeri güncellenir ve geçişe izin verilir
+    * false => visitorData session değeri yoksa bir önceki url adresine yönlendirilir
+    * false => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçersiz ise visitorData session değeri silinir ve bi önceki url adresine yönlendirilir
+  * userDataCheckIfIsUser
+    * true => userData session değeri yoksa geçişe izin verilir
+    * true => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçerli ise userData session değeri güncellenir
+    * false => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir
