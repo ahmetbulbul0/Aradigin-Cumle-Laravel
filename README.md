@@ -1,3 +1,7 @@
+![aradigin_cumle_landspace_poster](https://i.hizliresim.com/hcy8bom.png)
+
+WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
+
 # Notes
 
 ## To Do List
@@ -33,7 +37,7 @@
   * Visitors
   * Writings
 
-## Controllers*
+## Controllers
 
 * Pages
   * Visitor
