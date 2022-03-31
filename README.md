@@ -37,7 +37,7 @@ WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
   * Visitors
   * Writings
 
-## Controllers*
+## Controllers
 
 * Pages
   * Visitor
