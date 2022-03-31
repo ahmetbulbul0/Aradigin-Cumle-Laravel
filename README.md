@@ -1,3 +1,5 @@
+![aradigin_cumle_landspace_poster](https://i.hizliresim.com/hcy8bom.png)
+
 # Notes
 
 ## To Do List
