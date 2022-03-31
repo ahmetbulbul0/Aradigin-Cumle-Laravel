@@ -9,13 +9,7 @@
   * renkler ve font kalınlık-boyut değerleri düzeltilecek
 * BackEnd
   * form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
-  * listings modelinin api controllerları yapılacak
-  * listings detail modelinin api controllerları yapılacak
-  * readings modelinin api controllerları yapılacak
-  * readings detail modelinin api controllerları yapılacak
-  * visitors modelinin api controllerları yapılacak
   * writings modelinin api controllerları yapılacak
-  * lists view componentlerindeki title selectslerdeki url href alanları kontrol edilicek
   * my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
 
 ## Models & Migrations
@@ -25,6 +19,7 @@
   * CategoryGroups
   * CategoryGroupUrls
   * CategoryTypes
+  * Constants
   * ListingsDetail
   * Listings
   * News
@@ -33,61 +28,82 @@
   * ResourcePlatforms
   * ResourceUrls
   * Users
+  * UsersSettings
   * UserTypes
   * Visitors
   * Writings
-  * Constants
-  * UserSettings
 
 ## Controllers*
 
 * Pages
   * Visitor
-    * HomePageController
-    * NewsDetailPageController
-    * SignInPageController
-    * VisitorNewsListPageController
+    * AllNewsListingsCheck
+    * AllNewsReadingsCheck
+    * Home
+    * NewsDetail
+    * NewsListingsWork
+    * NewsReadingsWork
+    * SignIn
+    * SignOut
+    * VisitorChangeWebSiteTheme
+    * VisitorNewsList
+  * Common
+    * WebSiteSetup
   * Author
-    * AuthorDashboardPageController
-    * AuthorSettingsPageController
-    * MyNewsDeletePageController
-    * MyNewsEditPageController
-    * MyNewsListPageController
-    * MyNewsStatisticDetailPageController
-    * MyNewsStatisticsPageController
-    * MyNewStatisticTimePageController
-    * NewsCreatePageController
+    * AuthorDashboard
+    * AuthorSettings
+    * MyNewsDelete
+    * MyNewsEdit
+    * MyNewsList
+    * MyNewsStatisticDetail
+    * MyNewsStatistics
+    * MyNewStatisticTime
+    * NewsCreate
   * System
-    * CategoriesListPageController
-    * CategoryCreatePageController
-    * CategoryDeletePageController
-    * CategoryEditPageController
-    * CategoryGroupCreatePageController
-    * CategoryGroupDeletePageController
-    * CategoryGroupEditPageController
-    * CategoryGroupsListPageController
-    * CategoryTypeCreatePageController
-    * CategoryTypeDeletePageController
-    * CategoryTypeEditPageController
-    * CategoryTypesListPageController
-    * NewsStatisticDetailPageController
-    * NewsStatisticsPageController
-    * NewsStatisticTimePageController
-    * ResourcePlatformCreatePageController
-    * ResourcePlatformDeletePageController
-    * ResourcePlatformEditPageController
-    * ResourcePlatformsListPageController
-    * SystemDashboardPageController
-    * SystemNewsListPageController
-    * SystemSettingsPageController
-    * UserCreatePageController
-    * UserDeletePageController
-    * UserEditPageController
-    * UsersListPageController
-    * UserTypeCreatePageController
-    * UserTypeDeletePageController
-    * UserTypeEditPageController
-    * UserTypesListPageController
+    * CategoriesList
+    * CategoryCreate
+    * CategoryDelete
+    * CategoryEdit
+    * CategoryGroupCreate
+    * CategoryGroupDelete
+    * CategoryGroupEdit
+    * CategoryGroupsList
+    * CategoryGroupUrlEdit
+    * CategoryGroupUrlsDelete
+    * CategoryGroupUrlsList
+    * CategoryTypeCreate
+    * CategoryTypeDelete
+    * CategoryTypeEdit
+    * CategoryTypesList
+    * NewsDelete
+    * NewsEdit
+    * NewsStatisticDetail
+    * NewsStatistics
+    * NewsStatisticTime
+    * ResourcePlatformCreate
+    * ResourcePlatformDelete
+    * ResourcePlatformEdit
+    * ResourcePlatformsList
+    * ResourceUrlDelete
+    * ResourceUrlEdit
+    * ResourceUrlsList
+    * SystemDashboard
+    * SystemNewsList
+    * SystemSettings
+    * UserCreate
+    * UserDelete
+    * UserEdit
+    * UserSettingDelete
+    * UserSettingEdit
+    * UserSettingsList
+    * UsersList
+    * UserTypeCreate
+    * UserTypeDelete
+    * UserTypeEdit
+    * UserTypesList
+    * VisitorBan
+    * VisitorsList
+    * VisitorUnBan
 * Api
   * Categories
     * CategoryCreateController
@@ -178,65 +194,58 @@
 
 * Visitor
   * Home
-  * News List
   * News Detail
+  * News List
   * Sign In
 * Author
   * Dashboard
-  * News Create
-  * My News List
+  * Delete Confirm
   * My News Edit
-  * My News Delete
-  * My News Statistics
-  * My News Statistic Time
+  * My News List
   * My News Statistic Detail
+  * My News Statistic Time
+  * My News Statistics
+  * News Create
   * Settings
     * My Account
     * Theme
 * System
-  * Dashboard
-  * User Type Create
-  * User Type List
-  * User Type Edit
-  * User Type Delete
-  * User Create
-  * User List
-  * User Edit
-  * User Delete
-  * Resource Platform Create
-  * Resource Platform List
-  * Resource Platform Edit
-  * Resource Platform Delete
-  * Category Type Create
-  * Category Type List
-  * Category Type Edit
-  * Category Type Delete
+  * Categories List
   * Category Create
-  * Category List
   * Category Edit
-  * Category Delete
   * Category Group Create
-  * Category Group List
   * Category Group Edit
-  * Category Group Delete
-  * News List
-  * News Edit
-  * News Delete
-  * News Statistics
-  * News Statistic Time
-  * News Statistic Detail
-  * Settings
-    * Theme
-    * Constants
-  * User Settings List
-  * User Setting Edit
-  * User Setting Delete
-  * Resource Urls List
-  * Resource Url Edit
-  * Resource Url Delete
-  * Category Group Urls List
   * Category Group Url Edit
-  * Category Group Url Delete
+  * Category Group Urls List
+  * Category Groups List
+  * Category Type Create
+  * Category Type Edit
+  * Category Types List
+  * Dashboard
+  * Delete Confirm
+  * News Edit
+  * News List
+  * News Statistic Detail
+  * News Statistic Time
+  * News Statistics
+  * Resource Platform Create
+  * Resource Platform Edit
+  * Resource Platform List
+  * Resource Url Edit
+  * Resource Urls List
+  * Settings
+    * Constants
+    * My Account
+    * Theme
+  * User Create
+  * User Edit
+  * User Setting Edit
+  * User Settings List
+  * User Type Create
+  * User Type Edit
+  * User Types List
+  * Users List
+  * Visitors List
 
 ## MiddleWares
 
