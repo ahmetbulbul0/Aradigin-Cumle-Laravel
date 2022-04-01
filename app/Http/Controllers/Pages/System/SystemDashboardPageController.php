@@ -16,9 +16,9 @@ class SystemDashboardPageController extends Controller
         $data["page_title"] = "AnaPanel";
 
         $data["values4Box"] = [
-            "last24HourVisitorNumber" => count(VisitorsListController::getAllDataOnlyNotBannedDatasWhereLastLoginTimeInLast24Hours()),
-            "last24HourListingNews" => count(ListingsDetailsListController::getAllDataWhereTimeInLast24Hours()),
-            "last24HourReadingNews" => count(ReadingsDetailsListController::getAllDataWhereTimeInLast24Hours()),
+            "last24HourVisitorNumber" => VisitorsListController::getAllDataOnlyNotBannedDatasWhereLastLoginTimeInLast24Hours() ? count(VisitorsListController::getAllDataOnlyNotBannedDatasWhereLastLoginTimeInLast24Hours()) : 0,
+            "last24HourListingNews" => ListingsDetailsListController::getAllDataWhereTimeInLast24Hours() ? count(ListingsDetailsListController::getAllDataWhereTimeInLast24Hours()) : 0,
+            "last24HourReadingNews" => ReadingsDetailsListController::getAllDataWhereTimeInLast24Hours() ? count(ReadingsDetailsListController::getAllDataWhereTimeInLast24Hours()) : 0,
             "last24HourPublishingNews" => NewsListController::getAllDataOnlyNotDeletedDatasWherePublishDateInLast24Hours() ? count(NewsListController::getAllDataOnlyNotDeletedDatasWherePublishDateInLast24Hours()) : 0,
         ];
 
