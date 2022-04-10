@@ -25,6 +25,14 @@ class CategoriesListController extends Controller
     {
         return CategoriesModel::where(["is_deleted" => false, "type" => $type])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => $type])->get() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereTypeMain()
+    {
+        return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeMainOnlyNotDeleted()])->with("type", "mainCategory")->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeMainOnlyNotDeleted()])->with("type", "mainCategory")->get()->toArray() : NULL;
+    }
+    static function getAllDataOnlyNotDeletedDatasAllRelationshipsWhereTypeSub()
+    {
+        return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted()])->with("type", "mainCategory")->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted()])->with("type", "mainCategory")->get()->toArray() : NULL;
+    }
     static function getAllDataOnlyNotDeletedDatasWhereMainCategoryWhereTypeSub($mainCategory)
     {
         return CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->count() ? CategoriesModel::where(["is_deleted" => false, "type" => ConstantsListController::getCategoryTypeSubOnlyNotDeleted(), "main_category" => $mainCategory])->get() : NULL;

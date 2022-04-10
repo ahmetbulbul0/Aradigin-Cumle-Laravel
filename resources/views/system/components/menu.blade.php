@@ -219,6 +219,11 @@
                                 <a href="{{ route('kategori_ekle') }}">Kategori Ekle</a>
                             </span>
                         </div>
+                        <div class="item">
+                            <span>
+                                <a href="{{ route('kategoriler_semasi') }}">Kategoriler Şeması</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="outList">
