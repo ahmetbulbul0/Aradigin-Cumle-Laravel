@@ -8,6 +8,15 @@
             </span>
         </div>
         <div class="bigList">
+            @empty($data['bigList']['data'])
+                <div class="item">
+                    <div class="anyNewsText">
+                        <span>
+                            Hiç Haber Bulunamadı
+                        </span>
+                    </div>
+                </div>
+            @endempty
             @isset($data['bigList']['data'])
                 @foreach ($data['bigList']['data'] as $news)
                     @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp

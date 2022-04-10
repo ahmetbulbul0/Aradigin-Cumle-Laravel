@@ -9,6 +9,15 @@
                 </span>
             </div>
             <div class="inList">
+                @empty($data['smallList2One'][0]['data'])
+                    <div class="item">
+                        <div class="anyNewsText">
+                            <span>
+                                Hiç Haber Bulunamadı
+                            </span>
+                        </div>
+                    </div>
+                @endempty
                 @isset($data['smallList2One'][0]['data'])
                     @foreach ($data['smallList2One'][0]['data'] as $news)
                         @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
@@ -35,6 +44,15 @@
                 </span>
             </div>
             <div class="inList">
+                @empty($data['smallList2One'][1]['data'])
+                    <div class="item">
+                        <div class="anyNewsText">
+                            <span>
+                                Hiç Haber Bulunamadı
+                            </span>
+                        </div>
+                    </div>
+                @endempty
                 @isset($data['smallList2One'][1]['data'])
                     @foreach ($data['smallList2One'][1]['data'] as $news)
                         @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp

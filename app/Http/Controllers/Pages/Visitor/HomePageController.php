@@ -25,7 +25,7 @@ class HomePageController extends Controller
         $data["bigList"] = $this->BigList();
 
         if ($data["bigList"]["data"]) {
-            $data["pagination"] = $this->GetData($data["bigList"]["data"], 1, 5);
+            $data["pagination"] = $this->GetData($data["bigList"]["data"], 1, 25);
             $data["bigList"]["data"] = $data["pagination"]["data"];
             $data["pagination"] = $data["pagination"]["pagination"];
             $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
