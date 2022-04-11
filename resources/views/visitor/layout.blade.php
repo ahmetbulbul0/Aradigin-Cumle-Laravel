@@ -12,7 +12,12 @@
 </head>
 
 <body class="{{ Session::get("visitorData.website_theme") ?? Session::get("userData.settings.website_theme")  }}">
-    @yield('content')
+    <div class="pageContainer">
+        <div class="contentWrap">
+            @yield('content')
+        </div>
+        @include("visitor.components.footer")
+    </div>
 </body>
 
 </html>
