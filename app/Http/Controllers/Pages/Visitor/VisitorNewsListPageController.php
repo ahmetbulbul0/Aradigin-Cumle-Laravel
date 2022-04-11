@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pages\Visitor;
 
 use App\Models\NewsModel;
 use App\Models\UsersModel;
-use App\Models\CategoryGroupsModel;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryGroupUrlsModel;
 use App\Models\ResourcePlatformsModel;
@@ -27,32 +27,32 @@ class VisitorNewsListPageController extends Controller
             case 'son-yayinlananlar':
                 $data = $this->getData($listType, NULL, NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["son-yayinlananlar"]);
-                $data["bigList"]["listTitle"] = "Son Yayınlananlar";
-                $data["bigList"]["allListLink"] = route("haberler_listesi", ["son-yayinlananlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Son Yayınlananlar";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi", ["son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["cok-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Çok Okunanlar";
-                $data["bigList"]["allListLink"] = route("haberler_listesi", ["cok-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Çok Okunanlar";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi", ["cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi", ["az-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Az Okunanlar";
-                $data["bigList"]["allListLink"] = route("haberler_listesi", ["az-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Az Okunanlar";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi", ["az-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             default:
-                dd("HATA");
+                return response()->view('errors.404');
                 break;
         }
 
-        $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
-        $data["bigList"]["listType"] = $listType;
-        $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
+        $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
+        $data["bigList"][0]["listType"] = $listType;
+        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
 
 
@@ -65,7 +65,7 @@ class VisitorNewsListPageController extends Controller
         $page = htmlspecialchars($page);
 
         if (!UsersModel::where(["is_deleted" => false, "username" => $author])->count()) {
-            dd("HATA");
+            return response()->view('errors.404');
         }
 
         $author = UsersModel::where(["is_deleted" => false, "username" => $author])->first();
@@ -74,32 +74,32 @@ class VisitorNewsListPageController extends Controller
             case 'son-yayinlananlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
-                $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $author["full_name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Son Yayınlananlar]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $author["full_name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Çok Okunanlar]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Az Okunanlar [" . $author["full_name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Az Okunanlar]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             default:
-                return "HATA";
+                return response()->view('errors.404');
                 break;
         }
 
-        $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
-        $data["bigList"]["listType"] = $listType;
-        $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
+        $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
+        $data["bigList"][0]["listType"] = $listType;
+        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
@@ -120,32 +120,32 @@ class VisitorNewsListPageController extends Controller
             case 'son-yayinlananlar':
                 $data = $this->getData($listType, NULL, $resourcePlatform["no"], NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "son-yayinlananlar"]);
-                $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $resourcePlatform["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "son-yayinlananlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Son Yayınlananlar [" . $resourcePlatform["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, $resourcePlatform["no"], NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "cok-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $resourcePlatform["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "cok-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Çok Okunanlar [" . $resourcePlatform["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, $resourcePlatform["no"], NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "az-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Az Okunanlar [" . $resourcePlatform["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "az-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Az Okunanlar [" . $resourcePlatform["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kaynak", [$resourcePlatform["link_url"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             default:
-                return "HATA";
+                return response()->view('errors.404');
                 break;
         }
 
-        $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
-        $data["bigList"]["listType"] = $listType;
-        $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
+        $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
+        $data["bigList"][0]["listType"] = $listType;
+        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"]);
         $data["menu"] = VisitorMenuDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
@@ -157,7 +157,7 @@ class VisitorNewsListPageController extends Controller
         $page = htmlspecialchars($page);
 
         if (!CategoryGroupUrlsModel::where(["is_deleted" => false, "link_url" => $categoryGroupLinkUrl])->count()) {
-            dd("HATA");
+            return response()->view('errors.404');
         }
 
         $categoryGroupUrl = CategoryGroupUrlsModel::where(["is_deleted" => false, "link_url" => $categoryGroupLinkUrl])->first();
@@ -168,32 +168,32 @@ class VisitorNewsListPageController extends Controller
             case 'son-yayinlananlar':
                 $data = $this->getData($listType, NULL, NULL, $categoryGroup["no"], $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "son-yayinlananlar"]);
-                $data["bigList"]["listTitle"] = "Son Yayınlananlar [" . $categoryGroup["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "son-yayinlananlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Son Yayınlananlar [" . $categoryGroup["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "son-yayinlananlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, $categoryGroup["no"], $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "cok-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Çok Okunanlar [" . $categoryGroup["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "cok-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Çok Okunanlar [" . $categoryGroup["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "cok-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, NULL, NULL, $categoryGroup["no"], $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "az-okunanlar"]);
-                $data["bigList"]["listTitle"] = "Az Okunanlar [" . $categoryGroup["name"] . "]";
-                $data["bigList"]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "az-okunanlar"]);
-                $data["page_title"] = $data["bigList"]["listTitle"];
+                $data["bigList"][0]["listTitle"] = "Az Okunanlar [" . $categoryGroup["name"] . "]";
+                $data["bigList"][0]["allListLink"] = route("haberler_listesi_kategori", [$categoryGroup["link_url"]["link_url"], "az-okunanlar"]);
+                $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             default:
-                return "HATA";
+                return response()->view('errors.404');
                 break;
         }
 
-        $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
-        $data["bigList"]["listType"] = $listType;
-        $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
+        $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
+        $data["bigList"][0]["listType"] = $listType;
+        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
@@ -238,14 +238,14 @@ class VisitorNewsListPageController extends Controller
                 }
                 break;
             default:
-                dd("HATA");
+                return response()->view('errors.404');
                 break;
         }
 
         $TotalPageNumber = Pagination::TotalPageNumber($dataNumber, $itemPerPage);
 
         if ($page > $TotalPageNumber) {
-            dd("HATA");
+            return response()->view('errors.404');
         }
 
         $offsetValue = ($page * $itemPerPage) - $itemPerPage;
@@ -279,7 +279,7 @@ class VisitorNewsListPageController extends Controller
                 $data["data"] = $data["data"]->orderBy("reading", "ASC");
                 break;
             default:
-                return "HATA";
+                return response()->view('errors.404');
                 break;
         }
 

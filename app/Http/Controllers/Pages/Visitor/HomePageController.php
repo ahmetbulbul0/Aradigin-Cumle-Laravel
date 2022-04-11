@@ -130,7 +130,7 @@ class HomePageController extends Controller
         $TotalPageNumber = Pagination::TotalPageNumber($dataNumber, $itemPerPage);
 
         if ($page > $TotalPageNumber) {
-            dd("HATA");
+            return response()->view('errors.404');
         }
 
         $offsetValue = ($page * $itemPerPage) - $itemPerPage;
