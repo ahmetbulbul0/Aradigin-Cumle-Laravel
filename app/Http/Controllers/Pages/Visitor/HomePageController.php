@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Tools\VisitorFooterDataGet;
 
 class HomePageController extends Controller
 {
@@ -20,6 +21,7 @@ class HomePageController extends Controller
         $data["page_title"] = "AnaSayfa";
 
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
         $data["smallList2One"] = $this->Small2ListOne();
         $data["middle2List"] = $this->Middle2List();
         $data["bigList"] = $this->BigList();

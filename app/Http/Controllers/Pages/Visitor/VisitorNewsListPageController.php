@@ -11,6 +11,7 @@ use App\Models\ResourcePlatformsModel;
 use App\Http\Controllers\Tools\Pagination;
 use App\Http\Controllers\Tools\VisitorMenuDataGet;
 use App\Http\Controllers\Tools\CategoryGroupToText;
+use App\Http\Controllers\Tools\VisitorFooterDataGet;
 use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
@@ -54,7 +55,7 @@ class VisitorNewsListPageController extends Controller
         $data["bigList"][0]["listType"] = $listType;
         $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
-
+        $data["footer"] = VisitorFooterDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
     }
@@ -74,21 +75,21 @@ class VisitorNewsListPageController extends Controller
             case 'son-yayinlananlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
-                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Son Yayınlananlar]";
+                $data["bigList"][0]["listTitle"] = $author["username"] . " (" . Str::title($author["full_name"]) . ") Yazarına Ait Haberler [Son Yayınlananlar]";
                 $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "son-yayinlananlar"]);
                 $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'cok-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
-                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Çok Okunanlar]";
+                $data["bigList"][0]["listTitle"] = $author["username"] . " (" . Str::title($author["full_name"]) . ") Yazarına Ait Haberler [Çok Okunanlar]";
                 $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "cok-okunanlar"]);
                 $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
             case 'az-okunanlar':
                 $data = $this->getData($listType, $author["no"], NULL, NULL, $page, 5);
                 $data["pagination"]["mainLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
-                $data["bigList"][0]["listTitle"] = $author["username"]." (".Str::title($author["full_name"]).") Yazarına Ait Haberler [Az Okunanlar]";
+                $data["bigList"][0]["listTitle"] = $author["username"] . " (" . Str::title($author["full_name"]) . ") Yazarına Ait Haberler [Az Okunanlar]";
                 $data["bigList"][0]["allListLink"] = route("haberler_listesi_yazar", [$author["username"], "az-okunanlar"]);
                 $data["page_title"] = $data["bigList"][0]["listTitle"];
                 break;
@@ -101,6 +102,7 @@ class VisitorNewsListPageController extends Controller
         $data["bigList"][0]["listType"] = $listType;
         $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
     }
@@ -111,7 +113,7 @@ class VisitorNewsListPageController extends Controller
         $page = htmlspecialchars($page);
 
         if (!ResourcePlatformsModel::where(["is_deleted" => false, "link_url" => $resourcePlatformLinkUrl])->count()) {
-            dd("deneeme");
+            dd("HATA");
         }
 
         $resourcePlatform = ResourcePlatformsModel::where(["is_deleted" => false, "link_url" => $resourcePlatformLinkUrl])->first();
@@ -145,8 +147,9 @@ class VisitorNewsListPageController extends Controller
 
         $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["data"]);
         $data["bigList"][0]["listType"] = $listType;
-        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"]);
+        $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
     }
@@ -195,6 +198,7 @@ class VisitorNewsListPageController extends Controller
         $data["bigList"][0]["listType"] = $listType;
         $data["bigList"][0] = CategoryGroupToText::multiple($data["bigList"][0]);
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
 
         return view("visitor.pages.news_list")->with("data", $data);
     }
