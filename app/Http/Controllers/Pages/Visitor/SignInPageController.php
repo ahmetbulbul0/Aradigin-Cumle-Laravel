@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Tools\VisitorMenuDataGet;
+use App\Http\Controllers\Tools\VisitorFooterDataGet;
 use App\Http\Controllers\Api\Users\UserSignInController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 
@@ -15,6 +16,8 @@ class SignInPageController extends Controller
     {
         $data["page_title"] = "Yazar Girişi";
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
+
         return view("visitor.pages.sign_in")->with("data", $data);
     }
 

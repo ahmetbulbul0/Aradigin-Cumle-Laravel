@@ -55,6 +55,7 @@ use App\Http\Controllers\Pages\System\NewsStatisticDetailPageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlEditPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformEditPageController;
 use App\Http\Controllers\Pages\Author\MyNewsStatisticDetailPageController;
+use App\Http\Controllers\Pages\System\CategoriesSchemePageController;
 use App\Http\Controllers\Pages\System\CategoryGroupUrlsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformsListPageController;
 use App\Http\Controllers\Pages\System\ResourcePlatformCreatePageController;
@@ -355,6 +356,8 @@ Route::prefix("/")->middleware(['isTheWebSiteSetup'])->group(function () {
                     Route::get("/linkUrlAZ", "linkUrlAZ")->name("kategoriler_linkUrlAZ");
                     Route::get("/linkUrlZA", "linkUrlZA")->name("kategoriler_linkUrlZA");
                 });
+            // KATEGORİ AĞACI
+                Route::get("/kategoriler-semasi", [CategoriesSchemePageController::class, "index"])->name("kategoriler_semasi");
             // KATEGORİ GRUPLARI İŞLEMLERİ
                 Route::prefix("/kategori-grubu")->group(function () {
                     // KATEGORİ GRUBU EKLE

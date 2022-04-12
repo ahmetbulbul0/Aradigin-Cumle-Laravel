@@ -61,6 +61,10 @@ class UsersListController extends Controller
     {
         return UsersModel::where(["is_deleted" => false, "no" => "$no"])->count() ? UsersModel::where(["is_deleted" => false, "no" => "$no"])->first() : NULL;
     }
+    static function getAllDataOnlyNotDeletedDatasAllRelationShipsWhereTypeAuthor()
+    {
+        return UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeAuthorOnlyNotDeleted()])->with("type", "settings")->count() ? UsersModel::where(["is_deleted" => false, "type" => ConstantsListController::getUserTypeAuthorOnlyNotDeleted()])->with("type", "settings")->get()->toArray() : NULL;
+    }
     static function getFirstDataOnlyNotDeletedDatasWhereWhereNoWhereTypeAuthor($no)
     {
         return UsersModel::where(["is_deleted" => false, "type" =>  ConstantsListController::getUserTypeAuthorOnlyNotDeleted(), "no" => "$no"])->count() ? UsersModel::where(["is_deleted" => false, "type" =>  ConstantsListController::getUserTypeAuthorOnlyNotDeleted(), "no" => "$no"])->first() : NULL;

@@ -3,14 +3,23 @@
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    <a href="{{ $data['middle2List'][0]['allListLink'] }}">
-                        {{ $data['middle2List'][0]['listTitle'] }}
+                    <a href="{{ $data[0]['allListLink'] }}">
+                        {{ $data[0]['listTitle'] }}
                     </a>
                 </span>
             </div>
             <div class="inList">
-                @isset($data['middle2List'][0]['data'])
-                    @foreach ($data['middle2List'][0]['data'] as $news)
+                @empty($data[0]['data'])
+                    <div class="item">
+                        <div class="anyNewsText">
+                            <span>
+                                Hiç Haber Bulunamadı
+                            </span>
+                        </div>
+                    </div>
+                @endempty
+                @isset($data[0]['data'])
+                    @foreach ($data[0]['data'] as $news)
                         @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
                         <div class="item">
                             <div class="content">
@@ -27,21 +36,30 @@
                     @endforeach
                 @endisset
                 <div class="outMore">
-                    <a href="{{ $data['middle2List'][0]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
+                    <a href="{{ $data[0]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
                 </div>
             </div>
         </div>
         <div class="outList">
             <div class="outTitle">
                 <span class="inTitle">
-                    <a href="{{ $data['middle2List'][1]['allListLink'] }}">
-                        {{ $data['middle2List'][1]['listTitle'] }}
+                    <a href="{{ $data[1]['allListLink'] }}">
+                        {{ $data[1]['listTitle'] }}
                     </a>
                 </span>
             </div>
             <div class="inList">
-                @isset($data['middle2List'][1]['data'])
-                    @foreach ($data['middle2List'][1]['data'] as $news)
+                @empty($data[1]['data'])
+                    <div class="item">
+                        <div class="anyNewsText">
+                            <span>
+                                Hiç Haber Bulunamadı
+                            </span>
+                        </div>
+                    </div>
+                @endempty
+                @isset($data[1]['data'])
+                    @foreach ($data[1]['data'] as $news)
                         @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
                         <div class="item">
                             <div class="content">
@@ -58,7 +76,7 @@
                     @endforeach
                 @endisset
                 <div class="outMore">
-                    <a href="{{ $data['middle2List'][1]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
+                    <a href="{{ $data[1]['allListLink'] }}">Tüm Listeyi Görüntüle</a>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\News\NewsListController;
 use App\Http\Controllers\Tools\UnixTimeToTextDateController;
 use App\Http\Controllers\Api\Constants\ConstantsListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Tools\VisitorFooterDataGet;
 
 class HomePageController extends Controller
 {
@@ -20,23 +21,24 @@ class HomePageController extends Controller
         $data["page_title"] = "AnaSayfa";
 
         $data["menu"] = VisitorMenuDataGet::get();
+        $data["footer"] = VisitorFooterDataGet::get();
         $data["smallList2One"] = $this->Small2ListOne();
         $data["middle2List"] = $this->Middle2List();
         $data["bigList"] = $this->BigList();
 
-        if ($data["bigList"]["data"]) {
-            $data["pagination"] = $this->GetData($data["bigList"]["data"], 1, 5);
+        if ($data["bigList"][0]["data"]) {
+            $data["pagination"] = $this->GetData($data["bigList"][0]["data"], 1, 25);
             $data["bigList"]["data"] = $data["pagination"]["data"];
             $data["pagination"] = $data["pagination"]["pagination"];
             $data["bigList"] = CategoryGroupToText::multiple($data["bigList"]);
-            $data["bigList"]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["bigList"]["data"]);
+            $data["bigList"][0]["data"] = UnixTimeToTextDateController::MultipleTimeToDate($data["bigList"]["data"]);
         }
 
         return view("visitor.pages.home")->with("data", $data);
     }
     public function Small2ListOne()
     {
-        $data = [
+        $data[] = [
             [
                 "listTitle" => "Son Yayınlananlar",
                 "data" => NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDateLimit(5),
@@ -55,7 +57,7 @@ class HomePageController extends Controller
     {
         $constantCategory1Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory1OnlyNotDeleted());
         $constantCategory2Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory2OnlyNotDeleted());
-        $data = [
+        $data[] = [
             [
                 "listTitle" => Str::title($constantCategory1Data["main"]["name"]),
                 "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory1Data["no"], 5)),
@@ -67,12 +69,54 @@ class HomePageController extends Controller
                 "allListLink" => route("haberler_listesi_kategori", [$constantCategory2Data["link_url"]["link_url"], "son-yayinlananlar"])
             ]
         ];
+        $constantCategory3Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory3OnlyNotDeleted());
+        $constantCategory4Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory4OnlyNotDeleted());
+        $data[] = [
+            [
+                "listTitle" => Str::title($constantCategory3Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory3Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory3Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ],
+            [
+                "listTitle" => Str::title($constantCategory4Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory4Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory4Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ]
+        ];
+        $constantCategory5Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory5OnlyNotDeleted());
+        $constantCategory6Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory6OnlyNotDeleted());
+        $data[] = [
+            [
+                "listTitle" => Str::title($constantCategory5Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory5Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory5Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ],
+            [
+                "listTitle" => Str::title($constantCategory6Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory6Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory6Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ]
+        ];
+        $constantCategory7Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory7OnlyNotDeleted());
+        $constantCategory8Data = CategoryGroupsListController::getFirstDataOnlyNotDeletedDatasAllRelationShipsWhereNo(ConstantsListController::getWebSiteVisitorMenuCategory8OnlyNotDeleted());
+        $data[] = [
+            [
+                "listTitle" => Str::title($constantCategory7Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory7Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory7Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ],
+            [
+                "listTitle" => Str::title($constantCategory8Data["main"]["name"]),
+                "data" => UnixTimeToTextDateController::MultipleTimeToDate(NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategoryOrderByDescPublishDateLimit($constantCategory8Data["no"], 5)),
+                "allListLink" => route("haberler_listesi_kategori", [$constantCategory8Data["link_url"]["link_url"], "son-yayinlananlar"])
+            ]
+        ];
 
         return $data;
     }
     public function BigList()
     {
-        $data = [
+        $data[] = [
             "listTitle" => "Son Yayınlananlar",
             "data" => NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsOrderByDescPublishDate(),
             "allListLink" => route("haberler_listesi", ["son-yayinlananlar"]),
@@ -88,7 +132,7 @@ class HomePageController extends Controller
         $TotalPageNumber = Pagination::TotalPageNumber($dataNumber, $itemPerPage);
 
         if ($page > $TotalPageNumber) {
-            dd("HATA");
+            return response()->view('errors.404');
         }
 
         $offsetValue = ($page * $itemPerPage) - $itemPerPage;

@@ -2,19 +2,28 @@
     <div class="inBigList">
         <div class="outTitle">
             <span class="inTitle">
-                <a href="{{ $data['bigList']['allListLink'] }}">
-                    {{ $data['bigList']['listTitle'] }}
+                <a href="{{ $data['allListLink'] }}">
+                    {{ $data['listTitle'] }}
                 </a>
             </span>
         </div>
         <div class="bigList">
-            @isset($data['bigList']['data'])
-                @foreach ($data['bigList']['data'] as $news)
+            @empty($data['data'])
+                <div class="item">
+                    <div class="anyNewsText">
+                        <span>
+                            Hiç Haber Bulunamadı
+                        </span>
+                    </div>
+                </div>
+            @endempty
+            @isset($data['data'])
+                @foreach ($data['data'] as $news)
                     @php App\Http\Controllers\Pages\Visitor\NewsListingsWorkPageController::index($news["no"]) @endphp
                     <div class="item">
                         <div class="category">
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$news['category']['link_url']['link_url'],$data['bigList']['listType'],null]) }}">
+                                href="{{ route('haberler_listesi_kategori', [$news['category']['link_url']['link_url'],$data['listType'],null]) }}">
                                 {{ $news['category']['text'] }}
                             </a>
                         </div>
