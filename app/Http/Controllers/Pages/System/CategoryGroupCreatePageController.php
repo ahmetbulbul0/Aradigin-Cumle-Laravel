@@ -13,7 +13,7 @@ class CategoryGroupCreatePageController extends Controller
     public function index($data = NULL)
     {
         $data["page_title"] = "Kategori Grubu Ekle";
-        $data["categories"] = CategoriesListController::getAllDataAllRelationships();
+        $data["categories"] = CategoriesListController::getAllDataOnlyNotDeletedDatasAllRelationships();
 
         return view("system.pages.category_group_create", ["data" => $data]);
     }

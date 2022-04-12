@@ -64,43 +64,7 @@
             </div>
         </div>
         <div class="rightBar">
-            <div class="outSmListVertical">
-                <div class="inSmListVertical">
-                    <div class="inSmNewsListVertical">
-                        <div class="outTitle">
-                            <span class="inTitle">
-                                Sosyal Medya'da AradığınCümle
-                            </span>
-                        </div>
-                        <div class="socialAccountsList">
-                            <div class="item">
-                                <a href="instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                    <span>İnstagram</span>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="facebook.com">
-                                    <i class="fab fa-facebook"></i>
-                                    <span>Facebook</span>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="twitter.com">
-                                    <i class="fab fa-twitter"></i>
-                                    <span>Twitter</span>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="telegram.com">
-                                    <i class="fab fa-telegram"></i>
-                                    <span>Telegram</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

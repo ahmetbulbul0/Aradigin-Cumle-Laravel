@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Constants\ConstantsUpdateController;
 use App\Http\Controllers\Api\UserSettings\UserSettingsListController;
 use App\Http\Controllers\Api\CategoryTypes\CategoryTypesListController;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
+use App\Http\Controllers\Tools\CategoryGroupToText;
 
 class SystemSettingsPageController extends Controller
 {
@@ -63,6 +64,8 @@ class SystemSettingsPageController extends Controller
         $data["categoryTypes"] = CategoryTypesListController::getAllDataOnlyNotDeletedDatas();
         $data["userTypes"] = UserTypesListController::getAllDataOnlyNotDeletedDatas();
         $data["categoryGroups"] = CategoryGroupsListController::getAllDataOnlyNotDeletedDatasAllRelationships();
+        $data["categoryGroups"] = CategoryGroupToText::multipleCategoryGroup($data["categoryGroups"]);
+
         return view("system.pages.settings_constants")->with("data", $data);
     }
     public function constantsForm(Request $request)
