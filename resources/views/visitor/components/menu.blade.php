@@ -11,28 +11,28 @@
             <span class="textBox">
                 <a
                     href="{{ route('haberler_listesi_kategori', [$data['menu']['category1']['link_url']['link_url'],'son-yayinlananlar']) }}">
-                    {{ Str::title($data['menu']['category1']['main']['name']) }}
+                    {{ $data['menu']['category1']['text'] }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
                 <a
                     href="{{ route('haberler_listesi_kategori', [$data['menu']['category2']['link_url']['link_url'],'son-yayinlananlar']) }}">
-                    {{ Str::title($data['menu']['category2']['main']['name']) }}
+                    {{ $data['menu']['category2']['text'] }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
                 <a
                     href="{{ route('haberler_listesi_kategori', [$data['menu']['category3']['link_url']['link_url'],'son-yayinlananlar']) }}">
-                    {{ Str::title($data['menu']['category3']['main']['name']) }}
+                    {{ $data['menu']['category3']['text'] }}
                 </a>
             </span>
             <span class="brace"></span>
             <span class="textBox">
                 <a
                     href="{{ route('haberler_listesi_kategori', [$data['menu']['category4']['link_url']['link_url'],'son-yayinlananlar']) }}">
-                    {{ Str::title($data['menu']['category4']['main']['name']) }}
+                    {{ $data['menu']['category4']['text'] }}
                 </a>
             </span>
         </div>
@@ -216,7 +216,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category1']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category1']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category1']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category1']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -234,7 +234,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category2']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category2']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category2']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category2']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -252,7 +252,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category3']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category3']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category3']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category3']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -270,7 +270,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category4']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category4']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category4']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category4']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -290,7 +290,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category5']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category5']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category5']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category5']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -308,7 +308,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category6']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category6']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category6']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category6']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -326,7 +326,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category7']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category7']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category7']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category7']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">
@@ -344,7 +344,7 @@
                     <div class="titleBox">
                         <span>
                             <a
-                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category8']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ Str::title($data['menu']['category8']['main']['name']) }}</a>
+                                href="{{ route('haberler_listesi_kategori', [$data['menu']['category8']['link_url']['link_url'],'son-yayinlananlar']) }}">{{ $data['menu']['category8']['text'] }}</a>
                         </span>
                     </div>
                     <div class="list">

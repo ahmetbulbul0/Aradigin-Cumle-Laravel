@@ -9,10 +9,10 @@
                     <span>Son 24 Saat'in Ziyaretçi Sayısı</span>
                 </div>
                 <div class="footer">
-                    <span>
+                    <a href="#">
                         Detaylı Bilgi
                         <i class="fas fa-link"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
             <div class="outValueBox">
@@ -23,10 +23,10 @@
                     <span>Son 24 Saat'de Listelenen Haber Sayısı</span>
                 </div>
                 <div class="footer">
-                    <span>
+                    <a href="#">
                         Detaylı Bilgi
                         <i class="fas fa-link"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -39,10 +39,10 @@
                     <span>Son 24 Saat'de Okunan Haber Sayısı</span>
                 </div>
                 <div class="footer">
-                    <span>
+                    <a href="#">
                         Detaylı Bilgi
                         <i class="fas fa-link"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
             <div class="outValueBox">
@@ -53,10 +53,10 @@
                     <span>Son 24 Saat'de Yayınlanan Haber Sayısı</span>
                 </div>
                 <div class="footer">
-                    <span>
+                    <a href="#">
                         Detaylı Bilgi
                         <i class="fas fa-link"></i>
-                    </span>
+                    </a>
                 </div>
             </div>
         </div>

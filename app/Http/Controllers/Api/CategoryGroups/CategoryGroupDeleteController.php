@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Api\CategoryGroups\CategoryGroupsListController;
 use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlsListController;
 use App\Http\Controllers\Api\CategoryGroupUrls\CategoryGroupUrlDeleteController;
+use App\Http\Controllers\Api\News\NewsDeleteController;
+use App\Http\Controllers\Api\News\NewsListController;
 
 class CategoryGroupDeleteController extends Controller
 {
@@ -50,6 +52,13 @@ class CategoryGroupDeleteController extends Controller
         if ($linkUrl) {
             $data["data"]["no"] = $linkUrl["no"];
             CategoryGroupUrlDeleteController::get($data);
+        }
+        $editedNews = NewsListController::getAllDataOnlyNotDeletedDatasAllRelationshipsWhereCategory($no);
+        if ($editedNews) {
+            foreach ($editedNews as $news) {
+                $dataForNews["data"]["no"] = $news["no"];
+                NewsDeleteController::get($dataForNews);
+            }
         }
 
         $data["status"] = 200;
