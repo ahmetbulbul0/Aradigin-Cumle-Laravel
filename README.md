@@ -1,4 +1,6 @@
-![aradigin_cumle_landspace_poster](https://i.hizliresim.com/hcy8bom.png)
+![aradigin_cumle_dark_1920x1080_poster](./git-images/aradigin_cumle_dark_1920x1080_poster.png)
+
+![aradigin_cumle_light_1920x1080_poster](./git-images/aradigin_cumle_light_1920x1080_poster.png)
 
 WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
 
