@@ -4,44 +4,86 @@
 
 # Aradigin-Cumle
 
-### WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
+*WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)*
+
+> ### To Do
+> * FrontEnd
+>   * yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
+>   * tüm butonlara 3d stili tanımlanacak
+>   * html elementine "lang" özelliği eklenecek
+>   * renkler ve font kalınlık-boyut değerleri düzeltilecek
+> * BackEnd
+>   * form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
+>   * writings modelinin api controllerları yapılacak
+>   * my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
+
+> ### Models
+> * Categories
+> * CategoryGroups
+> * CategoryGroupUrls
+> * CategoryTypes
+> * Constants
+> * ListingsDetail
+> * Listings
+> * News
+> * ReadingsDetail
+> * Readings
+> * ResourcePlatforms
+> * ResourceUrls
+> * Users
+> * UsersSettings
+> * UserTypes
+> * Visitors
+> * Writings
+
+> ### Middlewares
+> * **isItAuthor**
+>   * *true* => kullanıcı hesabı varsa ve kullanıcı yazar ise geçişe izin verilir
+>   * *false* => kullanıcı hesabı yoksa yada kullanıcı yazar değilse 404 hata sayfasına yönlendirilir
+> * **isItSystem**
+>   * *true* => kullanıcı hesabı varsa ve kullanıcı sistem ise geçişe izin verilir
+>   * *false* => kullanıcı hesabı yoksa yada kullanıcı sistem değilse 404 hata sayfasına yönlendirilir
+> * **isItNotUser**
+>   * *true* => kullanıcı hesabı yoksa girişe izin verilir
+>   * *false* => kullanıcı hesabı varsa kullanıcı hesabı tipine göre panel yönlendirilmesi yapılır
+> * **userDataCheck**
+>   * *true* => kullanıcı hesabı varsa ve session üzerindeki kullanıcı bilgileri veritabanı ile uyuşuyorsa session güncellenir ve geçişe izin verilir
+>   * *false* => kullanıcı hesabı yoksa yada session üzerindeki kullanıcı bilgileri veritabanı ile uyuşmuyorsa userData session silinir 404 hata sayfasına yönlendirilir
+> * **isTheWebSiteSetup**
+>   * *true* => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise geçişe izin verilir
+>   * *false* => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise uygun olan kurulum aşamasına yönlendirilir
+> * **isTheWebSiteNotSetup**
+>   * *true* => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise geçişe izin verilir
+>   * *false* => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise anasayfa sayfasına yönlendirilir
+> * **isItVisitor**
+>   * *true* => userData session varsa geçişe izin verilir
+>   * *true* => userData session değeri yoksa ve visitorData session varsa geçişe izin verilir
+>   * *true* => hem userData değeri hem de visitorData değeri yoksa yeni bir visitor kaydı oluşturulup visitorData session değeri oluşturulur ve geçişe izin verilir
+>   * *false* => hem userData değeri hem de visitorData değeri varsa 403 hata sayfasına yönlendirilir
+> * **visitorDataCheck**
+>   * *true* => userData session varsa geçişe izin verilir
+>   * *true* => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçerli ise visitorData session değeri güncellenir ve geçişe izin verilir
+>   * *false* => visitorData session değeri yoksa bir önceki url adresine yönlendirilir
+>   * *false* => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçersiz ise visitorData session değeri silinir ve bi önceki url adresine yönlendirilir
+> * **userDataCheckIfIsUser**
+>   * *true* => userData session değeri yoksa geçişe izin verilir
+>   * *true* => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçerli ise userData session değeri güncellenir
+>   * *false* => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir
 
 
 
-<!-- # Notes
 
-## To Do List
 
-* FrontEnd
-  * yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
-  * tüm butonlara 3d stili tanımlanacak
-  * html elementine "lang" özelliği eklenecek
-  * renkler ve font kalınlık-boyut değerleri düzeltilecek
-* BackEnd
-  * form verisi olan yerlerdeki sayfa yenilemesindeki işlemi tekrarlama olayını çöz
-  * writings modelinin api controllerları yapılacak
-  * my news list page controllerlarındaki list type sistemi yapılacak viewindeki title selectsler çalışır hale getirilicek
 
-## Models & Migrations
 
-* Models
-  * Categories
-  * CategoryGroups
-  * CategoryGroupUrls
-  * CategoryTypes
-  * Constants
-  * ListingsDetail
-  * Listings
-  * News
-  * ReadingsDetail
-  * Readings
-  * ResourcePlatforms
-  * ResourceUrls
-  * Users
-  * UsersSettings
-  * UserTypes
-  * Visitors
-  * Writings
+
+
+
+
+
+
+
+<!--
 
 ## Controllers
 
@@ -256,39 +298,4 @@
   * User Types List
   * Users List
   * Visitors List
-
-## MiddleWares
-
-* All
-  * isItAuthor
-    * true => kullanıcı hesabı varsa ve kullanıcı yazar ise geçişe izin verilir
-    * false => kullanıcı hesabı yoksa yada kullanıcı yazar değilse 404 hata sayfasına yönlendirilir
-  * isItSystem
-    * true => kullanıcı hesabı varsa ve kullanıcı sistem ise geçişe izin verilir
-    * false => kullanıcı hesabı yoksa yada kullanıcı sistem değilse 404 hata sayfasına yönlendirilir
-  * isItNotUser
-    * true => kullanıcı hesabı yoksa girişe izin verilir
-    * false => kullanıcı hesabı varsa kullanıcı hesabı tipine göre panel yönlendirilmesi yapılır
-  * userDataCheck
-    * true => kullanıcı hesabı varsa ve session üzerindeki kullanıcı bilgileri veritabanı ile uyuşuyorsa session güncellenir ve geçişe izin verilir
-    * false => kullanıcı hesabı yoksa yada session üzerindeki kullanıcı bilgileri veritabanı ile uyuşmuyorsa userData session silinir 404 hata sayfasına yönlendirilir
-  * isTheWebSiteSetup
-    * true => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise geçişe izin verilir
-    * false => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise uygun olan kurulum aşamasına yönlendirilir
-  * isTheWebSiteNotSetup
-    * true => constants üzerindeki değerlerin varlığı kontrol edilir herhangi biri yoksa veya herhangi biri geçerli değer değil ise geçişe izin verilir
-    * false => constants üzerindeki değerlerin varlığı kontrol edilir tamamı varsa ve tamamı geçerli değerler ise anasayfa sayfasına yönlendirilir
-  * isItVisitor
-    * true => userData session varsa geçişe izin verilir
-    * true => userData session değeri yoksa ve visitorData session varsa geçişe izin verilir
-    * true => hem userData değeri hem de visitorData değeri yoksa yeni bir visitor kaydı oluşturulup visitorData session değeri oluşturulur ve geçişe izin verilir
-    * false => hem userData değeri hem de visitorData değeri varsa 403 hata sayfasına yönlendirilir
-  * visitorDataCheck
-    * true => userData session varsa geçişe izin verilir
-    * true => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçerli ise visitorData session değeri güncellenir ve geçişe izin verilir
-    * false => visitorData session değeri yoksa bir önceki url adresine yönlendirilir
-    * false => userData session değeri yoksa ve visitorData session değeri varsa visitorData içerisindeki değerler kontrol edilir değerler geçersiz ise visitorData session değeri silinir ve bi önceki url adresine yönlendirilir
-  * userDataCheckIfIsUser
-    * true => userData session değeri yoksa geçişe izin verilir
-    * true => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçerli ise userData session değeri güncellenir
-    * false => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir -->
+-->
