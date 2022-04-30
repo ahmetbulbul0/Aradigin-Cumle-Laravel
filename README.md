@@ -1,10 +1,14 @@
-![aradigin_cumle_dark_1920x1080_poster](./git-images/aradigin_cumle_dark_1920x1080_poster.png)
+![aradigin_cumle_1366x768_dark_poster](./git-images/aradigin_cumle_1366x768_dark_poster.png)
 
-![aradigin_cumle_light_1920x1080_poster](./git-images/aradigin_cumle_light_1920x1080_poster.png)
+![aradigin_cumle_1366x768_light_poster](./git-images/aradigin_cumle_1366x768_light_poster.png)
 
-WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
+# Aradigin-Cumle
 
-# Notes
+### WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
+
+
+
+<!-- # Notes
 
 ## To Do List
 
@@ -287,4 +291,4 @@ WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)
   * userDataCheckIfIsUser
     * true => userData session değeri yoksa geçişe izin verilir
     * true => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçerli ise userData session değeri güncellenir
-    * false => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir
+    * false => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir -->
