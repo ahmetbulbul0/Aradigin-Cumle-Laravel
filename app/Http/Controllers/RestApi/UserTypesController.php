@@ -9,6 +9,7 @@ use App\Http\Controllers\Tools\NoGenerator;
 use App\Http\Requests\UserTypesIndexRequest;
 use App\Http\Requests\UserTypesStoreRequest;
 use App\Models\UsersModel;
+
 class UserTypesController extends Controller
 {
     /**
@@ -91,7 +92,6 @@ class UserTypesController extends Controller
                 "user" => $userType
             ]
         ], 200);
-
     }
 
     /**
@@ -123,7 +123,7 @@ class UserTypesController extends Controller
      * @param  \App\Models\UserTypesModel  $userTypesModel
      * @return \Illuminate\Http\Response
      */
-    public function update($userTypeNo ,Request $request)
+    public function update($userTypeNo, Request $request)
     {
         $oldUserType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first();
 
@@ -158,8 +158,8 @@ class UserTypesController extends Controller
     {
         $userType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get();
 
-        UserTypesModel::where(["is_deletd", false, "no", $userTypeNo])->update("is_deleted", true);
-        UsersModel::where(["is_deleted" => false, "type" => $userTypeNo])->update("is_deleted", true);
+        UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->update(["is_deleted" => true]);
+        UsersModel::where(["is_deleted" => false, "type" => $userTypeNo])->update(["is_deleted" => true]);
 
         return response()->json([
             "message" => "User Type Deleted Successfully",
