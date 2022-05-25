@@ -80,16 +80,16 @@ class UsersController extends Controller
 
         return response()->json([
             "message" => "Users Listed Successfully",
+            "query" => [
+                "is_deleted" => $request->is_deleted,
+                "list_type" => $request->list_type,
+                "type" => $request->type,
+                "settings" => $request->settings,
+                "full_name" => $request->full_name,
+                "username" => $request->username,
+                "password" => $request->password
+            ],
             "data" => [
-                "query" => [
-                    "is_deleted" => $request->is_deleted,
-                    "list_type" => $request->list_type,
-                    "type" => $request->type,
-                    "settings" => $request->settings,
-                    "full_name" => $request->full_name,
-                    "username" => $request->username,
-                    "password" => $request->password
-                ],
                 "count" => count($users),
                 "users" => $users
             ]
@@ -129,13 +129,13 @@ class UsersController extends Controller
 
         return response()->json([
             "message" => "User Created Successfully",
+            "query" => [
+                "full_name" => $request->full_name,
+                "username" => $request->username,
+                "password" => $request->password,
+                "type" => $request->type
+            ],
             "data" => [
-                "query" => [
-                    "full_name" => $request->full_name,
-                    "username" => $request->username,
-                    "password" => $request->password,
-                    "type" => $request->type
-                ],
                 "count" => count($user),
                 "user" => $user
             ]
@@ -153,10 +153,10 @@ class UsersController extends Controller
 
         return response()->json([
             "message" => "User Showed Successfully",
+            "query" => [
+                "no" => $userNo,
+            ],
             "data" => [
-                "query" => [
-                    "no" => $userNo,
-                ],
                 "count" => count($user),
                 "user" => $user
             ]
@@ -171,14 +171,14 @@ class UsersController extends Controller
      */
     public function update($userNo, Request $request) // COMPLETED
     {
-        $data = [
-            "full_name" => $request->full_name,
-            "username" => $request->username,
-            "password" => $request->password,
-            "type" => $request->type
-        ];
+        $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
 
-        $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get();
+        $data = [
+            "full_name" => $request->full_name ?? $oldUser->full_name,
+            "username" => $request->username ?? $oldUser->username,
+            "password" => $request->password ?? $oldUser->password,
+            "type" => $request->type ?? $oldUser->type
+        ];
 
         UsersModel::where(["is_deleted" => false, "no" => $userNo])->update($data);
 
@@ -186,13 +186,13 @@ class UsersController extends Controller
 
         return response()->json([
             "message" => "User Updated Successfully",
+            "query" => [
+                "full_name" => $request->full_name,
+                "username" => $request->username,
+                "password" => $request->password,
+                "type" => $request->type
+            ],
             "data" => [
-                "query" => [
-                    "full_name" => $request->full_name,
-                    "username" => $request->username,
-                    "password" => $request->password,
-                    "type" => $request->type
-                ],
                 "count" => count($newUser),
                 "oldUser" => $oldUser,
                 "newUser" => $newUser
@@ -208,14 +208,15 @@ class UsersController extends Controller
     {
         $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get();
 
-        UsersModel::where(["is_deleted" => false, "no" => $userNo])->delete();
+        UsersModel::where(["is_deleted" => false, "no" => $userNo])->update("is_deleted", true);
+        UsersSettingsModel::where(["is_deletd", false, "user_no", $userNo])->update("is_deleted", true);
 
         return response()->json([
             "message" => "User Deleted Successfully",
+            "query" => [
+                "no" => $userNo,
+            ],
             "data" => [
-                "query" => [
-                    "no" => $userNo,
-                ],
                 "count" => count($user),
                 "deletedUser" => $user
             ]
