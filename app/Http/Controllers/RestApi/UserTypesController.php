@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
-use App\Http\Requests\UserTypesIndexRequest;
-use App\Http\Requests\UserTypesStoreRequest;
+use App\Http\Requests\UserTypes\UserTypesIndexRequest;
+use App\Http\Requests\UserTypes\UserTypesStoreRequest;
 use App\Models\UsersModel;
 
 class UserTypesController extends Controller
@@ -23,7 +23,7 @@ class UserTypesController extends Controller
 
         switch ($request->is_deleted) {
             case true:
-                $users = $userTypes->where("is_deleted", true);
+                $userTypes = $userTypes->where("is_deleted", true);
                 break;
             case false:
                 $userTypes = $userTypes->where("is_deleted", false);
@@ -48,6 +48,10 @@ class UserTypesController extends Controller
                 break;
             default:
                 break;
+        }
+
+        if (!empty($request->name)) {
+            $userTypes = $userTypes->where("name", $request->name);
         }
 
         $userTypes = $userTypes->get();
@@ -89,7 +93,7 @@ class UserTypesController extends Controller
             ],
             "data" => [
                 "count" => count($userType),
-                "user" => $userType
+                "userType" => $userType
             ]
         ], 200);
     }
@@ -111,7 +115,7 @@ class UserTypesController extends Controller
             ],
             "data" => [
                 "count" => count($userType),
-                "user" => $userType
+                "userType" => $userType
             ]
         ], 200);
     }
@@ -142,8 +146,8 @@ class UserTypesController extends Controller
             ],
             "data" => [
                 "count" => count($newUserType),
-                "oldUser" => $oldUserType,
-                "newUser" => $newUserType
+                "oldUserType" => $oldUserType,
+                "newUserType" => $newUserType
             ]
         ], 200);
     }
@@ -168,7 +172,7 @@ class UserTypesController extends Controller
             ],
             "data" => [
                 "count" => count($userType),
-                "deletedUser" => $userType
+                "deletedUserType" => $userType
             ]
         ], 200);
     }

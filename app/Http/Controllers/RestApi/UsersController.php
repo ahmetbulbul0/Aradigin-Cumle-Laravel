@@ -4,8 +4,8 @@ namespace App\Http\Controllers\RestApi;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
-use App\Http\Requests\UsersIndexRequest;
-use App\Http\Requests\UsersStoreRequest;
+use App\Http\Requests\Users\UsersIndexRequest;
+use App\Http\Requests\Users\UsersStoreRequest;
 use App\Models\UsersModel;
 use App\Models\UsersSettingsModel;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UsersIndexRequest $request) // COMPLETED
+    public function index(UsersIndexRequest $request)
     {
         $users = new UsersModel;
 
@@ -102,7 +102,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersStoreRequest $request) // COMPLETED
+    public function store(UsersStoreRequest $request)
     {
         $data = [
             "no" => NoGenerator::generateUsersNo(),
@@ -147,7 +147,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($userNo) // COMPLETED
+    public function show($userNo)
     {
         $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get();
 
@@ -169,7 +169,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update($userNo, Request $request) // COMPLETED
+    public function update($userNo, Request $request)
     {
         $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
 
@@ -204,7 +204,7 @@ class UsersController extends Controller
      * Remove the specified resource from storage.
      * @return \Illuminate\Http\Response
      */
-    public function destroy($userNo) // COMPLETED
+    public function destroy($userNo)
     {
         $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get();
 

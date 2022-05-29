@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
 use App\Http\Controllers\RestApi\UsersController;
+use App\Http\Controllers\RestApi\UsersSettingsController;
 use App\Http\Controllers\RestApi\UserTypesController;
+use App\Http\Controllers\RestApi\VisitorsController;
 
 //  OLD APİ ROUTES
 Route::post("/kurulum", [WebSiteSetupPageController::class, "form"])->name("api_website_kurulum");
@@ -18,3 +20,5 @@ Route::prefix("/kurulum")->group(function () {
 
 Route::apiResource("users", UsersController::class);
 Route::apiResource("user-types", UserTypesController::class);
+Route::apiResource("users-settings", UsersSettingsController::class);
+Route::apiResource("visitors", VisitorsController::class);

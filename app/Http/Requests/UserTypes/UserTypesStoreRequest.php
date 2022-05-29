@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\UserTypes;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Session;
 
-class UsersStoreRequest extends FormRequest
+class UserTypesStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +24,7 @@ class UsersStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "full_name" => ["required"],
-            "username" => ["required", "unique:users,username"],
-            "password" => ["required"],
-            "type" => ["required" ,"exists:user_types,no"]
+            "name" => ["required", "unique:user_types,name"],
         ];
     }
 }
