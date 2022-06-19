@@ -25,10 +25,10 @@ class UsersStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "full_name" => ["required"],
-            "username" => ["required", "unique:users,username"],
-            "password" => ["required"],
-            "type" => ["required" ,"exists:user_types,no"]
+            "full_name" => ["required", "string"],
+            "username" => ["required", "string", "unique:users,username"],
+            "password" => ["required", "string"],
+            "type" => ["required", "integer", "exists:user_types,no"]
         ];
     }
 }

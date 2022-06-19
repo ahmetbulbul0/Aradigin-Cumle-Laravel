@@ -91,7 +91,6 @@ class UsersSettingsController extends Controller
             ]
         ], 200);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -125,7 +124,6 @@ class UsersSettingsController extends Controller
             ]
         ], 200);
     }
-
     /**
      * Display the specified resource.
      *
@@ -147,7 +145,6 @@ class UsersSettingsController extends Controller
             ]
         ], 200);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -183,7 +180,6 @@ class UsersSettingsController extends Controller
             ]
         ], 200);
     }
-
     /**
      * Remove the specified resource from storage.
      *
