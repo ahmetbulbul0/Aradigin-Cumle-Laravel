@@ -22,7 +22,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UsersIndexRequest $request) // listing
+    public function index(UsersIndexRequest $request)
     {
         $users = new UsersModel;
 
@@ -63,7 +63,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersStoreRequest $request) // create
+    public function store(UsersStoreRequest $request)
     {
         $data = [
             "no" => NoGenerator::generateUsersNo(),
@@ -98,7 +98,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($userNo) // show
+    public function show($userNo)
     {
         $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get() : UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
 
@@ -122,7 +122,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update($userNo, Request $request) // update
+    public function update($userNo, Request $request)
     {
         $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get() : UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
 
@@ -158,9 +158,17 @@ class UsersController extends Controller
      * Remove the specified resource from storage.
      * @return \Illuminate\Http\Response
      */
-    public function destroy($userNo) // delete
+    public function destroy($userNo)
     {
-        $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get();
+        $user = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get() : UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
+
+        if (!$user) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("User", "delete", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $userNo]),
+                "data" => 0
+            ], 404);
+        }
 
         UsersModel::where(["is_deleted" => false, "no" => $userNo])->update(["is_deleted" => true]);
         UsersSettingsModel::where(["is_deleted" => false, "user_no" => $userNo])->update(["is_deleted" => true]);

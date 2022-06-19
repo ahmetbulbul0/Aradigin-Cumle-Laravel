@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\RestApi;
 
+use App\Models\UsersModel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\UserTypesModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
+use App\Http\Controllers\Tools\EloquentGenerator;
+use App\Http\Controllers\Tools\ListTypeGenerator;
 use App\Http\Requests\UserTypes\UserTypesIndexRequest;
 use App\Http\Requests\UserTypes\UserTypesStoreRequest;
-use App\Models\UsersModel;
+use App\Http\Controllers\Tools\RestApiResponseGenerator;
 
 class UserTypesController extends Controller
 {
@@ -21,51 +25,25 @@ class UserTypesController extends Controller
     {
         $userTypes = new UserTypesModel;
 
-        switch ($request->is_deleted) {
-            case true:
-                $userTypes = $userTypes->where("is_deleted", true);
-                break;
-            case false:
-                $userTypes = $userTypes->where("is_deleted", false);
-                break;
-            default:
-                $userTypes = $userTypes->where("is_deleted", false);
-                break;
-        }
+        $userTypes = EloquentGenerator::whereGenerateByIsDeleted($request, $userTypes);
 
-        switch ($request->list_type) {
-            case 'no09':
-                $userTypes = $userTypes->orderBy("no", "ASC");
-                break;
-            case 'no90':
-                $userTypes = $userTypes->orderBy("no", "DESC");
-                break;
-            case 'nameAZ':
-                $userTypes = $userTypes->orderBy("name", "ASC");
-                break;
-            case 'nameZA':
-                $userTypes = $userTypes->orderBy("name", "DESC");
-                break;
-            default:
-                break;
-        }
+        $listTypeNames = [
+            "no09",
+            "no90",
+            "nameAZ",
+            "nameZA",
+        ];
+        $listTypes = ListTypeGenerator::listTypeGenerateWithNames($listTypeNames);
+        $userTypes = EloquentGenerator::orderByWithListType($request, $userTypes, $listTypes);
 
-        if (!empty($request->name)) {
-            $userTypes = $userTypes->where("name", $request->name);
-        }
+        $userTypes = EloquentGenerator::whereGenerateByColumn($request, $userTypes, "name", "equal");
 
         $userTypes = $userTypes->get();
 
         return response()->json([
-            "message" => "User Types Listed Successfully",
-            "query" => [
-                "is_deleted" => $request->is_deleted,
-                "list_type" => $request->list_type
-            ],
-            "data" => [
-                "count" => count($userTypes),
-                "userTypes" => $userTypes
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("User Types", "index", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["is_deleted", "list_type", "name"]),
+            "data" => RestApiResponseGenerator::dataGenerate($userTypes)
         ], 200);
     }
     /**
@@ -83,17 +61,12 @@ class UserTypesController extends Controller
 
         UserTypesModel::create($data);
 
-        $userType = UserTypesModel::where("is_deleted", false)->where("no", $data["no"])->get();
+        $userType = UserTypesModel::where(["is_deleted" => false, "no" => $data["no"]])->get();
 
         return response()->json([
-            "message" => "User Type Created Successfully",
-            "query" => [
-                "name" => $request->name
-            ],
-            "data" => [
-                "count" => count($userType),
-                "userType" => $userType
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("User Type", "store", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["name"]),
+            "data" => RestApiResponseGenerator::dataGenerate($userType)
         ], 200);
     }
     /**
@@ -104,17 +77,20 @@ class UserTypesController extends Controller
      */
     public function show($userTypeNo)
     {
-        $userType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get();
+        $userType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first() ? UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get() : UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first();
+
+        if (!$userType) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("User Type", "show", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $userTypeNo]),
+                "data" => 0
+            ], 404);
+        }
 
         return response()->json([
-            "message" => "User Type Showed Successfully",
-            "query" => [
-                "no" => $userTypeNo
-            ],
-            "data" => [
-                "count" => count($userType),
-                "userType" => $userType
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("User Type", "show", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $userTypeNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($userType)
         ], 200);
     }
     /**
@@ -126,10 +102,18 @@ class UserTypesController extends Controller
      */
     public function update($userTypeNo, Request $request)
     {
-        $oldUserType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first();
+        $oldUserType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first() ? UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get() : UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first();
+
+        if (!$oldUserType) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("User Type", "update", 404),
+                "query" => RestApiResponseGenerator::queryGenerate($request, ["name"], ["label" => "no", "value" => $userTypeNo]),
+                "data" => 0
+            ], 404);
+        }
 
         $data = [
-            "name" => $request->name ?? $oldUserType->name
+            "name" => $request->name ? Str::lower($request->name) : $oldUserType[0]->name
         ];
 
         UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->update($data);
@@ -137,14 +121,11 @@ class UserTypesController extends Controller
         $newUserType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get();
 
         return response()->json([
-            "message" => "User Type Updated Successfully",
-            "query" => [
-                "name" => $request->name
-            ],
+            "message" => RestApiResponseGenerator::messageGenerate("User Type", "update", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["name"], ["label" => "no", "value" => $userTypeNo]),
             "data" => [
-                "count" => count($newUserType),
-                "oldUserType" => $oldUserType,
-                "newUserType" => $newUserType
+                "old" => RestApiResponseGenerator::dataGenerate($oldUserType),
+                "new" => RestApiResponseGenerator::dataGenerate($newUserType)
             ]
         ], 200);
     }
@@ -156,20 +137,23 @@ class UserTypesController extends Controller
      */
     public function destroy($userTypeNo)
     {
-        $userType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get();
+        $userType = UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first() ? UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->get() : UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->first();
+
+        if (!$userType) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("User Type", "delete", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $userTypeNo]),
+                "data" => 0
+            ], 404);
+        }
 
         UserTypesModel::where(["is_deleted" => false, "no" => $userTypeNo])->update(["is_deleted" => true]);
         UsersModel::where(["is_deleted" => false, "type" => $userTypeNo])->update(["is_deleted" => true]);
 
         return response()->json([
-            "message" => "User Type Deleted Successfully",
-            "query" => [
-                "no" => $userTypeNo,
-            ],
-            "data" => [
-                "count" => count($userType),
-                "deletedUserType" => $userType
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("User Type", "delete", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $userTypeNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($userType)
         ], 200);
     }
 }
