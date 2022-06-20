@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\RestApi;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\VisitorsModel;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
+use App\Http\Controllers\Tools\EloquentGenerator;
+use App\Http\Controllers\Tools\ListTypeGenerator;
 use App\Http\Requests\Visitors\VisitorsIndexRequest;
 use App\Http\Requests\Visitors\VisitorsStoreRequest;
+use App\Http\Controllers\Tools\RestApiResponseGenerator;
 
 class VisitorsController extends Controller
 {
@@ -16,84 +20,37 @@ class VisitorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(VisitorsIndexRequest $request)
+    public function index(VisitorsIndexRequest $request) // COMPLETED
     {
         $visitors = new VisitorsModel();
 
-        switch ($request->is_banned) {
-            case true:
-                $visitors = $visitors->where("is_banned", true);
-                break;
-            case false:
-                $visitors = $visitors->where("is_banned", false);
-                break;
-            default:
-                $visitors = $visitors->where("is_banned", false);
-                break;
-        }
+        $visitors = EloquentGenerator::whereGenerateByIsBanned($request, $visitors);
 
-        switch ($request->list_type) {
-            case 'no09':
-                $visitors = $visitors->orderBy("no", "ASC");
-                break;
-            case 'no90':
-                $visitors = $visitors->orderBy("no", "DESC");
-                break;
-            case 'ipAZ':
-                $visitors = $visitors->orderBy("ip", "ASC");
-                break;
-            case 'ipZA':
-                $visitors = $visitors->orderBy("ip", "DESC");
-                break;
-            case 'browserAZ':
-                $visitors = $visitors->orderBy("browser", "ASC");
-                break;
-            case 'browserZA':
-                $visitors = $visitors->orderBy("browser", "DESC");
-                break;
-            case 'lastLoginTimeAZ':
-                $visitors = $visitors->orderBy("last_login_time", "ASC");
-                break;
-            case 'lastLoginTimeZA':
-                $visitors = $visitors->orderBy("last_login_time", "DESC");
-                break;
-            case 'websiteThemeAZ':
-                $visitors = $visitors->orderBy("website_theme", "ASC");
-                break;
-            case 'websiteThemeZA':
-                $visitors = $visitors->orderBy("website_theme", "DESC");
-                break;
-            default:
-                break;
-        }
+        $listTypeNames = [
+            'no09',
+            'no90',
+            'ipAZ',
+            'ipZA',
+            'browserAZ',
+            'browserZA',
+            'lastLoginTimeAZ',
+            'lastLoginTimeZA',
+            'websiteThemeAZ',
+            'websiteThemeZA'
+        ];
+        $listTypes = ListTypeGenerator::listTypeGenerateWithNames($listTypeNames);
+        $visitors = EloquentGenerator::orderByWithListType($request, $visitors, $listTypes);
 
-        if (!empty($request->ip)) {
-            $visitors = $visitors->where("ip", $request->ip);
-        }
-
-        if (!empty($request->browser)) {
-            $visitors = $visitors->where("browser", $request->browser);
-        }
-
-        if (!empty($request->website_theme)) {
-            $visitors = $visitors->where("website_theme", $request->website_theme);
-        }
+        $visitors = EloquentGenerator::whereGenerateByColumn($request, $visitors, "ip", "equal");
+        $visitors = EloquentGenerator::whereGenerateByColumn($request, $visitors, "browser", "search");
+        $visitors = EloquentGenerator::whereGenerateByColumn($request, $visitors, "website_theme", "equal");
 
         $visitors = $visitors->get();
 
         return response()->json([
-            "message" => "Visitors Listed Successfully",
-            "query" => [
-                "is_banned" => $request->is_banned,
-                "list_type" => $request->list_type,
-                "ip" => $request->ip,
-                "browser" => $request->browser,
-                "website_theme" => $request->website_theme,
-            ],
-            "data" => [
-                "count" => count($visitors),
-                "visitors" => $visitors
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("Visitors", "index", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["is_deleted", "list_type", "ip", "browser", "website_theme"]),
+            "data" => RestApiResponseGenerator::dataGenerate($visitors)
         ], 200);
     }
     /**
@@ -102,7 +59,7 @@ class VisitorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VisitorsStoreRequest $request)
+    public function store(VisitorsStoreRequest $request) // COMPLETED
     {
         $data = [
             "no" => NoGenerator::generateVisitorsNo(),
@@ -115,17 +72,12 @@ class VisitorsController extends Controller
 
         VisitorsModel::create($data);
 
-        $visitor = VisitorsModel::where("is_banned", false)->where("no", $data["no"])->get();
+        $visitor = VisitorsModel::where(["is_banned" => false, "no" => $data["no"]])->get();
 
         return response()->json([
-            "message" => "Visitor Created Successfully",
-            "query" => [
-                null
-            ],
-            "data" => [
-                "count" => count($visitor),
-                "visitor" => $visitor
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("Visitor", "store", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["ip", "browser", "last_login_time", "website_theme", "is_banned"]),
+            "data" => RestApiResponseGenerator::dataGenerate($visitor)
         ], 200);
     }
     /**
@@ -134,19 +86,22 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function show($visitorNo)
+    public function show($visitorNo) // COMPLETED
     {
-        $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get();
+        $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
+
+        if (!$visitor) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Visitor", "show", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $visitorNo]),
+                "data" => 0
+            ], 404);
+        }
 
         return response()->json([
-            "message" => "Visitor Showed Successfully",
-            "query" => [
-                "no" => $visitorNo
-            ],
-            "data" => [
-                "count" => count($visitor),
-                "userSettings" => $visitor
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("Visitor", "show", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $visitorNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($visitor)
         ], 200);
     }
     /**
@@ -156,12 +111,20 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function update($visitorNo, Request $request)
+    public function update($visitorNo, Request $request) // COMPLETED
     {
-        $oldVisitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
+        $oldVisitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
+
+        if (!$oldVisitor) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Visitor", "update", 404),
+                "query" => RestApiResponseGenerator::queryGenerate($request, ["name"], ["label" => "no", "value" => $visitorNo]),
+                "data" => 0
+            ], 404);
+        }
 
         $data = [
-            "website_theme" => $request->website_theme ?? $oldVisitor->website_theme
+            "website_theme" => $request->website_theme ? Str::lower($request->website_theme) : $oldVisitor[0]->website_theme
         ];
 
         VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->update($data);
@@ -169,14 +132,11 @@ class VisitorsController extends Controller
         $newVisitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get();
 
         return response()->json([
-            "message" => "Visitor Updated Successfully",
-            "query" => [
-                "website_theme" => $request->website_theme,
-            ],
+            "message" => RestApiResponseGenerator::messageGenerate("Visitor", "update", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["name"], ["label" => "no", "value" => $visitorNo]),
             "data" => [
-                "count" => count($newVisitor),
-                "oldUserSettings" => $oldVisitor,
-                "newUserSettings" => $newVisitor
+                "old" => RestApiResponseGenerator::dataGenerate($oldVisitor),
+                "new" => RestApiResponseGenerator::dataGenerate($newVisitor)
             ]
         ], 200);
     }
@@ -186,21 +146,24 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($visitorNo)
+    public function destroy($visitorNo) // COMPLETED
     {
-        $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get();
+        $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
+
+        if (!$visitor) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Visitor", "delete", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $visitorNo]),
+                "data" => 0
+            ], 404);
+        }
 
         VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->update(["is_banned" => true]);
 
         return response()->json([
-            "message" => "Visitor Banned Successfully",
-            "query" => [
-                "no" => $visitorNo,
-            ],
-            "data" => [
-                "count" => count($visitor),
-                "bannedVisitor" => $visitor
-            ]
+            "message" => RestApiResponseGenerator::messageGenerate("Visitor", "delete", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $visitorNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($visitor)
         ], 200);
     }
 }

@@ -24,6 +24,23 @@ class EloquentGenerator extends Controller
         return $model;
     }
 
+    static function whereGenerateByIsBanned($request, $model)
+    {
+        switch ($request->is_banned) {
+            case true:
+                $model = $model->where("is_banned", true);
+                break;
+            case false:
+                $model = $model->where("is_banned", false);
+                break;
+            default:
+                $model = $model->where("is_banned", false);
+                break;
+        }
+
+        return $model;
+    }
+
     static function whereGenerateByColumn($request, $model, $keyword, $type)
     {
         if ($request->$keyword) {
