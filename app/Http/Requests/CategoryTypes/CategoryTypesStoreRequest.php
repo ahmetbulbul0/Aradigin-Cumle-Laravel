@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\UserTypes;
+namespace App\Http\Requests\CategoryTypes;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserTypesStoreRequest extends FormRequest
+class CategoryTypesStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class UserTypesStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ["required", "string", "unique:user_types,name"],
+            "name" => ["required", "string", "unique:category_types,name"],
         ];
     }
 }
