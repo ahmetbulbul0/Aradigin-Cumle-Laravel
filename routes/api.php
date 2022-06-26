@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
 use App\Http\Controllers\RestApi\CategoryTypesController;
+use App\Http\Controllers\RestApi\ResourcePlatformsController;
 use App\Http\Controllers\RestApi\UsersController;
 use App\Http\Controllers\RestApi\UsersSettingsController;
 use App\Http\Controllers\RestApi\UserTypesController;
@@ -24,3 +25,4 @@ Route::apiResource("user-types", UserTypesController::class);
 Route::apiResource("users-settings", UsersSettingsController::class);
 Route::apiResource("visitors", VisitorsController::class);
 Route::apiResource("category-types", CategoryTypesController::class);
+Route::apiResource("resource-platforms", ResourcePlatformsController::class);

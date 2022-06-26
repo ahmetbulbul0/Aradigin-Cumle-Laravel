@@ -20,7 +20,7 @@ class VisitorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(VisitorsIndexRequest $request) // COMPLETED
+    public function index(VisitorsIndexRequest $request)
     {
         $visitors = new VisitorsModel();
 
@@ -59,7 +59,7 @@ class VisitorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VisitorsStoreRequest $request) // COMPLETED
+    public function store(VisitorsStoreRequest $request)
     {
         $data = [
             "no" => NoGenerator::generateVisitorsNo(),
@@ -86,7 +86,7 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function show($visitorNo) // COMPLETED
+    public function show($visitorNo)
     {
         $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
 
@@ -111,7 +111,7 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function update($visitorNo, Request $request) // COMPLETED
+    public function update($visitorNo, Request $request)
     {
         $oldVisitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
 
@@ -146,7 +146,7 @@ class VisitorsController extends Controller
      * @param  \App\Models\VisitorsModel  $visitorsModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($visitorNo) // COMPLETED
+    public function destroy($visitorNo)
     {
         $visitor = VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first() ? VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->get() : VisitorsModel::where(["is_banned" => false, "no" => $visitorNo])->first();
 

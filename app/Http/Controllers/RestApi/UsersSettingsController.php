@@ -21,7 +21,7 @@ class UsersSettingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UsersSettingsIndexRequest $request) // COMPLETED
+    public function index(UsersSettingsIndexRequest $request)
     {
         $usersSettings = new UsersSettingsModel();
 
@@ -58,7 +58,7 @@ class UsersSettingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersSettingsStoreRequest $request) // COMPLETED
+    public function store(UsersSettingsStoreRequest $request)
     {
         $data = [
             "no" => NoGenerator::generateUsersSettingsNo(),
@@ -83,7 +83,7 @@ class UsersSettingsController extends Controller
      * @param  \App\Models\UsersSettingsModel  $UsersSettingsModel
      * @return \Illuminate\Http\Response
      */
-    public function show($userSettingsNo) // COMPLETED
+    public function show($userSettingsNo)
     {
         $userSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get() : UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first();
 
@@ -108,7 +108,7 @@ class UsersSettingsController extends Controller
      * @param  \App\Models\UsersSettingsModel  $UsersSettingsModel
      * @return \Illuminate\Http\Response
      */
-    public function update($userSettingsNo, Request $request) // COMPLETED
+    public function update($userSettingsNo, Request $request)
     {
         $oldUserSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get() : UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first();
 
@@ -145,7 +145,7 @@ class UsersSettingsController extends Controller
      * @param  \App\Models\UserTypesModel  $userTypesModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($userSettingsNo) // COMPLETED
+    public function destroy($userSettingsNo)
     {
         $userSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get() : UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first();
 
