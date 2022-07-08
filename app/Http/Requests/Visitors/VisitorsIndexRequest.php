@@ -31,10 +31,10 @@ class VisitorsIndexRequest extends FormRequest
             "ipZA",
             "browserAZ",
             "browserZA",
-            "lastLoginTimeAZ",
-            "lastLoginTimeZA",
-            "websiteThemeAZ",
-            "websiteThemeZA"
+            "last_login_timeAZ",
+            "last_login_timeZA",
+            "website_themeAZ",
+            "website_themeZA"
         ];
 
         return [

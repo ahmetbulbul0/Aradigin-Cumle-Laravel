@@ -27,12 +27,12 @@ class UsersSettingsIndexRequest extends FormRequest
         $listTypeValues = [
             'no09',
             'no90',
-            'userNo09',
-            'userNo90',
-            'dashboardThemeAZ',
-            'dashboardThemeZA',
-            'websiteThemeAZ',
-            'websiteThemeZA'
+            'user_no09',
+            'user_no90',
+            'dashboard_themeAZ',
+            'dashboard_themeZA',
+            'website_themeAZ',
+            'website_themeZA'
         ];
 
         return [

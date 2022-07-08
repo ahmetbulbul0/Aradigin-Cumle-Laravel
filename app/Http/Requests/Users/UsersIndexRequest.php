@@ -27,8 +27,8 @@ class UsersIndexRequest extends FormRequest
         $listTypeValues = [
             'no09',
             'no90',
-            'fullNameAZ',
-            'fullNameZA',
+            'full_nameAZ',
+            'full_nameZA',
             'usernameAZ',
             'usernameZA',
             'typeAZ',
