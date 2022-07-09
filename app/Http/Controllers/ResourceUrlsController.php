@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\ResourceUrlsModel;
 use App\Http\Controllers\Tools\NoGenerator;
@@ -22,7 +23,7 @@ class ResourceUrlsController extends Controller
     {
         $resourceUrls = new ResourceUrlsModel();
 
-        $resourceUrls = EloquentGenerator::whereGenerateByIsBanned($request, $resourceUrls);
+        $resourceUrls = EloquentGenerator::whereGenerateByIsDeleted($request, $resourceUrls);
 
         $listTypeNames = [
             "no09",
@@ -82,7 +83,21 @@ class ResourceUrlsController extends Controller
      */
     public function show($resourceUrlNo)
     {
-        //
+        $resourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
+
+        if (!$resourceUrl) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "show", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $resourceUrlNo]),
+                "data" => 0
+            ], 404);
+        }
+
+        return response()->json([
+            "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "show", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $resourceUrlNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($resourceUrl)
+        ], 200);
     }
     /**
      * Update the specified resource in storage.
@@ -93,7 +108,34 @@ class ResourceUrlsController extends Controller
      */
     public function update($resourceUrlNo, Request $request)
     {
-        //
+        $oldResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
+
+        if (!$oldResourceUrl) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "update", 404),
+                "query" => RestApiResponseGenerator::queryGenerate($request, ["news_no", "resource_platform", "url"], ["label" => "no", "value" => $resourceUrlNo]),
+                "data" => 0
+            ], 404);
+        }
+
+        $data = [
+            "news_no" => $request->news_no ? intval($request->news_no) : $oldResourceUrl[0]->news_no,
+            "resource_platform" => $request->resource_platform ? intval($request->resource_platform) : $oldResourceUrl[0]->resource_platform,
+            "url" => $request->url ?? $oldResourceUrl[0]->url,
+        ];
+
+        ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->update($data);
+
+        $newResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get();
+
+        return response()->json([
+            "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "update", 200),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["news_no", "resource_platform", "url"], ["label" => "no", "value" => $resourceUrlNo]),
+            "data" => [
+                "old" => RestApiResponseGenerator::dataGenerate($oldResourceUrl),
+                "new" => RestApiResponseGenerator::dataGenerate($newResourceUrl)
+            ]
+        ], 200);
     }
     /**
      * Remove the specified resource from storage.
@@ -103,6 +145,22 @@ class ResourceUrlsController extends Controller
      */
     public function destroy($resourceUrlNo)
     {
-        //
+        $resourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
+
+        if (!$resourceUrl) {
+            return response()->json([
+                "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "delete", 404),
+                "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $resourceUrlNo]),
+                "data" => 0
+            ], 404);
+        }
+
+        ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->update(["is_deleted" => true]);
+
+        return response()->json([
+            "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "delete", 200),
+            "query" => RestApiResponseGenerator::queryGenerate(NULL, NULL, ["label" => "no", "value" => $resourceUrlNo]),
+            "data" => RestApiResponseGenerator::dataGenerate($resourceUrl)
+        ], 200);
     }
 }
