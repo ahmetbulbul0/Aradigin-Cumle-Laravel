@@ -9,6 +9,7 @@ use App\Http\Controllers\RestApi\CategoryTypesController;
 use App\Http\Controllers\RestApi\UsersSettingsController;
 use App\Http\Controllers\RestApi\ResourcePlatformsController;
 use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
+use App\Http\Controllers\RestApi\CategoriesController;
 
 //  OLD APİ ROUTES
 Route::post("/kurulum", [WebSiteSetupPageController::class, "form"])->name("api_website_kurulum");
@@ -28,3 +29,4 @@ Route::apiResource("visitors", VisitorsController::class);
 Route::apiResource("category-types", CategoryTypesController::class);
 Route::apiResource("resource-platforms", ResourcePlatformsController::class);
 Route::apiResource("resource-urls", ResourceUrlsController::class);
+Route::apiResource("categories", CategoriesController::class);
