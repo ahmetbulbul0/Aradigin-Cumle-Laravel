@@ -31,8 +31,8 @@ class UsersController extends Controller
         $listTypeNames = [
             "no09",
             "no90",
-            "fullNameAZ",
-            "fullNameZA",
+            "full_nameAZ",
+            "full_nameZA",
             "usernameAZ",
             "usernameZA",
             "typeAZ",

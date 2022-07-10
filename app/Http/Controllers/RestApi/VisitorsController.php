@@ -33,10 +33,10 @@ class VisitorsController extends Controller
             'ipZA',
             'browserAZ',
             'browserZA',
-            'lastLoginTimeAZ',
-            'lastLoginTimeZA',
-            'websiteThemeAZ',
-            'websiteThemeZA'
+            'last_login_timeAZ',
+            'last_login_timeZA',
+            'website_themeAZ',
+            'website_themeZA'
         ];
         $listTypes = ListTypeGenerator::listTypeGenerateWithNames($listTypeNames);
         $visitors = EloquentGenerator::orderByWithListType($request, $visitors, $listTypes);
