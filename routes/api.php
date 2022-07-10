@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
-use App\Http\Controllers\ResourceUrlsController;
-use App\Http\Controllers\RestApi\CategoryTypesController;
-use App\Http\Controllers\RestApi\ResourcePlatformsController;
 use App\Http\Controllers\RestApi\UsersController;
-use App\Http\Controllers\RestApi\UsersSettingsController;
-use App\Http\Controllers\RestApi\UserTypesController;
 use App\Http\Controllers\RestApi\VisitorsController;
+use App\Http\Controllers\RestApi\UserTypesController;
+use App\Http\Controllers\RestApi\ResourceUrlsController;
+use App\Http\Controllers\RestApi\CategoryTypesController;
+use App\Http\Controllers\RestApi\UsersSettingsController;
+use App\Http\Controllers\RestApi\ResourcePlatformsController;
+use App\Http\Controllers\Pages\Common\WebSiteSetupPageController;
 
 //  OLD APİ ROUTES
 Route::post("/kurulum", [WebSiteSetupPageController::class, "form"])->name("api_website_kurulum");

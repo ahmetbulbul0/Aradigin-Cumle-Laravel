@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\RestApi;
 
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\ResourceUrlsModel;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Tools\NoGenerator;
 use App\Http\Requests\ResourceUrlsIndexRequest;
 use App\Http\Requests\ResourceUrlsStoreRequest;
