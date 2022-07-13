@@ -79,7 +79,7 @@ class CategoryGroupsController extends Controller
             "sub3" => intval($request->sub3),
             "sub4" => intval($request->sub4),
             "sub5" => intval($request->sub5),
-            "link_url" => $request->link_url,
+            "link_url" => strtolower($request->link_url),
         ];
 
         $categoryGroupUrl = [
@@ -144,13 +144,13 @@ class CategoryGroupsController extends Controller
         }
 
         $data = [
-            "main" => $request->main ? $request->main : ($oldCategoryGroup[0]["main"] ? $oldCategoryGroup[0]["main"]["no"] : $oldCategoryGroup[0]["main"]),
-            "sub1" => $request->sub1 ? $request->sub1 : ($oldCategoryGroup[0]["sub1"] ? $oldCategoryGroup[0]["sub1"]["no"] : $oldCategoryGroup[0]["sub1"]),
-            "sub2" => $request->sub2 ? $request->sub2 : ($oldCategoryGroup[0]["sub2"] ? $oldCategoryGroup[0]["sub2"]["no"] : $oldCategoryGroup[0]["sub2"]),
-            "sub3" => $request->sub3 ? $request->sub3 : ($oldCategoryGroup[0]["sub3"] ? $oldCategoryGroup[0]["sub3"]["no"] : $oldCategoryGroup[0]["sub3"]),
-            "sub4" => $request->sub4 ? $request->sub4 : ($oldCategoryGroup[0]["sub4"] ? $oldCategoryGroup[0]["sub4"]["no"] : $oldCategoryGroup[0]["sub4"]),
-            "sub5" => $request->sub5 ? $request->sub5 : ($oldCategoryGroup[0]["sub5"] ? $oldCategoryGroup[0]["sub5"]["no"] : $oldCategoryGroup[0]["sub5"]),
-            "link_url" => $request->link_url ? $request->link_url : ($oldCategoryGroup[0]["link_url"] ? $oldCategoryGroup[0]["link_url"]["no"] : $oldCategoryGroup[0]["link_url"])
+            "main" => $request->main ? intval($request->main) : ($oldCategoryGroup[0]["main"] ? $oldCategoryGroup[0]["main"]["no"] : $oldCategoryGroup[0]["main"]),
+            "sub1" => $request->sub1 ? intval($request->sub1) : ($oldCategoryGroup[0]["sub1"] ? $oldCategoryGroup[0]["sub1"]["no"] : $oldCategoryGroup[0]["sub1"]),
+            "sub2" => $request->sub2 ? intval($request->sub2) : ($oldCategoryGroup[0]["sub2"] ? $oldCategoryGroup[0]["sub2"]["no"] : $oldCategoryGroup[0]["sub2"]),
+            "sub3" => $request->sub3 ? intval($request->sub3) : ($oldCategoryGroup[0]["sub3"] ? $oldCategoryGroup[0]["sub3"]["no"] : $oldCategoryGroup[0]["sub3"]),
+            "sub4" => $request->sub4 ? intval($request->sub4) : ($oldCategoryGroup[0]["sub4"] ? $oldCategoryGroup[0]["sub4"]["no"] : $oldCategoryGroup[0]["sub4"]),
+            "sub5" => $request->sub5 ? intval($request->sub5) : ($oldCategoryGroup[0]["sub5"] ? $oldCategoryGroup[0]["sub5"]["no"] : $oldCategoryGroup[0]["sub5"]),
+            "link_url" => $request->link_url ? strtolower($request->link_url) : ($oldCategoryGroup[0]["link_url"] ? $oldCategoryGroup[0]["link_url"]["no"] : $oldCategoryGroup[0]["link_url"])
         ];
 
         if (!is_integer($data["link_url"])) {
