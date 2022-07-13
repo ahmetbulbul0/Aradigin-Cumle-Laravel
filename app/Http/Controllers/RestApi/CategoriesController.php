@@ -113,7 +113,7 @@ class CategoriesController extends Controller
      */
     public function update($categoryNo, Request $request)
     {
-        $oldCategory = CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->first() ? CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->get() : CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->first();
+        $oldCategory = CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->first() ? CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->get()->toArray() : CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->with("type", "mainCategory")->first();
 
         if (!$oldCategory) {
             return response()->json([
@@ -124,10 +124,10 @@ class CategoriesController extends Controller
         }
 
         $data = [
-            "name" => $request->name ? Str::lower($request->name) : $oldCategory[0]->name,
-            "type" => $request->type ? intval($request->type) : $oldCategory[0]->type,
-            "main_category" => $request->main_category ? intval($request->main_category) : $oldCategory[0]->main_category,
-            "link_url" => $request->link_url ? Str::lower($request->link_url) : $oldCategory[0]->link_url
+            "name" => $request->name ? Str::lower($request->name) : $oldCategory[0]["name"],
+            "type" => $request->type ? intval($request->type) : ($oldCategory[0]["type"] ? $oldCategory[0]["type"]["no"] : $oldCategory[0]["type"]),
+            "main_category" => $request->main_category ? intval($request->main_category) : ($oldCategory[0]["main_category"] ? $oldCategory[0]["main_category"]["no"] : $oldCategory[0]["main_category"]),
+            "link_url" => $request->link_url ? Str::lower($request->link_url) : $oldCategory[0]["link_url"]
         ];
 
         CategoriesModel::where(["is_deleted" => false, "no" => $categoryNo])->update($data);

@@ -108,7 +108,7 @@ class ResourceUrlsController extends Controller
      */
     public function update($resourceUrlNo, Request $request)
     {
-        $oldResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
+        $oldResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get()->toArray() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
 
         if (!$oldResourceUrl) {
             return response()->json([
@@ -119,14 +119,14 @@ class ResourceUrlsController extends Controller
         }
 
         $data = [
-            "news_no" => $request->news_no ? intval($request->news_no) : $oldResourceUrl[0]->news_no,
-            "resource_platform" => $request->resource_platform ? intval($request->resource_platform) : $oldResourceUrl[0]->resource_platform,
-            "url" => $request->url ?? $oldResourceUrl[0]->url,
+            "news_no" => $request->news_no ? intval($request->news_no) : ($oldResourceUrl[0]["news_no"] ? $oldResourceUrl[0]["news_no"]["no"] : $oldResourceUrl[0]["news_no"]),
+            "resource_platform" => $request->resource_platform ? intval($request->resource_platform) : ($oldResourceUrl[0]["resource_platform"] ? $oldResourceUrl[0]["resource_platform"]["no"] : $oldResourceUrl[0]["resource_platform"]),
+            "url" => $request->url ? $request->url : $oldResourceUrl[0]["url"],
         ];
 
         ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->update($data);
 
-        $newResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get();
+        $newResourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get()->toArray();
 
         return response()->json([
             "message" => RestApiResponseGenerator::messageGenerate("Resource Url", "update", 200),
@@ -145,7 +145,7 @@ class ResourceUrlsController extends Controller
      */
     public function destroy($resourceUrlNo)
     {
-        $resourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
+        $resourceUrl = ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first() ? ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->get()->toArray() : ResourceUrlsModel::where(["is_deleted" => false, "no" => $resourceUrlNo])->with("newsNo", "resourcePlatform")->first();
 
         if (!$resourceUrl) {
             return response()->json([

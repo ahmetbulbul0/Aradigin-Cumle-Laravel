@@ -16,7 +16,6 @@ use App\Http\Controllers\Tools\RestApiResponseGenerator;
 
 class UsersController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -124,7 +123,7 @@ class UsersController extends Controller
      */
     public function update($userNo, Request $request)
     {
-        $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get() : UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
+        $oldUser = UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first() ? UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->get()->toArray() : UsersModel::where(["is_deleted" => false, "no" => $userNo])->with("type", "settings")->first();
 
         if (!$oldUser) {
             return response()->json([
@@ -135,10 +134,10 @@ class UsersController extends Controller
         }
 
         $data = [
-            "full_name" => $request->full_name ? Str::lower($request->full_name) : $oldUser[0]->full_name,
-            "username" => $request->username ? Str::lower($request->username) : $oldUser[0]->username,
-            "password" => $request->password ?? $oldUser[0]->password,
-            "type" => $request->type ? intval($request->type) : $oldUser[0]->type
+            "full_name" => $request->full_name ? Str::lower($request->full_name) : $oldUser[0]["full_name"],
+            "username" => $request->username ? Str::lower($request->username) : $oldUser[0]["username"],
+            "password" => $request->password ?? $oldUser[0]["password"],
+            "type" => $request->type ? intval($request->type) : ($oldUser[0]["type"] ? $oldUser[0]["type"]["no"] : $oldUser[0]["type"])
         ];
 
         UsersModel::where(["is_deleted" => false, "no" => $userNo])->update($data);

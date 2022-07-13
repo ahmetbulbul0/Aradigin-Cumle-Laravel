@@ -110,29 +110,28 @@ class UsersSettingsController extends Controller
      */
     public function update($userSettingsNo, Request $request)
     {
-        $oldUserSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get() : UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first();
+        $oldUserSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first() ? UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get()->toArray() : UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->first();
 
         if (!$oldUserSettings) {
             return response()->json([
                 "message" => RestApiResponseGenerator::messageGenerate("User Settings", "update", 200),
-                "query" => RestApiResponseGenerator::queryGenerate($request, ["name", "user_no", "dashboard_theme", "website_theme"], ["label" => "no", "value" => $userSettingsNo]),
+                "query" => RestApiResponseGenerator::queryGenerate($request, ["name", "dashboard_theme", "website_theme"], ["label" => "no", "value" => $userSettingsNo]),
                 "data" => 0
             ], 200);
         }
 
         $data = [
-            "user_no" => $request->user_no ? intval($request->user_no) : $oldUserSettings[0]->user_no,
-            "dashboard_theme" => $request->dashboard_theme ? Str::lower($request->dashboard_theme) : $oldUserSettings[0]->dashboard_theme,
-            "website_theme" => $request->website_theme ? Str::lower($request->website_theme) : $oldUserSettings[0]->website_theme
+            "dashboard_theme" => $request->dashboard_theme ? Str::lower($request->dashboard_theme) : $oldUserSettings[0]["dashboard_theme"],
+            "website_theme" => $request->website_theme ? Str::lower($request->website_theme) : $oldUserSettings[0]["website_theme"]
         ];
 
         UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->update($data);
 
-        $newUserSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get();
+        $newUserSettings = UsersSettingsModel::where(["is_deleted" => false, "no" => $userSettingsNo])->with("userNo")->get()->toArray();
 
         return response()->json([
             "message" => RestApiResponseGenerator::messageGenerate("User Settings", "update", 200),
-            "query" => RestApiResponseGenerator::queryGenerate($request, ["name", "user_no", "dashboard_theme", "website_theme"], ["label" => "no", "value" => $userSettingsNo]),
+            "query" => RestApiResponseGenerator::queryGenerate($request, ["name", "dashboard_theme", "website_theme"], ["label" => "no", "value" => $userSettingsNo]),
             "data" => [
                 "old" => RestApiResponseGenerator::dataGenerate($oldUserSettings),
                 "new" => RestApiResponseGenerator::dataGenerate($newUserSettings)
