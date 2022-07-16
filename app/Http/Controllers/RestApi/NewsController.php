@@ -145,7 +145,7 @@ class NewsController extends Controller
         if (!$oldNews) {
             return response()->json([
                 "message" => RestApiResponseGenerator::messageGenerate("News", "update", 404),
-                "query" => RestApiResponseGenerator::queryGenerate($request, ["query_values"], ["label" => "no", "value" => $newsNo]),
+                "query" => RestApiResponseGenerator::queryGenerate($request, ["content", "category", "resource_platform", "resource_url", "publish_date", "link_url"], ["label" => "no", "value" => $newsNo]),
                 "data" => 0
             ], 404);
         }
