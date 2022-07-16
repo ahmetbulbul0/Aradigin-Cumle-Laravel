@@ -36,7 +36,7 @@ class CategoriesModel extends Model
 
     public function mainCategory()
     {
-        return $this->hasOne(CategoriesModel::class, "no", "main_category");
+        return $this->hasOne(CategoriesModel::class, "no", "main_category")->with("type", "mainCategory");
     }
 
 }
