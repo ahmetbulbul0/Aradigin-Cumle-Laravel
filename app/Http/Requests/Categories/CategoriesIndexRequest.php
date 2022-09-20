@@ -29,12 +29,12 @@ class CategoriesIndexRequest extends FormRequest
             'no90',
             'nameAZ',
             'nameZA',
-            'typeAZ',
-            'typeZA',
-            'main_categoryAZ',
-            'main_categoryZA',
+            'type09',
+            'type90',
+            'main_category09',
+            'main_category90',
             'link_urlAZ',
-            'link_urlZA',
+            'link_urlZA'
         ];
 
         return [

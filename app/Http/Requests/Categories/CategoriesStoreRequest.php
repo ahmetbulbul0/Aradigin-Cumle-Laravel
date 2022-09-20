@@ -27,7 +27,6 @@ class CategoriesStoreRequest extends FormRequest
             "name" => ["required", "string", "unique:categories,name"],
             "type" => ["required", "integer", "exists:category_types,no"],
             "main_category" => ["nullable", "integer", "exists:categories,no"],
-            "link_url" => ["required", "string", "unique:categories,link_url"],
         ];
     }
 }

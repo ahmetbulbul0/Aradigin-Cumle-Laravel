@@ -6,12 +6,15 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\CategoriesModel;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Validated;
 use App\Http\Controllers\Tools\NoGenerator;
+use App\Http\Controllers\Tools\LinkUrlGenerator;
 use App\Http\Controllers\Tools\EloquentGenerator;
 use App\Http\Controllers\Tools\ListTypeGenerator;
 use App\Http\Controllers\Tools\RestApiResponseGenerator;
 use App\Http\Requests\Categories\CategoriesIndexRequest;
 use App\Http\Requests\Categories\CategoriesStoreRequest;
+use App\Http\Controllers\Api\Constants\ConstantsListController;
 
 class CategoriesController extends Controller
 {
@@ -20,9 +23,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoriesIndexRequest $request)
+    public function index(CategoriesIndexRequest $request) // FİNAL
     {
-        $categories = new CategoriesModel();
+        $categories = new CategoriesModel;
 
         $categories = EloquentGenerator::whereGenerateByIsDeleted($request, $categories);
 
@@ -31,12 +34,12 @@ class CategoriesController extends Controller
             'no90',
             'nameAZ',
             'nameZA',
-            'typeAZ',
-            'typeZA',
-            'main_categoryAZ',
-            'main_categoryZA',
+            'type09',
+            'type90',
+            'main_category09',
+            'main_category90',
             'link_urlAZ',
-            'link_urlZA',
+            'link_urlZA'
         ];
         $listTypes = ListTypeGenerator::listTypeGenerateWithNames($listTypeNames);
         $categories = EloquentGenerator::orderByWithListType($request, $categories, $listTypes);
@@ -65,14 +68,19 @@ class CategoriesController extends Controller
         $data = [
             "no" => NoGenerator::generateCategoriesNo(),
             "name" => strtolower($request->name),
-            "type" => intval($request->type),
-            "main_category" => $request->main_category ? intval($request->main_category) : NULL,
-            "link_url" => strtolower($request->link_url)
+            "type" => intval($request->type)
         ];
+
+        if ($data["type"] == ConstantsListController::getCategoryTypeSubOnlyNotDeleted()) {
+            $request->validate(["main_category" => ["required", "integer", "exists:categories,no"]]);
+            $data["main_category"] = intval($request->main_category);
+        }
+
+        $data["link_url"] = LinkUrlGenerator::single($data["name"]);
 
         CategoriesModel::create($data);
 
-        $category = CategoriesModel::where(["is_deleted" => false, "no" => $data["no"]])->with("type", "mainCategory")->get();
+        $category = CategoriesModel::where(["is_deleted" => false, "no" => $data["no"]])->with("type", "mainCategory")->get()->toArray();
 
         return response()->json([
             "message" => RestApiResponseGenerator::messageGenerate("Category", "store", 200),

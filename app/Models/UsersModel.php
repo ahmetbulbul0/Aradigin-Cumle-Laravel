@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use App\Models\UserTypesModel;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UsersModel extends Model
+class UsersModel extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = "users";
-    
+
     protected $primaryKey = "no";
 
     protected $fillable = [
@@ -22,7 +25,7 @@ class UsersModel extends Model
         "type",
         "settings"
     ];
-    
+
     protected $hidden = [
         "id",
         "created_at",
