@@ -4,8 +4,6 @@
 
 # Aradigin-Cumle
 
-*WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)*
-
 ### To Do
 * FrontEnd
   * yazar girişi sayfasının tasarımı ve responsive stili düzenlenecek
