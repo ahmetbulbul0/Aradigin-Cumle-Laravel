@@ -4,6 +4,64 @@
 
 # Aradigin-Cumle
 
+**_Aradigin Cumle_**
+
+## Technologies
+
+-   **Html**
+-   **Css**
+-   **JavaScript**
+-   **Php**
+-   **Laravel**
+
+## Dependencies
+
+-   _Font Awesome_
+-   _Google Fonts(Poppins)_
+-   _Google Fonts(Righteous)_
+
+## Project Setup Process
+
+### Install composer (for php packages)
+
+```sh
+composer install
+```
+
+### Create .env file
+
+```sh
+1. duplicate the ".env.example" in main folder
+2. rename the file you copied to ".env"
+3. configure the ".env" file you renamed
+```
+
+### Create app key
+
+```sh
+php artisan key:generate
+```
+
+### Run migrations (for create database tables)
+
+```sh
+php artisan migrate
+```
+
+### Run Seeders (for datas)
+
+```sh
+php artisan db:seed
+```
+
+### Run project
+
+```sh
+php artisan serve
+```
+
+<!--
+
 *WebSite Link: [AradiginCumle.com](https://aradigincumle.com/)*
 
 ### To Do
@@ -69,21 +127,6 @@
   * *true* => userData session değeri yoksa geçişe izin verilir
   * *true* => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçerli ise userData session değeri güncellenir
   * *false* => userData session değeri varsa ve userData içerisindeki değerler kontrol edilir değerler geçersiz ise userData session değeri silinir ve yazar girişi sayfasına yönlendirilir
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
 
 ## Controllers
 
